@@ -1,0 +1,12 @@
+{
+  "name": "rasm-chrome",
+  "version": "1.0.0",
+  "description": "Chrome extension of Readersourcing @ Sissa Medialab",
+  "repository": "https://bitbucket.org/Miccighel/r-sm-chrome/src",
+  "author": "Michael Soprano",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.1.1"
+  }
+}

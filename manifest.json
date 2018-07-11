@@ -1,0 +1,27 @@
+{
+  "name": "R@SM Plugin",
+  "version": "0.1",
+  "description": "Allows to rate academic papers on R@SM",
+  "manifest_version": 2,
+  "permissions": ["declarativeContent", "storage"],
+  "background": {
+    "scripts": ["assets/js/background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "views/rating.html",
+    "default_icon": {
+      "16": "assets/img/icon16.png",
+      "32": "assets/img/icon32.png",
+      "48": "assets/img/icon48.png",
+      "128": "assets/img/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "assets/img/icon16.png",
+    "32": "assets/img/icon32.png",
+    "48": "assets/img/icon48.png",
+    "128": "assets/img/icon128.png"
+  },
+  "options_page": "views/options.html"
+}
