@@ -8,7 +8,7 @@
     "scripts": ["assets/js/background.js"],
     "persistent": false
   },
-  "page_action": {
+  "browser_action": {
     "default_popup": "views/rating.html",
     "default_icon": {
       "16": "assets/img/icon16.png",
