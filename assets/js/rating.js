@@ -12,14 +12,17 @@ ratingSlider.on("slide", function (slideEvt) {
 });
 
 voteButton.on("click", function () {
+    let score = ratingSlider.val();
+    let data = {rating:{score:score}};
     $(reloadIcon).toggle();
     $.ajax({
-        type: "GET",
-        url: "http://localhost:3000/publications.json",
+        type: "POST",
+        url: "http://localhost:3000/ratings.json",
         contentType: "application/json; charset=utf-8",
+        dataType: "json",
         crossDomain: true,
+        data: JSON.stringify(data),
         success: function (data, status, jqXHR) {
-            alert(data);
             $(reloadIcon).toggle();
             voteButton.text("Voto Registrato!");
             voteButton.prop("disabled", true)
