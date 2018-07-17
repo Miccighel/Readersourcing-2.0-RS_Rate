@@ -7,23 +7,25 @@ voteSuccessful.hide();
 reloadIcon.hide();
 
 ratingSlider.slider({});
-ratingSlider.on("slide", function(slideEvt) {
+ratingSlider.on("slide", function (slideEvt) {
     $("#rating-text").text(slideEvt.value);
 });
 
-voteButton.on("click", function() {
+voteButton.on("click", function () {
     $(reloadIcon).toggle();
-    jQuery.ajax({
+    $.ajax({
         type: "GET",
-        url: "https://jsonplaceholder.typicode.com/posts/1",
+        url: "http://localhost:3000/publications.json",
         contentType: "application/json; charset=utf-8",
-        dataType:"json",
+        crossDomain: true,
         success: function (data, status, jqXHR) {
+            alert(data);
             $(reloadIcon).toggle();
             voteButton.text("Voto Registrato!");
             voteButton.prop("disabled", true)
         },
         error: function (jqXHR, status) {
+            alert(jqXHR.status);
             $(reloadIcon).toggle();
         },
     });
