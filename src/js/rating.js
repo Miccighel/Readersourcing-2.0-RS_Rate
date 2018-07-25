@@ -4,9 +4,11 @@ let ratingSlider = $("#rating-slider");
 let voteButton = $("#vote-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
+let errorButton = $("#error-btn");
 let reloadIcons = $(".reload-icon");
 
 downloadButton.hide();
+errorButton.hide();
 reloadIcons.hide();
 
 ratingSlider.slider({});
@@ -29,12 +31,15 @@ saveButton.on("click", function () {
             saveButton.find(reloadIcons).toggle();
             saveButton.hide();
             downloadButton.show();
-            downloadButton.attr("href",  "http://localhost:3000/" + data["pdf_download_url"]);
+            downloadButton.attr("href",  "http://localhost:3000/" + data["pdf_download_url_link"]);
         };
         let errorCallback = function (jqXHR, status) {
-            alert(jqXHR)
+            saveButton.find(reloadIcons).toggle();
+            saveButton.hide();
+            errorButton.show();
+            errorButton.prop("disabled", true)
         };
-        let promise = send("POST", "http://localhost:3000/publications/14/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        let promise = send("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     });
 
 });
