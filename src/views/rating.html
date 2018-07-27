@@ -8,11 +8,26 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
-    <link rel="stylesheet" href="../css/style.blue.css" id="theme-stylesheet">
-    <link rel="stylesheet" href="../css/custom.css"/>
+    <link rel="stylesheet" href="../css/system/style.blue.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="../css/rating.css"/>
 </head>
 <body>
-<section class="bar bg-gray-dark no-mb color-white">
+<section id="login-sect" class="bar bg-gray-dark no-mb color-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 heading text-center">
+                <h1>R@SM</h1>
+                <p class="lead mb-0">Clicca sul pulsante per effettuare il login.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <a href="login.html" class="btn btn-primary"> Vai al login</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="rating-sect" class="bar bg-gray-dark no-mb color-white">
     <div class="container">
         <div class="row">
             <div class="col-md-12 heading text-center">
@@ -23,14 +38,14 @@
         <div class="row">
             <div class="col-md-12 text-center mt-5">
                 <input
-                       id="rating-slider"
-                       data-slider-id='ratingSlider'
-                       data-slider-min="0"
-                       data-slider-max="100"
-                       data-slider-step="1"
-                       data-slider-value="50"
-                       data-tooltip="hide"
-                       title="Rating Slider"
+                        id="rating-slider"
+                        data-slider-id='ratingSlider'
+                        data-slider-min="0"
+                        data-slider-max="100"
+                        data-slider-step="1"
+                        data-slider-value="50"
+                        data-tooltip="hide"
+                        title="Rating Slider"
                 />
             </div>
         </div>
@@ -40,8 +55,10 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center">
-                <button type="button" id="vote-btn" class="btn btn-primary mt-3"><i class="fa fa-refresh fa-spin reload-icon"></i> Vota</button>
+            <div class="col-sm-12 text-center">
+                <button type="button" id="vote-btn" class="btn btn-primary mt-3"><i
+                        class="fa fa-refresh fa-spin reload-icon"></i> Vota
+                </button>
             </div>
         </div>
         <div class="row">
@@ -50,10 +67,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center">
-                <button type="button" id="save-btn" class="btn btn-primary"><i class="fa fa-refresh fa-spin reload-icon"></i> Salva Per Dopo</button>
-                <a href="#" id="download-btn" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i> Scarica</a>
-                <button type="button" id="error-btn" class="btn btn-danger"><i class="fa fa-exclamation-triangle danger-icon"></i> Errore</button>
+            <div class="col-sm-12 text-center">
+                <button type="button" id="save-btn" class="btn btn-primary"><i
+                        class="fa fa-refresh fa-spin reload-icon"></i> Salva Per Dopo
+                </button>
+                <a href="#" id="download-btn" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i>
+                    Scarica</a>
+                <button type="button" id="error-btn" class="btn btn-danger"><i
+                        class="fa fa-exclamation-triangle danger-icon"></i> Errore
+                </button>
             </div>
         </div>
     </div>
@@ -69,6 +91,7 @@
 <script src="../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="../../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
 <script src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
+<script src="../../node_modules/js-cookie/src/js.cookie.js"></script>
 <script src="../js/front.js"></script>
 <script type="module" src="../js/networking.js"></script>
 <script type="module" src="../js/rating.js"></script>

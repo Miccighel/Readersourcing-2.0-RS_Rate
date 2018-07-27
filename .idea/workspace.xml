@@ -2,66 +2,579 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/_locales/en/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_locales/it/messages.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/.prettierignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/animate-config.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/animate-config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/animate.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/animate.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/_base.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/_base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/bounce.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/bounce.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/flash.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/flash.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/headShake.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/headShake.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/jello.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/jello.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/pulse.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/pulse.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/rubberBand.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/rubberBand.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/shake.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/shake.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/swing.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/swing.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/tada.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/tada.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/wobble.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/attention_seekers/wobble.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_entrances/bounceInUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOut.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOut.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/bouncing_exits/bounceOutUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInDownBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInDownBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInLeftBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInLeftBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInRightBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInRightBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInUpBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_entrances/fadeInUpBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOut.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOut.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutDownBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutDownBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutLeftBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutLeftBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutRightBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutRightBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutUpBig.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/fading_exits/fadeOutUpBig.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flip.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flip.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipInX.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipInX.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipInY.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipInY.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipOutX.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipOutX.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipOutY.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/flippers/flipOutY.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/lightspeed/lightSpeedIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/lightspeed/lightSpeedIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/lightspeed/lightSpeedOut.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/lightspeed/lightSpeedOut.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInDownLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInDownLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInDownRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInDownRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInUpLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInUpLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInUpRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_entrances/rotateInUpRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOut.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOut.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutDownLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutDownLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutDownRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutDownRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutUpLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutUpLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutUpRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/rotating_exits/rotateOutUpRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_entrances/slideInUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/sliding_exits/slideOutUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/specials/hinge.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/specials/hinge.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/specials/jackInTheBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/specials/jackInTheBox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/specials/rollIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/specials/rollIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/specials/rollOut.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/specials/rollOut.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomIn.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomIn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_entrances/zoomInUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOut.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOut.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutDown.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutDown.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutLeft.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutLeft.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutRight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutRight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/animate.css/source/zooming_exits/zoomOutUp.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/bootstrap-3.0.3.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/bootstrap-3.0.3.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/font-awesome-4.0.3.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/font-awesome-4.0.3.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/highlight.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/css/highlight.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/bootstrap-3.0.3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/bootstrap-3.0.3.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/highlight.pack.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/highlight.pack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/jquery-1.10.2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/js/jquery-1.10.2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/bootstrap/toc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.codeclimate.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.codeclimate.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.github/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.github/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.github/ISSUE_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.github/ISSUE_TEMPLATE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.github/PULL_REQUEST_TEMPLATE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.nvmrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.nvmrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.sass-lint.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.sass-lint.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/.travis.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/Gruntfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/LICENSE.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/bower.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dependencies/js/highlight.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dependencies/js/highlight.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dependencies/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dependencies/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dependencies/js/modernizr.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dependencies/js/modernizr.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/scripts/release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/scripts/release.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/scripts/update-gh-pages.sh" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/scripts/update-gh-pages.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/js/bootstrap-slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/js/bootstrap-slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/bootstrap-slider.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/bootstrap-slider.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/rules.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/rules.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_mixins.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_rules.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_rules.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/bootstrap-slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/bootstrap-slider.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/phantom_bind_polyfill.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/phantom_bind_polyfill.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/AccessibilitySpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/AccessibilitySpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/AriaValueTextFormatterSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/AriaValueTextFormatterSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/AutoRegisterDataProvideSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/AutoRegisterDataProvideSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ConflictingOptionsSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ConflictingOptionsSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/DestroyMethodTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/DestroyMethodTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/DraggingHandlesSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/DraggingHandlesSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ElementDataAttributesSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ElementDataAttributesSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/EventsSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/EventsSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/FocusOptionSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/FocusOptionSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/KeyboardSupportSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/KeyboardSupportSpec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/LogarithmicScaleSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/LogarithmicScaleSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/LowAndHighTrackSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/LowAndHighTrackSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/NamespaceSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/NamespaceSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/OrientationSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/OrientationSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/PublicMethodsSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/PublicMethodsSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/RangeHighlightsSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/RangeHighlightsSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/RefreshMethodSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/RefreshMethodSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ResizeSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ResizeSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/RtlOptionsSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/RtlOptionsSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ScrollableBodySpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ScrollableBodySpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ScrollableContainerSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/ScrollableContainerSpec.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/StepReachMaxValueSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/StepReachMaxValueSpec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TickClickingBehaviorSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TickClickingBehaviorSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TickLabelSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TickLabelSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TickMarksSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TickMarksSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TooltipMouseOverOptionSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TooltipMouseOverOptionSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TooltipPositionOptionSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TooltipPositionOptionSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TooltipSplitOptionSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/TooltipSplitOptionSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/offMethodSpec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/test/specs/offMethodSpec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/tpl/SpecRunner.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/tpl/SpecRunner.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/tpl/index.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/tpl/index.tpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-grid.min.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/dist/js/bootstrap.min.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/alert.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/alert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/alert.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/alert.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/button.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/button.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/carousel.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/carousel.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/collapse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/collapse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/collapse.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/collapse.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/dropdown.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/modal.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/popover.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/popover.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/popover.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/popover.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/scrollspy.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/scrollspy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/scrollspy.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/scrollspy.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tab.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tab.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tab.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tooltip.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tooltip.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/tooltip.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/util.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/util.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/dist/util.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/alert.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/alert.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/button.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/collapse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/collapse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/popover.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/popover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/scrollspy.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/scrollspy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/tab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/tooltip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/js/src/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/js/src/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_buttons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_carousel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_carousel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_close.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_close.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_custom-forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_custom-forms.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_forms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_functions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_functions.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_input-group.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_input-group.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_navbar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_reboot.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_tables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_tables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/bootstrap-grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/bootstrap-grid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/bootstrap-reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/bootstrap-reboot.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/bootstrap.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/bootstrap.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/mixins/_breakpoints.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/mixins/_breakpoints.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/mixins/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/mixins/_forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap/scss/mixins/_hover.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap/scss/mixins/_hover.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/HELP-US-OUT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/HELP-US-OUT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/css/font-awesome.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/css/font-awesome.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/css/font-awesome.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/animated.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/animated.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/bordered-pulled.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/bordered-pulled.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/core.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/core.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/fixed-width.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/fixed-width.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/font-awesome.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/font-awesome.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/icons.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/icons.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/larger.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/larger.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/list.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/list.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/path.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/path.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/rotated-flipped.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/rotated-flipped.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/screen-reader.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/screen-reader.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/stacked.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/stacked.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/less/variables.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/less/variables.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_animated.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_animated.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_bordered-pulled.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_core.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_core.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_fixed-width.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_fixed-width.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_icons.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_larger.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_larger.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_list.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_list.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_path.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_path.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_rotated-flipped.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_screen-reader.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_stacked.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_stacked.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/font-awesome/scss/font-awesome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/font-awesome/scss/font-awesome.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery-parallax.js/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery-parallax.js/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery-parallax.js/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery-parallax.js/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery-parallax.js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery-parallax.js/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery-parallax.js/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery-parallax.js/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery-parallax.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery-parallax.js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery-parallax.js/parallax.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery-parallax.js/parallax.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery-parallax.js/parallax.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery-parallax.js/parallax.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/.jshintrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/.jshintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/.tm_properties" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/.tm_properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/Gruntfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/MIT-LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/MIT-LICENSE.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/component.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/component.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/cookie.jquery.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/cookie.jquery.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/jquery.cookie.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/jquery.cookie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/test/malformed_cookie.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/test/malformed_cookie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/test/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/test/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.cookie/test/tests.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.cookie/test/tests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/.bowerrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/.bowerrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/.jscsrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/.jscsrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/.jshintrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/.jshintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/counterup.jquery.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/counterup.jquery.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/demo/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/jquery.counterup.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/jquery.counterup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/jquery.counterup.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/jquery.counterup.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.counterup/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.counterup/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.scrollto/.jscsrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.scrollto/.jscsrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.scrollto/.jshintrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.scrollto/.jshintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.scrollto/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.scrollto/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.scrollto/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.scrollto/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.scrollto/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.scrollto/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.scrollto/jquery.scrollTo.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.scrollto/jquery.scrollTo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jquery.scrollto/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/jquery.scrollto/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/Gruntfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/src/owl.carousel2.thumbs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/owl.carousel2.thumbs/src/owl.carousel2.thumbs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper-utils.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/esm/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/popper-utils.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper-utils.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/dist/umd/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/popper.js/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/popper.js/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/.eslintrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/jquery.waypoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/jquery.waypoints.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/jquery.waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/jquery.waypoints.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/noframework.waypoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/noframework.waypoints.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/noframework.waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/noframework.waypoints.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/infinite.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/infinite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/infinite.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/infinite.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/inview.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/inview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/inview.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/inview.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/sticky.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/sticky.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/sticky.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/shortcuts/sticky.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/waypoints.debug.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/waypoints.debug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/zepto.waypoints.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/zepto.waypoints.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/lib/zepto.waypoints.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/lib/zepto.waypoints.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/licenses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/licenses.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/jquery-zepto-fn-extension.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/jquery-zepto-fn-extension.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/noframework.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/noframework.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/zepto.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/adapters/zepto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/context.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/debug.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/debug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/group.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/group.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/shortcuts/infinite.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/shortcuts/infinite.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/shortcuts/inview.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/shortcuts/inview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/shortcuts/sticky.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/shortcuts/sticky.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/src/waypoint.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/src/waypoint.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/adapter-fn-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/adapter-fn-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/context-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/context-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/debug-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/debug-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/fixtures/infinite.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/fixtures/infinite.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/fixtures/standard.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/fixtures/standard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/fixtures/sticky.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/fixtures/sticky.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/group-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/group-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/infinite-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/infinite-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/inview-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/inview-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/lib/coffee-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/lib/coffee-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine-html.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine-html.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine-jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine-jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/lib/jasmine.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/lib/require.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/lib/require.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/lib/testloader.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/lib/testloader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/settings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/sticky-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/sticky-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/test/waypoint-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/test/waypoint-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/waypoints/testem.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/waypoints/testem.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/.npmignore" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/.npmignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/Gruntfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/Gruntfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/css/libs/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/css/libs/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/css/site.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/css/site.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/demo.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/demo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/dist/wow.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/dist/wow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/dist/wow.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/dist/wow.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/spec/coffeescripts/wow-spec.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/spec/coffeescripts/wow-spec.coffee" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/helpers/SpecHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/helpers/SpecHelper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/libs/jasmine-jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/libs/jasmine-jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/libs/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/libs/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/wow-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/spec/javascripts/wow-spec.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/wowjs/src/wow.coffee" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/wowjs/src/wow.coffee" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/rating.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.blue.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.blue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.default.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.green.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.green.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.lightblue.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.lightblue.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.marsala.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.marsala.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.pink.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.pink.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.red.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.red.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/style.violet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/system/style.violet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/networking.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/networking.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/rating.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/options.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/rating.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/rating.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -78,23 +591,23 @@
     <session id="-1718341989">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
-          <entry key="project.open.time.12" value="1" />
+          <entry key="project.closed" value="20" />
+          <entry key="project.open.time.12" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="6" />
           <entry key="project.open.time.7" value="6" />
-          <entry key="project.opened" value="19" />
+          <entry key="project.opened" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="4" />
-          <entry key="html" value="5" />
-          <entry key="js" value="8" />
-          <entry key="json" value="5" />
+          <entry key="css" value="6" />
+          <entry key="html" value="7" />
+          <entry key="js" value="12" />
+          <entry key="json" value="8" />
           <entry key="lock" value="1" />
           <entry key="log" value="1" />
           <entry key="yarn-integrity" value="1" />
@@ -102,28 +615,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="4" />
-          <entry key="HTML" value="5" />
-          <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="8" />
+          <entry key="CSS" value="6" />
+          <entry key="HTML" value="7" />
+          <entry key="JSON" value="8" />
+          <entry key="JavaScript" value="12" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="yarn.lock" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="333" />
-          <entry key="html" value="1798" />
-          <entry key="js" value="2559" />
-          <entry key="json" value="407" />
+          <entry key="css" value="339" />
+          <entry key="html" value="2425" />
+          <entry key="js" value="3675" />
+          <entry key="json" value="642" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="333" />
-          <entry key="HTML" value="1798" />
-          <entry key="JSON" value="407" />
-          <entry key="JavaScript" value="2559" />
+          <entry key="CSS" value="339" />
+          <entry key="HTML" value="2425" />
+          <entry key="JSON" value="642" />
+          <entry key="JavaScript" value="3675" />
         </counts>
       </usages-collector>
     </session>
@@ -136,17 +649,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/rating.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/options.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="620">
+              <caret line="93" selection-start-line="93" selection-end-line="93" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -155,7 +659,64 @@
         <entry file="file://$PROJECT_DIR$/src/js/rating.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="10" selection-end-column="19" />
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#36#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/rating.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="41" column="49" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/login.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/networking.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/options.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="32" column="40" selection-end-line="34" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -166,28 +727,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/networking.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/background.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
-              <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -195,15 +738,37 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="210">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yarn.lock">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/_locales/it/messages.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_locales/en/messages.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -211,9 +776,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -250,12 +815,17 @@
         <option value="$PROJECT_DIR$/views/options.html" />
         <option value="$PROJECT_DIR$/assets/js/networking.js" />
         <option value="$PROJECT_DIR$/assets/js/rating.js" />
-        <option value="$PROJECT_DIR$/src/js/networking.js" />
         <option value="$PROJECT_DIR$/src/views/options.html" />
-        <option value="$PROJECT_DIR$/src/css/custom.css" />
-        <option value="$PROJECT_DIR$/src/views/rating.html" />
-        <option value="$PROJECT_DIR$/manifest.json" />
         <option value="$PROJECT_DIR$/src/js/background.js" />
+        <option value="$PROJECT_DIR$/_locales/en/messages.json" />
+        <option value="$PROJECT_DIR$/manifest.json" />
+        <option value="$PROJECT_DIR$/_locales/it/messages.json" />
+        <option value="$PROJECT_DIR$/src/css/custom.css" />
+        <option value="$PROJECT_DIR$/src/css/login.css" />
+        <option value="$PROJECT_DIR$/src/views/rating.html" />
+        <option value="$PROJECT_DIR$/src/views/login.html" />
+        <option value="$PROJECT_DIR$/src/js/networking.js" />
+        <option value="$PROJECT_DIR$/src/js/login.js" />
         <option value="$PROJECT_DIR$/src/js/rating.js" />
       </list>
     </option>
@@ -286,8 +856,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="257" />
-    <option name="y" value="-12" />
+    <option name="x" value="447" />
+    <option name="y" value="246" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -299,7 +869,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -316,12 +885,25 @@
               <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
               <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,20 +914,20 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\assets\css" />
-      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\assets\js" />
-      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\assets\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\src\css\system" />
       <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\src\js" />
       <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\src\js\system" />
       <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\src\js\utils" />
       <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\src" />
-      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\assets\js\system" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\assets\css" />
+      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\assets\js" />
+      <recent name="E:\Dropbox\Documenti\Progetti\R@SM\R@SM-Chrome\assets\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -389,11 +971,12 @@
       <workItem from="1532003308010" duration="6437000" />
       <workItem from="1532523723684" duration="3265000" />
       <workItem from="1532528011730" duration="70000" />
+      <workItem from="1532677665381" duration="15611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50902000" />
+    <option name="totallyTimeSpent" value="66513000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -409,7 +992,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50056756" side_tool="true" weight="0.14712153" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49943247" visible="true" weight="0.14552239" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49943247" visible="true" weight="0.14712153" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32924107" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -435,8 +1018,8 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/yarn-error.log" />
-    <entry file="file://$PROJECT_DIR$/src/css/style.blue.css" />
-    <entry file="file://$PROJECT_DIR$/src/css/style.default.css">
+    <entry file="file://$PROJECT_DIR$/src/css/system/style.blue.css" />
+    <entry file="file://$PROJECT_DIR$/src/css/system/style.default.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/.yarn-integrity">
@@ -444,68 +1027,106 @@
         <state relative-caret-position="-474" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/src/js/front.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yarn.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_locales/en/messages.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        <state relative-caret-position="63">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/front.js">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/_locales/it/messages.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/options.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <caret line="32" column="40" selection-end-line="34" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/options.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/custom.css">
+    <entry file="file://$PROJECT_DIR$/src/css/rating.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state>
+          <caret selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yarn.lock">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/background.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
-          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        <state relative-caret-position="210">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/rating.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+        <state relative-caret-position="620">
+          <caret line="93" selection-start-line="93" selection-end-line="93" selection-end-column="69" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/networking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        <state relative-caret-position="336">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="41" column="49" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/rating.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="10" selection-end-column="19" />
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#36#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -9,14 +9,47 @@
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
     <link rel="stylesheet" href="../css/system/style.blue.css" id="theme-stylesheet">
-    <link rel="stylesheet" href="../css/rating.css"/>
+    <link rel="stylesheet" href="../css/login.css"/>
 </head>
 <body>
-<div id="buttonDiv">
-</div>
-<div>
-    <p>TODO</p>
-</div>
+<section id="login-sect" class="bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading text-center">
+                    <h1>R@SM</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form id="login-form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" type="text" class="form-control" value="mail@mail.com">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" type="password" class="form-control" value="123456">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                            <button type="submit" id="login-btn" class="btn btn-primary">
+                                <i id="sign-in-icon" class="fa fa-sign-in"></i>
+                                <i id="reload-icon" class="fa fa-refresh fa-spin"></i>
+                                    Login
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../node_modules/jquery.cookie/jquery.cookie.js"></script>
@@ -28,8 +61,9 @@
 <script src="../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="../../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
 <script src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
+<script src="../../node_modules/js-cookie/src/js.cookie.js"></script>
 <script src="../js/front.js"></script>
 <script type="module" src="../js/networking.js"></script>
-<script type="module" src="../js/options.js"></script>
+<script type="module" src="../js/login.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 body, html {
     height: 320px;
     width: 300px;
+    background-color: rgb(85, 85, 85);
 }
 
 #rating-slider .slider-selection {
