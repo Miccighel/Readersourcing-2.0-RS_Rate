@@ -48,8 +48,9 @@ if (fetchToken() != null) {
 logoutButton.on("click", function () {
     logoutButton.find(reloadIcons).toggle();
     logoutButton.find(signOutIcons).toggle();
-    let result = deleteToken();
-    window.location.href= "login.html"
+    deleteToken().then(function () {
+        window.location.href= "login.html"
+    });
 });
 
 ////////// RATING HANDLING //////////
