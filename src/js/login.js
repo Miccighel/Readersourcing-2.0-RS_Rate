@@ -26,7 +26,7 @@ loginButton.on("click", function () {
     let data = {email: emailField.val(), password: passwordField.val()};
     let successCallback = function (data, status, jqXHR) {
         reloadIcon.toggle();
-        Cookies.set('authToken', data["auth_token"], {secure: true});
+        Cookies.set("authToken", data["auth_token"]);
         window.history.back();
     };
     let errorCallback = function (jqXHR, status) {
