@@ -11,14 +11,11 @@ export async function send(type, url, contentType, dataType, crossDomain, data, 
     });
 }
 
-export async function fetchToken(loginSection, contentSection) {
-    if (Cookies.get('authToken') != null) {
-        loginSection.hide();
-        contentSection.show();
-    } else {
-        loginSection.show();
-        contentSection.hide();
-    }
+export async function fetchToken() {
     return Cookies.get('authToken');
+}
+
+export async function deleteToken() {
+    Cookies.remove('authToken');
 }
 

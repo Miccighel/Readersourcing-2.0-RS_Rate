@@ -27,7 +27,7 @@ loginButton.on("click", function () {
     let successCallback = function (data, status, jqXHR) {
         reloadIcon.toggle();
         Cookies.set("authToken", data["auth_token"]);
-        window.history.back();
+        window.location.href = "rating.html";
     };
     let errorCallback = function (jqXHR, status) {
         alert(jqXHR.status)

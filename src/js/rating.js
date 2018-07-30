@@ -1,19 +1,31 @@
-////////// INIT SECTION //////////
+////////// INIT  //////////
+
+//######## IMPORTS ##########
 
 import {send} from "./networking.js";
 import {fetchToken} from "./networking.js";
+import {deleteToken} from "./networking.js";
 
+//######## CONTENT SECTIONS ##########
+
+let buttonsSections = $("#buttons-sect");
 let loginSection = $("#login-sect");
 let ratingSection = $("#rating-sect");
 
+//######## UI COMPONENTS ##########
+
 let ratingSlider = $("#rating-slider");
 
+let logoutButton = $("#logout-btn");
 let voteButton = $("#vote-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let errorButton = $("#error-btn");
 
+let signOutIcons = $(".sign-out-icon");
 let reloadIcons = $(".reload-icon");
+
+//######## UI INITIAL SETUP ##########
 
 downloadButton.hide();
 errorButton.hide();
@@ -21,7 +33,24 @@ reloadIcons.hide();
 
 ////////// LOGIN HANDLING //////////
 
-let authToken = fetchToken(loginSection, ratingSection);
+if (fetchToken() != null) {
+    loginSection.hide();
+    buttonsSections.show();
+    ratingSection.show();
+} else {
+    loginSection.show();
+    buttonsSections.hide();
+    ratingSection.hide();
+}
+
+////////// LOGOUT HANDLING //////////
+
+logoutButton.on("click", function () {
+    logoutButton.find(reloadIcons).toggle();
+    logoutButton.find(signOutIcons).toggle();
+    let result = deleteToken();
+    window.location.href= "login.html"
+});
 
 ////////// RATING HANDLING //////////
 
@@ -41,7 +70,11 @@ voteButton.on("click", function () {
 
 saveButton.on("click", function () {
     chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-        let data = {publication: {pdf_url: tabs[0].url}};
+        let data = {
+            publication: {
+                pdf_url: tabs[0].url
+            }
+        };
         saveButton.find(reloadIcons).toggle();
         let successCallback = function (data, status, jqXHR) {
             saveButton.find(reloadIcons).toggle();

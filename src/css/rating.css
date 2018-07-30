@@ -1,8 +1,18 @@
+/* ////////// GENERAL SECTION ////////// */
+
 body, html {
     height: 320px;
     width: 300px;
     background-color: rgb(85, 85, 85);
 }
+
+/* ////////// TOP BUTTONS SECTION ////////// */
+
+#buttons-sect .btn-group button {
+    width: 100%;
+}
+
+/* ////////// VOTE SLIDER SECTION ////////// */
 
 #rating-slider .slider-selection {
     background: white;

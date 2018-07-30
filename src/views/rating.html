@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="../css/rating.css"/>
 </head>
 <body>
+<section id="buttons-sect">
+    <div class="btn-group fixed-top">
+        <button type="button" id="logout-btn" class="btn btn-primary">Logout <i
+                class="fa fa-sign-out sign-out-icon"></i> <i class="fa fa-refresh fa-spin reload-icon"></i></button>
+    </div>
+</section>
 <section id="login-sect" class="bar bg-gray-dark no-mb color-white">
     <div class="container">
         <div class="row">
@@ -36,7 +42,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center mt-5">
+            <div class="col-md-12 text-center">
                 <input
                         id="rating-slider"
                         data-slider-id='ratingSlider'
@@ -50,15 +56,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center mt-5">
+            <div class="col-md-12 text-center mt-3">
                 <h1 id="rating-text"><span id="rating-text-value">50</span></h1>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <button type="button" id="vote-btn" class="btn btn-primary mt-3"><i
+                <button type="button" id="vote-btn" class="btn btn-primary"><i
                         class="fa fa-refresh fa-spin reload-icon"></i> Vota
                 </button>
+
             </div>
         </div>
         <div class="row">
