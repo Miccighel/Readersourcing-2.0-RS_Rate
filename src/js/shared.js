@@ -1,3 +1,5 @@
+////////// NETWORKING SECTION //////////
+
 export async function fetchToken() {
     return Cookies.get('authToken');
 }
@@ -7,7 +9,7 @@ export async function deleteToken() {
 }
 
 export async function send(type, url, contentType, dataType, crossDomain, data, success, error) {
-    fetchToken().then(function(authToken) {
+    fetchToken().then(function (authToken) {
         $.ajax({
             type: type,
             url: url,

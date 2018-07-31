@@ -1,0 +1,12 @@
+/* ////////// GENERAL SECTION ////////// */
+
+body, html {
+    height: 320px;
+    width: 300px;
+}
+
+/* ////////// TOP BUTTONS SECTION ////////// */
+
+#buttons-sect .btn-group button {
+    width: 100%;
+}

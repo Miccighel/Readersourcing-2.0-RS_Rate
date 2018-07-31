@@ -2,9 +2,9 @@
 
 //######## IMPORTS ##########
 
-import {send} from "./networking.js";
-import {fetchToken} from "./networking.js";
-import {deleteToken} from "./networking.js";
+import {send} from "./shared.js";
+import {fetchToken} from "./shared.js";
+import {deleteToken} from "./shared.js";
 
 //######## CONTENT SECTIONS ##########
 
@@ -16,16 +16,20 @@ let ratingSection = $("#rating-sect");
 
 let ratingSlider = $("#rating-slider");
 
+let loginButton = $("#login-btn");
 let logoutButton = $("#logout-btn");
+let signUpButton = $("#sign-up-btn");
 let voteButton = $("#vote-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let errorButton = $("#error-btn");
 
-let signOutIcons = $(".sign-out-icon");
+let signInIcons = $("#sign-in-icon");
+let signOutIcons = $("#sign-out-icon");
+let signUpIcons = $("#sign-up-icon");
 let reloadIcons = $(".reload-icon");
 
-//######## UI INITIAL SETUP ##########
+//######## UI INITIAL SETUP //////////
 
 downloadButton.hide();
 errorButton.hide();
@@ -33,15 +37,24 @@ reloadIcons.hide();
 
 ////////// LOGIN HANDLING //////////
 
-if (fetchToken() != null) {
-    loginSection.hide();
-    buttonsSections.show();
-    ratingSection.show();
-} else {
-    loginSection.show();
-    buttonsSections.hide();
-    ratingSection.hide();
-}
+fetchToken().then(function (authToken) {
+    if (authToken != null) {
+        loginSection.hide();
+        buttonsSections.show();
+        ratingSection.show();
+    } else {
+        loginSection.show();
+        buttonsSections.hide();
+        ratingSection.hide();
+    }
+});
+
+////////// LOGIN HANDLING //////////
+
+loginButton.on("click", function () {
+    loginButton.find(reloadIcons).toggle();
+    loginButton.find(signInIcons).toggle();
+});
 
 ////////// LOGOUT HANDLING //////////
 
@@ -49,8 +62,15 @@ logoutButton.on("click", function () {
     logoutButton.find(reloadIcons).toggle();
     logoutButton.find(signOutIcons).toggle();
     deleteToken().then(function () {
-        window.location.href= "login.html"
+        location.reload()
     });
+});
+
+////////// REGISTRATION HANDLING //////////
+
+signUpButton.on("click", function () {
+    signUpButton.find(reloadIcons).toggle();
+    signUpButton.find(signUpIcons).toggle();
 });
 
 ////////// RATING HANDLING //////////

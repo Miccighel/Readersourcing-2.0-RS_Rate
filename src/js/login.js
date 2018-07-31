@@ -1,18 +1,36 @@
 ////////// INIT SECTION //////////
 
-import {send} from "./networking.js";
+//######## IMPORTS ##########
+
+import {send} from "./shared.js";
+
+//######## CONTENT SECTIONS ##########
 
 let loginForm = $("#login-form");
+
+//######## UI COMPONENTS ##########
 
 let emailField = $("#email");
 let passwordField = $("#password");
 
+let backButton = $("#back-btn");
 let loginButton = $("#login-btn");
 
+let backIcon = $("#back-icon");
 let signInIcon = $("#sign-in-icon");
-let reloadIcon = $("#reload-icon");
+let reloadIcon = $(".reload-icon");
+
+//######## UI INITIAL SETUP //////////
 
 reloadIcon.hide();
+
+////////// GO BACK HANDLING //////////
+
+backButton.on("click", function () {
+    backButton.find(reloadIcon).toggle();
+    backButton.find(backIcon).toggle();
+    window.history.back()
+});
 
 ////////// LOGIN HANDLING //////////
 
@@ -21,8 +39,8 @@ loginForm.submit(function (event) {
 });
 
 loginButton.on("click", function () {
-    signInIcon.toggle();
-    reloadIcon.toggle();
+    loginButton.find(signInIcon).toggle();
+    loginButton.find(reloadIcon).toggle();
     let data = {email: emailField.val(), password: passwordField.val()};
     let successCallback = function (data, status, jqXHR) {
         reloadIcon.toggle();

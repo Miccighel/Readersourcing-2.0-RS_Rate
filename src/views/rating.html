@@ -9,13 +9,17 @@
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
     <link rel="stylesheet" href="../css/system/style.blue.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="../css/general.css"/>
     <link rel="stylesheet" href="../css/rating.css"/>
 </head>
 <body>
 <section id="buttons-sect">
     <div class="btn-group fixed-top">
-        <button type="button" id="logout-btn" class="btn btn-primary">Logout <i
-                class="fa fa-sign-out sign-out-icon"></i> <i class="fa fa-refresh fa-spin reload-icon"></i></button>
+        <button type="button" id="logout-btn" class="btn btn-primary">
+            Logout
+            <i id="sign-out-icon" class="fa fa-sign-out"></i>
+            <i class="fa fa-refresh fa-spin reload-icon"></i>
+        </button>
     </div>
 </section>
 <section id="login-sect" class="bar bg-gray-dark no-mb color-white">
@@ -23,12 +27,30 @@
         <div class="row">
             <div class="col-md-12 heading text-center">
                 <h1>R@SM</h1>
-                <p class="lead mb-0">Clicca sul pulsante per effettuare il login.</p>
+                <p class="lead mb-0">Accedi alla pagine di login o registrazione</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <a href="login.html" class="btn btn-primary"> Vai al login</a>
+                <a href="login.html" id="login-btn" class="btn btn-primary">
+                    Vai al login
+                    <i id="sign-in-icon" class="fa fa-sign-in"></i>
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center mt-3">
+                <h4>Oppure</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <a href="registration.html" id="sign-up-btn" class="btn btn-primary">
+                    Registrati
+                    <i id="sign-up-icon" class="fa fa-user-plus"></i>
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -62,8 +84,9 @@
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <button type="button" id="vote-btn" class="btn btn-primary"><i
-                        class="fa fa-refresh fa-spin reload-icon"></i> Vota
+                <button type="button" id="vote-btn" class="btn btn-primary">
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                    Vota
                 </button>
 
             </div>
@@ -75,13 +98,17 @@
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
-                <button type="button" id="save-btn" class="btn btn-primary"><i
-                        class="fa fa-refresh fa-spin reload-icon"></i> Salva Per Dopo
+                <button type="button" id="save-btn" class="btn btn-primary">
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                    Salva Per Dopo
                 </button>
-                <a href="#" id="download-btn" class="btn btn-primary" target="_blank"><i class="fa fa-download"></i>
-                    Scarica</a>
-                <button type="button" id="error-btn" class="btn btn-danger"><i
-                        class="fa fa-exclamation-triangle danger-icon"></i> Errore
+                <a href="#" id="download-btn" class="btn btn-primary" target="_blank">
+                    <i class="fa fa-download"></i>
+                    Scarica
+                </a>
+                <button type="button" id="error-btn" class="btn btn-danger">
+                    <i class="fa fa-exclamation-triangle danger-icon"></i>
+                    Errore
                 </button>
             </div>
         </div>
@@ -100,7 +127,7 @@
 <script src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
 <script src="../../node_modules/js-cookie/src/js.cookie.js"></script>
 <script src="../js/front.js"></script>
-<script type="module" src="../js/networking.js"></script>
+<script type="module" src="../js/shared.js"></script>
 <script type="module" src="../js/rating.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
     <link rel="stylesheet" href="../css/system/style.blue.css" id="theme-stylesheet">
     <link rel="stylesheet" href="../css/general.css"/>
-    <link rel="stylesheet" href="../css/login.css"/>
+    <link rel="stylesheet" href="../css/registration.css"/>
 </head>
 <body>
 <section id="buttons-sect">
@@ -33,12 +33,30 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form id="login-form">
+                <form id="sign-up-form">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="first-name">Nome</label>
+                                <input id="first-name" type="text" class="form-control" value="Giovanni">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="last-name">Cognome</label>
+                                <input id="last-name" type="text" class="form-control" value="Bianchi">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="email">Email</label>
-                                <input id="email" type="text" class="form-control" value="mail@mail.com">
+                                <input id="email" type="text" class="form-control" value="bianchi@mail.com">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="orcid">ORCID</label>
+                                <input id="orcid" type="text" class="form-control" value="0000-0002-1813-669X">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -47,10 +65,16 @@
                                 <input id="password" type="password" class="form-control" value="123456">
                             </div>
                         </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="password-confirmation">Password (Conferma)</label>
+                                <input id="password-confirmation" type="password" class="form-control" value="123456">
+                            </div>
+                        </div>
                         <div class="col-sm-12 text-center">
-                            <button type="submit" id="login-btn" class="btn btn-success">
-                                Login
-                                <i id="sign-in-icon" class="fa fa-sign-in"></i>
+                            <button type="submit" id="sign-up-btn" class="btn btn-success">
+                                Registrati
+                                <i id="sign-up-icon" class="fa fa-user-plus"></i>
                                 <i class="fa fa-refresh fa-spin reload-icon"></i>
                             </button>
                         </div>
@@ -74,6 +98,6 @@
 <script src="../../node_modules/js-cookie/src/js.cookie.js"></script>
 <script src="../js/front.js"></script>
 <script type="module" src="../js/shared.js"></script>
-<script type="module" src="../js/login.js"></script>
+<script type="module" src="../js/registration.js"></script>
 </body>
 </html>
