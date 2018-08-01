@@ -1,4 +1,4 @@
-////////// INIT SECTION //////////
+////////// INIT //////////
 
 //######## IMPORTS ##########
 
@@ -8,6 +8,7 @@ import {deleteToken} from "./shared.js";
 //######## CONTENT SECTIONS ##########
 
 let registrationForm = $("#sign-up-form");
+let errorsSection = $("#errors-sect");
 
 //######## UI COMPONENTS ##########
 
@@ -27,6 +28,7 @@ let reloadIcon = $(".reload-icon");
 
 //######## UI INITIAL SETUP //////////
 
+errorsSection.hide();
 reloadIcon.hide();
 
 ////////// GO BACK HANDLING //////////
@@ -63,7 +65,13 @@ registrationButton.on("click", function () {
         });
     };
     let errorCallback = function (jqXHR, status) {
-        alert(jqXHR.status)
+        registrationButton.find(reloadIcon).toggle();
+        let errors = JSON.parse(jqXHR.responseText);
+        for (let attribute in errors) {
+            let array = errors[attribute];
+
+        }
+        errorsSection.show();
     };
     // noinspection JSIgnoredPromiseFromCall
     send("POST", "http://localhost:3000/users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
