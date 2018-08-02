@@ -1,16 +1,16 @@
 ////////// INIT //////////
 
-//######## IMPORTS ##########
+//######## IMPORTS ########//
 
 import {send} from "./shared.js";
 import {deleteToken} from "./shared.js";
 
-//######## CONTENT SECTIONS ##########
+//######## CONTENT SECTIONS ########//
 
 let registrationForm = $("#sign-up-form");
 let errorsSection = $("#errors-sect");
 
-//######## UI COMPONENTS ##########
+//######## UI COMPONENTS ########//
 
 let firstNameField = $("#first-name");
 let lastNameField = $("#last-name");
@@ -22,14 +22,22 @@ let passwordConfirmationField = $("#password-confirmation");
 let backButton = $("#back-btn");
 let registrationButton = $("#sign-up-btn");
 
+let alertDismissable = $(".alert-dismissible");
+
 let backIcon = $("#back-icon");
 let signUpIcon = $("#sign-up-icon");
 let reloadIcon = $(".reload-icon");
 
-//######## UI INITIAL SETUP //////////
+//######## UI INITIAL SETUP ########//
 
 errorsSection.hide();
 reloadIcon.hide();
+
+//######## UTILITY FUNCTIONS ########//
+
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
 
 ////////// GO BACK HANDLING //////////
 
@@ -70,9 +78,16 @@ registrationButton.on("click", function () {
         let errorCallback = function (jqXHR, status) {
             registrationButton.find(reloadIcon).toggle();
             let errors = JSON.parse(jqXHR.responseText);
+            let element = "";
             for (let attribute in errors) {
                 let array = errors[attribute];
+                element = `${element}<br/>${attribute.capitalize()}: <ul>`;
+                for (let index in array) {
+                    element = `${element}<li>${array[index].capitalize()}</li>`;
+                }
+                element = `${element}</ul>`;
             }
+            errorsSection.find(alertDismissable).append(element);
             errorsSection.show();
         };
         // noinspection JSIgnoredPromiseFromCall

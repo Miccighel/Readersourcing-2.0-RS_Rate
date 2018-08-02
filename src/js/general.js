@@ -1,3 +1,5 @@
+////////// PARSLEY CLIENT SIDE VALIDATION SETUP //////////
+
 Parsley.addMessages('it', {
     defaultMessage: "Questo valore sembra essere non valido.",
     type: {

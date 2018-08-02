@@ -5,13 +5,23 @@ body, html {
     width: 300px;
 }
 
-/* ////////// TOP BUTTONS SECTION ////////// */
+/* ////////// TOP BUTTONS  ////////// */
 
 #buttons-sect .btn-group button {
     width: 100%;
 }
 
-/* ////////// PARSLEY MESSAGES SECTION ////////// */
+/* ////////// ALERT BOXES ////////// */
+
+.alert-dismissible {
+    font-size: 0.9rem;
+}
+
+.alert-dismissible li {
+    list-style-type: decimal;
+}
+
+/* ////////// PARSLEY MESSAGES  ////////// */
 
 input.parsley-success, select.parsley-success, textarea.parsley-success {
     color: #468847;

@@ -1,14 +1,14 @@
-////////// INIT SECTION //////////
+////////// INIT //////////
 
-//######## IMPORTS ##########
+//######## IMPORTS ########//
 
 import {send} from "./shared.js";
 
-//######## CONTENT SECTIONS ##########
+//######## CONTENT SECTIONS ########//
 
 let loginForm = $("#login-form");
 
-//######## UI COMPONENTS ##########
+//######## UI COMPONENTS ########//
 
 let emailField = $("#email");
 let passwordField = $("#password");
@@ -20,7 +20,7 @@ let backIcon = $("#back-icon");
 let signInIcon = $("#sign-in-icon");
 let reloadIcon = $(".reload-icon");
 
-//######## UI INITIAL SETUP //////////
+//######## UI INITIAL SETUP ########//
 
 reloadIcon.hide();
 

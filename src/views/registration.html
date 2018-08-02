@@ -62,16 +62,24 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input id="password" type="password" class="form-control" value="123456" data-parsley-minlength="6" required>
+                                <input id="password" type="password" class="form-control" value="1234Ab" data-parsley-minlength="6" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="password-confirmation">Password (Conferma)</label>
-                                <input id="password-confirmation" type="password" class="form-control" value="123456" data-parsley-minlength="6" data-parsley-password required>
+                                <input id="password-confirmation" type="password" class="form-control" value="1234Ab" data-parsley-minlength="6" data-parsley-password required>
                             </div>
                         </div>
                         <div class="col-sm-12 text-center">
+                            <section id="errors-sect" class="text-left">
+                                <div role="alert" class="alert alert-danger alert-dismissible">
+                                    <button type="button" data-dismiss="alert" class="close">
+                                        <span aria-hidden="true">X</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                </div>
+                            </section>
                             <button type="submit" id="sign-up-btn" class="btn btn-success">
                                 Registrati
                                 <i id="sign-up-icon" class="fa fa-user-plus"></i>
@@ -82,14 +90,6 @@
                 </form>
             </div>
         </div>
-    </div>
-</section>
-<section id="errors-sect">
-    <div role="alert" class="alert alert-danger alert-dismissible fixed-bottom mb-0">
-        <button type="button" data-dismiss="alert" class="close">
-            <span aria-hidden="true">X</span>
-            <span class="sr-only">Close</span>
-        </button>
     </div>
 </section>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>

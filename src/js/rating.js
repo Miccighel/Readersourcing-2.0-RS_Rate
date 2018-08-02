@@ -1,18 +1,18 @@
 ////////// INIT  //////////
 
-//######## IMPORTS ##########
+//######## IMPORTS ########//
 
 import {send} from "./shared.js";
 import {fetchToken} from "./shared.js";
 import {deleteToken} from "./shared.js";
 
-//######## CONTENT SECTIONS ##########
+//######## CONTENT SECTIONS ########//
 
 let buttonsSections = $("#buttons-sect");
 let loginSection = $("#login-sect");
 let ratingSection = $("#rating-sect");
 
-//######## UI COMPONENTS ##########
+//######## UI COMPONENTS ########//
 
 let ratingSlider = $("#rating-slider");
 
@@ -29,7 +29,7 @@ let signOutIcons = $("#sign-out-icon");
 let signUpIcons = $("#sign-up-icon");
 let reloadIcons = $(".reload-icon");
 
-//######## UI INITIAL SETUP //////////
+//######## UI INITIAL SETUP ########//
 
 downloadButton.hide();
 errorButton.hide();
