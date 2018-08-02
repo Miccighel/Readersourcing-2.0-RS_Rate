@@ -81,10 +81,23 @@ ratingSlider.on("slide", function (slideEvt) {
 });
 
 voteButton.on("click", function () {
-    let score = ratingSlider.val();
-    let data = {rating: {score: score}};
-    voteButton.find(reloadIcons).toggle();
-    // TODO Aggiungere richiesta RESTful per il voto
+    chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+        voteButton.find(reloadIcons).toggle();
+        let score = ratingSlider.val();
+        let data = {
+            rating: {
+                score: score,
+                pdf_url: tabs[0].url
+            }
+        };
+        let successCallback = function (data, status, jqXHR) {
+            console.log(data);
+        };
+        let errorCallback = function (jqXHR, status) {
+            console.log(status)
+        };
+        let promise = send("POST", "http://localhost:3000/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+    });
 });
 
 /////////// SAVE FOR LATER HANDLING //////////
