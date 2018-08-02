@@ -111,5 +111,4 @@ saveButton.on("click", function () {
         };
         let promise = send("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     });
-
 });

@@ -33,7 +33,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form id="sign-up-form">
+                <form id="sign-up-form" data-parsley-validate>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -50,25 +50,25 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input id="email" type="text" class="form-control" value="bianchi@mail.com">
+                                <input id="email" type="text" class="form-control" value="bianchi@mail.com" data-parsley-type="email" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="orcid">ORCID</label>
-                                <input id="orcid" type="text" class="form-control" value="0000-0002-1813-669X">
+                                <input id="orcid" type="text" class="form-control" value="0000-0002-1813-669X" data-parsley-orcid>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input id="password" type="password" class="form-control" value="123456">
+                                <input id="password" type="password" class="form-control" value="123456" data-parsley-minlength="6" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="password-confirmation">Password (Conferma)</label>
-                                <input id="password-confirmation" type="password" class="form-control" value="123456">
+                                <input id="password-confirmation" type="password" class="form-control" value="123456" data-parsley-minlength="6" data-parsley-password required>
                             </div>
                         </div>
                         <div class="col-sm-12 text-center">
@@ -104,7 +104,9 @@
 <script src="../../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
 <script src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
 <script src="../../node_modules/js-cookie/src/js.cookie.js"></script>
-<script src="../js/front.js"></script>
+<script src="../../node_modules/parsleyjs/dist/parsley.min.js"></script>
+<script src="../js/system/front.js"></script>
+<script src="../js/general.js"></script>
 <script type="module" src="../js/shared.js"></script>
 <script type="module" src="../js/registration.js"></script>
 </body>
