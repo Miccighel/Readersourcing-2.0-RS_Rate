@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/rating.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,6 +67,15 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-2003408624">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="R@SM-Chrome" />
@@ -78,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/src/views/rating.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1743">
-              <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+              <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -86,11 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/rating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
-              <folding>
-                <element signature="e#60#93#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="556">
+              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -131,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/src/views/registration.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="714">
-              <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-end-line="35" />
+              <caret line="34" column="33" selection-start-line="34" selection-end-line="35" />
             </state>
           </provider>
         </entry>
@@ -139,11 +144,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1722">
-              <caret line="83" column="68" selection-start-line="83" selection-start-column="68" selection-end-line="83" selection-end-column="68" />
-              <folding>
-                <element signature="e#59#92#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1974">
+              <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -171,8 +173,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/background.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="30" selection-start-column="30" selection-end-column="30" />
+            <state relative-caret-position="42">
+              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -185,8 +187,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css/general.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="1176">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -429,11 +431,13 @@
       <workItem from="1533198591965" duration="8682000" />
       <workItem from="1533212788630" duration="445000" />
       <workItem from="1533216616925" duration="3804000" />
+      <workItem from="1533296120046" duration="722000" />
+      <workItem from="1533305209047" duration="711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96215000" />
+    <option name="totallyTimeSpent" value="97648000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -446,9 +450,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50167596" side_tool="true" weight="0.15351813" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.17537314" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.17857143" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32849163" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -496,6 +501,13 @@
     <entry file="file://$PROJECT_DIR$/src/js/system/front.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1743">
+          <caret line="83" column="14" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/rating.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -523,17 +535,14 @@
     <entry file="file://$PROJECT_DIR$/src/views/registration.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
-          <caret line="34" column="33" lean-forward="true" selection-start-line="34" selection-end-line="35" />
+          <caret line="34" column="33" selection-start-line="34" selection-end-line="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/registration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1722">
-          <caret line="83" column="68" selection-start-line="83" selection-start-column="68" selection-end-line="83" selection-end-column="68" />
-          <folding>
-            <element signature="e#59#92#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1974">
+          <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -551,8 +560,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/background.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="30" selection-start-column="30" selection-end-column="30" />
+        <state relative-caret-position="42">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -561,8 +570,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css/general.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="1176">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
@@ -594,20 +603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1743">
-          <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/rating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
-          <folding>
-            <element signature="e#60#93#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="556">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
         </state>
       </provider>
     </entry>
