@@ -22,7 +22,7 @@ let passwordConfirmationField = $("#password-confirmation");
 let backButton = $("#back-btn");
 let registrationButton = $("#sign-up-btn");
 
-let alertDismissable = $(".alert-dismissible");
+let alert = $(".alert");
 
 let backIcon = $("#back-icon");
 let signUpIcon = $("#sign-up-icon");
@@ -87,7 +87,9 @@ registrationButton.on("click", function () {
                 }
                 element = `${element}</ul>`;
             }
-            errorsSection.find(alertDismissable).append(element);
+            if(errorsSection.find(alert).children().length < 1) {
+                errorsSection.find(alert).append(element);
+            }
             errorsSection.show();
         };
         // noinspection JSIgnoredPromiseFromCall

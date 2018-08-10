@@ -84,11 +84,21 @@
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
+                <button type="button" id="load-btn" class="btn btn-primary">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </button>
                 <button type="button" id="vote-btn" class="btn btn-primary">
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
                     Vota
                 </button>
-
+                <button type="button" id="vote-success-btn" class="btn btn-success">
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                    Il tuo voto &egrave; stato registrato
+                </button>
+                <button type="button" class="btn btn-danger error-btn">
+                    <i class="fa fa-exclamation-triangle danger-icon"></i>
+                    Errore
+                </button>
             </div>
         </div>
         <div class="row">
@@ -106,7 +116,7 @@
                     <i class="fa fa-download"></i>
                     Scarica
                 </a>
-                <button type="button" id="error-btn" class="btn btn-danger">
+                <button type="button" id="error-btn" class="btn btn-danger error-btn">
                     <i class="fa fa-exclamation-triangle danger-icon"></i>
                     Errore
                 </button>
