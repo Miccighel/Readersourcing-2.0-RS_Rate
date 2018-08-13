@@ -2,7 +2,7 @@
 
 //######## IMPORTS ########//
 
-import {send} from "./shared.js";
+import {ajax} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
@@ -78,6 +78,6 @@ loginButton.on("click", function () {
             errorsSection.show();
         };
         // noinspection JSIgnoredPromiseFromCall
-        send("POST", "http://localhost:3000/authenticate", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        ajax("POST", "http://localhost:3000/authenticate", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });

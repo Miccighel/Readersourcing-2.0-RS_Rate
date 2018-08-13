@@ -2,7 +2,7 @@
 
 //######## IMPORTS ########//
 
-import {send} from "./shared.js";
+import {ajax} from "./shared.js";
 import {deleteToken} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
@@ -35,7 +35,7 @@ reloadIcon.hide();
 
 //######## UTILITY FUNCTIONS ########//
 
-String.prototype.capitalize = function() {
+String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
@@ -72,7 +72,7 @@ registrationButton.on("click", function () {
         let successCallback = function (data, status, jqXHR) {
             registrationButton.find(reloadIcon).toggle();
             deleteToken().then(function () {
-                window.location.href = "rating.html";
+                window.location.href = "login.html";
             });
         };
         let errorCallback = function (jqXHR, status) {
@@ -80,19 +80,23 @@ registrationButton.on("click", function () {
             let errors = JSON.parse(jqXHR.responseText);
             let element = "";
             for (let attribute in errors) {
-                let array = errors[attribute];
-                element = `${element}<br/>${attribute.capitalize()}: <ul>`;
-                for (let index in array) {
-                    element = `${element}<li>${array[index].capitalize()}</li>`;
+                if (errors.hasOwnProperty(attribute)) {
+                    let array = errors[attribute];
+                    element = `${element}<br/>${attribute.capitalize()}: <ul>`;
+                    for (let index in array) {
+                        if (array.hasOwnProperty(index)) {
+                            element = `${element}<li>${array[index].capitalize()}</li>`;
+                        }
+                    }
+                    element = `${element}</ul>`;
                 }
-                element = `${element}</ul>`;
             }
-            if(errorsSection.find(alert).children().length < 1) {
+            if (errorsSection.find(alert).children().length < 1) {
                 errorsSection.find(alert).append(element);
             }
             errorsSection.show();
         };
         // noinspection JSIgnoredPromiseFromCall
-        send("POST", "http://localhost:3000/users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        ajax("POST", "http://localhost:3000/users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });

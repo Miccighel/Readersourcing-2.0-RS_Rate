@@ -6,9 +6,8 @@
       <change beforePath="$PROJECT_DIR$/src/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/rating.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/shared.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/shared.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/rating.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/rating.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/registration.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -76,11 +75,11 @@
     <session id="-2003408624">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="3" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.5" value="5" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -95,14 +94,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="14" />
-          <entry key="js" value="1231" />
+          <entry key="html" value="220" />
+          <entry key="js" value="2794" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="14" />
-          <entry key="JavaScript" value="1231" />
+          <entry key="HTML" value="220" />
+          <entry key="JavaScript" value="2794" />
         </counts>
       </usages-collector>
     </session>
@@ -115,19 +114,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/rating.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1995">
-              <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+            <state relative-caret-position="357">
+              <caret line="17" column="68" lean-forward="true" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/rating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+            <state relative-caret-position="3843">
+              <caret line="183" column="83" lean-forward="true" selection-start-line="183" selection-start-column="83" selection-end-line="183" selection-end-column="83" />
               <folding>
-                <element signature="e#60#93#0" expanded="true" />
+                <element signature="e#60#99#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -154,8 +153,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1722">
-              <caret line="82" column="3" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
+            <state relative-caret-position="577">
+              <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -174,11 +173,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1323">
-              <caret line="64" column="47" lean-forward="true" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+            <state relative-caret-position="94">
+              <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+              <folding>
+                <element signature="e#59#92#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -201,8 +203,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/shared.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state relative-caret-position="378">
+              <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -242,8 +244,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_locales/it/messages.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+            <state relative-caret-position="105">
+              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -282,6 +284,8 @@
       <find>vendor</find>
       <find>voteSuccc</find>
       <find>reload</find>
+      <find>error</find>
+      <find>errorBu</find>
     </findStrings>
     <replaceStrings>
       <replace>node_modules</replace>
@@ -319,17 +323,17 @@
         <option value="$PROJECT_DIR$/src/css/login.css" />
         <option value="$PROJECT_DIR$/src/css/rating.css" />
         <option value="$PROJECT_DIR$/src/views/options.html" />
-        <option value="$PROJECT_DIR$/src/js/shared.js" />
         <option value="$PROJECT_DIR$/src/js/general.js" />
         <option value="$PROJECT_DIR$/src/css/registration.css" />
         <option value="$PROJECT_DIR$/src/css/general.css" />
         <option value="$PROJECT_DIR$/src/js/background.js" />
         <option value="$PROJECT_DIR$/src/views/login.html" />
-        <option value="$PROJECT_DIR$/src/js/login.js" />
         <option value="$PROJECT_DIR$/src/views/registration.html" />
-        <option value="$PROJECT_DIR$/src/js/registration.js" />
         <option value="$PROJECT_DIR$/src/views/rating.html" />
+        <option value="$PROJECT_DIR$/src/js/login.js" />
+        <option value="$PROJECT_DIR$/src/js/shared.js" />
         <option value="$PROJECT_DIR$/src/js/rating.js" />
+        <option value="$PROJECT_DIR$/src/js/registration.js" />
       </list>
     </option>
   </component>
@@ -359,8 +363,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="102" />
-    <option name="y" value="61" />
+    <option name="x" value="537" />
+    <option name="y" value="7" />
     <option name="width" value="1400" />
     <option name="height" value="880" />
   </component>
@@ -480,11 +484,14 @@
       <workItem from="1533822098777" duration="3216000" />
       <workItem from="1533907241404" duration="6771000" />
       <workItem from="1533915266365" duration="1386000" />
+      <workItem from="1534146006164" duration="11807000" />
+      <workItem from="1534161824632" duration="8279000" />
+      <workItem from="1534170221080" duration="285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109416000" />
+    <option name="totallyTimeSpent" value="129787000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -500,7 +507,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50167596" side_tool="true" weight="0.15351813" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.14818764" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.15298508" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32849163" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -511,7 +518,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32924107" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3298969" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32960895" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -550,13 +557,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/rating (Copia in conflitto di DESKTOP-E9CE9TM 2018-08-10).js" />
-    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/rating.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -571,13 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1722">
-          <caret line="82" column="3" selection-start-line="82" selection-start-column="3" selection-end-line="82" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/login.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -585,13 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
           <caret line="72" column="30" selection-start-line="72" selection-start-column="30" selection-end-line="72" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/registration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="64" column="47" lean-forward="true" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -603,6 +589,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/options.js">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="39" lean-forward="true" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/background.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -630,8 +623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_locales/it/messages.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+        <state relative-caret-position="105">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -649,19 +642,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/shared.js">
+    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        <state relative-caret-position="3843">
+          <caret line="183" column="83" lean-forward="true" selection-start-line="183" selection-start-column="83" selection-end-line="183" selection-end-column="83" />
+          <folding>
+            <element signature="e#60#99#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
+    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="63" column="38" lean-forward="true" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
+        <state relative-caret-position="357">
+          <caret line="17" column="68" lean-forward="true" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/registration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
           <folding>
-            <element signature="e#60#93#0" expanded="true" />
+            <element signature="e#59#92#0" expanded="true" />
           </folding>
         </state>
       </provider>

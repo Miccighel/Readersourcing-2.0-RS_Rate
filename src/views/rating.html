@@ -108,6 +108,11 @@
         </div>
         <div class="row">
             <div class="col-sm-12 text-center">
+                <a href="#" data-toggle="modal" data-target="#modal-delete" id="vote-delete-btn"
+                   class="btn btn-danger mb-3">
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                    Elimina Giudizio
+                </a>
                 <button type="button" id="save-btn" class="btn btn-primary">
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
                     Salva Per Dopo
@@ -124,6 +129,26 @@
         </div>
     </div>
 </section>
+<div id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modal-delete-label" aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modal-delete-label" class="modal-title">Sei sicuro?</h4>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">X</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <button type="button" id="modal-delete-btn" class="btn btn-success">
+                            Conferma
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../node_modules/jquery.cookie/jquery.cookie.js"></script>

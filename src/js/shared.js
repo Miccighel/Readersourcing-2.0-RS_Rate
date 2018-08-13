@@ -8,7 +8,7 @@ export async function deleteToken() {
     Cookies.remove('authToken');
 }
 
-export async function send(type, url, contentType, dataType, crossDomain, data, success, error) {
+export async function ajax(type, url, contentType, dataType, crossDomain, data, success, error) {
     fetchToken().then(function (authToken) {
         $.ajax({
             type: type,
@@ -26,3 +26,19 @@ export async function send(type, url, contentType, dataType, crossDomain, data, 
     });
 }
 
+export async function emptyAjax(type, url, contentType, dataType, crossDomain, success, error) {
+    fetchToken().then(function (authToken) {
+        $.ajax({
+            type: type,
+            url: url,
+            contentType: contentType,
+            dataType: dataType,
+            crossDomain: crossDomain,
+            success: success,
+            error: error,
+            headers: {
+                "Authorization": authToken
+            },
+        });
+    });
+}

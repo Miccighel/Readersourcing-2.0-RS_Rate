@@ -2,15 +2,18 @@
 
 //######## IMPORTS ########//
 
-import {send} from "./shared.js";
 import {fetchToken} from "./shared.js";
 import {deleteToken} from "./shared.js";
+import {ajax} from "./shared.js";
+import {emptyAjax} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
 let buttonsSections = $("#buttons-sect");
 let loginSection = $("#login-sect");
 let ratingSection = $("#rating-sect");
+
+let modalDelete = $("#modal-delete");
 
 //######## UI COMPONENTS ########//
 
@@ -22,9 +25,11 @@ let signUpButton = $("#sign-up-btn");
 let loadButton = $("#load-btn");
 let voteButton = $("#vote-btn");
 let voteSuccessButton = $("#vote-success-btn");
+let voteDeleteButton = $("#vote-delete-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let errorButtons = $(".error-btn");
+let modalDeleteButton = $("#modal-delete-btn");
 
 let signInIcons = $("#sign-in-icon");
 let signOutIcons = $("#sign-out-icon");
@@ -37,6 +42,7 @@ downloadButton.hide();
 loadButton.show();
 voteButton.hide();
 voteSuccessButton.hide();
+voteDeleteButton.hide();
 errorButtons.hide();
 reloadIcons.hide();
 
@@ -57,25 +63,27 @@ fetchToken().then(function (authToken) {
                     loadButton.hide();
                     voteButton.hide();
                     voteSuccessButton.show();
-                    voteSuccessButton.prop("disabled", true)
+                    voteSuccessButton.prop("disabled", true);
+                    voteDeleteButton.show();
                 };
                 // 2.3 Publication has not been rated by the user
                 let secondErrorCallback = function (jqXHR, status) {
                     loadButton.hide();
                     voteButton.show();
                     voteSuccessButton.hide();
+                    voteDeleteButton.hide();
                 };
                 // 2.1 Does the publication has been rated by the logged user?
-                let secondPromise = send("GET", `http://localhost:3000/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, data, secondSuccessCallback, secondErrorCallback);
+                let secondPromise = emptyAjax("GET", `http://localhost:3000/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
             };
             // 1.3 Publication was never rated, so it does not exists on the database
             let errorCallback = function (jqXHR, status) {
-                console.log("here");
                 loadButton.hide();
                 voteButton.show();
+                voteSuccessButton.hide();
             };
             // 1.1 Does the publication exists on the database?
-            let promise = send("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
     }
 });
@@ -140,16 +148,78 @@ voteButton.on("click", function () {
             voteButton.find(reloadIcons).toggle();
             voteButton.hide();
             voteSuccessButton.show();
-            voteSuccessButton.prop("disabled", true)
+            voteSuccessButton.prop("disabled", true);
+            voteDeleteButton.show();
         };
         // 1.3 Error during rating creation
         let errorCallback = function (jqXHR, status) {
+            voteButton.hide();
             let errorButton = voteButton.parent().find(errorButtons);
             errorButton.show();
             errorButton.prop("disabled", true)
         };
         // 1.1 Create a new rating with the selected score
-        let promise = send("POST", "http://localhost:3000/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        let promise = ajax("POST", "http://localhost:3000/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+    });
+});
+
+/////////// RATING DELETE HANDLING ///////////
+
+modalDeleteButton.on("click", function () {
+    modalDelete.modal("hide");
+    voteDeleteButton.find(reloadIcons).toggle();
+    fetchToken().then(function (authToken) {
+        if (authToken != null) {
+            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                let data = {
+                    publication: {
+                        pdf_url: tabs[0].url
+                    }
+                };
+                // 1.2 Publication exists, so it may be rated by the user
+                let successCallback = function (data, status, jqXHR) {
+                    // 2.2 Publication has been rated by the user
+                    let secondSuccessCallback = function (data, status, jqXHR) {
+                        // 3.2 The rating given by the logged user gets finally deleted
+                        let thirdSuccessCallback = function (data, status, jqXHR) {
+                            loadButton.hide();
+                            voteDeleteButton.hide();
+                            voteDeleteButton.find(reloadIcons).toggle();
+                            voteSuccessButton.hide();
+                            voteButton.show()
+                        };
+                        // 3.3 The rating given by the user could not be deleted
+                        let thirdErrorCallback = function (jqXHR, status) {
+                            voteDeleteButton.hide();
+                            let errorButton = voteButton.parent().find(errorButtons);
+                            errorButton.show();
+                        };
+                        // 3.1 The publication exists and a rating has been found for the logged user, so his rating may be deleted
+                        let thirdPremise = emptyAjax("DELETE", `http://localhost:3000/ratings/${data["id"]}.json`, "application/json; charset=utf-8", "text", true, thirdSuccessCallback, thirdErrorCallback)
+                    };
+                    // 2.3 Publication has not been rated by the user
+                    let secondErrorCallback = function (jqXHR, status) {
+                        loadButton.hide();
+                        voteSuccessButton.hide();
+                        voteDeleteButton.hide();
+                        voteDeleteButton.find(reloadIcons).toggle();
+                        voteButton.show();
+                    };
+                    // 2.1 Does the publication has been rated by the logged user?
+                    let secondPromise = emptyAjax("GET", `http://localhost:3000/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
+                };
+                // 1.3 Publication was never rated, so it does not exists on the database
+                let errorCallback = function (jqXHR, status) {
+                    loadButton.hide();
+                    voteSuccessButton.hide();
+                    voteDeleteButton.hide();
+                    voteDeleteButton.find(reloadIcons).toggle();
+                    voteButton.show();
+                };
+                // 1.1 Does the publication exists on the database?
+                let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            });
+        }
     });
 });
 
@@ -176,6 +246,6 @@ saveButton.on("click", function () {
             errorButton.show();
             errorButton.prop("disabled", true)
         };
-        let promise = send("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        let promise = ajax("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     });
 });
