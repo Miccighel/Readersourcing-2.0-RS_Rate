@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/rating.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/shared.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/shared.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/rating.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/rating.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -75,11 +71,11 @@
     <session id="-2003408624">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="5" />
+          <entry key="project.open.time.5" value="6" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -94,14 +90,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="220" />
-          <entry key="js" value="2794" />
+          <entry key="html" value="235" />
+          <entry key="js" value="2818" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="220" />
-          <entry key="JavaScript" value="2794" />
+          <entry key="HTML" value="235" />
+          <entry key="JavaScript" value="2818" />
         </counts>
       </usages-collector>
     </session>
@@ -114,17 +110,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/rating.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="68" lean-forward="true" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
+            <state relative-caret-position="315">
+              <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/rating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3843">
-              <caret line="183" column="83" lean-forward="true" selection-start-line="183" selection-start-column="83" selection-end-line="183" selection-end-column="83" />
+            <state relative-caret-position="4830">
+              <caret line="230" column="26" lean-forward="true" selection-start-line="230" selection-start-column="26" selection-end-line="230" selection-end-column="26" />
               <folding>
                 <element signature="e#60#99#0" expanded="true" />
               </folding>
@@ -153,7 +149,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
+            <state relative-caret-position="1638">
               <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
             </state>
           </provider>
@@ -173,10 +169,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
+            <state relative-caret-position="409">
               <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
               <folding>
                 <element signature="e#59#92#0" expanded="true" />
@@ -286,6 +282,7 @@
       <find>reload</find>
       <find>error</find>
       <find>errorBu</find>
+      <find>download</find>
     </findStrings>
     <replaceStrings>
       <replace>node_modules</replace>
@@ -329,11 +326,11 @@
         <option value="$PROJECT_DIR$/src/js/background.js" />
         <option value="$PROJECT_DIR$/src/views/login.html" />
         <option value="$PROJECT_DIR$/src/views/registration.html" />
-        <option value="$PROJECT_DIR$/src/views/rating.html" />
         <option value="$PROJECT_DIR$/src/js/login.js" />
         <option value="$PROJECT_DIR$/src/js/shared.js" />
-        <option value="$PROJECT_DIR$/src/js/rating.js" />
         <option value="$PROJECT_DIR$/src/js/registration.js" />
+        <option value="$PROJECT_DIR$/src/views/rating.html" />
+        <option value="$PROJECT_DIR$/src/js/rating.js" />
       </list>
     </option>
   </component>
@@ -376,6 +373,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -398,7 +396,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -487,11 +484,12 @@
       <workItem from="1534146006164" duration="11807000" />
       <workItem from="1534161824632" duration="8279000" />
       <workItem from="1534170221080" duration="285000" />
+      <workItem from="1534241664907" duration="694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129787000" />
+    <option name="totallyTimeSpent" value="130481000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -507,7 +505,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50167596" side_tool="true" weight="0.15351813" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.15298508" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.15458423" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32849163" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -568,6 +566,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1134">
           <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -642,36 +647,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
+    <entry file="file://$PROJECT_DIR$/src/js/registration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3843">
-          <caret line="183" column="83" lean-forward="true" selection-start-line="183" selection-start-column="83" selection-end-line="183" selection-end-column="83" />
+        <state relative-caret-position="409">
+          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
           <folding>
-            <element signature="e#60#99#0" expanded="true" />
+            <element signature="e#59#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/rating.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="68" lean-forward="true" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
+        <state relative-caret-position="315">
+          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/login.js">
+    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="78" column="10" selection-start-line="78" selection-start-column="10" selection-end-line="78" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/registration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="74" column="45" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+        <state relative-caret-position="4830">
+          <caret line="230" column="26" lean-forward="true" selection-start-line="230" selection-start-column="26" selection-end-line="230" selection-end-column="26" />
           <folding>
-            <element signature="e#59#92#0" expanded="true" />
+            <element signature="e#60#99#0" expanded="true" />
           </folding>
         </state>
       </provider>
