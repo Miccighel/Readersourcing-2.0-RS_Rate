@@ -13,6 +13,7 @@ let buttonsSections = $("#buttons-sect");
 let loginSection = $("#login-sect");
 let ratingSection = $("#rating-sect");
 
+let modalProfile = $("#modal-profile");
 let modalDelete = $("#modal-delete");
 
 //######## UI COMPONENTS ########//
@@ -21,6 +22,7 @@ let ratingSlider = $("#rating-slider");
 
 let loginButton = $("#login-btn");
 let logoutButton = $("#logout-btn");
+let profileButton = $("#profile-btn");
 let signUpButton = $("#sign-up-btn");
 let loadButton = $("#load-btn");
 let voteButton = $("#vote-btn");
@@ -29,11 +31,13 @@ let voteDeleteButton = $("#vote-delete-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let errorButtons = $(".error-btn");
+let modalPasswordEditButton = $("#modal-password-edit-btn");
 let modalDeleteButton = $("#modal-delete-btn");
 
-let signInIcons = $("#sign-in-icon");
-let signOutIcons = $("#sign-out-icon");
-let signUpIcons = $("#sign-up-icon");
+let signInIcon = $("#sign-in-icon");
+let signOutIcon = $("#sign-out-icon");
+let signUpIcon = $("#sign-up-icon");
+let profileIcon = $("#profile-icon");
 let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
@@ -45,6 +49,18 @@ voteSuccessButton.hide();
 voteDeleteButton.hide();
 errorButtons.hide();
 reloadIcons.hide();
+
+fetchToken().then(function (authToken) {
+    if (authToken != null) {
+        loginSection.hide();
+        buttonsSections.show();
+        ratingSection.show();
+    } else {
+        loginSection.show();
+        buttonsSections.hide();
+        ratingSection.hide();
+    }
+});
 
 ////////// PUBLICATION STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, ...) //////////
 
@@ -90,40 +106,36 @@ fetchToken().then(function (authToken) {
 
 ////////// LOGIN HANDLING //////////
 
-fetchToken().then(function (authToken) {
-    if (authToken != null) {
-        loginSection.hide();
-        buttonsSections.show();
-        ratingSection.show();
-    } else {
-        loginSection.show();
-        buttonsSections.hide();
-        ratingSection.hide();
-    }
-});
-
-////////// LOGIN HANDLING //////////
-
 loginButton.on("click", function () {
     loginButton.find(reloadIcons).toggle();
-    loginButton.find(signInIcons).toggle();
+    loginButton.find(signInIcon).toggle();
 });
 
 ////////// LOGOUT HANDLING //////////
 
 logoutButton.on("click", function () {
     logoutButton.find(reloadIcons).toggle();
-    logoutButton.find(signOutIcons).toggle();
+    logoutButton.find(signOutIcon).toggle();
     deleteToken().then(function () {
         location.reload()
     });
 });
 
+/////////// PASSWORD EDIT HANDLING ///////////
+
+modalPasswordEditButton.on("click", function () {
+    modalProfile.modal("hide");
+    profileButton.find(profileIcon).toggle();
+    profileButton.find(reloadIcons).toggle();
+    window.location = "password.html";
+});
+
+
 ////////// REGISTRATION HANDLING //////////
 
 signUpButton.on("click", function () {
     signUpButton.find(reloadIcons).toggle();
-    signUpButton.find(signUpIcons).toggle();
+    signUpButton.find(signUpIcon).toggle();
 });
 
 ////////// RATING HANDLING //////////

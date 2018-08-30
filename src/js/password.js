@@ -1,88 +1,78 @@
-////////// INIT //////////
+////////// INIT  //////////
 
 //######## IMPORTS ########//
 
-import {ajax} from "./shared.js";
+import {fetchToken} from "./shared.js";
 import {deleteToken} from "./shared.js";
+import {ajax} from "./shared.js";
+import {emptyAjax} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
-let registrationForm = $("#sign-up-form");
+let passwordEditForm = $("#password-edit-form");
 
 let errorsSection = $("#errors-sect");
+let buttonsSections = $("#buttons-sect");
 
 //######## UI COMPONENTS ########//
 
-let firstNameField = $("#first-name");
-let lastNameField = $("#last-name");
-let emailField = $("#email");
-let orcidField = $("#orcid");
 let passwordField = $("#password");
 let passwordConfirmationField = $("#password-confirmation");
 
 let backButton = $("#back-btn");
-let registrationButton = $("#sign-up-btn");
+let passwordEditButton = $("#password-edit-btn");
 let errorButton = $(".error-btn");
 
 let alert = $(".alert");
 
 let backIcon = $("#back-icon");
-let signUpIcon = $("#sign-up-icon");
-let reloadIcon = $(".reload-icon");
+let checkIcon = $("#check-icon");
+let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
 errorsSection.hide();
 errorButton.hide();
-reloadIcon.hide();
-
-//######## UTILITY FUNCTIONS ########//
-
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
+reloadIcons.hide();
 
 ////////// GO BACK HANDLING //////////
 
 backButton.on("click", function () {
-    backButton.find(reloadIcon).toggle();
+    backButton.find(reloadIcons).toggle();
     backButton.find(backIcon).toggle();
     window.history.back()
 });
 
-////////// REGISTRATION HANDLING //////////
+////////// PASSWORD EDIT HANDLING //////////
 
-let validationInstance = registrationForm.parsley();
+let validationInstance = passwordEditForm.parsley();
 
-registrationForm.submit(function (event) {
+passwordEditForm.submit(function (event) {
     event.preventDefault();
 });
 
-registrationButton.on("click", function () {
+passwordEditButton.on("click", function () {
     if (validationInstance.isValid()) {
-        registrationButton.find(signUpIcon).toggle();
-        registrationButton.find(reloadIcon).toggle();
+        passwordEditButton.find(checkIcon).toggle();
+        passwordEditButton.find(reloadIcons).toggle();
         let data = {
             user: {
-                first_name: firstNameField.val(),
-                last_name: lastNameField.val(),
-                email: emailField.val(),
-                orcid: orcidField.val(),
                 password: passwordField.val(),
                 password_confirmation: passwordConfirmationField.val()
             }
         };
         let successCallback = function (data, status, jqXHR) {
-            registrationButton.find(reloadIcon).toggle();
+            passwordEditButton.find(reloadIcons).toggle();
             deleteToken().then(function () {
+                localStorage.setItem("message", data["message"]);
                 window.location.href = "login.html";
             });
         };
         let errorCallback = function (jqXHR, status) {
-            registrationButton.find(reloadIcon).toggle();
+            passwordEditButton.find(reloadIcons).toggle();
             if (jqXHR.responseText == null) {
-                registrationButton.hide();
-                let button = registrationButton.parent().find(errorButton);
+                passwordEditButton.hide();
+                let button = passwordEditButton.parent().find(errorButton);
                 button.show();
                 button.prop("disabled", true)
             } else {
@@ -100,13 +90,13 @@ registrationButton.on("click", function () {
                         element = `${element}</ul>`;
                     }
                 }
+                if (errorsSection.find(alert).children().length < 1) {
+                    errorsSection.find(alert).append(element);
+                }
+                errorsSection.show();
             }
-            if (errorsSection.find(alert).children().length < 1) {
-                errorsSection.find(alert).append(element);
-            }
-            errorsSection.show();
         };
         // noinspection JSIgnoredPromiseFromCall
-        ajax("POST", "http://localhost:3000/users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        ajax("POST", "http://localhost:3000/users/password.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });

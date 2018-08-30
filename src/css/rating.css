@@ -15,3 +15,15 @@ body, html {
     background-image: -o-linear-gradient(top, #467fbf 0%, #467fbf 100%) !important;
     background-image: linear-gradient(to bottom, #467fbf 0%, #467fbf 100%) !important;
 }
+
+/* ////////// TOP BUTTONS SECTION ////////// */
+
+button#logout-btn {
+    padding-left: 26%;
+}
+
+a#profile-btn {
+    color: white;
+    width: 100%;
+    border: 0 !important;
+}

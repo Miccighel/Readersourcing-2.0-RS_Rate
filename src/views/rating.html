@@ -14,24 +14,36 @@
 </head>
 <body>
 <section id="buttons-sect">
-    <div class="btn-group fixed-top">
-        <button type="button" id="logout-btn" class="btn btn-primary">
-            Logout
-            <i id="sign-out-icon" class="fa fa-sign-out"></i>
-            <i class="fa fa-refresh fa-spin reload-icon"></i>
-        </button>
+    <div class="container fixed-top">
+        <div class="row">
+            <div class="col-10 p-0 btn-group">
+                <button type="button" id="logout-btn" class="btn btn-primary">
+                    Logout
+                    <i id="sign-out-icon" class="fa fa-sign-out"></i>
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                </button>
+            </div>
+            <div class="col-2 p-0 btn-group">
+                <a href="#" data-toggle="modal" data-target="#modal-profile" id="profile-btn"
+                   class="btn btn-primary">
+                    <i id="profile-icon" class="fa fa-user"></i>
+                    <i class="fa fa-refresh fa-spin reload-icon"></i>
+                </a>
+            </div>
+        </div>
     </div>
+    @
 </section>
 <section id="login-sect" class="bar bg-gray-dark no-mb color-white">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 heading text-center">
+            <div class="col-12 heading text-center">
                 <h1>R@SM</h1>
                 <p class="lead mb-0">Accedi alla pagine di login o registrazione</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 text-center">
+            <div class="col-12 text-center">
                 <a href="login.html" id="login-btn" class="btn btn-primary">
                     Vai al login
                     <i id="sign-in-icon" class="fa fa-sign-in"></i>
@@ -40,12 +52,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center mt-3">
+            <div class="col-12 text-center mt-3">
                 <h4>Oppure</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 text-center">
+            <div class="col-12 text-center">
                 <a href="registration.html" id="sign-up-btn" class="btn btn-primary">
                     Registrati
                     <i id="sign-up-icon" class="fa fa-user-plus"></i>
@@ -58,13 +70,13 @@
 <section id="rating-sect" class="bar bg-gray-dark no-mb color-white">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 heading text-center">
+            <div class="col-12 heading text-center">
                 <h1>R@SM</h1>
                 <p class="lead mb-0">Assegna un voto a questa pubblicazione.</p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-12 text-center">
                 <input
                         id="rating-slider"
                         data-slider-id='ratingSlider'
@@ -78,12 +90,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center mt-3">
+            <div class="col-12 text-center mt-3">
                 <h1 id="rating-text"><span id="rating-text-value">50</span></h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 text-center">
+            <div class="col-12 text-center">
                 <button type="button" id="load-btn" class="btn btn-primary">
                     <i class="fa fa-refresh fa-spin"></i>
                 </button>
@@ -102,12 +114,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 text-center mt-3">
+            <div class="col-12 text-center mt-3">
                 <h4>Oppure</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 text-center">
+            <div class="col-12 text-center">
                 <a href="#" data-toggle="modal" data-target="#modal-delete" id="vote-delete-btn"
                    class="btn btn-danger mb-3">
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
@@ -135,13 +147,35 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 id="modal-delete-label" class="modal-title">Sei sicuro?</h4>
-                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">X</span></button>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+                        aria-hidden="true">X</span></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12 text-center">
                         <button type="button" id="modal-delete-btn" class="btn btn-success">
                             Conferma
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="modal-profile-label" aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modal-profile-label" class="modal-title">Utente</h4>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+                        aria-hidden="true">X</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <button type="button" id="modal-password-edit-btn" class="btn btn-success">
+                            Modifica Password
                         </button>
                     </div>
                 </div>
