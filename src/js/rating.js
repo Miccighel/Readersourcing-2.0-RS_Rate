@@ -127,7 +127,7 @@ modalPasswordEditButton.on("click", function () {
     modalProfile.modal("hide");
     profileButton.find(profileIcon).toggle();
     profileButton.find(reloadIcons).toggle();
-    window.location = "password.html";
+    window.location = "password_update.html";
 });
 
 

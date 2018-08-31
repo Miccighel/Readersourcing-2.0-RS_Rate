@@ -2,25 +2,21 @@
 
 //######## IMPORTS ########//
 
-import {fetchToken} from "./shared.js";
 import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
-import {emptyAjax} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
-let passwordEditForm = $("#password-edit-form");
+let passwordForgotForm = $("#password-forgot-form");
 
 let errorsSection = $("#errors-sect");
-let buttonsSections = $("#buttons-sect");
 
 //######## UI COMPONENTS ########//
 
-let passwordField = $("#password");
-let passwordConfirmationField = $("#password-confirmation");
+let emailField = $("#email");
 
 let backButton = $("#back-btn");
-let passwordEditButton = $("#password-edit-btn");
+let passwordForgotButton = $("#password-forgot-btn");
 let errorButton = $(".error-btn");
 
 let alert = $(".alert");
@@ -40,39 +36,36 @@ reloadIcons.hide();
 backButton.on("click", function () {
     backButton.find(reloadIcons).toggle();
     backButton.find(backIcon).toggle();
-    window.history.back()
+    window.location.href = "login.html";
 });
 
 ////////// PASSWORD EDIT HANDLING //////////
 
-let validationInstance = passwordEditForm.parsley();
+let validationInstance = passwordForgotForm.parsley();
 
-passwordEditForm.submit(function (event) {
+passwordForgotForm.submit(function (event) {
     event.preventDefault();
 });
 
-passwordEditButton.on("click", function () {
+passwordForgotButton.on("click", function () {
     if (validationInstance.isValid()) {
-        passwordEditButton.find(checkIcon).toggle();
-        passwordEditButton.find(reloadIcons).toggle();
+        passwordForgotButton.find(checkIcon).toggle();
+        passwordForgotButton.find(reloadIcons).toggle();
         let data = {
-            user: {
-                password: passwordField.val(),
-                password_confirmation: passwordConfirmationField.val()
-            }
+            email: emailField.val(),
         };
         let successCallback = function (data, status, jqXHR) {
-            passwordEditButton.find(reloadIcons).toggle();
+            passwordForgotButton.find(reloadIcons).toggle();
             deleteToken().then(function () {
                 localStorage.setItem("message", data["message"]);
                 window.location.href = "login.html";
             });
         };
         let errorCallback = function (jqXHR, status) {
-            passwordEditButton.find(reloadIcons).toggle();
+            passwordForgotButton.find(reloadIcons).toggle();
             if (jqXHR.responseText == null) {
-                passwordEditButton.hide();
-                let button = passwordEditButton.parent().find(errorButton);
+                passwordForgotButton.hide();
+                let button = passwordForgotButton.parent().find(errorButton);
                 button.show();
                 button.prop("disabled", true)
             } else {
@@ -97,6 +90,6 @@ passwordEditButton.on("click", function () {
             }
         };
         // noinspection JSIgnoredPromiseFromCall
-        ajax("POST", "http://localhost:3000/users/password.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        ajax("POST", "http://localhost:3000/password/forgot.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });

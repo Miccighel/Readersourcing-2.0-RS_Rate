@@ -50,7 +50,7 @@ String.prototype.capitalize = function () {
 backButton.on("click", function () {
     backButton.find(reloadIcon).toggle();
     backButton.find(backIcon).toggle();
-    window.history.back()
+    window.location.href = "rating.html";
 });
 
 ////////// LOGIN HANDLING //////////
