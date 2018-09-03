@@ -248,7 +248,9 @@ saveButton.on("click", function () {
         let successCallback = function (data, status, jqXHR) {
             saveButton.find(reloadIcons).toggle();
             saveButton.hide();
-            downloadButton.before("<br/>");
+            if(voteDeleteButton.is(":visible")) {
+                downloadButton.before("<br/>");
+            }
             downloadButton.show();
             downloadButton.attr("href", `http://localhost:3000/${data["pdf_download_url_link"]}`);
         };
