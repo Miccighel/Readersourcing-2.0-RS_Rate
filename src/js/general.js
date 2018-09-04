@@ -1,3 +1,21 @@
+////////// INIT  //////////
+
+//######## CONTENT SECTIONS ########//
+
+let preloaderSection = $("#preloader");
+
+//######## UI COMPONENTS ########//
+
+let loadingAnimation = $("#wheel");
+
+//######## PAGE LOADING HANDLING ########//
+
+$(window).on('load', function() {
+    $(loadingAnimation).fadeOut();
+    $(preloaderSection).delay(500).fadeOut('slow');
+    $('body').delay(500).css({'overflow':'visible'});
+});
+
 ////////// PARSLEY CLIENT SIDE VALIDATION SETUP //////////
 
 Parsley.addMessages('it', {
