@@ -100,11 +100,11 @@ registrationButton.on("click", function () {
                         element = `${element}</ul>`;
                     }
                 }
+                if (errorsSection.find(alert).children().length < 1) {
+                    errorsSection.find(alert).append(element);
+                }
+                errorsSection.show();
             }
-            if (errorsSection.find(alert).children().length < 1) {
-                errorsSection.find(alert).append(element);
-            }
-            errorsSection.show();
         };
         // noinspection JSIgnoredPromiseFromCall
         ajax("POST", "http://localhost:3000/users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);

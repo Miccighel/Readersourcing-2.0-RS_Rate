@@ -39,6 +39,12 @@ backButton.on("click", function () {
     window.location.href = "login.html";
 });
 
+//######## UTILITY FUNCTIONS ########//
+
+String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 ////////// PASSWORD EDIT HANDLING //////////
 
 let validationInstance = passwordForgotForm.parsley();
@@ -74,10 +80,11 @@ passwordForgotButton.on("click", function () {
                 for (let attribute in errors) {
                     if (errors.hasOwnProperty(attribute)) {
                         let array = errors[attribute];
-                        element = `${element}<br/>${attribute.capitalize()}: <ul>`;
+                        element = `<ul>`;
                         for (let index in array) {
                             if (array.hasOwnProperty(index)) {
-                                element = `${element}<li>${array[index].capitalize()}</li>`;
+                                console.log(array[index]);
+                                element = `${element}<li>${array[index].message.capitalize()}</li>`;
                             }
                         }
                         element = `${element}</ul>`;

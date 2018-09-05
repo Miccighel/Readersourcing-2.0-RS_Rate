@@ -19,8 +19,8 @@ let backButton = $("#back-btn");
 let loginButton = $("#login-btn");
 let errorButton = $(".error-btn");
 
+let alert = $(".alert");
 let alertSuccess = $(".alert-success");
-let alertDanger = $(".alert-danger");
 
 let backIcon = $("#back-icon");
 let signInIcon = $("#sign-in-icon");
@@ -83,16 +83,20 @@ loginButton.on("click", function () {
             } else {
                 let errors = JSON.parse(jqXHR.responseText);
                 let element = "";
-                for (let attribute in errors['error']) {
-                    let array = errors['error'][attribute];
-                    element = `${element}<br/>${attribute.capitalize()}: <ul>`;
-                    for (let index in array) {
-                        element = `${element}<li>${array[index].capitalize()}</li>`;
+                for (let attribute in errors) {
+                    if (errors.hasOwnProperty(attribute)) {
+                        let array = errors[attribute];
+                        element = `<ul>`;
+                        for (let index in array) {
+                            if (array.hasOwnProperty(index)) {
+                                element = `${element}<li>${array[index].message.capitalize()}</li>`;
+                            }
+                        }
+                        element = `${element}</ul>`;
                     }
-                    element = `${element}</ul>`;
                 }
-                if (errorsSection.find(alertDanger).children().length < 1) {
-                    errorsSection.find(alertDanger).append(element);
+                if (errorsSection.find(alert).children().length < 1) {
+                    errorsSection.find(alert).append(element);
                 }
                 errorsSection.show();
             }
