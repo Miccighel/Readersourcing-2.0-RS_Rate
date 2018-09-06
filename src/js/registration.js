@@ -80,6 +80,7 @@ registrationButton.on("click", function () {
         };
         let errorCallback = function (jqXHR, status) {
             registrationButton.find(reloadIcon).toggle();
+            registrationButton.find(signUpIcon).toggle();
             if (jqXHR.responseText == null) {
                 registrationButton.hide();
                 let button = registrationButton.parent().find(errorButton);

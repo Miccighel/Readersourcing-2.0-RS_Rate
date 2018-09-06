@@ -68,6 +68,7 @@ passwordForgotButton.on("click", function () {
             });
         };
         let errorCallback = function (jqXHR, status) {
+            passwordForgotButton.find(checkIcon).toggle();
             passwordForgotButton.find(reloadIcons).toggle();
             if (jqXHR.responseText == null) {
                 passwordForgotButton.hide();

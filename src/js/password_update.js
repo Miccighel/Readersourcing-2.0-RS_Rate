@@ -70,6 +70,7 @@ passwordEditButton.on("click", function () {
             });
         };
         let errorCallback = function (jqXHR, status) {
+            passwordEditButton.find(checkIcon).toggle();
             passwordEditButton.find(reloadIcons).toggle();
             if (jqXHR.responseText == null) {
                 passwordEditButton.hide();
