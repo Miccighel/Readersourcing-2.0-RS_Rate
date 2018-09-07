@@ -99,10 +99,14 @@
                 <button type="button" id="load-btn" class="btn btn-primary">
                     <i class="fa fa-refresh fa-spin"></i>
                 </button>
-                <button type="button" id="vote-btn" class="btn btn-primary">
+                <button type="button" id="vote-btn" class="btn btn-success">
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
                     Rate
                 </button>
+                <a href="#" data-toggle="modal" data-target="#modal-configuration" id="configure-btn"
+                   class="btn btn-primary">
+                    <i class="fa fa-cog"></i>
+                </a>
                 <button type="button" id="vote-success-btn" class="btn btn-success">
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
                     Your rating has been saved
@@ -141,27 +145,6 @@
         </div>
     </div>
 </section>
-<div id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modal-delete-label" aria-hidden="true"
-     class="modal fade">
-    <div role="document" class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 id="modal-delete-label" class="modal-title">Are you sure?</h4>
-                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
-                        aria-hidden="true">X</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12 text-center">
-                        <button type="button" id="modal-delete-btn" class="btn btn-success">
-                            Confirm
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="modal-profile-label" aria-hidden="true"
      class="modal fade">
     <div role="document" class="modal-dialog">
@@ -173,9 +156,64 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-sm-12 text-center">
+                    <div class="col-12 text-center">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
                         <button type="button" id="modal-password-edit-btn" class="btn btn-success">
                             Edit Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-configuration" tabindex="-1" role="dialog" aria-labelledby="modal-profile-label" aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modal-options-label" class="modal-title">Rating Config</h4>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+                        aria-hidden="true">X</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <input class="form-check-input" type="checkbox" value="" id="anonymize-check">
+                        <label class="form-check-label" for="anonymize-check">
+                            Anonymize
+                        </label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 text-center">
+                        <button type="button" id="configuration-save-btn" class="btn btn-success">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modal-delete-label" aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modal-delete-label" class="modal-title">Are you sure?</h4>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+                        aria-hidden="true">X</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="button" id="modal-delete-btn" class="btn btn-success">
+                            Confirm
                         </button>
                     </div>
                 </div>

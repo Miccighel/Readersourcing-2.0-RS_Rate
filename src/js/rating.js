@@ -14,6 +14,7 @@ let loginSection = $("#login-sect");
 let ratingSection = $("#rating-sect");
 
 let modalProfile = $("#modal-profile");
+let modalConfigure = $("#modal-configuration");
 let modalDelete = $("#modal-delete");
 
 //######## UI COMPONENTS ########//
@@ -28,11 +29,15 @@ let loadButton = $("#load-btn");
 let voteButton = $("#vote-btn");
 let voteSuccessButton = $("#vote-success-btn");
 let voteDeleteButton = $("#vote-delete-btn");
+let configureButton = $("#configure-btn");
+let configureSaveButton = $("#configuration-save-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let errorButtons = $(".error-btn");
 let modalPasswordEditButton = $("#modal-password-edit-btn");
 let modalDeleteButton = $("#modal-delete-btn");
+
+let anonymizeCheckbox = $("#anonymize-check");
 
 let signInIcon = $("#sign-in-icon");
 let signOutIcon = $("#sign-out-icon");
@@ -78,6 +83,7 @@ fetchToken().then(function (authToken) {
                 let secondSuccessCallback = function (data, status, jqXHR) {
                     loadButton.hide();
                     voteButton.hide();
+                    configureButton.hide();
                     voteSuccessButton.show();
                     voteSuccessButton.prop("disabled", true);
                     voteDeleteButton.show();
@@ -86,6 +92,7 @@ fetchToken().then(function (authToken) {
                 let secondErrorCallback = function (jqXHR, status) {
                     loadButton.hide();
                     voteButton.show();
+                    configureButton.show();
                     voteSuccessButton.hide();
                     voteDeleteButton.hide();
                 };
@@ -96,6 +103,7 @@ fetchToken().then(function (authToken) {
             let errorCallback = function (jqXHR, status) {
                 loadButton.hide();
                 voteButton.show();
+                configureButton.show();
                 voteSuccessButton.hide();
             };
             // 1.1 Does the publication exists on the database?
@@ -152,13 +160,16 @@ voteButton.on("click", function () {
         let data = {
             rating: {
                 score: score,
-                pdf_url: tabs[0].url
+                pdf_url: tabs[0].url,
+                anonymous: anonymizeCheckbox.is(':checked')
             }
         };
+        console.log(data);
         // 1.2 Rating created successfully
         let successCallback = function (data, status, jqXHR) {
             voteButton.find(reloadIcons).toggle();
             voteButton.hide();
+            configureButton.hide();
             voteSuccessButton.show();
             voteSuccessButton.prop("disabled", true);
             voteDeleteButton.show();
@@ -166,6 +177,7 @@ voteButton.on("click", function () {
         // 1.3 Error during rating creation
         let errorCallback = function (jqXHR, status) {
             voteButton.hide();
+            configureButton.hide();
             let errorButton = voteButton.parent().find(errorButtons);
             errorButton.show();
             errorButton.prop("disabled", true)
@@ -173,6 +185,12 @@ voteButton.on("click", function () {
         // 1.1 Create a new rating with the selected score
         let promise = ajax("POST", "http://localhost:3000/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     });
+});
+
+////////// RATING CONFIGURATION HANDLING //////////
+
+configureSaveButton.on("click", function () {
+    modalConfigure.modal("hide");
 });
 
 /////////// RATING DELETE HANDLING ///////////
@@ -198,7 +216,8 @@ modalDeleteButton.on("click", function () {
                             voteDeleteButton.hide();
                             voteDeleteButton.find(reloadIcons).toggle();
                             voteSuccessButton.hide();
-                            voteButton.show()
+                            voteButton.show();
+                            configureButton.show();
                         };
                         // 3.3 The rating given by the user could not be deleted
                         let thirdErrorCallback = function (jqXHR, status) {
@@ -216,6 +235,7 @@ modalDeleteButton.on("click", function () {
                         voteDeleteButton.hide();
                         voteDeleteButton.find(reloadIcons).toggle();
                         voteButton.show();
+                        configureButton.show();
                     };
                     // 2.1 Does the publication has been rated by the logged user?
                     let secondPromise = emptyAjax("GET", `http://localhost:3000/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
@@ -227,6 +247,7 @@ modalDeleteButton.on("click", function () {
                     voteDeleteButton.hide();
                     voteDeleteButton.find(reloadIcons).toggle();
                     voteButton.show();
+                    configureButton.show();
                 };
                 // 1.1 Does the publication exists on the database?
                 let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
