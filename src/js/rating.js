@@ -12,6 +12,7 @@ import {emptyAjax} from "./shared.js";
 let buttonsSections = $("#buttons-sect");
 let loginSection = $("#login-sect");
 let ratingSection = $("#rating-sect");
+let scoreSection = $("#score-sect");
 
 let modalProfile = $("#modal-profile");
 let modalConfigure = $("#modal-configuration");
@@ -28,7 +29,7 @@ let signUpButton = $("#sign-up-btn");
 let loadButton = $("#load-btn");
 let voteButton = $("#vote-btn");
 let voteSuccessButton = $("#vote-success-btn");
-let voteDeleteButton = $("#vote-delete-btn");
+// let voteDeleteButton = $("#vote-delete-btn");
 let configureButton = $("#configure-btn");
 let configureSaveButton = $("#configuration-save-btn");
 let saveButton = $("#save-btn");
@@ -36,6 +37,8 @@ let downloadButton = $("#download-btn");
 let errorButtons = $(".error-btn");
 let modalPasswordEditButton = $("#modal-password-edit-btn");
 let modalDeleteButton = $("#modal-delete-btn");
+
+let qualityScoreValue = $("#quality-score-val");
 
 let anonymizeCheckbox = $("#anonymize-check");
 
@@ -51,7 +54,7 @@ downloadButton.hide();
 loadButton.show();
 voteButton.hide();
 voteSuccessButton.hide();
-voteDeleteButton.hide();
+// voteDeleteButton.hide();
 errorButtons.hide();
 reloadIcons.hide();
 
@@ -60,10 +63,12 @@ fetchToken().then(function (authToken) {
         loginSection.hide();
         buttonsSections.show();
         ratingSection.show();
+        scoreSection.show();
     } else {
         loginSection.show();
         buttonsSections.hide();
         ratingSection.hide();
+        scoreSection.hide();
     }
 });
 
@@ -79,6 +84,7 @@ fetchToken().then(function (authToken) {
             };
             // 1.2 Publication exists, so it may be rated by the user
             let successCallback = function (data, status, jqXHR) {
+                qualityScoreValue.text((data["score"]*100).toFixed(2));
                 // 2.2 Publication has been rated by the user
                 let secondSuccessCallback = function (data, status, jqXHR) {
                     loadButton.hide();
@@ -86,7 +92,7 @@ fetchToken().then(function (authToken) {
                     configureButton.hide();
                     voteSuccessButton.show();
                     voteSuccessButton.prop("disabled", true);
-                    voteDeleteButton.show();
+                    // voteDeleteButton.show();
                 };
                 // 2.3 Publication has not been rated by the user
                 let secondErrorCallback = function (jqXHR, status) {
@@ -94,7 +100,7 @@ fetchToken().then(function (authToken) {
                     voteButton.show();
                     configureButton.show();
                     voteSuccessButton.hide();
-                    voteDeleteButton.hide();
+                    // voteDeleteButton.hide();
                 };
                 // 2.1 Does the publication has been rated by the logged user?
                 let secondPromise = emptyAjax("GET", `http://localhost:3000/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
@@ -105,6 +111,7 @@ fetchToken().then(function (authToken) {
                 voteButton.show();
                 configureButton.show();
                 voteSuccessButton.hide();
+                qualityScoreValue.text("...");
             };
             // 1.1 Does the publication exists on the database?
             let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
@@ -164,7 +171,6 @@ voteButton.on("click", function () {
                 anonymous: anonymizeCheckbox.is(':checked')
             }
         };
-        console.log(data);
         // 1.2 Rating created successfully
         let successCallback = function (data, status, jqXHR) {
             voteButton.find(reloadIcons).toggle();
@@ -172,7 +178,7 @@ voteButton.on("click", function () {
             configureButton.hide();
             voteSuccessButton.show();
             voteSuccessButton.prop("disabled", true);
-            voteDeleteButton.show();
+            // voteDeleteButton.show();
         };
         // 1.3 Error during rating creation
         let errorCallback = function (jqXHR, status) {
@@ -197,7 +203,7 @@ configureSaveButton.on("click", function () {
 
 modalDeleteButton.on("click", function () {
     modalDelete.modal("hide");
-    voteDeleteButton.find(reloadIcons).toggle();
+    // voteDeleteButton.find(reloadIcons).toggle();
     fetchToken().then(function (authToken) {
         if (authToken != null) {
             chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
@@ -213,15 +219,15 @@ modalDeleteButton.on("click", function () {
                         // 3.2 The rating given by the logged user gets finally deleted
                         let thirdSuccessCallback = function (data, status, jqXHR) {
                             loadButton.hide();
-                            voteDeleteButton.hide();
-                            voteDeleteButton.find(reloadIcons).toggle();
+                            // voteDeleteButton.hide();
+                            // voteDeleteButton.find(reloadIcons).toggle();
                             voteSuccessButton.hide();
                             voteButton.show();
                             configureButton.show();
                         };
                         // 3.3 The rating given by the user could not be deleted
                         let thirdErrorCallback = function (jqXHR, status) {
-                            voteDeleteButton.hide();
+                            // voteDeleteButton.hide();
                             let errorButton = voteButton.parent().find(errorButtons);
                             errorButton.show();
                         };
@@ -232,8 +238,8 @@ modalDeleteButton.on("click", function () {
                     let secondErrorCallback = function (jqXHR, status) {
                         loadButton.hide();
                         voteSuccessButton.hide();
-                        voteDeleteButton.hide();
-                        voteDeleteButton.find(reloadIcons).toggle();
+                        // voteDeleteButton.hide();
+                        // voteDeleteButton.find(reloadIcons).toggle();
                         voteButton.show();
                         configureButton.show();
                     };
@@ -244,8 +250,8 @@ modalDeleteButton.on("click", function () {
                 let errorCallback = function (jqXHR, status) {
                     loadButton.hide();
                     voteSuccessButton.hide();
-                    voteDeleteButton.hide();
-                    voteDeleteButton.find(reloadIcons).toggle();
+                    // voteDeleteButton.hide();
+                    // voteDeleteButton.find(reloadIcons).toggle();
                     voteButton.show();
                     configureButton.show();
                 };
@@ -269,9 +275,9 @@ saveButton.on("click", function () {
         let successCallback = function (data, status, jqXHR) {
             saveButton.find(reloadIcons).toggle();
             saveButton.hide();
-            if(voteDeleteButton.is(":visible")) {
-                downloadButton.before("<br/>");
-            }
+            //if(voteDeleteButton.is(":visible")) {
+            //    downloadButton.before("<br/>");
+            //}
             downloadButton.show();
             downloadButton.attr("href", `http://localhost:3000/${data["pdf_download_url_link"]}`);
         };
