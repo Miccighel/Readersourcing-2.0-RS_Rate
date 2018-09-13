@@ -12,7 +12,8 @@ import {emptyAjax} from "./shared.js";
 let buttonsSections = $("#buttons-sect");
 let loginSection = $("#login-sect");
 let ratingSection = $("#rating-sect");
-let scoreSection = $("#score-sect");
+let publicationScoreSection = $("#publication-score-sect");
+let userScoreSection = $("#user-score-sect");
 
 let modalProfile = $("#modal-profile");
 let modalConfigure = $("#modal-configuration");
@@ -38,7 +39,11 @@ let errorButtons = $(".error-btn");
 let modalPasswordEditButton = $("#modal-password-edit-btn");
 let modalDeleteButton = $("#modal-delete-btn");
 
-let qualityScoreValue = $("#quality-score-val");
+let userScoreSMValue = $("#user-score-sm-val");
+let userScoreTRValue = $("#user-score-tr-val");
+
+let publicationScoreSMValue = $("#publication-score-sm-val");
+let publicationScoreTRValue = $("#publication-score-tr-val");
 
 let anonymizeCheckbox = $("#anonymize-check");
 
@@ -63,12 +68,28 @@ fetchToken().then(function (authToken) {
         loginSection.hide();
         buttonsSections.show();
         ratingSection.show();
-        scoreSection.show();
+        publicationScoreSection.show();
     } else {
         loginSection.show();
         buttonsSections.hide();
         ratingSection.hide();
-        scoreSection.hide();
+        publicationScoreSection.hide();
+    }
+});
+
+////////// USER STATUS HANDLING (SCORES, ...) //////////
+
+fetchToken().then(function (authToken) {
+    if (authToken != null) {
+        let successCallback = function (data, status, jqXHR) {
+            userScoreSMValue.text((data["score"] * 100).toFixed(2));
+            userScoreTRValue.text((data["bonus"] * 100).toFixed(2));
+        };
+        let errorCallback = function (jqXHR, status) {
+            userScoreSMValue.text("...");
+            userScoreTRValue.text("...");
+        };
+        let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }
 });
 
@@ -84,7 +105,8 @@ fetchToken().then(function (authToken) {
             };
             // 1.2 Publication exists, so it may be rated by the user
             let successCallback = function (data, status, jqXHR) {
-                qualityScoreValue.text((data["score"]*100).toFixed(2));
+                publicationScoreSMValue.text((data["score_sm"] * 100).toFixed(2));
+                publicationScoreTRValue.text((data["score_tr"] * 100).toFixed(2));
                 // 2.2 Publication has been rated by the user
                 let secondSuccessCallback = function (data, status, jqXHR) {
                     loadButton.hide();
@@ -111,7 +133,8 @@ fetchToken().then(function (authToken) {
                 voteButton.show();
                 configureButton.show();
                 voteSuccessButton.hide();
-                qualityScoreValue.text("...");
+                publicationScoreSMValue.text("...");
+                publicationScoreTRValue.text("...");
             };
             // 1.1 Does the publication exists on the database?
             let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
@@ -160,37 +183,71 @@ ratingSlider.on("slide", function (slideEvt) {
     $("#rating-text").text(slideEvt.value);
 });
 
-voteButton.on("click", function () {
-    chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-        voteButton.find(reloadIcons).toggle();
-        let score = ratingSlider.val();
-        let data = {
-            rating: {
-                score: score,
-                pdf_url: tabs[0].url,
-                anonymous: anonymizeCheckbox.is(':checked')
-            }
-        };
-        // 1.2 Rating created successfully
-        let successCallback = function (data, status, jqXHR) {
-            voteButton.find(reloadIcons).toggle();
-            voteButton.hide();
-            configureButton.hide();
-            voteSuccessButton.show();
-            voteSuccessButton.prop("disabled", true);
-            // voteDeleteButton.show();
-        };
-        // 1.3 Error during rating creation
-        let errorCallback = function (jqXHR, status) {
-            voteButton.hide();
-            configureButton.hide();
-            let errorButton = voteButton.parent().find(errorButtons);
-            errorButton.show();
-            errorButton.prop("disabled", true)
-        };
-        // 1.1 Create a new rating with the selected score
-        let promise = ajax("POST", "http://localhost:3000/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-    });
+fetchToken().then(function (authToken) {
+    if (authToken != null) {
+        voteButton.on("click", function () {
+            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                voteButton.find(reloadIcons).toggle();
+                let score = ratingSlider.val();
+                let data = {
+                    rating: {
+                        score: score,
+                        pdf_url: tabs[0].url,
+                        anonymous: anonymizeCheckbox.is(':checked')
+                    }
+                };
+                // 1.2 Rating created successfully
+                let successCallback = function (data, status, jqXHR) {
+                    chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                        let secondData = {
+                            publication: {
+                                pdf_url: tabs[0].url
+                            }
+                        };
+                        let secondSuccessCallback = function (data, status, jqXHR) {
+                            voteButton.find(reloadIcons).toggle();
+                            voteButton.hide();
+                            configureButton.hide();
+                            voteSuccessButton.show();
+                            voteSuccessButton.prop("disabled", true);
+                            publicationScoreSMValue.text((data["score_sm"] * 100).toFixed(2));
+                            publicationScoreTRValue.text((data["score_tr"] * 100).toFixed(2));
+                            // voteDeleteButton.show();
+                        };
+                        let secondErrorCallback = function (jqXHR, status) {
+                            voteButton.find(reloadIcons).toggle();
+                            voteButton.hide();
+                            configureButton.hide();
+                            voteSuccessButton.show();
+                            voteSuccessButton.prop("disabled", true);
+                            publicationScoreSMValue.text("...");
+                            publicationScoreTRValue.text("...");
+                        };
+                        let secondPromise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
+                    });
+                    let thirdSuccessCallback = function (data, status, jqXHR) {
+                        userScoreSMValue.text((data["score"] * 100).toFixed(2));
+                        userScoreTRValue.text((data["bonus"] * 100).toFixed(2));
+                    };
+                    let thirdErrorCallback = function (jqXHR, status) {
+                        userScoreSMValue.text("...");
+                        userScoreTRValue.text("...");
+                    };
+                    let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
+                };
+                // 1.3 Error during rating creation
+                let errorCallback = function (jqXHR, status) {
+                    voteButton.hide();
+                    configureButton.hide();
+                    let errorButton = voteButton.parent().find(errorButtons);
+                    errorButton.show();
+                    errorButton.prop("disabled", true)
+                };
+                // 1.1 Create a new rating with the selected score
+                let promise = ajax("POST", "http://localhost:3000/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            });
+        });
+    }
 });
 
 ////////// RATING CONFIGURATION HANDLING //////////
@@ -264,30 +321,34 @@ modalDeleteButton.on("click", function () {
 
 /////////// SAVE FOR LATER HANDLING //////////
 
-saveButton.on("click", function () {
-    chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-        let data = {
-            publication: {
-                pdf_url: tabs[0].url
-            }
-        };
-        saveButton.find(reloadIcons).toggle();
-        let successCallback = function (data, status, jqXHR) {
-            saveButton.find(reloadIcons).toggle();
-            saveButton.hide();
-            //if(voteDeleteButton.is(":visible")) {
-            //    downloadButton.before("<br/>");
-            //}
-            downloadButton.show();
-            downloadButton.attr("href", `http://localhost:3000/${data["pdf_download_url_link"]}`);
-        };
-        let errorCallback = function (jqXHR, status) {
-            saveButton.find(reloadIcons).toggle();
-            saveButton.hide();
-            let errorButton = saveButton.parent().find(errorButtons);
-            errorButton.show();
-            errorButton.prop("disabled", true)
-        };
-        let promise = ajax("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-    });
+fetchToken().then(function (authToken) {
+    if (authToken != null) {
+        saveButton.on("click", function () {
+            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                let data = {
+                    publication: {
+                        pdf_url: tabs[0].url
+                    }
+                };
+                saveButton.find(reloadIcons).toggle();
+                let successCallback = function (data, status, jqXHR) {
+                    saveButton.find(reloadIcons).toggle();
+                    saveButton.hide();
+                    //if(voteDeleteButton.is(":visible")) {
+                    //    downloadButton.before("<br/>");
+                    //}
+                    downloadButton.show();
+                    downloadButton.attr("href", `http://localhost:3000/${data["pdf_download_url_link"]}`);
+                };
+                let errorCallback = function (jqXHR, status) {
+                    saveButton.find(reloadIcons).toggle();
+                    saveButton.hide();
+                    let errorButton = saveButton.parent().find(errorButtons);
+                    errorButton.show();
+                    errorButton.prop("disabled", true)
+                };
+                let promise = ajax("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            });
+        });
+    }
 });

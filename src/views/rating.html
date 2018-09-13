@@ -66,7 +66,7 @@
         </div>
     </div>
 </section>
-<section id="rating-sect" class="bar bg-gray-dark mb-2 color-white">
+<section id="rating-sect" class="bar bg-gray-dark pb-4 color-white">
     <div class="container">
         <div class="row">
             <div class="col-12 heading text-center">
@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 text-center mt-3">
+            <div class="col-12 text-center">
                 <h1 id="rating-text"><span id="rating-text-value">50</span></h1>
             </div>
         </div>
@@ -124,9 +124,9 @@
         <div class="row">
             <div class="col-12 text-center">
                 <!--<a href="#" data-toggle="modal" data-target="#modal-delete" id="vote-delete-btn"-->
-                   <!--class="btn btn-danger mb-3">-->
-                    <!--<i class="fa fa-refresh fa-spin reload-icon"></i>-->
-                    <!--Delete Rating-->
+                <!--class="btn btn-danger mb-3">-->
+                <!--<i class="fa fa-refresh fa-spin reload-icon"></i>-->
+                <!--Delete Rating-->
                 <!--</a>-->
                 <a href="#" id="download-btn" class="btn btn-primary" target="_blank">
                     <i class="fa fa-download"></i>
@@ -144,11 +144,14 @@
         </div>
     </div>
 </section>
-<section id="score-sect" class="bg-primary no-mb color-white fixed-bottom">
+<section id="publication-score-sect" class="bg-primary no-mb color-white">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center btn">
-                Quality score: <span id="quality-score-val"></span>/100
+                Pub. score (SM): <span id="publication-score-sm-val"></span>/100
+            </div>
+            <div class="col-12 text-center btn">
+                Pub. score (TR): <span id="publication-score-tr-val"></span>/100
             </div>
         </div>
     </div>
@@ -158,16 +161,21 @@
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 id="modal-profile-label" class="modal-title">User</h4>
+                <h4 id="modal-profile-label" class="modal-title">User Profile</h4>
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
                         aria-hidden="true">X</span></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-12 text-center">
-
+                <section id="user-score-sect">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h4>Your score (SM): <span id="user-score-sm-val"></span>/100</h4>
+                            <h4>Your score (TR): <span id="user-score-tr-val"></span>/100</h4>
+                        </div>
                     </div>
-                </div>
+                </section>
+            </div>
+            <div class="modal-footer">
                 <div class="row">
                     <div class="col-12 text-center">
                         <button type="button" id="modal-password-edit-btn" class="btn btn-success">
@@ -197,7 +205,9 @@
                         </label>
                     </div>
                 </div>
-                <div class="row mt-3">
+            </div>
+            <div class="modal-footer">
+                <div class="row">
                     <div class="col-12 text-center">
                         <button type="button" id="configuration-save-btn" class="btn btn-success">
                             Save
