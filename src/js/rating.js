@@ -15,13 +15,14 @@ let ratingSection = $("#rating-sect");
 let publicationScoreSection = $("#publication-score-sect");
 let userScoreSection = $("#user-score-sect");
 
+//######## MODALS ########//
+
 let modalProfile = $("#modal-profile");
 let modalConfigure = $("#modal-configuration");
 let modalDelete = $("#modal-delete");
+let modalRefresh = $("#modal-refresh");
 
 //######## UI COMPONENTS ########//
-
-let ratingSlider = $("#rating-slider");
 
 let loginButton = $("#login-btn");
 let logoutButton = $("#logout-btn");
@@ -35,10 +36,16 @@ let configureButton = $("#configure-btn");
 let configureSaveButton = $("#configuration-save-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
+let refreshButton = $("#refresh-btn");
 let errorButtons = $(".error-btn");
 let modalPasswordEditButton = $("#modal-password-edit-btn");
 let modalDeleteButton = $("#modal-delete-btn");
+let modalRefreshButton = $("#modal-refresh-btn");
 
+let ratingCaption = $("#rating-caption");
+let ratingSubCaption = $("#rating-subcaption");
+let ratingSlider = $("#rating-slider");
+let ratingText = $("#rating-text");
 let userScoreSMValue = $("#user-score-sm-val");
 let userScoreTRValue = $("#user-score-tr-val");
 
@@ -62,6 +69,10 @@ voteSuccessButton.hide();
 // voteDeleteButton.hide();
 errorButtons.hide();
 reloadIcons.hide();
+ratingCaption.hide();
+ratingSubCaption.hide();
+ratingSlider.hide();
+ratingText.show();
 
 fetchToken().then(function (authToken) {
     if (authToken != null) {
@@ -77,6 +88,11 @@ fetchToken().then(function (authToken) {
     }
 });
 
+ratingSlider.slider({});
+ratingSlider.on("slide", function (slideEvt) {
+    ratingText.text(slideEvt.value);
+});
+
 ////////// USER STATUS HANDLING (SCORES, ...) //////////
 
 fetchToken().then(function (authToken) {
@@ -90,6 +106,23 @@ fetchToken().then(function (authToken) {
             userScoreTRValue.text("...");
         };
         let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+    }
+});
+
+////////// SAVE FOR LATER STATUS HANDLING //////////
+
+fetchToken().then(function (authToken) {
+    if (authToken != null) {
+        if (localStorage.getItem("downloadUrl") === null) {
+            downloadButton.hide();
+            refreshButton.hide();
+            saveButton.show();
+        } else {
+            saveButton.hide();
+            downloadButton.show();
+            downloadButton.attr("href", localStorage.getItem("downloadUrl"));
+            refreshButton.show();
+        }
     }
 });
 
@@ -114,14 +147,25 @@ fetchToken().then(function (authToken) {
                     configureButton.hide();
                     voteSuccessButton.show();
                     voteSuccessButton.prop("disabled", true);
+                    ratingCaption.hide();
+                    ratingSubCaption.show();
+                    ratingSlider.slider('destroy');
+                    ratingSlider.hide();
+                    ratingText.removeClass("mt-3");
+                    ratingText.text(data["score"]);
                     // voteDeleteButton.show();
                 };
                 // 2.3 Publication has not been rated by the user
                 let secondErrorCallback = function (jqXHR, status) {
                     loadButton.hide();
+                    voteSuccessButton.hide();
+                    ratingCaption.show();
+                    ratingSubCaption.hide();
+                    ratingSlider.slider({});
+                    ratingText.text("50");
+                    ratingText.prop("class", "mt-3");
                     voteButton.show();
                     configureButton.show();
-                    voteSuccessButton.hide();
                     // voteDeleteButton.hide();
                 };
                 // 2.1 Does the publication has been rated by the logged user?
@@ -130,9 +174,14 @@ fetchToken().then(function (authToken) {
             // 1.3 Publication was never rated, so it does not exists on the database
             let errorCallback = function (jqXHR, status) {
                 loadButton.hide();
-                voteButton.show();
-                configureButton.show();
                 voteSuccessButton.hide();
+                configureButton.show();
+                voteButton.show();
+                ratingCaption.show();
+                ratingSubCaption.hide();
+                ratingSlider.slider({});
+                ratingText.text("50");
+                ratingText.prop("class", "mt-3");
                 publicationScoreSMValue.text("...");
                 publicationScoreTRValue.text("...");
             };
@@ -168,7 +217,6 @@ modalPasswordEditButton.on("click", function () {
     window.location = "password_update.html";
 });
 
-
 ////////// REGISTRATION HANDLING //////////
 
 signUpButton.on("click", function () {
@@ -177,11 +225,6 @@ signUpButton.on("click", function () {
 });
 
 ////////// RATING HANDLING //////////
-
-ratingSlider.slider({});
-ratingSlider.on("slide", function (slideEvt) {
-    $("#rating-text").text(slideEvt.value);
-});
 
 fetchToken().then(function (authToken) {
     if (authToken != null) {
@@ -210,6 +253,11 @@ fetchToken().then(function (authToken) {
                             configureButton.hide();
                             voteSuccessButton.show();
                             voteSuccessButton.prop("disabled", true);
+                            ratingCaption.hide();
+                            ratingSlider.slider('destroy');
+                            ratingSlider.hide();
+                            ratingText.removeClass("mt-3");
+                            ratingSubCaption.show();
                             publicationScoreSMValue.text((data["score_sm"] * 100).toFixed(2));
                             publicationScoreTRValue.text((data["score_tr"] * 100).toFixed(2));
                             // voteDeleteButton.show();
@@ -332,13 +380,15 @@ fetchToken().then(function (authToken) {
                 };
                 saveButton.find(reloadIcons).toggle();
                 let successCallback = function (data, status, jqXHR) {
+                    localStorage.setItem("downloadUrl", data["pdf_download_url_link"]);
                     saveButton.find(reloadIcons).toggle();
                     saveButton.hide();
                     //if(voteDeleteButton.is(":visible")) {
                     //    downloadButton.before("<br/>");
                     //}
                     downloadButton.show();
-                    downloadButton.attr("href", `http://localhost:3000/${data["pdf_download_url_link"]}`);
+                    downloadButton.attr("href", data["pdf_download_url_link"]);
+                    refreshButton.show();
                 };
                 let errorCallback = function (jqXHR, status) {
                     saveButton.find(reloadIcons).toggle();
@@ -351,4 +401,14 @@ fetchToken().then(function (authToken) {
             });
         });
     }
+});
+
+/////////// REFRESH HANDLING //////////
+
+modalRefreshButton.on("click", function () {
+    localStorage.removeItem("downloadUrl");
+    modalRefresh.modal("hide");
+    downloadButton.hide();
+    refreshButton.hide();
+    saveButton.show();
 });

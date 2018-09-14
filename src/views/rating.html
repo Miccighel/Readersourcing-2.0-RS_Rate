@@ -71,7 +71,8 @@
         <div class="row">
             <div class="col-12 heading text-center">
                 <h1>R@SM</h1>
-                <p class="lead mb-0">Rate this publication.</p>
+                <p id="rating-caption" class="lead mb-0">Rate this publication.</p>
+                <p id="rating-subcaption" class="lead mb-0">Publication rated with score:</p>
             </div>
         </div>
         <div class="row">
@@ -90,7 +91,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <h1 id="rating-text"><span id="rating-text-value">50</span></h1>
+                <h1 id="rating-text" class=""><i class="fa fa-refresh fa-spin"></i></h1>
             </div>
         </div>
         <div class="row">
@@ -108,7 +109,7 @@
                 </a>
                 <button type="button" id="vote-success-btn" class="btn btn-success">
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
-                    Your rating has been saved
+                    Rating already saved
                 </button>
                 <button type="button" class="btn btn-danger error-btn">
                     <i class="fa fa-exclamation-triangle danger-icon"></i>
@@ -129,13 +130,16 @@
                 <!--Delete Rating-->
                 <!--</a>-->
                 <a href="#" id="download-btn" class="btn btn-primary" target="_blank">
-                    <i class="fa fa-download"></i>
                     Download
                 </a>
                 <button type="button" id="save-btn" class="btn btn-primary">
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
                     Save For Later
                 </button>
+                <a href="#" data-toggle="modal" data-target="#modal-refresh" id="refresh-btn"
+                   class="btn btn-primary">
+                    <i class="fa fa-refresh"></i>
+                </a>
                 <button type="button" id="error-btn" class="btn btn-danger error-btn">
                     <i class="fa fa-exclamation-triangle danger-icon"></i>
                     Error
@@ -231,6 +235,30 @@
                 <div class="row">
                     <div class="col-12 text-center">
                         <button type="button" id="modal-delete-btn" class="btn btn-success">
+                            Confirm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-refresh" tabindex="-1" role="dialog" aria-labelledby="modal-delete-label" aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modal-refresh-label" class="modal-title">Refresh</h4>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+                        aria-hidden="true">X</span></button>
+            </div>
+            <div class="modal-body">
+                <h4 class="mb-0">Do you want to save this publication for later again?</h4>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <button type="button" id="modal-refresh-btn" class="btn btn-success">
                             Confirm
                         </button>
                     </div>
