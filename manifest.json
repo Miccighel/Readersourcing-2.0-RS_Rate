@@ -10,7 +10,7 @@
   ],
   "background": {
     "scripts": [
-      "src/js/rating.js"
+      "src/js/background.js"
     ],
     "persistent": false
   },
