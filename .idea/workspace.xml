@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="" />
+    <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/R@SM-Chrome.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RS_Rate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/bower.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/bower.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/bootstrap-slider.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/rules.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/less/rules.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_rules.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-slider/src/sass/_rules.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -115,6 +131,24 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1572665873">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-575877524">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="R@SM-Chrome" />
@@ -133,7 +167,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/rating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="880">
               <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
               <folding>
                 <element signature="e#60#99#0" expanded="true" />
@@ -274,7 +308,7 @@
         <entry file="file://$PROJECT_DIR$/src/js/general.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -283,7 +317,7 @@
         <entry file="file://$PROJECT_DIR$/src/css/general.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -292,7 +326,7 @@
         <entry file="file://$PROJECT_DIR$/src/js/background.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="11" column="69" lean-forward="true" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+              <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -301,7 +335,7 @@
         <entry file="file://$PROJECT_DIR$/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="80">
-              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+              <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -475,39 +509,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RS_Rate" type="b2602c69:ProjectViewProjectNode" />
               <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RS_Rate" type="b2602c69:ProjectViewProjectNode" />
               <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RS_Rate" type="b2602c69:ProjectViewProjectNode" />
               <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RS_Rate" type="b2602c69:ProjectViewProjectNode" />
               <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RS_Rate" type="b2602c69:ProjectViewProjectNode" />
               <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="system" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="R@SM-Chrome" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RS_Rate" type="b2602c69:ProjectViewProjectNode" />
               <item name="R@SM-Chrome" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
@@ -516,14 +551,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.last.introduce.type" value="LET" />
-    <property name="last_opened_file_path" value="C:/Program Files (x86)/Yarn/package.json" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -631,11 +665,13 @@
       <workItem from="1536843557712" duration="2281000" />
       <workItem from="1536914294572" duration="15527000" />
       <workItem from="1537188428687" duration="246000" />
+      <workItem from="1538470649161" duration="17000" />
+      <workItem from="1538470717300" duration="26000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224723000" />
+    <option name="totallyTimeSpent" value="224766000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -648,10 +684,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50167596" side_tool="true" weight="0.15351813" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.26012793" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.2228145" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32849163" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -709,6 +744,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="17065" column="17" selection-start-line="17065" selection-start-column="17" selection-end-line="17065" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/system/front.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5060">
+          <caret line="253" column="5" selection-start-line="253" selection-start-column="5" selection-end-line="253" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="93" column="48" selection-start-line="93" selection-start-column="48" selection-end-line="93" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+          <folding>
+            <element signature="e#60#99#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -810,10 +869,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/system/front.js">
+    <entry file="file://$PROJECT_DIR$/src/js/general.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5060">
-          <caret line="253" column="5" selection-start-line="253" selection-start-column="5" selection-end-line="253" selection-end-column="5" />
+        <state relative-caret-position="180">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/general.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -835,51 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/general.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/background.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="69" lean-forward="true" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/general.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-          <folding>
-            <element signature="e#60#99#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="93" column="48" selection-start-line="93" selection-start-column="48" selection-end-line="93" selection-end-column="48" />
         </state>
       </provider>
     </entry>
