@@ -1,7 +1,7 @@
 {
-  "name": "R@SM Plugin",
-  "version": "0.1",
-  "description": "Allows to rate academic papers on R@SM",
+  "name": "RS_Rate",
+  "version": "1.0",
+  "description": "Allows to rate scientific publications on the RS_Server component of Readersourcing 2.0",
   "manifest_version": 2,
   "permissions": [
     "declarativeContent",
