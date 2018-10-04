@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/password_forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/password_forgot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/password_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/password_update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/rating.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/rating.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/registration.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -144,21 +139,22 @@
     <session id="-1834104668">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.8" value="3" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="64" />
+          <entry key="html" value="70" />
           <entry key="json" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="64" />
+          <entry key="HTML" value="70" />
           <entry key="JSON" value="148" />
         </counts>
       </usages-collector>
@@ -169,19 +165,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/rating.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+            <state relative-caret-position="20">
+              <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/rating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
+            <state relative-caret-position="-1772">
               <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
               <folding>
                 <element signature="e#60#99#0" expanded="true" />
@@ -202,7 +198,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="508">
+            <state relative-caret-position="740">
               <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
@@ -225,7 +221,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/password_update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
+            <state relative-caret-position="800">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
@@ -246,7 +242,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/password_forgot.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="800">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
@@ -255,7 +251,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/password_forgot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="706">
+            <state relative-caret-position="1280">
               <caret line="65" column="24" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="24" />
               <folding>
                 <element signature="e#60#100#0" expanded="true" />
@@ -276,7 +272,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/registration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="600">
               <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
@@ -394,8 +390,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>errorBu</find>
-      <find>download</find>
       <find>rate</find>
       <find>parsle</find>
       <find>location</find>
@@ -424,6 +418,8 @@
       <find>publica</find>
       <find>rato</find>
       <find>rating-text</find>
+      <find>RSA</find>
+      <find>Alread</find>
     </findStrings>
     <replaceStrings>
       <replace>node_modules</replace>
@@ -683,11 +679,14 @@
       <workItem from="1538470717300" duration="26000" />
       <workItem from="1538472681005" duration="38000" />
       <workItem from="1538487761450" duration="1468000" />
+      <workItem from="1538569958017" duration="1897000" />
+      <workItem from="1538637943121" duration="19000" />
+      <workItem from="1538638017893" duration="638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226272000" />
+    <option name="totallyTimeSpent" value="228826000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -703,7 +702,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50167596" side_tool="true" weight="0.15351813" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.16577825" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49832404" visible="true" weight="0.1705757" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32849163" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -771,13 +770,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
+    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-          <folding>
-            <element signature="e#60#99#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="20">
+          <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -785,6 +781,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="740">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
@@ -798,6 +801,13 @@
     <entry file="file://$PROJECT_DIR$/src/css/login.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/password_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/password_update.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
@@ -808,10 +818,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/password_forgot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/password_forgot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1280">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="24" />
+          <folding>
+            <element signature="e#60#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/password.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
@@ -826,6 +860,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css/registration.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/options.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/options.js">
@@ -859,6 +896,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_locales/it/messages.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -880,58 +924,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/password_forgot.js">
+    <entry file="file://$PROJECT_DIR$/src/js/rating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="706">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="24" />
+        <state relative-caret-position="-1772">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
           <folding>
-            <element signature="e#60#100#0" expanded="true" />
+            <element signature="e#60#99#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/password_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/password_forgot.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/options.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
         </state>
       </provider>
     </entry>
