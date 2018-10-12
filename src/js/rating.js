@@ -46,11 +46,11 @@ let ratingCaption = $("#rating-caption");
 let ratingSubCaption = $("#rating-subcaption");
 let ratingSlider = $("#rating-slider");
 let ratingText = $("#rating-text");
-let userScoreSMValue = $("#user-score-sm-val");
-let userScoreTRValue = $("#user-score-tr-val");
+let userScoreRSMValue = $("#user-score-rsm-val");
+let userScoreTRMValue = $("#user-score-trm-val");
 
-let publicationScoreSMValue = $("#publication-score-sm-val");
-let publicationScoreTRValue = $("#publication-score-tr-val");
+let publicationScoreRSMValue = $("#publication-score-rsm-val");
+let publicationScoreTRMValue = $("#publication-score-trm-val");
 
 let anonymizeCheckbox = $("#anonymize-check");
 
@@ -98,35 +98,18 @@ ratingSlider.on("slide", function (slideEvt) {
 fetchToken().then(function (authToken) {
     if (authToken != null) {
         let successCallback = function (data, status, jqXHR) {
-            userScoreSMValue.text((data["score"] * 100).toFixed(2));
-            userScoreTRValue.text((data["bonus"] * 100).toFixed(2));
+            userScoreRSMValue.text((data["score"] * 100).toFixed(2));
+            userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
         };
         let errorCallback = function (jqXHR, status) {
-            userScoreSMValue.text("...");
-            userScoreTRValue.text("...");
+            userScoreRSMValue.text("...");
+            userScoreTRMValue.text("...");
         };
         let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }
 });
 
-////////// SAVE FOR LATER STATUS HANDLING //////////
-
-fetchToken().then(function (authToken) {
-    if (authToken != null) {
-        if (localStorage.getItem("downloadUrl") === null) {
-            downloadButton.hide();
-            refreshButton.hide();
-            saveButton.show();
-        } else {
-            saveButton.hide();
-            downloadButton.show();
-            downloadButton.attr("href", localStorage.getItem("downloadUrl"));
-            refreshButton.show();
-        }
-    }
-});
-
-////////// PUBLICATION STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, ...) //////////
+////////// PUBLICATION STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) //////////
 
 fetchToken().then(function (authToken) {
     if (authToken != null) {
@@ -138,8 +121,20 @@ fetchToken().then(function (authToken) {
             };
             // 1.2 Publication exists, so it may be rated by the user
             let successCallback = function (data, status, jqXHR) {
-                publicationScoreSMValue.text((data["score_sm"] * 100).toFixed(2));
-                publicationScoreTRValue.text((data["score_tr"] * 100).toFixed(2));
+                publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
+                publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
+                // 1.2 - 1 Was publication saved for later?
+                let downloadUrl = localStorage.getItem(`pub-${data["id"]}-downloadUrl`);
+                if (downloadUrl === null) {
+                    downloadButton.hide();
+                    refreshButton.hide();
+                    saveButton.show();
+                } else {
+                    saveButton.hide();
+                    downloadButton.show();
+                    downloadButton.attr("href", downloadUrl);
+                    refreshButton.show();
+                }
                 // 2.2 Publication has been rated by the user
                 let secondSuccessCallback = function (data, status, jqXHR) {
                     loadButton.hide();
@@ -182,8 +177,8 @@ fetchToken().then(function (authToken) {
                 ratingSlider.slider({});
                 ratingText.text("50");
                 ratingText.prop("class", "mt-3");
-                publicationScoreSMValue.text("...");
-                publicationScoreTRValue.text("...");
+                publicationScoreRSMValue.text("...");
+                publicationScoreTRMValue.text("...");
             };
             // 1.1 Does the publication exists on the database?
             let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
@@ -258,8 +253,8 @@ fetchToken().then(function (authToken) {
                             ratingSlider.hide();
                             ratingText.removeClass("mt-3");
                             ratingSubCaption.show();
-                            publicationScoreSMValue.text((data["score_sm"] * 100).toFixed(2));
-                            publicationScoreTRValue.text((data["score_tr"] * 100).toFixed(2));
+                            publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
+                            publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                             // voteDeleteButton.show();
                         };
                         let secondErrorCallback = function (jqXHR, status) {
@@ -268,18 +263,18 @@ fetchToken().then(function (authToken) {
                             configureButton.hide();
                             voteSuccessButton.show();
                             voteSuccessButton.prop("disabled", true);
-                            publicationScoreSMValue.text("...");
-                            publicationScoreTRValue.text("...");
+                            publicationScoreRSMValue.text("...");
+                            publicationScoreTRMValue.text("...");
                         };
                         let secondPromise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
                     });
                     let thirdSuccessCallback = function (data, status, jqXHR) {
-                        userScoreSMValue.text((data["score"] * 100).toFixed(2));
-                        userScoreTRValue.text((data["bonus"] * 100).toFixed(2));
+                        userScoreRSMValue.text((data["score"] * 100).toFixed(2));
+                        userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
                     };
                     let thirdErrorCallback = function (jqXHR, status) {
-                        userScoreSMValue.text("...");
-                        userScoreTRValue.text("...");
+                        userScoreRSMValue.text("...");
+                        userScoreTRMValue.text("...");
                     };
                     let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
                 };
@@ -380,7 +375,7 @@ fetchToken().then(function (authToken) {
                 };
                 saveButton.find(reloadIcons).toggle();
                 let successCallback = function (data, status, jqXHR) {
-                    localStorage.setItem("downloadUrl", data["pdf_download_url_link"]);
+                    localStorage.setItem(`pub-${data["id"]}-downloadUrl`, data["pdf_download_url_link"]);
                     saveButton.find(reloadIcons).toggle();
                     saveButton.hide();
                     //if(voteDeleteButton.is(":visible")) {
@@ -406,9 +401,24 @@ fetchToken().then(function (authToken) {
 /////////// REFRESH HANDLING //////////
 
 modalRefreshButton.on("click", function () {
-    localStorage.removeItem("downloadUrl");
-    modalRefresh.modal("hide");
-    downloadButton.hide();
-    refreshButton.hide();
-    saveButton.show();
+    fetchToken().then(function (authToken) {
+        if (authToken != null) {
+            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                let data = {
+                    publication: {
+                        pdf_url: tabs[0].url
+                    }
+                };
+                let successCallback = function (data, status, jqXHR) {
+                    localStorage.removeItem(`pub-${data["id"]}-downloadUrl`);
+                    modalRefresh.modal("hide");
+                    downloadButton.hide();
+                    refreshButton.hide();
+                    saveButton.show();
+                };
+                let errorCallback = function (jqXHR, status) {};
+                let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            });
+        }
+    });
 });
