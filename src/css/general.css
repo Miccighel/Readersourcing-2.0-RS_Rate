@@ -1,4 +1,15 @@
-/* ////////// GENERAL SECTION ////////// */
+/* ////////// PRELOADER ////////// */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1100;
+}
+
+/* ////////// GENERAL ////////// */
 
 body, html {
     height: 320px;
@@ -13,18 +24,7 @@ body, html {
     transform: translate(-35%, -50%);
 }
 
-/* ////////// PRELOADER ////////// */
-
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1100;
-}
-
-/* ////////// ERROR SECTION  ////////// */
+/* ////////// ERRORS  ////////// */
 
 #errors-sect ul {
     margin-bottom: 0;

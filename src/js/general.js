@@ -70,9 +70,11 @@ Parsley.addValidator('password', {
     }
 });
 
-Parsley.setLocale('it');
+Parsley.setLocale('en');
 
-////////// PAGE LOADING HANDLING //////////
+////////// GLOBAL ///////////
+
+//######### PAGE LOADING HANDLING #########//
 
 $(window).on('load', function() {
     $(loadingAnimation).fadeOut();

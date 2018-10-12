@@ -31,21 +31,9 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
 
-////////// GO BACK HANDLING //////////
+////////// PASSWORD //////////
 
-backButton.on("click", function () {
-    backButton.find(reloadIcons).toggle();
-    backButton.find(backIcon).toggle();
-    window.location.href = "login.html";
-});
-
-//######## UTILITY FUNCTIONS ########//
-
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
-
-////////// PASSWORD EDIT HANDLING //////////
+//######## FORGOT HANDLING ########//
 
 let validationInstance = passwordForgotForm.parsley();
 
@@ -100,4 +88,18 @@ passwordForgotButton.on("click", function () {
         // noinspection JSIgnoredPromiseFromCall
         ajax("POST", "http://localhost:3000/password/forgot.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
+});
+
+//////////// UTILITY FUNCTIONS ////////////
+
+String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+//########## GO BACK HANDLING #########//
+
+backButton.on("click", function () {
+    backButton.find(reloadIcons).toggle();
+    backButton.find(backIcon).toggle();
+    window.location.href = "login.html";
 });

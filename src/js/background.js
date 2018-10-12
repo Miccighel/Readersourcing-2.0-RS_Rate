@@ -1,4 +1,6 @@
-////////// PAGE STATE MATCHING /////////
+////////// GLOBAL ///////////
+
+//######### PAGE STATE MATCHING #########//
 
 chrome.runtime.onInstalled.addListener(function () {
     chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {

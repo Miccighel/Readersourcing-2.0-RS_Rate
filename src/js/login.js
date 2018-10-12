@@ -39,13 +39,13 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcon.hide();
 
-//######## UTILITY FUNCTIONS ########//
+////////// UTILITY FUNCTIONS //////////
 
 String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
-////////// GO BACK HANDLING //////////
+//########## GO BACK HANDLING #########//
 
 backButton.on("click", function () {
     backButton.find(reloadIcon).toggle();
@@ -53,13 +53,9 @@ backButton.on("click", function () {
     window.location.href = "rating.html";
 });
 
-////////// LOGIN HANDLING //////////
+//########## LOGIN HANDLING ##########//
 
 let validationInstance = loginForm.parsley();
-
-loginForm.submit(function (event) {
-    event.preventDefault();
-});
 
 loginButton.on("click", function () {
     if (validationInstance.isValid()) {
@@ -104,4 +100,8 @@ loginButton.on("click", function () {
         // noinspection JSIgnoredPromiseFromCall
         ajax("POST", "http://localhost:3000/authenticate", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
+});
+
+loginForm.submit(function (event) {
+    event.preventDefault();
 });

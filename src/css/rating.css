@@ -1,11 +1,16 @@
+/* ////////// PRELOADER ////////// */
+
+#preloader {
+    background-color: rgb(85, 85, 85);
+}
+
 /* ////////// GENERAL ////////// */
 
 body, html {
     background-color: rgb(85, 85, 85);
 }
 
-
-/* ////////// BUTTONS SECTION ////////// */
+/* ////////// BUTTONS ////////// */
 
 button#logout-btn {
     padding-left: 26%;
@@ -17,7 +22,7 @@ a#profile-btn {
     border: 0 !important;
 }
 
-/* ////////// RATING SECTION ////////// */
+/* ////////// RATING ////////// */
 
 #rating-slider .slider-selection {
     background: white;
@@ -29,14 +34,8 @@ a#profile-btn {
     background-image: linear-gradient(to bottom, #467fbf 0%, #467fbf 100%) !important;
 }
 
-/* ////////// SCORE SECTION ////////// */
+/* ////////// SCORES ////////// */
 
 #score-sect div {
     cursor: default !important;
-}
-
-/* ////////// PRELOADER SECTION ////////// */
-
-#preloader {
-    background-color: rgb(85, 85, 85);
 }

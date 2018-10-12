@@ -94,23 +94,9 @@ ratingSlider.on("slide", function (slideEvt) {
     ratingText.text(slideEvt.value);
 });
 
-////////// USER STATUS HANDLING (SCORES, ...) //////////
+////////// PUBLICATION //////////
 
-fetchToken().then(function (authToken) {
-    if (authToken != null) {
-        let successCallback = function (data, status, jqXHR) {
-            userScoreRSMValue.text((data["score"] * 100).toFixed(2));
-            userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
-        };
-        let errorCallback = function (jqXHR, status) {
-            userScoreRSMValue.text("...");
-            userScoreTRMValue.text("...");
-        };
-        let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
-    }
-});
-
-////////// PUBLICATION STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) //////////
+//######### STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) #########//
 
 fetchToken().then(function (authToken) {
     if (authToken != null) {
@@ -122,9 +108,10 @@ fetchToken().then(function (authToken) {
             };
             // 1.2 Publication exists, so it may be rated by the user
             let successCallback = function (data, status, jqXHR) {
+                // 1.2 - 1 Publication exists, so it is safe to set scores.
                 publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
-                // 1.2 - 1 Was publication saved for later?
+                // 1.2 - 2 Was publication saved for later?
                 let downloadUrl = localStorage.getItem(`pub-${data["id"]}-downloadUrl`);
                 if (downloadUrl === null) {
                     downloadButton.hide();
@@ -192,40 +179,70 @@ fetchToken().then(function (authToken) {
     }
 });
 
-////////// LOGIN HANDLING //////////
+//######### SAVE FOR LATER HANDLING #########//
 
-loginButton.on("click", function () {
-    loginButton.find(reloadIcons).toggle();
-    loginButton.find(signInIcon).toggle();
+fetchToken().then(function (authToken) {
+    if (authToken != null) {
+        saveButton.on("click", function () {
+            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                let data = {
+                    publication: {
+                        pdf_url: tabs[0].url
+                    }
+                };
+                saveButton.find(reloadIcons).toggle();
+                let successCallback = function (data, status, jqXHR) {
+                    localStorage.setItem(`pub-${data["id"]}-downloadUrl`, data["pdf_download_url_link"]);
+                    saveButton.find(reloadIcons).toggle();
+                    saveButton.hide();
+                    //if(voteDeleteButton.is(":visible")) {
+                    //    downloadButton.before("<br/>");
+                    //}
+                    downloadButton.show();
+                    downloadButton.attr("href", data["pdf_download_url_link"]);
+                    refreshButton.show();
+                };
+                let errorCallback = function (jqXHR, status) {
+                    saveButton.find(reloadIcons).toggle();
+                    saveButton.hide();
+                    let errorButton = saveButton.parent().find(errorButtons);
+                    errorButton.show();
+                    errorButton.prop("disabled", true)
+                };
+                let promise = ajax("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            });
+        });
+    }
 });
 
-////////// LOGOUT HANDLING //////////
+///######### REFRESH HANDLING #########//
 
-logoutButton.on("click", function () {
-    logoutButton.find(reloadIcons).toggle();
-    logoutButton.find(signOutIcon).toggle();
-    deleteToken().then(function () {
-        location.reload()
+modalRefreshButton.on("click", function () {
+    fetchToken().then(function (authToken) {
+        if (authToken != null) {
+            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                let data = {
+                    publication: {
+                        pdf_url: tabs[0].url
+                    }
+                };
+                let successCallback = function (data, status, jqXHR) {
+                    localStorage.removeItem(`pub-${data["id"]}-downloadUrl`);
+                    modalRefresh.modal("hide");
+                    downloadButton.hide();
+                    refreshButton.hide();
+                    saveButton.show();
+                };
+                let errorCallback = function (jqXHR, status) {};
+                let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            });
+        }
     });
 });
 
-/////////// PASSWORD EDIT HANDLING ///////////
+////////// RATING //////////
 
-modalPasswordEditButton.on("click", function () {
-    modalProfile.modal("hide");
-    profileButton.find(profileIcon).toggle();
-    profileButton.find(reloadIcons).toggle();
-    window.location = "password_update.html";
-});
-
-////////// REGISTRATION HANDLING //////////
-
-signUpButton.on("click", function () {
-    signUpButton.find(reloadIcons).toggle();
-    signUpButton.find(signUpIcon).toggle();
-});
-
-////////// RATING HANDLING //////////
+//#######  ACTION HANDLING #########//
 
 fetchToken().then(function (authToken) {
     if (authToken != null) {
@@ -303,13 +320,13 @@ fetchToken().then(function (authToken) {
     }
 });
 
-////////// RATING CONFIGURATION HANDLING //////////
+//######### CONFIGURATION HANDLING #########//
 
 configureSaveButton.on("click", function () {
     modalConfigure.modal("hide");
 });
 
-/////////// RATING DELETE HANDLING ///////////
+//######### DELETE HANDLING #########//
 
 modalDeleteButton.on("click", function () {
     modalDelete.modal("hide");
@@ -372,63 +389,54 @@ modalDeleteButton.on("click", function () {
     });
 });
 
-/////////// SAVE FOR LATER HANDLING //////////
+////////// USER  //////////
+
+//####### STATUS HANDLING (SCORES, ...) #########//
 
 fetchToken().then(function (authToken) {
     if (authToken != null) {
-        saveButton.on("click", function () {
-            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-                let data = {
-                    publication: {
-                        pdf_url: tabs[0].url
-                    }
-                };
-                saveButton.find(reloadIcons).toggle();
-                let successCallback = function (data, status, jqXHR) {
-                    localStorage.setItem(`pub-${data["id"]}-downloadUrl`, data["pdf_download_url_link"]);
-                    saveButton.find(reloadIcons).toggle();
-                    saveButton.hide();
-                    //if(voteDeleteButton.is(":visible")) {
-                    //    downloadButton.before("<br/>");
-                    //}
-                    downloadButton.show();
-                    downloadButton.attr("href", data["pdf_download_url_link"]);
-                    refreshButton.show();
-                };
-                let errorCallback = function (jqXHR, status) {
-                    saveButton.find(reloadIcons).toggle();
-                    saveButton.hide();
-                    let errorButton = saveButton.parent().find(errorButtons);
-                    errorButton.show();
-                    errorButton.prop("disabled", true)
-                };
-                let promise = ajax("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-            });
-        });
+        let successCallback = function (data, status, jqXHR) {
+            userScoreRSMValue.text((data["score"] * 100).toFixed(2));
+            userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
+        };
+        let errorCallback = function (jqXHR, status) {
+            userScoreRSMValue.text("...");
+            userScoreTRMValue.text("...");
+        };
+        let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }
 });
 
-/////////// REFRESH HANDLING //////////
 
-modalRefreshButton.on("click", function () {
-    fetchToken().then(function (authToken) {
-        if (authToken != null) {
-            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-                let data = {
-                    publication: {
-                        pdf_url: tabs[0].url
-                    }
-                };
-                let successCallback = function (data, status, jqXHR) {
-                    localStorage.removeItem(`pub-${data["id"]}-downloadUrl`);
-                    modalRefresh.modal("hide");
-                    downloadButton.hide();
-                    refreshButton.hide();
-                    saveButton.show();
-                };
-                let errorCallback = function (jqXHR, status) {};
-                let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-            });
-        }
+//#######  LOGIN HANDLING #########//
+
+loginButton.on("click", function () {
+    loginButton.find(reloadIcons).toggle();
+    loginButton.find(signInIcon).toggle();
+});
+
+//####### LOGOUT HANDLING #########//
+
+logoutButton.on("click", function () {
+    logoutButton.find(reloadIcons).toggle();
+    logoutButton.find(signOutIcon).toggle();
+    deleteToken().then(function () {
+        location.reload()
     });
+});
+
+//####### PASSWORD EDIT HANDLING #########//
+
+modalPasswordEditButton.on("click", function () {
+    modalProfile.modal("hide");
+    profileButton.find(profileIcon).toggle();
+    profileButton.find(reloadIcons).toggle();
+    window.location = "password_update.html";
+});
+
+//######### SIGN UP HANDLING #########//
+
+signUpButton.on("click", function () {
+    signUpButton.find(reloadIcons).toggle();
+    signUpButton.find(signUpIcon).toggle();
 });

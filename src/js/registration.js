@@ -36,21 +36,9 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcon.hide();
 
-//######## UTILITY FUNCTIONS ########//
+////////// USER ///////////
 
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
-
-////////// GO BACK HANDLING //////////
-
-backButton.on("click", function () {
-    backButton.find(reloadIcon).toggle();
-    backButton.find(backIcon).toggle();
-    window.history.back()
-});
-
-////////// REGISTRATION HANDLING //////////
+//########## REGISTRATION HANDLING ##########//
 
 let validationInstance = registrationForm.parsley();
 
@@ -110,4 +98,18 @@ registrationButton.on("click", function () {
         // noinspection JSIgnoredPromiseFromCall
         ajax("POST", "http://localhost:3000/users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
+});
+
+//////////// UTILITY FUNCTIONS ////////////
+
+String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
+//########## GO BACK HANDLING #########//
+
+backButton.on("click", function () {
+    backButton.find(reloadIcons).toggle();
+    backButton.find(backIcon).toggle();
+    window.history.back()
 });
