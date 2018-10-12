@@ -46,6 +46,7 @@ let ratingCaption = $("#rating-caption");
 let ratingSubCaption = $("#rating-subcaption");
 let ratingSlider = $("#rating-slider");
 let ratingText = $("#rating-text");
+let buttonsCaption = $("#buttons-caption");
 let userScoreRSMValue = $("#user-score-rsm-val");
 let userScoreTRMValue = $("#user-score-trm-val");
 
@@ -137,9 +138,13 @@ fetchToken().then(function (authToken) {
                 }
                 // 2.2 Publication has been rated by the user
                 let secondSuccessCallback = function (data, status, jqXHR) {
+                    buttonsCaption.hide();
                     loadButton.hide();
                     voteButton.hide();
                     configureButton.hide();
+                    downloadButton.hide();
+                    refreshButton.hide();
+                    saveButton.hide();
                     voteSuccessButton.show();
                     voteSuccessButton.prop("disabled", true);
                     ratingCaption.hide();
@@ -154,8 +159,9 @@ fetchToken().then(function (authToken) {
                 let secondErrorCallback = function (jqXHR, status) {
                     loadButton.hide();
                     voteSuccessButton.hide();
-                    ratingCaption.show();
                     ratingSubCaption.hide();
+                    buttonsCaption.show();
+                    ratingCaption.show();
                     ratingSlider.slider({});
                     ratingText.text("50");
                     ratingText.prop("class", "mt-3");
@@ -246,13 +252,17 @@ fetchToken().then(function (authToken) {
                             voteButton.find(reloadIcons).toggle();
                             voteButton.hide();
                             configureButton.hide();
-                            voteSuccessButton.show();
-                            voteSuccessButton.prop("disabled", true);
+                            buttonsCaption.hide();
+                            downloadButton.hide();
+                            saveButton.hide();
+                            refreshButton.hide();
                             ratingCaption.hide();
                             ratingSlider.slider('destroy');
                             ratingSlider.hide();
                             ratingText.removeClass("mt-3");
                             ratingSubCaption.show();
+                            voteSuccessButton.show();
+                            voteSuccessButton.prop("disabled", true);
                             publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
                             publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                             // voteDeleteButton.show();
