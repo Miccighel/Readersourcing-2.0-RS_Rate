@@ -28,13 +28,13 @@ let alert = $(".alert");
 
 let backIcon = $("#back-icon");
 let signUpIcon = $("#sign-up-icon");
-let reloadIcon = $(".reload-icon");
+let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
 errorsSection.hide();
 errorButton.hide();
-reloadIcon.hide();
+reloadIcons.hide();
 
 ////////// USER ///////////
 
@@ -49,7 +49,7 @@ registrationForm.submit(function (event) {
 registrationButton.on("click", function () {
     if (validationInstance.isValid()) {
         registrationButton.find(signUpIcon).toggle();
-        registrationButton.find(reloadIcon).toggle();
+        registrationButton.find(reloadIcons).toggle();
         let data = {
             user: {
                 first_name: firstNameField.val(),
@@ -61,13 +61,13 @@ registrationButton.on("click", function () {
             }
         };
         let successCallback = function (data, status, jqXHR) {
-            registrationButton.find(reloadIcon).toggle();
+            registrationButton.find(reloadIcons).toggle();
             deleteToken().then(function () {
                 window.location.href = "login.html";
             });
         };
         let errorCallback = function (jqXHR, status) {
-            registrationButton.find(reloadIcon).toggle();
+            registrationButton.find(reloadIcons).toggle();
             registrationButton.find(signUpIcon).toggle();
             if (jqXHR.responseText == null) {
                 registrationButton.hide();
