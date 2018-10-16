@@ -19,7 +19,6 @@ let userScoreSection = $("#user-score-sect");
 
 let modalProfile = $("#modal-profile");
 let modalConfigure = $("#modal-configuration");
-let modalDelete = $("#modal-delete");
 let modalRefresh = $("#modal-refresh");
 
 //######## UI COMPONENTS ########//
@@ -29,18 +28,17 @@ let loginButton = $("#login-btn");
 let logoutButton = $("#logout-btn");
 let profileButton = $("#profile-btn");
 let signUpButton = $("#sign-up-btn");
-let loadButton = $("#load-btn");
+let loadRateButton = $("#load-rate-btn");
 let voteButton = $("#vote-btn");
 let voteSuccessButton = $("#vote-success-btn");
-// let voteDeleteButton = $("#vote-delete-btn");
 let configureButton = $("#configure-btn");
 let configureSaveButton = $("#configuration-save-btn");
+let loadSaveButton = $("#load-save-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let refreshButton = $("#refresh-btn");
 let errorButtons = $(".error-btn");
 let modalPasswordEditButton = $("#modal-password-edit-btn");
-let modalDeleteButton = $("#modal-delete-btn");
 let modalRefreshButton = $("#modal-refresh-btn");
 
 let ratingCaption = $("#rating-caption");
@@ -65,10 +63,12 @@ let reloadIcons = $(".reload-icon");
 //######## UI INITIAL SETUP ########//
 
 downloadButton.hide();
-loadButton.show();
+refreshButton.hide();
+saveButton.hide();
+loadRateButton.show();
+loadSaveButton.show();
 voteButton.hide();
 voteSuccessButton.hide();
-// voteDeleteButton.hide();
 errorButtons.hide();
 reloadIcons.hide();
 ratingCaption.hide();
@@ -95,6 +95,14 @@ ratingSlider.on("slide", function (slideEvt) {
     ratingText.text(slideEvt.value);
 });
 
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", function () {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
+});
+
 ////////// PUBLICATION //////////
 
 //######### STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) #########//
@@ -109,25 +117,13 @@ fetchToken().then(function (authToken) {
             };
             // 1.2 Publication exists, so it may be rated by the user
             let successCallback = function (data, status, jqXHR) {
-                // 1.2 - 1 Publication exists, so it is safe to set scores.
                 publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
-                // 1.2 - 2 Was publication saved for later?
-                let downloadUrl = localStorage.getItem(`pub-${data["id"]}-downloadUrl`);
-                if (downloadUrl === null) {
-                    downloadButton.hide();
-                    refreshButton.hide();
-                    saveButton.show();
-                } else {
-                    saveButton.hide();
-                    downloadButton.show();
-                    downloadButton.attr("href", downloadUrl);
-                    refreshButton.show();
-                }
-                // 2.2 Publication has been rated by the user
+                // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
                 let secondSuccessCallback = function (data, status, jqXHR) {
                     buttonsCaption.hide();
-                    loadButton.hide();
+                    loadRateButton.hide();
+                    loadSaveButton.hide();
                     voteButton.hide();
                     configureButton.hide();
                     downloadButton.hide();
@@ -141,11 +137,10 @@ fetchToken().then(function (authToken) {
                     ratingSlider.hide();
                     ratingText.removeClass("mt-3");
                     ratingText.text(data["score"]);
-                    // voteDeleteButton.show();
                 };
                 // 2.3 Publication has not been rated by the user
                 let secondErrorCallback = function (jqXHR, status) {
-                    loadButton.hide();
+                    loadRateButton.hide();
                     voteSuccessButton.hide();
                     ratingSubCaption.hide();
                     buttonsCaption.show();
@@ -155,15 +150,33 @@ fetchToken().then(function (authToken) {
                     ratingText.prop("class", "mt-3");
                     voteButton.show();
                     configureButton.show();
-                    // voteDeleteButton.hide();
+                    // 3.1 The rated publication was also annotated
+                    let thirdSuccessCallback = function (data, status, jqXHR) {
+                        loadSaveButton.hide();
+                        saveButton.hide();
+                        downloadButton.show();
+                        downloadButton.attr("href", data["pdf_download_url_link"]);
+                        refreshButton.show();
+                    };
+                    // 3.2 The rated publication was not annotated
+                    let thirdErrorCallback = function (jqXHR, status) {
+                        loadSaveButton.hide();
+                        downloadButton.hide();
+                        refreshButton.hide();
+                        saveButton.show();
+                    };
+                    // 3.1 Does the rated publication has been already annotated?
+                    let thirdPromise = emptyAjax("GET", `publications/${data["id"]}/is_saved_for_later.json`, "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
                 };
                 // 2.1 Does the publication has been rated by the logged user?
                 let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
             };
             // 1.3 Publication was never rated, so it does not exists on the database
             let errorCallback = function (jqXHR, status) {
-                loadButton.hide();
+                loadRateButton.hide();
+                loadSaveButton.hide();
                 voteSuccessButton.hide();
+                saveButton.show();
                 configureButton.show();
                 voteButton.show();
                 ratingCaption.show();
@@ -192,17 +205,15 @@ fetchToken().then(function (authToken) {
                     }
                 };
                 saveButton.find(reloadIcons).toggle();
+                // 1.2 Publication fetched, hide save for later button and show the download one
                 let successCallback = function (data, status, jqXHR) {
-                    localStorage.setItem(`pub-${data["id"]}-downloadUrl`, data["pdf_download_url_link"]);
                     saveButton.find(reloadIcons).toggle();
                     saveButton.hide();
-                    //if(voteDeleteButton.is(":visible")) {
-                    //    downloadButton.before("<br/>");
-                    //}
                     downloadButton.show();
                     downloadButton.attr("href", data["pdf_download_url_link"]);
                     refreshButton.show();
                 };
+                // 1.3 Error during publication fetching, hide save for later and download buttons
                 let errorCallback = function (jqXHR, status) {
                     saveButton.find(reloadIcons).toggle();
                     saveButton.hide();
@@ -210,6 +221,7 @@ fetchToken().then(function (authToken) {
                     errorButton.show();
                     errorButton.prop("disabled", true)
                 };
+                // 1.1 Fetch and annotate the publication
                 let promise = ajax("POST", "publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
             });
         });
@@ -221,20 +233,43 @@ fetchToken().then(function (authToken) {
 modalRefreshButton.on("click", function () {
     fetchToken().then(function (authToken) {
         if (authToken != null) {
+            modalRefresh.modal("hide");
+            downloadButton.hide();
+            refreshButton.hide();
+            loadSaveButton.show();
             chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
                 let data = {
                     publication: {
                         pdf_url: tabs[0].url
                     }
                 };
+                // 1.2 Publication exists, so it is safe to refresh it
                 let successCallback = function (data, status, jqXHR) {
-                    localStorage.removeItem(`pub-${data["id"]}-downloadUrl`);
-                    modalRefresh.modal("hide");
-                    downloadButton.hide();
-                    refreshButton.hide();
-                    saveButton.show();
+                    // 2.2 Publication refreshed, so it it safe to show the download button
+                    let secondSuccessCallback = function (data, status, jqXHR) {
+                        loadSaveButton.hide();
+                        downloadButton.show();
+                        downloadButton.attr("href", data["pdf_download_url_link"]);
+                        refreshButton.show();
+                    };
+                    // 2.3 Error during publication refresh, it is not safe to show the download button
+                    let secondErrorCallback = function (jqXHR, status) {
+                        loadSaveButton.hide();
+                        let errorButton = downloadButton.parent().find(errorButtons);
+                        errorButton.show();
+                        errorButton.prop("disabled", true)
+                    };
+                    // 2.1 Refresh the publication
+                    let secondPromise = emptyAjax("GET", `publications/${data["id"]}/refresh.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
                 };
-                let errorCallback = function (jqXHR, status) {};
+                // 1.3 Publication was never rated, so it does not exists on the database
+                let errorCallback = function (jqXHR, status) {
+                    loadSaveButton.hide();
+                    let errorButton = downloadButton.parent().find(errorButtons);
+                    errorButton.show();
+                    errorButton.prop("disabled", true)
+                };
+                // 1.1 Does the publication exists on the database?
                 let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
             });
         }
@@ -283,7 +318,6 @@ fetchToken().then(function (authToken) {
                             voteSuccessButton.prop("disabled", true);
                             publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
                             publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
-                            // voteDeleteButton.show();
                         };
                         let secondErrorCallback = function (jqXHR, status) {
                             voteButton.find(reloadIcons).toggle();
@@ -327,69 +361,6 @@ configureSaveButton.on("click", function () {
     modalConfigure.modal("hide");
 });
 
-//######### DELETE HANDLING #########//
-
-modalDeleteButton.on("click", function () {
-    modalDelete.modal("hide");
-    // voteDeleteButton.find(reloadIcons).toggle();
-    fetchToken().then(function (authToken) {
-        if (authToken != null) {
-            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-                let data = {
-                    publication: {
-                        pdf_url: tabs[0].url
-                    }
-                };
-                // 1.2 Publication exists, so it may be rated by the user
-                let successCallback = function (data, status, jqXHR) {
-                    // 2.2 Publication has been rated by the user
-                    let secondSuccessCallback = function (data, status, jqXHR) {
-                        // 3.2 The rating given by the logged user gets finally deleted
-                        let thirdSuccessCallback = function (data, status, jqXHR) {
-                            loadButton.hide();
-                            // voteDeleteButton.hide();
-                            // voteDeleteButton.find(reloadIcons).toggle();
-                            voteSuccessButton.hide();
-                            voteButton.show();
-                            configureButton.show();
-                        };
-                        // 3.3 The rating given by the user could not be deleted
-                        let thirdErrorCallback = function (jqXHR, status) {
-                            // voteDeleteButton.hide();
-                            let errorButton = voteButton.parent().find(errorButtons);
-                            errorButton.show();
-                        };
-                        // 3.1 The publication exists and a rating has been found for the logged user, so his rating may be deleted
-                        let thirdPremise = emptyAjax("DELETE", `ratings/${data["id"]}.json`, "application/json; charset=utf-8", "text", true, thirdSuccessCallback, thirdErrorCallback)
-                    };
-                    // 2.3 Publication has not been rated by the user
-                    let secondErrorCallback = function (jqXHR, status) {
-                        loadButton.hide();
-                        voteSuccessButton.hide();
-                        // voteDeleteButton.hide();
-                        // voteDeleteButton.find(reloadIcons).toggle();
-                        voteButton.show();
-                        configureButton.show();
-                    };
-                    // 2.1 Does the publication has been rated by the logged user?
-                    let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
-                };
-                // 1.3 Publication was never rated, so it does not exists on the database
-                let errorCallback = function (jqXHR, status) {
-                    loadButton.hide();
-                    voteSuccessButton.hide();
-                    // voteDeleteButton.hide();
-                    // voteDeleteButton.find(reloadIcons).toggle();
-                    voteButton.show();
-                    configureButton.show();
-                };
-                // 1.1 Does the publication exists on the database?
-                let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-            });
-        }
-    });
-});
-
 ////////// USER  //////////
 
 //####### STATUS HANDLING (SCORES, ...) #########//
@@ -407,7 +378,6 @@ fetchToken().then(function (authToken) {
         let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }
 });
-
 
 //#######  LOGIN HANDLING #########//
 
@@ -440,10 +410,4 @@ modalPasswordEditButton.on("click", function () {
 signUpButton.on("click", function () {
     signUpButton.find(reloadIcons).toggle();
     signUpButton.find(signUpIcon).toggle();
-});
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", function () {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

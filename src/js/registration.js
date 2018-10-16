@@ -37,6 +37,14 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
 
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", function () {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
+});
+
 ////////// USER ///////////
 
 //########## REGISTRATION HANDLING ##########//
@@ -113,10 +121,4 @@ backButton.on("click", function () {
     backButton.find(reloadIcons).toggle();
     backButton.find(backIcon).toggle();
     window.history.back()
-});
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", function () {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

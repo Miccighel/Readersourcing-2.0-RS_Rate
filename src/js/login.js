@@ -40,6 +40,14 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcon.hide();
 
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", function () {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
+});
+
 ////////// UTILITY FUNCTIONS //////////
 
 String.prototype.capitalize = function () {
@@ -105,10 +113,4 @@ loginButton.on("click", function () {
 
 loginForm.submit(function (event) {
     event.preventDefault();
-});
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", function () {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
