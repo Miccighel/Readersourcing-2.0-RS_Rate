@@ -2,193 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/mkdocs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/mkdocs.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/js/bootstrap-select.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/less/bootstrap-select.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/less/bootstrap-select.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/nuget/bootstrap-select.nuspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/nuget/bootstrap-select.nuspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/sass/bootstrap-select.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/sass/bootstrap-select.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/password.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/password.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/rating.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/rating.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/registration.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/password_forgot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/password_forgot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/password_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/password_update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/rating.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/shared.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/shared.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/options.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/password_forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/password_forgot.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/password_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/password_update.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/rating.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/rating.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -336,14 +150,14 @@
           <entry key="css" value="26" />
           <entry key="html" value="943" />
           <entry key="js" value="952" />
-          <entry key="json" value="148" />
+          <entry key="json" value="152" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="26" />
           <entry key="HTML" value="943" />
-          <entry key="JSON" value="148" />
+          <entry key="JSON" value="152" />
           <entry key="JavaScript" value="952" />
         </counts>
       </usages-collector>
@@ -583,20 +397,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/background.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="468">
+              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="35" />
+            <state relative-caret-position="60">
+              <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -711,7 +525,6 @@
         <option value="$PROJECT_DIR$/src/css/general.css" />
         <option value="$PROJECT_DIR$/src/js/general.js" />
         <option value="$PROJECT_DIR$/src/css/options.css" />
-        <option value="$PROJECT_DIR$/manifest.json" />
         <option value="$PROJECT_DIR$/src/js/options.js" />
         <option value="$PROJECT_DIR$/src/views/options.html" />
         <option value="$PROJECT_DIR$/src/js/shared.js" />
@@ -730,6 +543,7 @@
         <option value="$PROJECT_DIR$/src/js/registration.js" />
         <option value="$PROJECT_DIR$/src/css/registration.css" />
         <option value="$PROJECT_DIR$/src/js/background.js" />
+        <option value="$PROJECT_DIR$/manifest.json" />
       </list>
     </option>
   </component>
@@ -929,7 +743,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246644000" />
+    <option name="totallyTimeSpent" value="246934000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1186,17 +1000,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manifest.json">
+    <entry file="file://$PROJECT_DIR$/src/js/background.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="35" />
+        <state relative-caret-position="468">
+          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/background.js">
+    <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state relative-caret-position="60">
+          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
         </state>
       </provider>
     </entry>

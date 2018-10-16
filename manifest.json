@@ -1,7 +1,7 @@
 {
   "name": "RS_Rate",
-  "version": "1.0.2",
-  "version_name": "1.0.2-alpha",
+  "version": "1.0.3",
+  "version_name": "1.0.3-alpha",
   "description": "Allows to rate scientific publications on the RS_Server component of Readersourcing 2.0",
   "manifest_version": 2,
   "permissions": [
