@@ -2,19 +2,193 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d191e685-e475-495f-92ab-45d994549e75" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/css/options.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/boxed-pattern.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icon128.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icon128.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icon16.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icon16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icon32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icon32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/icon48.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/icon48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ar_AR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-bg_BG.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-cs_CZ.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-da_DK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-de_DE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_CL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-es_ES.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-et_EE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-eu.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fa_IR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fi_FI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-fr_FR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hr_HR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-hu_HU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-id_ID.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-it_IT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ja_JP.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-kh_KM.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ko_KR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-lt_LT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nb_NO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-nl_NL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pl_PL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_BR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-pt_PT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ro_RO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ru_RU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sk_SK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sl_SI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-sv_SE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-tr_TR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-ua_UA.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-vi_VN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_CN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/dist/js/i18n/defaults-zh_TW.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/css/bootstrap-select.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/bootstrap-select.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ar_AR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-bg_BG.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-cs_CZ.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-da_DK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-de_DE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-en_US.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_CL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-es_ES.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-et_EE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-eu.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fa_IR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fi_FI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-fr_FR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hr_HR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-hu_HU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-id_ID.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-it_IT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ja_JP.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-kh_KM.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ko_KR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-lt_LT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nb_NO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-nl_NL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pl_PL.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_BR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-pt_PT.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ro_RO.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ru_RU.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sk_SK.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sl_SI.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-sv_SE.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-tr_TR.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-ua_UA.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-vi_VN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_CN.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/dist/js/i18n/defaults-zh_TW.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/docs/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/mkdocs.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/docs/mkdocs.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/js/bootstrap-select.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/js/bootstrap-select.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/less/bootstrap-select.less" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/less/bootstrap-select.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/nuget/bootstrap-select.nuspec" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/nuget/bootstrap-select.nuspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/bootstrap-select/sass/bootstrap-select.scss" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bootstrap-select/sass/bootstrap-select.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/password.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/password.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/rating.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/rating.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/registration.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/registration.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/background.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/password_forgot.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/password_forgot.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/password_update.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/password_update.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/rating.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/rating.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/shared.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/shared.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/options.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/password_forgot.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/password_forgot.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/password_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/password_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/rating.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/rating.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -159,14 +333,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="70" />
+          <entry key="css" value="26" />
+          <entry key="html" value="943" />
+          <entry key="js" value="952" />
           <entry key="json" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="70" />
+          <entry key="CSS" value="26" />
+          <entry key="HTML" value="943" />
           <entry key="JSON" value="148" />
+          <entry key="JavaScript" value="952" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="2" />
         </counts>
       </usages-collector>
     </session>
@@ -215,8 +403,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/rating.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="104" selection-end-column="25" />
+            <state relative-caret-position="580">
+              <caret line="38" column="10" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="38" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/css/rating.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -224,8 +421,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/rating.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-212">
-              <caret line="191" column="18" lean-forward="true" selection-start-line="191" selection-start-column="18" selection-end-line="191" selection-end-column="18" />
+            <state relative-caret-position="588">
+              <caret line="444" selection-start-line="444" selection-end-line="448" selection-end-column="3" />
               <folding>
                 <element signature="e#60#99#0" expanded="true" />
               </folding>
@@ -234,19 +431,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css/rating.css">
+        <entry file="file://$PROJECT_DIR$/src/views/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+            <state relative-caret-position="460">
+              <caret line="31" column="10" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="31" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/login.html">
+        <entry file="file://$PROJECT_DIR$/src/css/login.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+            <state relative-caret-position="120">
+              <caret line="6" selection-start-line="6" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -254,22 +451,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="100" column="44" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="44" />
+            <state relative-caret-position="588">
+              <caret line="109" selection-start-line="109" selection-end-line="113" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css/login.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/password_update.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="79" column="10" lean-forward="true" selection-start-line="34" selection-end-line="79" selection-end-column="10" />
+            <state relative-caret-position="80">
+              <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -277,8 +469,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/password_update.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
+            <state relative-caret-position="240">
+              <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="38" />
               <folding>
                 <element signature="e#60#100#0" expanded="true" />
               </folding>
@@ -289,8 +481,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/password_forgot.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="580">
+              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -298,8 +490,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/password_forgot.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="57" column="54" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
+            <state relative-caret-position="340">
+              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
               <folding>
                 <element signature="e#60#100#0" expanded="true" />
               </folding>
@@ -310,8 +502,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css/password.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="23" selection-start-column="23" selection-end-column="23" />
+            <state relative-caret-position="200">
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -319,8 +511,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/registration.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="280">
+              <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -328,8 +520,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/registration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="36" selection-start-line="36" selection-end-line="36" selection-end-column="19" />
+            <state relative-caret-position="668">
+              <caret line="121" column="3" selection-start-line="121" selection-start-column="3" selection-end-line="121" selection-end-column="3" />
               <folding>
                 <element signature="e#59#92#0" expanded="true" />
               </folding>
@@ -340,8 +532,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css/registration.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="100">
+              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -349,8 +541,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/options.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
+            <state relative-caret-position="168">
+              <caret line="67" column="23" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -358,17 +550,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/options.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/css/options.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="308">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -376,8 +559,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/shared.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="380">
+              <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -385,8 +568,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/general.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="64" column="56" lean-forward="true" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+            <state relative-caret-position="1200">
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
             </state>
           </provider>
         </entry>
@@ -394,26 +577,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/css/general.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="16" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/js/background.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            <state relative-caret-position="440">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/js/background.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manifest.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+            <state relative-caret-position="700">
+              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -519,34 +702,34 @@
         <option value="$PROJECT_DIR$/assets/js/rating.js" />
         <option value="$PROJECT_DIR$/src/js/networking.js" />
         <option value="$PROJECT_DIR$/src/css/custom.css" />
-        <option value="$PROJECT_DIR$/src/js/shared.js" />
         <option value="$PROJECT_DIR$/src/views/password.html" />
         <option value="$PROJECT_DIR$/src/js/password.js" />
         <option value="$PROJECT_DIR$/src/views/password_reset.html" />
         <option value="$PROJECT_DIR$/src/js/password_reset.js" />
-        <option value="$PROJECT_DIR$/src/css/login.css" />
         <option value="$PROJECT_DIR$/_locales/en/messages.json" />
         <option value="$PROJECT_DIR$/_locales/it/messages.json" />
-        <option value="$PROJECT_DIR$/src/views/login.html" />
-        <option value="$PROJECT_DIR$/src/views/password_update.html" />
-        <option value="$PROJECT_DIR$/src/views/password_forgot.html" />
-        <option value="$PROJECT_DIR$/src/views/registration.html" />
-        <option value="$PROJECT_DIR$/src/views/rating.html" />
-        <option value="$PROJECT_DIR$/src/js/login.js" />
-        <option value="$PROJECT_DIR$/src/js/password_forgot.js" />
-        <option value="$PROJECT_DIR$/src/js/background.js" />
-        <option value="$PROJECT_DIR$/src/css/password.css" />
         <option value="$PROJECT_DIR$/src/css/general.css" />
-        <option value="$PROJECT_DIR$/src/css/registration.css" />
-        <option value="$PROJECT_DIR$/src/css/rating.css" />
-        <option value="$PROJECT_DIR$/src/js/rating.js" />
         <option value="$PROJECT_DIR$/src/js/general.js" />
-        <option value="$PROJECT_DIR$/src/js/password_update.js" />
-        <option value="$PROJECT_DIR$/src/js/registration.js" />
         <option value="$PROJECT_DIR$/src/css/options.css" />
-        <option value="$PROJECT_DIR$/src/views/options.html" />
-        <option value="$PROJECT_DIR$/src/js/options.js" />
         <option value="$PROJECT_DIR$/manifest.json" />
+        <option value="$PROJECT_DIR$/src/js/options.js" />
+        <option value="$PROJECT_DIR$/src/views/options.html" />
+        <option value="$PROJECT_DIR$/src/js/shared.js" />
+        <option value="$PROJECT_DIR$/src/js/rating.js" />
+        <option value="$PROJECT_DIR$/src/js/password_update.js" />
+        <option value="$PROJECT_DIR$/src/views/rating.html" />
+        <option value="$PROJECT_DIR$/src/css/rating.css" />
+        <option value="$PROJECT_DIR$/src/js/login.js" />
+        <option value="$PROJECT_DIR$/src/views/password_update.html" />
+        <option value="$PROJECT_DIR$/src/views/login.html" />
+        <option value="$PROJECT_DIR$/src/css/login.css" />
+        <option value="$PROJECT_DIR$/src/views/password_forgot.html" />
+        <option value="$PROJECT_DIR$/src/js/password_forgot.js" />
+        <option value="$PROJECT_DIR$/src/css/password.css" />
+        <option value="$PROJECT_DIR$/src/views/registration.html" />
+        <option value="$PROJECT_DIR$/src/js/registration.js" />
+        <option value="$PROJECT_DIR$/src/css/registration.css" />
+        <option value="$PROJECT_DIR$/src/js/background.js" />
       </list>
     </option>
   </component>
@@ -589,7 +772,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -608,10 +790,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="RS_Rate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RS_Rate" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -740,7 +929,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238494000" />
+    <option name="totallyTimeSpent" value="246644000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -824,47 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/rating.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/login.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/password_forgot.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/password_forgot.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="57" column="54" selection-start-line="57" selection-start-column="54" selection-end-line="57" selection-end-column="54" />
-          <folding>
-            <element signature="e#60#100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/password.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/registration.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_locales/it/messages.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -886,69 +1034,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/password_update.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="68" column="48" selection-start-line="68" selection-start-column="48" selection-end-line="68" selection-end-column="48" />
-          <folding>
-            <element signature="e#60#100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/css/registration.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/css/general.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/password_update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="79" column="10" lean-forward="true" selection-start-line="34" selection-end-line="79" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="100" column="44" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/background.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/general.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="64" column="56" lean-forward="true" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/shared.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="440">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -959,51 +1048,155 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/options.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="67" column="23" selection-start-line="67" selection-start-column="23" selection-end-line="67" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/options.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/general.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/shared.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="38" column="10" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="38" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/rating.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/password_update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/password_forgot.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="109" selection-start-line="109" selection-end-line="113" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/password_update.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" selection-start-line="18" selection-end-line="18" selection-end-column="38" />
+          <folding>
+            <element signature="e#60#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/password_forgot.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="e#60#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/password.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="31" column="10" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="31" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/rating.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-212">
-          <caret line="191" column="18" lean-forward="true" selection-start-line="191" selection-start-column="18" selection-end-line="191" selection-end-column="18" />
+        <state relative-caret-position="588">
+          <caret line="444" selection-start-line="444" selection-end-line="448" selection-end-column="3" />
           <folding>
             <element signature="e#60#99#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/rating.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="104" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/options.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="30" column="67" selection-start-line="30" selection-start-column="67" selection-end-line="30" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/registration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="36" selection-start-line="36" selection-end-line="36" selection-end-column="19" />
+        <state relative-caret-position="668">
+          <caret line="121" column="3" selection-start-line="121" selection-start-column="3" selection-end-line="121" selection-end-column="3" />
           <folding>
             <element signature="e#59#92#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/options.js">
+    <entry file="file://$PROJECT_DIR$/src/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="120">
+          <caret line="6" selection-start-line="6" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/css/registration.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="700">
+          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/background.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
         </state>
       </provider>
     </entry>

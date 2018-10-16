@@ -3,3 +3,9 @@
 #preloader {
     background-color: white;
 }
+
+/* ////////// TOP BUTTONS ////////// */
+
+button#back-btn {
+    padding-left: 26%;
+}

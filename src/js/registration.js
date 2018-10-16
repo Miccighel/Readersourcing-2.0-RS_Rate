@@ -20,6 +20,7 @@ let orcidField = $("#orcid");
 let passwordField = $("#password");
 let passwordConfirmationField = $("#password-confirmation");
 
+let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
 let registrationButton = $("#sign-up-btn");
 let errorButton = $(".error-btn");
@@ -96,7 +97,7 @@ registrationButton.on("click", function () {
             }
         };
         // noinspection JSIgnoredPromiseFromCall
-        ajax("POST", "http://localhost:3000/users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        ajax("POST", "users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });
 
@@ -112,4 +113,10 @@ backButton.on("click", function () {
     backButton.find(reloadIcons).toggle();
     backButton.find(backIcon).toggle();
     window.history.back()
+});
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", function () {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

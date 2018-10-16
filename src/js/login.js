@@ -15,6 +15,7 @@ let errorsSection = $("#errors-sect");
 let emailField = $("#email");
 let passwordField = $("#password");
 
+let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
 let loginButton = $("#login-btn");
 let errorButton = $(".error-btn");
@@ -98,10 +99,16 @@ loginButton.on("click", function () {
             }
         };
         // noinspection JSIgnoredPromiseFromCall
-        ajax("POST", "http://localhost:3000/authenticate", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        ajax("POST", "authenticate", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });
 
 loginForm.submit(function (event) {
     event.preventDefault();
+});
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", function () {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

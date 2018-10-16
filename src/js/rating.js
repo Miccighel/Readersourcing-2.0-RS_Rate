@@ -24,6 +24,7 @@ let modalRefresh = $("#modal-refresh");
 
 //######## UI COMPONENTS ########//
 
+let optionsButton = $("#options-btn");
 let loginButton = $("#login-btn");
 let logoutButton = $("#logout-btn");
 let profileButton = $("#profile-btn");
@@ -157,7 +158,7 @@ fetchToken().then(function (authToken) {
                     // voteDeleteButton.hide();
                 };
                 // 2.1 Does the publication has been rated by the logged user?
-                let secondPromise = emptyAjax("GET", `http://localhost:3000/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
+                let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
             };
             // 1.3 Publication was never rated, so it does not exists on the database
             let errorCallback = function (jqXHR, status) {
@@ -174,7 +175,7 @@ fetchToken().then(function (authToken) {
                 publicationScoreTRMValue.text("...");
             };
             // 1.1 Does the publication exists on the database?
-            let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
     }
 });
@@ -209,7 +210,7 @@ fetchToken().then(function (authToken) {
                     errorButton.show();
                     errorButton.prop("disabled", true)
                 };
-                let promise = ajax("POST", "http://localhost:3000/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+                let promise = ajax("POST", "publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
             });
         });
     }
@@ -234,7 +235,7 @@ modalRefreshButton.on("click", function () {
                     saveButton.show();
                 };
                 let errorCallback = function (jqXHR, status) {};
-                let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+                let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
             });
         }
     });
@@ -293,7 +294,7 @@ fetchToken().then(function (authToken) {
                             publicationScoreRSMValue.text("...");
                             publicationScoreTRMValue.text("...");
                         };
-                        let secondPromise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
+                        let secondPromise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
                     });
                     let thirdSuccessCallback = function (data, status, jqXHR) {
                         userScoreRSMValue.text((data["score"] * 100).toFixed(2));
@@ -303,7 +304,7 @@ fetchToken().then(function (authToken) {
                         userScoreRSMValue.text("...");
                         userScoreTRMValue.text("...");
                     };
-                    let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
+                    let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
                 };
                 // 1.3 Error during rating creation
                 let errorCallback = function (jqXHR, status) {
@@ -314,7 +315,7 @@ fetchToken().then(function (authToken) {
                     errorButton.prop("disabled", true)
                 };
                 // 1.1 Create a new rating with the selected score
-                let promise = ajax("POST", "http://localhost:3000/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+                let promise = ajax("POST", "ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
             });
         });
     }
@@ -359,7 +360,7 @@ modalDeleteButton.on("click", function () {
                             errorButton.show();
                         };
                         // 3.1 The publication exists and a rating has been found for the logged user, so his rating may be deleted
-                        let thirdPremise = emptyAjax("DELETE", `http://localhost:3000/ratings/${data["id"]}.json`, "application/json; charset=utf-8", "text", true, thirdSuccessCallback, thirdErrorCallback)
+                        let thirdPremise = emptyAjax("DELETE", `ratings/${data["id"]}.json`, "application/json; charset=utf-8", "text", true, thirdSuccessCallback, thirdErrorCallback)
                     };
                     // 2.3 Publication has not been rated by the user
                     let secondErrorCallback = function (jqXHR, status) {
@@ -371,7 +372,7 @@ modalDeleteButton.on("click", function () {
                         configureButton.show();
                     };
                     // 2.1 Does the publication has been rated by the logged user?
-                    let secondPromise = emptyAjax("GET", `http://localhost:3000/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
+                    let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
                 };
                 // 1.3 Publication was never rated, so it does not exists on the database
                 let errorCallback = function (jqXHR, status) {
@@ -383,7 +384,7 @@ modalDeleteButton.on("click", function () {
                     configureButton.show();
                 };
                 // 1.1 Does the publication exists on the database?
-                let promise = ajax("POST", "http://localhost:3000/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+                let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
             });
         }
     });
@@ -403,7 +404,7 @@ fetchToken().then(function (authToken) {
             userScoreRSMValue.text("...");
             userScoreTRMValue.text("...");
         };
-        let promise = emptyAjax("POST", "http://localhost:3000/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+        let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }
 });
 
@@ -439,4 +440,10 @@ modalPasswordEditButton.on("click", function () {
 signUpButton.on("click", function () {
     signUpButton.find(reloadIcons).toggle();
     signUpButton.find(signUpIcon).toggle();
+});
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", function () {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

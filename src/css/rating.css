@@ -12,10 +12,6 @@ body, html {
 
 /* ////////// BUTTONS ////////// */
 
-button#logout-btn {
-    padding-left: 26%;
-}
-
 a#profile-btn {
     color: white;
     width: 100%;

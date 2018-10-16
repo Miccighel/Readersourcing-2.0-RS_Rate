@@ -12,29 +12,56 @@
     <link rel="stylesheet" href="../css/options.css"/>
 </head>
 <body>
-<section id="options-sect" class="mt-3 mb-3">
+<section class="mt-3">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="heading text-center">
-                    <h3>0ptions</h3>
+                <div class="heading text-center mt-3">
+                    <h3>Values</h3>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <form id="password-edit-form" data-parsley-validate>
+                <nav id="options-values-nav" role="tablist" class="nav nav-tabs">
+                    <a id="host-tab-link" data-toggle="tab" href="#host-tab" role="tab" aria-controls="host-tab"
+                       aria-selected="true" class="nav-item nav-link active">
+                        <i class="icon-star"></i>Host
+                    </a>
+                </nav>
+                <div id="options-values-tabs" class="tab-content">
+                    <div id="host-tab" role="tabpanel" aria-labelledby="host-tab" class="tab-pane fade show active">
+                        <h5 id="host-value" class="no-mb">Test</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="options-sect" class="mt-3 mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading text-center">
+                    <h3>Set</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form id="options-form">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="host">New host for a custom version of RS_Server</label>
-                                <input id="host" type="text" class="form-control" placeholder="Default: http://localhost:3000/" value="http://localhost:3000/">
+                                <input id="host" type="text" class="form-control"
+                                       placeholder="Default: http://localhost:3000/" value="http://localhost:3000/">
                             </div>
                         </div>
                         <div class="col-12 text-center">
                             <button type="button" id="save-btn" class="btn btn-success">
                                 <i class="fa fa-refresh fa-spin reload-icon"></i>
-                                Rate
+                                Save
                             </button>
                         </div>
                     </div>
@@ -44,6 +71,7 @@
     </div>
 </section>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../node_modules/jquery.cookie/jquery.cookie.js"></script>
 <script src="../../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
@@ -57,6 +85,7 @@
 <script src="../../node_modules/js-cookie/src/js.cookie.js"></script>
 <script src="../../node_modules/parsleyjs/dist/parsley.min.js"></script>
 <script src="../../node_modules/parsleyjs/dist/i18n/it.js"></script>
+<script src="../js/system/front.js"></script>
 <script src="../js/general.js"></script>
 <script type="module" src="../js/shared.js"></script>
 <script type="module" src="../js/options.js"></script>

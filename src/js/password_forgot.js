@@ -15,6 +15,7 @@ let errorsSection = $("#errors-sect");
 
 let emailField = $("#email");
 
+let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
 let passwordForgotButton = $("#password-forgot-btn");
 let errorButton = $(".error-btn");
@@ -86,7 +87,7 @@ passwordForgotButton.on("click", function () {
             }
         };
         // noinspection JSIgnoredPromiseFromCall
-        ajax("POST", "http://localhost:3000/password/forgot.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        ajax("POST", "password/forgot.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });
 
@@ -102,4 +103,10 @@ backButton.on("click", function () {
     backButton.find(reloadIcons).toggle();
     backButton.find(backIcon).toggle();
     window.location.href = "login.html";
+});
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", function () {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

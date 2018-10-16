@@ -10,35 +10,39 @@ export async function deleteToken() {
 
 export async function ajax(type, url, contentType, dataType, crossDomain, data, success, error) {
     fetchToken().then(function (authToken) {
-        $.ajax({
-            type: type,
-            url: url,
-            contentType: contentType,
-            dataType: dataType,
-            crossDomain: crossDomain,
-            data: JSON.stringify(data),
-            success: success,
-            error: error,
-            headers: {
-                "Authorization": authToken
-            },
+        chrome.storage.sync.get(['host'], function (result) {
+            $.ajax({
+                type: type,
+                url: `${result.host}${url}`,
+                contentType: contentType,
+                dataType: dataType,
+                crossDomain: crossDomain,
+                data: JSON.stringify(data),
+                success: success,
+                error: error,
+                headers: {
+                    "Authorization": authToken
+                },
+            });
         });
     });
 }
 
 export async function emptyAjax(type, url, contentType, dataType, crossDomain, success, error) {
     fetchToken().then(function (authToken) {
-        $.ajax({
-            type: type,
-            url: url,
-            contentType: contentType,
-            dataType: dataType,
-            crossDomain: crossDomain,
-            success: success,
-            error: error,
-            headers: {
-                "Authorization": authToken
-            },
+        chrome.storage.sync.get(['host'], function (result) {
+            $.ajax({
+                type: type,
+                url: `${result.host}${url}`,
+                contentType: contentType,
+                dataType: dataType,
+                crossDomain: crossDomain,
+                success: success,
+                error: error,
+                headers: {
+                    "Authorization": authToken
+                },
+            });
         });
     });
 }
