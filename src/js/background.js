@@ -1,7 +1,7 @@
 //######### DEFAULT STARTUP VALUES #########//
 
 chrome.runtime.onInstalled.addListener(function () {
-    let defaultValue = "http://localhost:3000/";
+    let defaultValue = "https://rs-server.herokuapp.com/";
     chrome.storage.sync.set({host: defaultValue}, function () {
         console.log("Default value for option \"Host\" set.");
         chrome.storage.sync.get(['host'], function (result) {
