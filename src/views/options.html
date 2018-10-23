@@ -26,12 +26,12 @@
                 <nav id="options-values-nav" role="tablist" class="nav nav-tabs">
                     <a id="host-tab-link" data-toggle="tab" href="#host-tab" role="tab" aria-controls="host-tab"
                        aria-selected="true" class="nav-item nav-link active">
-                        <i class="icon-star"></i>Host
+                        <i class="icon-star"></i>RS_Server Host
                     </a>
                 </nav>
                 <div id="options-values-tabs" class="tab-content">
                     <div id="host-tab" role="tabpanel" aria-labelledby="host-tab" class="tab-pane fade show active">
-                        <h5 id="host-value" class="no-mb">Test</h5>
+                        <h5 id="host-value" class="no-mb"></h5>
                     </div>
                 </div>
             </div>
@@ -52,10 +52,21 @@
                 <form id="options-form">
                     <div class="row">
                         <div class="col-12">
-                            <div class="form-group">
-                                <label for="host">New host for a custom version of RS_Server</label>
-                                <input id="host" type="text" class="form-control"
-                                       placeholder="Default: http://localhost:3000/" value="http://localhost:3000/">
+                            <label for="host">New host for a custom version of RS_Server</label>
+                            <div class="form-row">
+                                <div class="form-group col-2 text-right">
+                                    <h5>https:&#47;&#47;</h5>
+                                </div>
+                                <div class="form-group col-9">
+                                    <input id="host" type="text" class="form-control form-inline"
+                                           placeholder="rs-server.herokuapp.com" value="rs-server.herokuapp.com">
+                                </div>
+                                <div class="form-group col-1 text-left">
+                                    <h5>&#47;</h5>
+                                </div>
+                            </div>
+                            <div class="alert alert-warning" role="alert">
+                                Edit it only if you know what you're doing.
                             </div>
                         </div>
                         <div class="col-12 text-center">

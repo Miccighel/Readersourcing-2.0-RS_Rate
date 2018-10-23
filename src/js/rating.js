@@ -84,7 +84,9 @@ fetchToken().then(function (authToken) {
         publicationScoreSection.show();
     } else {
         loginSection.show();
-        buttonsSections.hide();
+        buttonsSections.show();
+        logoutButton.hide();
+        profileButton.hide();
         ratingSection.hide();
         publicationScoreSection.hide();
     }
