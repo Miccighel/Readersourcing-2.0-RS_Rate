@@ -13,8 +13,9 @@ let errorsSection = $("#errors-sect");
 
 //######## UI COMPONENTS ########//
 
-let passwordField = $("#password");
-let passwordConfirmationField = $("#password-confirmation");
+let currentPasswordField = $("#current-password");
+let newPasswordField = $("#new-password");
+let newPasswordConfirmationField = $("#new-password-confirmation");
 
 let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
@@ -56,8 +57,9 @@ passwordEditButton.on("click", function () {
         passwordEditButton.find(checkIcon).toggle();
         passwordEditButton.find(reloadIcons).toggle();
         let data = {
-            password: passwordField.val(),
-            password_confirmation: passwordConfirmationField.val()
+            current_password: currentPasswordField.val(),
+            new_password: newPasswordField.val(),
+            new_password_confirmation: newPasswordConfirmationField.val()
         };
         let successCallback = function (data, status, jqXHR) {
             passwordEditButton.find(reloadIcons).toggle();

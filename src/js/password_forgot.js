@@ -73,6 +73,7 @@ passwordForgotButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
+                console.log(jqXHR.responseText);
                 let errors = JSON.parse(jqXHR.responseText);
                 let element = "";
                 for (let attribute in errors) {
@@ -81,7 +82,6 @@ passwordForgotButton.on("click", function () {
                         element = `<ul>`;
                         for (let index in array) {
                             if (array.hasOwnProperty(index)) {
-                                console.log(array[index]);
                                 element = `${element}<li>${array[index].message.capitalize()}</li>`;
                             }
                         }
