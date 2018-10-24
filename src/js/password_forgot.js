@@ -73,7 +73,6 @@ passwordForgotButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
-                console.log(jqXHR.responseText);
                 let errors = JSON.parse(jqXHR.responseText);
                 let element = "";
                 for (let attribute in errors) {

@@ -20,6 +20,8 @@ let orcidField = $("#orcid");
 let passwordField = $("#password");
 let passwordConfirmationField = $("#password-confirmation");
 
+let recaptchaControl = $("#recaptcha-control");
+
 let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
 let registrationButton = $("#sign-up-btn");
@@ -66,8 +68,9 @@ registrationButton.on("click", function () {
                 email: emailField.val(),
                 orcid: orcidField.val(),
                 password: passwordField.val(),
-                password_confirmation: passwordConfirmationField.val()
-            }
+                password_confirmation: passwordConfirmationField.val(),
+            },
+            recaptcha_response: grecaptcha.getResponse()
         };
         let successCallback = function (data, status, jqXHR) {
             registrationButton.find(reloadIcons).toggle();

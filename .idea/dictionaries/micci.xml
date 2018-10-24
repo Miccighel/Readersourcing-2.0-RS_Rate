@@ -2,6 +2,8 @@
   <dictionary name="micci">
     <words>
       <w>orcid</w>
+      <w>recaptcha</w>
+      <w>sitekey</w>
     </words>
   </dictionary>
 </component>
