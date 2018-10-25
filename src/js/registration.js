@@ -72,7 +72,7 @@ registrationButton.on("click", function () {
         let successCallback = function (data, status, jqXHR) {
             registrationButton.find(reloadIcons).toggle();
             deleteToken().then(function () {
-                localStorage.setItem("message", "Email sent. Please, check your inbox. You can login now.");
+                localStorage.setItem("message", data["message"]);
                 window.location.href = "login.html";
             });
         };
