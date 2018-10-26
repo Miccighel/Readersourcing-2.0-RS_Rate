@@ -4,6 +4,7 @@
 
 import {ajax} from "./shared.js";
 import {deleteToken} from "./shared.js";
+import {buildErrors} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
@@ -19,6 +20,8 @@ let emailField = $("#email");
 let orcidField = $("#orcid");
 let passwordField = $("#password");
 let passwordConfirmationField = $("#password-confirmation");
+
+let subscribeCheckbox = $("#subscribe");
 
 let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
@@ -67,6 +70,7 @@ registrationButton.on("click", function () {
                 orcid: orcidField.val(),
                 password: passwordField.val(),
                 password_confirmation: passwordConfirmationField.val(),
+                subscribe: !!subscribeCheckbox.is(":checked")
             },
         };
         let successCallback = function (data, status, jqXHR) {
@@ -85,24 +89,11 @@ registrationButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
-                let errors = JSON.parse(jqXHR.responseText);
-                let element = "";
-                for (let attribute in errors) {
-                    if (errors.hasOwnProperty(attribute)) {
-                        let array = errors[attribute];
-                        element = `${element}<br/>${attribute.capitalize()}: <ul>`;
-                        for (let index in array) {
-                            if (array.hasOwnProperty(index)) {
-                                element = `${element}<li>${array[index].capitalize()}</li>`;
-                            }
-                        }
-                        element = `${element}</ul>`;
-                    }
-                }
-                if (errorsSection.find(alert).children().length < 1) {
-                    errorsSection.find(alert).append(element);
-                }
-                errorsSection.show();
+                let errorPromise = buildErrors(jqXHR.responseText).then(function(result) {
+                    errorsSection.find(alert).empty();
+                    errorsSection.find(alert).append(result);
+                    errorsSection.show();
+                });
             }
         };
         // noinspection JSIgnoredPromiseFromCall

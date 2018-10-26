@@ -46,6 +46,12 @@ let ratingSubCaption = $("#rating-subcaption");
 let ratingSlider = $("#rating-slider");
 let ratingText = $("#rating-text");
 let buttonsCaption = $("#buttons-caption");
+
+let firstNameValue = $("#first-name-val");
+let lastNameValue = $("#last-name-val");
+let emailValue = $("#email-val");
+let orcidValue = $("#orcid-val");
+let subscribeValue = $("#subscribe-val");
 let userScoreRSMValue = $("#user-score-rsm-val");
 let userScoreTRMValue = $("#user-score-trm-val");
 
@@ -370,10 +376,20 @@ configureSaveButton.on("click", function () {
 fetchToken().then(function (authToken) {
     if (authToken != null) {
         let successCallback = function (data, status, jqXHR) {
+            firstNameValue.text(data["first_name"]);
+            lastNameValue.text(data["last_name"]);
+            emailValue.text(data["email"]);
+            orcidValue.text(data["orcid"]);
+            (data["subscribe"]) ? subscribeValue.text("Yes") : subscribeValue.text("No");
             userScoreRSMValue.text((data["score"] * 100).toFixed(2));
             userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
         };
         let errorCallback = function (jqXHR, status) {
+            firstNameValue.text("...");
+            lastNameValue.text("...");
+            emailValue.text("...");
+            orcidValue.text("...");
+            subscribeValue.text("...");
             userScoreRSMValue.text("...");
             userScoreTRMValue.text("...");
         };

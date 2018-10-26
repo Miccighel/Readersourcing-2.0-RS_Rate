@@ -38,17 +38,17 @@
         </div>
     </div>
 </section>
-<section id="login-sect" class="bar bg-gray-dark no-mb color-white">
+<section id="login-sect" class="bar-tb bg-gray-dark no-mb color-white">
     <div class="container">
         <div class="row">
             <div class="col-12 heading text-center">
-                <h3>Readersourcing 2.0</h3>
-                <p class="lead mb-0">Go to login o sign up pages</p>
+                <h4>Readersourcing 2.0</h4>
+                <p class="lead mb-0">Welcome, choose your action</p>
             </div>
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <a href="login.html" id="login-btn" class="btn btn-primary">
+                <a href="login.html" id="login-btn" class="btn btn-primary btn-block">
                     Login
                     <i id="sign-in-icon" class="fa fa-sign-in"></i>
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
@@ -57,12 +57,12 @@
         </div>
         <div class="row">
             <div class="col-12 text-center mt-3">
-                <h4>Otherwise</h4>
+                <p class="lead mb-3">Otherwise</p>
             </div>
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                <a href="registration.html" id="sign-up-btn" class="btn btn-primary">
+                <a href="registration.html" id="sign-up-btn" class="btn btn-primary btn-block">
                     Sign Up
                     <i id="sign-up-icon" class="fa fa-user-plus"></i>
                     <i class="fa fa-refresh fa-spin reload-icon"></i>
@@ -71,13 +71,13 @@
         </div>
     </div>
 </section>
-<section id="rating-sect" class="bar bg-gray-dark pb-4 color-white">
+<section id="rating-sect" class="bar-tb bg-gray-dark pb-4 color-white">
     <div class="container">
         <div class="row">
             <div class="col-12 heading text-center">
-                <h3>Readersourcing 2.0</h3>
-                <p id="rating-caption" class="lead mb-0">Rate this publication.</p>
-                <p id="rating-subcaption" class="lead mb-0">Publication rated with score:</p>
+                <h4>Readersourcing 2.0</h4>
+                <p id="rating-caption" class="lead mb-0">Rate this publication</p>
+                <p id="rating-subcaption" class="lead mb-0">Publication rated with score</p>
             </div>
         </div>
         <div class="row">
@@ -124,7 +124,7 @@
         </div>
         <div id="buttons-caption" class="row">
             <div class="col-12 text-center mt-3">
-                <h4>Otherwise</h4>
+                <p class="lead mb-3">Otherwise</p>
             </div>
         </div>
         <div class="row">
@@ -175,17 +175,27 @@
             <div class="modal-body">
                 <section id="user-score-sect">
                     <div class="row">
-                        <div class="col-12 text-center">
-                            <h4>Your score (RSM): <span id="user-score-rsm-val"></span>/100</h4>
-                            <h4>Your score (TRM): <span id="user-score-trm-val"></span>/100</h4>
+                        <div class="col-12">
+                            <h5>Your first name: <span id="first-name-val"></span></h5>
+                            <h5>Your last name: <span id="last-name-val"></span></h5>
+                            <h5>Your email: <span id="email-val"></span></h5>
+                            <h5>Your ORCID: <span id="orcid-val"></span></h5>
+                            <h5>Subscribed (to emails): <span id="subscribe-val"></span></h5>
+                            <h5>Your score (RSM): <span id="user-score-rsm-val"></span>/100</h5>
+                            <h5 class="no-mb">Your score (TRM): <span id="user-score-trm-val"></span>/100</h5>
                         </div>
                     </div>
                 </section>
             </div>
             <div class="modal-footer">
                 <div class="row">
+                    <div class="col-12 mb-1 text-center">
+                        <a href="profile_update.html" id="profile-update-btn" class="btn btn-primary btn-block">
+                            Update Profile
+                        </a>
+                    </div>
                     <div class="col-12 text-center">
-                        <button type="button" id="modal-password-edit-btn" class="btn btn-success">
+                        <button type="button" id="modal-password-edit-btn" class="btn btn-primary btn-block">
                             Edit Password
                         </button>
                     </div>
@@ -208,15 +218,15 @@
                     <div class="col-12 text-center">
                         <input class="form-check-input" type="checkbox" value="" id="anonymize-check">
                         <label class="form-check-label" for="anonymize-check">
-                            Anonymize
+                            <strong>Anonymize</strong>
                         </label>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div class="row">
-                    <div class="col-12 text-center">
-                        <button type="button" id="configuration-save-btn" class="btn btn-success">
+                    <div class="col-12">
+                        <button type="button" id="configuration-save-btn" class="btn btn-success btn-block">
                             Save
                         </button>
                     </div>
@@ -225,7 +235,7 @@
         </div>
     </div>
 </div>
-<div id="modal-refresh" tabindex="-1" role="dialog" aria-labelledby="modal-delete-label" aria-hidden="true"
+<div id="modal-refresh" tabindex="-1" role="dialog" aria-labelledby="modal-refresh-label" aria-hidden="true"
      class="modal fade">
     <div role="document" class="modal-dialog">
         <div class="modal-content">
@@ -235,12 +245,12 @@
                         aria-hidden="true">X</span></button>
             </div>
             <div class="modal-body">
-                <h4 class="mb-0">Do you want to save this publication for later again?</h4>
+                <h5 class="mb-0">Do you want to save this publication for later again?</h5>
             </div>
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <button type="button" id="modal-refresh-btn" class="btn btn-success">
+                        <button type="button" id="modal-refresh-btn" class="btn btn-success btn-block">
                             Confirm
                         </button>
                     </div>

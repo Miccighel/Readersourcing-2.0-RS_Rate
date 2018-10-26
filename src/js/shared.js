@@ -46,3 +46,17 @@ export async function emptyAjax(type, url, contentType, dataType, crossDomain, s
         });
     });
 }
+
+export async function buildErrors(errors) {
+    let parsedErrors = JSON.parse(errors);
+    let element = "";
+    Object.keys(parsedErrors).forEach(function (attribute, index) {
+        element = `<span>${element}${attribute.capitalize()}:</span><ul>`;
+        let messages = parsedErrors[attribute];
+        Object.values(messages).forEach(function (message, index) {
+            element = `${element}<li>${message.capitalize()}</li>`;
+        });
+        element = `${element}</ul>`;
+    });
+    return element;
+}

@@ -38,7 +38,10 @@ Parsley.addMessages('it', {
 Parsley.addValidator('orcid', {
     requirementType: 'regexp',
     validateString: function (value) {
-        return /[0-9]{4}-[0-9]{4}-[0-9]{4}-([0-9]{3}X|[0-9]{4})/.test(value);
+        if(value === "")
+            return true;
+        else
+            return /[0-9]{4}-[0-9]{4}-[0-9]{4}-([0-9]{3}X|[0-9]{4})/.test(value);
     },
     messages: {
         en: 'This value is an invalid ORCID.',

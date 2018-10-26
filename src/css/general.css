@@ -12,8 +12,17 @@
 /* ////////// GENERAL ////////// */
 
 body, html {
-    height: 320px;
+    height: 250px;
     width: 300px;
+    overflow: hidden;
+}
+
+h4 {
+    font-size: 1.15rem !important;
+}
+
+.lead {
+    font-size: 1.15rem !important;
 }
 
 .centered {
@@ -22,6 +31,11 @@ body, html {
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-35%, -50%);
+}
+
+.bar-tb {
+    padding-top: 60px;
+    padding-bottom: 1rem;
 }
 
 /* ////////// ERRORS  ////////// */

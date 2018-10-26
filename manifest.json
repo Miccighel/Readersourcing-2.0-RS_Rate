@@ -16,7 +16,7 @@
     ],
     "persistent": false
   },
-  "default_locale": "it",
+  "default_locale": "en",
   "page_action": {
     "default_title": "Press on this button to rate this publication",
     "default_popup": "src/views/rating.html",

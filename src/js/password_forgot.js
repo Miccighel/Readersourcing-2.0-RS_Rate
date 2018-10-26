@@ -4,6 +4,7 @@
 
 import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
+import {buildErrors} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
@@ -73,24 +74,11 @@ passwordForgotButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
-                let errors = JSON.parse(jqXHR.responseText);
-                let element = "";
-                for (let attribute in errors) {
-                    if (errors.hasOwnProperty(attribute)) {
-                        let array = errors[attribute];
-                        element = `<ul>`;
-                        for (let index in array) {
-                            if (array.hasOwnProperty(index)) {
-                                element = `${element}<li>${array[index].message.capitalize()}</li>`;
-                            }
-                        }
-                        element = `${element}</ul>`;
-                    }
-                }
-                if (errorsSection.find(alert).children().length < 1) {
-                    errorsSection.find(alert).append(element);
-                }
-                errorsSection.show();
+                let errorPromise = buildErrors(jqXHR.responseText).then(function(result) {
+                    errorsSection.find(alert).empty();
+                    errorsSection.find(alert).append(result);
+                    errorsSection.show();
+                });
             }
         };
         // noinspection JSIgnoredPromiseFromCall

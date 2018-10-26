@@ -35,3 +35,10 @@ a#profile-btn {
 #score-sect div {
     cursor: default !important;
 }
+
+/* ////////// MODALS ////////// */
+
+div#modal-configuration div.modal-footer, div#modal-refresh .modal-footer {
+    display: block !important;
+}
+
