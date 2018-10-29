@@ -38,7 +38,7 @@ let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let refreshButton = $("#refresh-btn");
 let errorButtons = $(".error-btn");
-let modalPasswordEditButton = $("#modal-password-edit-btn");
+let passwordEditButton = $("#password-edit-btn");
 let modalRefreshButton = $("#modal-refresh-btn");
 
 let ratingCaption = $("#rating-caption");
@@ -412,15 +412,6 @@ logoutButton.on("click", function () {
     deleteToken().then(function () {
         location.reload()
     });
-});
-
-//####### PASSWORD EDIT HANDLING #########//
-
-modalPasswordEditButton.on("click", function () {
-    modalProfile.modal("hide");
-    profileButton.find(profileIcon).toggle();
-    profileButton.find(reloadIcons).toggle();
-    window.location = "password_update.html";
 });
 
 //######### SIGN UP HANDLING #########//
