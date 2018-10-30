@@ -18,7 +18,6 @@ let errorsSection = $("#errors-sect");
 
 let firstNameField = $("#first-name");
 let lastNameField = $("#last-name");
-let emailField = $("#email");
 let orcidField = $("#orcid");
 
 let subscribeCheckbox = $("#subscribe");
@@ -64,7 +63,6 @@ fetchToken().then(function (authToken) {
         let errorCallback = function (jqXHR, status) {
             firstNameField.val();
             lastNameField.val();
-            emailField.val();
             orcidField.val();
             subscribeCheckbox.prop('checked', false);
         };
@@ -91,7 +89,6 @@ fetchToken().then(function (authToken) {
                         user: {
                             first_name: firstNameField.val(),
                             last_name: lastNameField.val(),
-                            email: emailField.val(),
                             orcid: orcidField.val(),
                             subscribe: !!subscribeCheckbox.is(":checked")
                         },
