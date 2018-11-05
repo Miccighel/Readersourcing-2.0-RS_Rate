@@ -13,30 +13,10 @@ chrome.runtime.onInstalled.addListener(function () {
 //######### PAGE STATE MATCHING #########//
 
 
-let arxivRule = {
-    conditions: [new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: {
-            hostEquals: 'arxiv.org',
-            schemes: ['https'],
-            urlContains: 'pdf'
-        },
-    })],
-    actions: [new chrome.declarativeContent.ShowPageAction()]
-};
-let springerLinkRule = {
-    conditions: [new chrome.declarativeContent.PageStateMatcher({
-        pageUrl: {
-            hostEquals: 'link.springer.com',
-            schemes: ['https'],
-            urlContains: 'pdf'
-        },
-    })],
-    actions: [new chrome.declarativeContent.ShowPageAction()]
-};
-
 chrome.runtime.onInstalled.addListener(function () {
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-        chrome.declarativeContent.onPageChanged.addRules([springerLinkRule]);
-        chrome.declarativeContent.onPageChanged.addRules([arxivRule]);
+    chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+        let currentTab = tabs[0];
+        console.log(`Tab URL: ${currentTab.url}`);
+        console.log(`Tab ID: ${currentTab.id}`);
     });
 });
