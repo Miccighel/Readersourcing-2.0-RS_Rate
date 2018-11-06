@@ -9,14 +9,3 @@ chrome.runtime.onInstalled.addListener(function () {
         });
     });
 });
-
-//######### PAGE STATE MATCHING #########//
-
-
-chrome.runtime.onInstalled.addListener(function () {
-    chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
-        let currentTab = tabs[0];
-        console.log(`Tab URL: ${currentTab.url}`);
-        console.log(`Tab ID: ${currentTab.id}`);
-    });
-});
