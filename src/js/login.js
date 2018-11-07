@@ -30,13 +30,17 @@ let reloadIcon = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
-if (localStorage.getItem("message") === null) {
-    successSection.hide();
-} else {
-    successSection.show();
-    successSection.find(alertSuccess).append(localStorage.getItem("message"));
-    localStorage.removeItem("message");
-}
+chrome.storage.sync.get(['message'], function (result) {
+    if (result.message === null) {
+        successSection.hide();
+    } else {
+        chrome.storage.sync.remove(['message'], function (result) {
+            successSection.show();
+            successSection.find(alertSuccess).append(result.message);
+        });
+    }
+});
+
 errorsSection.hide();
 errorButton.hide();
 reloadIcon.hide();
@@ -87,7 +91,7 @@ loginButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
-                let errorPromise = buildErrors(jqXHR.responseText).then(function(result) {
+                let errorPromise = buildErrors(jqXHR.responseText).then(function (result) {
                     errorsSection.find(alert).empty();
                     errorsSection.find(alert).append(result);
                     errorsSection.show();

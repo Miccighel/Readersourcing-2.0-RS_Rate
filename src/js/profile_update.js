@@ -98,8 +98,9 @@ fetchToken().then(function (authToken) {
                     let secondSuccessCallback = function (data, status, jqXHR) {
                         updateButton.find(reloadIcons).toggle();
                         deleteToken().then(function () {
-                            localStorage.setItem("message", data["message"]);
-                            window.location.href = "login.html";
+                            chrome.storage.sync.set({message: data["message"]}, function () {
+                                window.location.href = "login.html";
+                            });
                         });
                     };
                     let secondErrorCallback = function (jqXHR, status) {
