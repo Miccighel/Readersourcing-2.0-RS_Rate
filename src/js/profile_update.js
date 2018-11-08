@@ -2,7 +2,6 @@
 
 //######## IMPORTS ########//
 
-import {fetchToken} from "./shared.js";
 import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
@@ -43,7 +42,7 @@ reloadIcons.hide();
 
 //######### OPTIONS HANDLING #########//
 
-optionsButton.on("click", function () {
+optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
@@ -51,16 +50,16 @@ optionsButton.on("click", function () {
 
 //####### STATUS HANDLING (SCORES, ...) #########//
 
-fetchToken().then(function (authToken) {
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
     if (authToken != null) {
-        let successCallback = function (data, status, jqXHR) {
+        let successCallback = (data, status, jqXHR) => {
             firstNameField.val(data["first_name"]);
             lastNameField.val(data["last_name"]);
-            emailField.val(data["email"]);
             orcidField.val(data["orcid"]);
             (data["subscribe"]) === true ? subscribeCheckbox.prop('checked', true) : subscribeCheckbox.prop('checked', false);
         };
-        let errorCallback = function (jqXHR, status) {
+        let errorCallback = (jqXHR, status) => {
             firstNameField.val();
             lastNameField.val();
             orcidField.val();
@@ -74,16 +73,16 @@ fetchToken().then(function (authToken) {
 
 let validationInstance = registrationForm.parsley();
 
-registrationForm.submit(function (event) {
-    event.preventDefault();
-});
+registrationForm.submit(event => event.preventDefault());
 
-fetchToken().then(function (authToken) {
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
     if (authToken != null) {
-        updateButton.on("click", function () {
+        updateButton.on("click", () => {
             updateButton.find(signUpIcon).toggle();
             updateButton.find(reloadIcons).toggle();
-            let successCallback = function (data, status, jqXHR) {
+            let successCallback = (parameters) => {
+                let {data, status, jqXHR} = parameters;
                 if (validationInstance.isValid()) {
                     let secondData = {
                         user: {
@@ -95,15 +94,15 @@ fetchToken().then(function (authToken) {
                     };
                     if (orcidField.val() === "")
                         delete secondData.user.orcid;
-                    let secondSuccessCallback = function (data, status, jqXHR) {
+                    let secondSuccessCallback = (parameters) => {
+                        let {data, status, jqXHR} = parameters;
                         updateButton.find(reloadIcons).toggle();
                         deleteToken().then(function () {
-                            chrome.storage.sync.set({message: data["message"]}, function () {
-                                window.location.href = "login.html";
-                            });
+                            chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html");
                         });
                     };
-                    let secondErrorCallback = function (jqXHR, status) {
+                    let secondErrorCallback = (parameters) => {
+                        let {jqXHR, status} = parameters;
                         updateButton.find(reloadIcons).toggle();
                         updateButton.find(signUpIcon).toggle();
                         if (jqXHR.responseText == null) {
@@ -112,7 +111,7 @@ fetchToken().then(function (authToken) {
                             button.show();
                             button.prop("disabled", true)
                         } else {
-                            let errorPromise = buildErrors(jqXHR.responseText).then(function(result) {
+                            let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                                 errorsSection.find(alert).empty();
                                 errorsSection.find(alert).append(result);
                                 errorsSection.show();
@@ -122,7 +121,7 @@ fetchToken().then(function (authToken) {
                     let secondPromise = ajax("PUT", `users/${data["id"]}.json`, "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
                 }
             };
-            let errorCallback = function (jqXHR, status) {
+            let errorCallback = (jqXHR, status) => {
                 updateButton.find(reloadIcons).toggle();
                 updateButton.find(signUpIcon).toggle();
                 if (jqXHR.responseText == null) {
@@ -131,7 +130,7 @@ fetchToken().then(function (authToken) {
                     button.show();
                     button.prop("disabled", true)
                 } else {
-                    let errorPromise = buildErrors(jqXHR.responseText).then(function(result) {
+                    let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                         errorsSection.find(alert).empty();
                         errorsSection.find(alert).append(result);
                         errorsSection.show();
@@ -145,9 +144,7 @@ fetchToken().then(function (authToken) {
 
 //////////// UTILITY FUNCTIONS ////////////
 
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
+String.prototype.capitalize = () => this.charAt(0).toUpperCase() + this.slice(1);
 
 //########## GO BACK HANDLING #########//
 

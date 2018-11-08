@@ -18,31 +18,21 @@ let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
-optionsForm.submit(function (event) {
-    event.preventDefault();
-});
+optionsForm.submit(event => event.preventDefault());
 
 reloadIcons.hide();
-chrome.storage.sync.get(['host'], function (result) {
-    hostValue.text(result.host);
-});
+chrome.storage.sync.get(['host'], result => hostValue.text(result.host));
 
 ////////// OPTIONS //////////
 
 //######### SAVE HANDLING #########//
 
-saveButton.on("click", function () {
+saveButton.on("click", () => {
     saveButton.find(reloadIcons).toggle();
     let host = "";
-    if (hostField.val().indexOf("localhost") >= 0) {
-        host = `http://${hostField.val()}/`;
-    } else {
-        host = `https://${hostField.val()}/`;
-    }
-    chrome.storage.sync.set({host: host}, function () {
+    host = hostField.val().indexOf("localhost") >= 0 ? `http://${hostField.val()}/` : `https://${hostField.val()}/`;
+    chrome.storage.sync.set({host: host}, () => {
         saveButton.find(reloadIcons).toggle();
-        chrome.storage.sync.get(['host'], function (result) {
-            hostValue.text(result.host);
-        });
+        chrome.storage.sync.get(['host'], result => hostValue.text(result.host));
     });
 });

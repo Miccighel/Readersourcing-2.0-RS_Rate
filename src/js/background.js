@@ -1,11 +1,9 @@
 //######### DEFAULT STARTUP VALUES #########//
 
-chrome.runtime.onInstalled.addListener(function () {
+chrome.runtime.onInstalled.addListener(() => {
     let hostDefault = "https://rs-server.herokuapp.com/";
-    chrome.storage.sync.set({host: hostDefault}, function () {
+    chrome.storage.sync.set({host: hostDefault}, () => {
         console.log("Default value for option \"Host\" set.");
-        chrome.storage.sync.get(['host'], function (result) {
-            console.log(`Value for option "Host" is ${result.host}`)
-        });
+        chrome.storage.sync.get(['host'], result => console.log(`Value for option "Host" is ${result.host}`));
     });
 });

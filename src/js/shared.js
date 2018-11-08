@@ -1,16 +1,13 @@
 ////////// NETWORKING SECTION //////////
 
-export async function fetchToken() {
-    return Cookies.get('authToken');
-}
-
 export async function deleteToken() {
-    Cookies.remove('authToken');
+    chrome.storage.sync.remove(['authToken']);
 }
 
 export async function ajax(type, url, contentType, dataType, crossDomain, data, success, error) {
-    fetchToken().then(function (authToken) {
-        chrome.storage.sync.get(['host'], function (result) {
+    chrome.storage.sync.get(['authToken'], result => {
+        let authToken = result.authToken;
+        chrome.storage.sync.get(['host'], result => {
             $.ajax({
                 type: type,
                 url: `${result.host}${url}`,
@@ -29,8 +26,9 @@ export async function ajax(type, url, contentType, dataType, crossDomain, data, 
 }
 
 export async function emptyAjax(type, url, contentType, dataType, crossDomain, success, error) {
-    fetchToken().then(function (authToken) {
-        chrome.storage.sync.get(['host'], function (result) {
+    chrome.storage.sync.get(['authToken'], result => {
+        let authToken = result.authToken;
+        chrome.storage.sync.get(['host'], result => {
             $.ajax({
                 type: type,
                 url: `${result.host}${url}`,
@@ -50,10 +48,10 @@ export async function emptyAjax(type, url, contentType, dataType, crossDomain, s
 export async function buildErrors(errors) {
     let parsedErrors = JSON.parse(errors);
     let element = "";
-    Object.keys(parsedErrors).forEach(function (attribute, index) {
+    Object.keys(parsedErrors).forEach((attribute, index) => {
         element = `<span>${element}${attribute.capitalize()}:</span><ul>`;
         let messages = parsedErrors[attribute];
-        Object.values(messages).forEach(function (message, index) {
+        Object.values(messages).forEach((message, index) => {
             element = `${element}<li>${message.capitalize()}</li>`;
         });
         element = `${element}</ul>`;

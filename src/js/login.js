@@ -30,14 +30,13 @@ let reloadIcon = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
-chrome.storage.sync.get(['message'], function (result) {
-    if (result.message === null) {
+chrome.storage.sync.get(['message'], result => {
+    if (result.message == null) {
         successSection.hide();
     } else {
-        chrome.storage.sync.remove(['message'], function (result) {
-            successSection.show();
-            successSection.find(alertSuccess).append(result.message);
-        });
+        successSection.show();
+        successSection.find(alertSuccess).append(result.message);
+        chrome.storage.sync.remove(['message']);
     }
 });
 
@@ -49,19 +48,17 @@ reloadIcon.hide();
 
 //######### OPTIONS HANDLING #########//
 
-optionsButton.on("click", function () {
+optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
 ////////// UTILITY FUNCTIONS //////////
 
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
+String.prototype.capitalize = () => this.charAt(0).toUpperCase() + this.slice(1);
 
 //########## GO BACK HANDLING #########//
 
-backButton.on("click", function () {
+backButton.on("click", () => {
     backButton.find(reloadIcon).toggle();
     backButton.find(backIcon).toggle();
     window.location.href = "rating.html";
@@ -71,18 +68,19 @@ backButton.on("click", function () {
 
 let validationInstance = loginForm.parsley();
 
-loginButton.on("click", function () {
+loginButton.on("click", () => {
     if (validationInstance.isValid()) {
         loginButton.find(signInIcon).toggle();
         loginButton.find(reloadIcon).toggle();
         let data = {email: emailField.val(), password: passwordField.val()};
-        let successCallback = function (data, status, jqXHR) {
+        let successCallback = (data, status, jqXHR) => {
             loginButton.find(signInIcon).toggle();
             loginButton.find(reloadIcon).toggle();
-            Cookies.set("authToken", data["auth_token"]);
-            window.location.href = "rating.html";
+            chrome.storage.sync.set({authToken: data["auth_token"]}, () => {
+                window.location.href = "rating.html";
+            });
         };
-        let errorCallback = function (jqXHR, status) {
+        let errorCallback = (data, jqXHR, status) => {
             loginButton.find(signInIcon).toggle();
             loginButton.find(reloadIcon).toggle();
             if (jqXHR.responseText == null) {
@@ -91,7 +89,7 @@ loginButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
-                let errorPromise = buildErrors(jqXHR.responseText).then(function (result) {
+                let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                     errorsSection.find(alert).empty();
                     errorsSection.find(alert).append(result);
                     errorsSection.show();
@@ -103,6 +101,4 @@ loginButton.on("click", function () {
     }
 });
 
-loginForm.submit(function (event) {
-    event.preventDefault();
-});
+loginForm.submit(event => event.preventDefault());

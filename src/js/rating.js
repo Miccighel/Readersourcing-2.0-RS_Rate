@@ -2,7 +2,6 @@
 
 //######## IMPORTS ########//
 
-import {fetchToken} from "./shared.js";
 import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
@@ -11,6 +10,7 @@ import {emptyAjax} from "./shared.js";
 
 let buttonsSections = $("#buttons-sect");
 let loginSection = $("#login-sect");
+let undetectedPublicationSection = $("#undetected-publication-sect");
 let ratingSection = $("#rating-sect");
 let publicationScoreSection = $("#publication-score-sect");
 let userScoreSection = $("#user-score-sect");
@@ -74,6 +74,7 @@ saveButton.hide();
 loadRateButton.show();
 loadSaveButton.show();
 voteButton.hide();
+configureButton.hide();
 voteSuccessButton.hide();
 errorButtons.hide();
 reloadIcons.hide();
@@ -82,12 +83,23 @@ ratingSubCaption.hide();
 ratingSlider.hide();
 ratingText.show();
 
-fetchToken().then(function (authToken) {
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
     if (authToken != null) {
         loginSection.hide();
         buttonsSections.show();
-        ratingSection.show();
-        publicationScoreSection.show();
+        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+            let currentUrl = tabs[0].url;
+            if (currentUrl.indexOf("pdf") > -1) {
+                ratingSection.show();
+                publicationScoreSection.show();
+                undetectedPublicationSection.hide();
+            } else {
+                ratingSection.hide();
+                publicationScoreSection.hide();
+                undetectedPublicationSection.show();
+            }
+        });
     } else {
         loginSection.show();
         buttonsSections.show();
@@ -99,15 +111,13 @@ fetchToken().then(function (authToken) {
 });
 
 ratingSlider.slider({});
-ratingSlider.on("slide", function (slideEvt) {
-    ratingText.text(slideEvt.value);
-});
+ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
 
 ////////// GENERAL //////////
 
 //######### OPTIONS HANDLING #########//
 
-optionsButton.on("click", function () {
+optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
@@ -115,20 +125,22 @@ optionsButton.on("click", function () {
 
 //######### STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) #########//
 
-fetchToken().then(function (authToken) {
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
     if (authToken != null) {
-        chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+            let currentUrl = tabs[0].url;
             let data = {
                 publication: {
-                    pdf_url: tabs[0].url
+                    pdf_url: currentUrl
                 }
             };
             // 1.2 Publication exists, so it may be rated by the user
-            let successCallback = function (data, status, jqXHR) {
+            let successCallback = (data, status, jqXHR) => {
                 publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                 // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
-                let secondSuccessCallback = function (data, status, jqXHR) {
+                let secondSuccessCallback = (data, status, jqXHR) => {
                     buttonsCaption.hide();
                     loadRateButton.hide();
                     loadSaveButton.hide();
@@ -147,7 +159,7 @@ fetchToken().then(function (authToken) {
                     ratingText.text(data["score"]);
                 };
                 // 2.3 Publication has not been rated by the user
-                let secondErrorCallback = function (jqXHR, status) {
+                let secondErrorCallback = (jqXHR, status) => {
                     loadRateButton.hide();
                     voteSuccessButton.hide();
                     ratingSubCaption.hide();
@@ -159,7 +171,7 @@ fetchToken().then(function (authToken) {
                     voteButton.show();
                     configureButton.show();
                     // 3.1 The rated publication was also annotated
-                    let thirdSuccessCallback = function (data, status, jqXHR) {
+                    let thirdSuccessCallback = (data, status, jqXHR) => {
                         loadSaveButton.hide();
                         saveButton.hide();
                         downloadButton.show();
@@ -167,7 +179,7 @@ fetchToken().then(function (authToken) {
                         refreshButton.show();
                     };
                     // 3.2 The rated publication was not annotated
-                    let thirdErrorCallback = function (jqXHR, status) {
+                    let thirdErrorCallback = (jqXHR, status) => {
                         loadSaveButton.hide();
                         downloadButton.hide();
                         refreshButton.hide();
@@ -180,7 +192,7 @@ fetchToken().then(function (authToken) {
                 let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
             };
             // 1.3 Publication was never rated, so it does not exists on the database
-            let errorCallback = function (jqXHR, status) {
+            let errorCallback = (jqXHR, status) => {
                 loadRateButton.hide();
                 loadSaveButton.hide();
                 voteSuccessButton.hide();
@@ -203,10 +215,11 @@ fetchToken().then(function (authToken) {
 
 //######### SAVE FOR LATER HANDLING #########//
 
-fetchToken().then(function (authToken) {
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
     if (authToken != null) {
-        saveButton.on("click", function () {
-            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+        saveButton.on("click", () => {
+            chrome.tabs.query({currentWindow: true, active: true}, tabs => {
                 let data = {
                     publication: {
                         pdf_url: tabs[0].url
@@ -214,7 +227,7 @@ fetchToken().then(function (authToken) {
                 };
                 saveButton.find(reloadIcons).toggle();
                 // 1.2 Publication fetched, hide save for later button and show the download one
-                let successCallback = function (data, status, jqXHR) {
+                let successCallback = (data, status, jqXHR) => {
                     saveButton.find(reloadIcons).toggle();
                     saveButton.hide();
                     downloadButton.show();
@@ -222,7 +235,7 @@ fetchToken().then(function (authToken) {
                     refreshButton.show();
                 };
                 // 1.3 Error during publication fetching, hide save for later and download buttons
-                let errorCallback = function (jqXHR, status) {
+                let errorCallback = (jqXHR, status) => {
                     saveButton.find(reloadIcons).toggle();
                     saveButton.hide();
                     let errorButton = saveButton.parent().find(errorButtons);
@@ -238,30 +251,31 @@ fetchToken().then(function (authToken) {
 
 ///######### REFRESH HANDLING #########//
 
-modalRefreshButton.on("click", function () {
-    fetchToken().then(function (authToken) {
+modalRefreshButton.on("click", () => {
+    chrome.storage.sync.get(['authToken'], result => {
+        let authToken = result.authToken;
         if (authToken != null) {
             modalRefresh.modal("hide");
             downloadButton.hide();
             refreshButton.hide();
             loadSaveButton.show();
-            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+            chrome.tabs.query({currentWindow: true, active: true}, tabs => {
                 let data = {
                     publication: {
                         pdf_url: tabs[0].url
                     }
                 };
                 // 1.2 Publication exists, so it is safe to refresh it
-                let successCallback = function (data, status, jqXHR) {
+                let successCallback = (data, status, jqXHR) => {
                     // 2.2 Publication refreshed, so it it safe to show the download button
-                    let secondSuccessCallback = function (data, status, jqXHR) {
+                    let secondSuccessCallback = (data, status, jqXHR) => {
                         loadSaveButton.hide();
                         downloadButton.show();
                         downloadButton.attr("href", data["pdf_download_url_link"]);
                         refreshButton.show();
                     };
                     // 2.3 Error during publication refresh, it is not safe to show the download button
-                    let secondErrorCallback = function (jqXHR, status) {
+                    let secondErrorCallback = (jqXHR, status) => {
                         loadSaveButton.hide();
                         let errorButton = downloadButton.parent().find(errorButtons);
                         errorButton.show();
@@ -288,10 +302,11 @@ modalRefreshButton.on("click", function () {
 
 //#######  ACTION HANDLING #########//
 
-fetchToken().then(function (authToken) {
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
     if (authToken != null) {
-        voteButton.on("click", function () {
-            chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+        voteButton.on("click", () => {
+            chrome.tabs.query({currentWindow: true, active: true}, tabs => {
                 voteButton.find(reloadIcons).toggle();
                 let score = ratingSlider.val();
                 let data = {
@@ -302,14 +317,14 @@ fetchToken().then(function (authToken) {
                     }
                 };
                 // 1.2 Rating created successfully
-                let successCallback = function (data, status, jqXHR) {
-                    chrome.tabs.query({currentWindow: true, active: true}, function (tabs) {
+                let successCallback = (data, status, jqXHR) => {
+                    chrome.tabs.query({currentWindow: true, active: true}, tabs => {
                         let secondData = {
                             publication: {
                                 pdf_url: tabs[0].url
                             }
                         };
-                        let secondSuccessCallback = function (data, status, jqXHR) {
+                        let secondSuccessCallback = (data, status, jqXHR) => {
                             voteButton.find(reloadIcons).toggle();
                             voteButton.hide();
                             configureButton.hide();
@@ -327,7 +342,7 @@ fetchToken().then(function (authToken) {
                             publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
                             publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                         };
-                        let secondErrorCallback = function (jqXHR, status) {
+                        let secondErrorCallback = (jqXHR, status) => {
                             voteButton.find(reloadIcons).toggle();
                             voteButton.hide();
                             configureButton.hide();
@@ -338,18 +353,18 @@ fetchToken().then(function (authToken) {
                         };
                         let secondPromise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
                     });
-                    let thirdSuccessCallback = function (data, status, jqXHR) {
+                    let thirdSuccessCallback = (data, status, jqXHR) => {
                         userScoreRSMValue.text((data["score"] * 100).toFixed(2));
                         userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
                     };
-                    let thirdErrorCallback = function (jqXHR, status) {
+                    let thirdErrorCallback = (jqXHR, status) => {
                         userScoreRSMValue.text("...");
                         userScoreTRMValue.text("...");
                     };
                     let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
                 };
                 // 1.3 Error during rating creation
-                let errorCallback = function (jqXHR, status) {
+                let errorCallback = (jqXHR, status) => {
                     voteButton.hide();
                     configureButton.hide();
                     let errorButton = voteButton.parent().find(errorButtons);
@@ -365,17 +380,16 @@ fetchToken().then(function (authToken) {
 
 //######### CONFIGURATION HANDLING #########//
 
-configureSaveButton.on("click", function () {
-    modalConfigure.modal("hide");
-});
+configureSaveButton.on("click", () => modalConfigure.modal("hide"));
 
 ////////// USER  //////////
 
 //####### STATUS HANDLING (SCORES, ...) #########//
 
-fetchToken().then(function (authToken) {
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
     if (authToken != null) {
-        let successCallback = function (data, status, jqXHR) {
+        let successCallback = (data, status, jqXHR) => {
             firstNameValue.text(data["first_name"]);
             lastNameValue.text(data["last_name"]);
             emailValue.text(data["email"]);
@@ -384,7 +398,7 @@ fetchToken().then(function (authToken) {
             userScoreRSMValue.text((data["score"] * 100).toFixed(2));
             userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
         };
-        let errorCallback = function (jqXHR, status) {
+        let errorCallback = (jqXHR, status) => {
             firstNameValue.text("...");
             lastNameValue.text("...");
             emailValue.text("...");
@@ -399,24 +413,22 @@ fetchToken().then(function (authToken) {
 
 //#######  LOGIN HANDLING #########//
 
-loginButton.on("click", function () {
+loginButton.on("click", () => {
     loginButton.find(reloadIcons).toggle();
     loginButton.find(signInIcon).toggle();
 });
 
 //####### LOGOUT HANDLING #########//
 
-logoutButton.on("click", function () {
+logoutButton.on("click", () => {
     logoutButton.find(reloadIcons).toggle();
     logoutButton.find(signOutIcon).toggle();
-    deleteToken().then(function () {
-        location.reload()
-    });
+    deleteToken().then(() => location.reload());
 });
 
 //######### SIGN UP HANDLING #########//
 
-signUpButton.on("click", function () {
+signUpButton.on("click", () => {
     signUpButton.find(reloadIcons).toggle();
     signUpButton.find(signUpIcon).toggle();
 });

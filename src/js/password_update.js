@@ -39,7 +39,7 @@ reloadIcons.hide();
 
 //######### OPTIONS HANDLING #########//
 
-optionsButton.on("click", function () {
+optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
@@ -49,11 +49,9 @@ optionsButton.on("click", function () {
 
 let validationInstance = passwordEditForm.parsley();
 
-passwordEditForm.submit(function (event) {
-    event.preventDefault();
-});
+passwordEditForm.submit(event => event.preventDefault());
 
-passwordEditButton.on("click", function () {
+passwordEditButton.on("click", () => {
     if (validationInstance.isValid()) {
         passwordEditButton.find(checkIcon).toggle();
         passwordEditButton.find(reloadIcons).toggle();
@@ -62,15 +60,11 @@ passwordEditButton.on("click", function () {
             new_password: newPasswordField.val(),
             new_password_confirmation: newPasswordConfirmationField.val()
         };
-        let successCallback = function (data, status, jqXHR) {
+        let successCallback = (data, status, jqXHR) => {
             passwordEditButton.find(reloadIcons).toggle();
-            deleteToken().then(function () {
-                chrome.storage.sync.set({message: data["message"]}, function () {
-                    window.location.href = "login.html";
-                });
-            });
+            deleteToken().then(() => chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html"));
         };
-        let errorCallback = function (jqXHR, status) {
+        let errorCallback = (jqXHR, status) => {
             passwordEditButton.find(checkIcon).toggle();
             passwordEditButton.find(reloadIcons).toggle();
             if (jqXHR.responseText == null) {
@@ -79,7 +73,7 @@ passwordEditButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
-                let errorPromise = buildErrors(jqXHR.responseText).then(function(result) {
+                let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                     errorsSection.find(alert).empty();
                     errorsSection.find(alert).append(result);
                     errorsSection.show();
@@ -93,13 +87,11 @@ passwordEditButton.on("click", function () {
 
 //////////// UTILITY FUNCTIONS ////////////
 
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
+String.prototype.capitalize = () => this.charAt(0).toUpperCase() + this.slice(1);
 
 //########## GO BACK HANDLING #########//
 
-backButton.on("click", function () {
+backButton.on("click", () => {
     backButton.find(reloadIcons).toggle();
     backButton.find(backIcon).toggle();
     window.history.back()

@@ -37,8 +37,8 @@ Parsley.addMessages('it', {
 
 Parsley.addValidator('orcid', {
     requirementType: 'regexp',
-    validateString: function (value) {
-        if(value === "")
+    validateString: value => {
+        if (value === "")
             return true;
         else
             return /[0-9]{4}-[0-9]{4}-[0-9]{4}-([0-9]{3}X|[0-9]{4})/.test(value);
@@ -51,7 +51,7 @@ Parsley.addValidator('orcid', {
 
 Parsley.addValidator('doi', {
     requirementType: 'regexp',
-    validateString: function (value) {
+    validateString: value => {
         let firstRegex = /\b(10[.][0-9]{4,}(?:[.][0-9]+)*\/(?:(?!["&\'<>])\S)+)\b/;
         let secondRegex = /\b(10[.][0-9]{4,}(?:[.][0-9]+)*\/(?:(?!["&\'<>])[[:graph:]])+)\b/;
         return (firstRegex.test(value) || secondRegex.test(value));
@@ -64,9 +64,7 @@ Parsley.addValidator('doi', {
 
 Parsley.addValidator('password', {
     requirementType: 'regexp',
-    validateString: function (value) {
-        return /^(?=.*[a-z])(?=.*[A-Z]).*$/.test(value);
-    },
+    validateString: value => /^(?=.*[a-z])(?=.*[A-Z]).*$/.test(value),
     messages: {
         en: 'Your password must contain at least (1) lowercase and (1) uppercase letter.',
         it: 'La tua password deve contenere almeno (1) maiuscola e (1) maiuscola.'
@@ -79,8 +77,8 @@ Parsley.setLocale('en');
 
 //######### PAGE LOADING HANDLING #########//
 
-$(window).on('load', function() {
+$(window).on('load', () => {
     $(loadingAnimation).fadeOut();
     $(preloaderSection).delay(500).fadeOut('slow');
-    $('body').delay(500).css({'overflow':'visible'});
+    $('body').delay(500).css({'overflow': 'visible'});
 });

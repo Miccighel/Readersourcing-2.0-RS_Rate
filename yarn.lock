@@ -59,11 +59,6 @@ jquery@>=1.5.0, jquery@>=1.7, jquery@>=1.8, jquery@>=1.8.0, jquery@>=1.8.3, jque
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
-js-cookie@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.0.tgz#1b2c279a6eece380a12168b92485265b35b1effb"
-  integrity sha1-Gywnmm7s44ChIWi5JIUmWzWx7/s=
-
 owl.carousel2.thumbs@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/owl.carousel2.thumbs/-/owl.carousel2.thumbs-0.1.8.tgz#97da803bd3359969591b73ad4c6b7facf01dcce8"

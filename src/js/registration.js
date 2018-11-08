@@ -44,7 +44,7 @@ reloadIcons.hide();
 
 //######### OPTIONS HANDLING #########//
 
-optionsButton.on("click", function () {
+optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
@@ -54,11 +54,9 @@ optionsButton.on("click", function () {
 
 let validationInstance = registrationForm.parsley();
 
-registrationForm.submit(function (event) {
-    event.preventDefault();
-});
+registrationForm.submit(event => event.preventDefault());
 
-registrationButton.on("click", function () {
+registrationButton.on("click", () => {
     if (validationInstance.isValid()) {
         registrationButton.find(signUpIcon).toggle();
         registrationButton.find(reloadIcons).toggle();
@@ -73,15 +71,11 @@ registrationButton.on("click", function () {
                 subscribe: !!subscribeCheckbox.is(":checked")
             },
         };
-        let successCallback = function (data, status, jqXHR) {
+        let successCallback = (data, status, jqXHR) => {
             registrationButton.find(reloadIcons).toggle();
-            deleteToken().then(function () {
-                chrome.storage.sync.set({message: data["message"]}, function () {
-                    window.location.href = "login.html";
-                });
-            });
+            deleteToken().then(() => chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html"));
         };
-        let errorCallback = function (jqXHR, status) {
+        let errorCallback = (jqXHR, status) => {
             registrationButton.find(reloadIcons).toggle();
             registrationButton.find(signUpIcon).toggle();
             if (jqXHR.responseText == null) {
@@ -90,7 +84,7 @@ registrationButton.on("click", function () {
                 button.show();
                 button.prop("disabled", true)
             } else {
-                let errorPromise = buildErrors(jqXHR.responseText).then(function(result) {
+                let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                     errorsSection.find(alert).empty();
                     errorsSection.find(alert).append(result);
                     errorsSection.show();
@@ -104,13 +98,11 @@ registrationButton.on("click", function () {
 
 //////////// UTILITY FUNCTIONS ////////////
 
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-};
+String.prototype.capitalize = () => this.charAt(0).toUpperCase() + this.slice(1);
 
 //########## GO BACK HANDLING #########//
 
-backButton.on("click", function () {
+backButton.on("click", () => {
     backButton.find(reloadIcons).toggle();
     backButton.find(backIcon).toggle();
     window.history.back()
