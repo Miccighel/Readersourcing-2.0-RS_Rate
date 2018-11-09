@@ -9,6 +9,7 @@ import {emptyAjax} from "./shared.js";
 //######## CONTENT SECTIONS ########//
 
 let buttonsSections = $("#buttons-sect");
+let loadingSection = $("#loading-sect");
 let loginSection = $("#login-sect");
 let undetectedPublicationSection = $("#undetected-publication-sect");
 let ratingSection = $("#rating-sect");
@@ -68,6 +69,10 @@ let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
+loginSection.hide();
+ratingSection.hide();
+undetectedPublicationSection.hide();
+publicationScoreSection.hide();
 downloadButton.hide();
 refreshButton.hide();
 saveButton.hide();
@@ -90,15 +95,24 @@ chrome.storage.sync.get(['authToken'], result => {
         buttonsSections.show();
         chrome.tabs.query({currentWindow: true, active: true}, tabs => {
             let currentUrl = tabs[0].url;
-            if (currentUrl.indexOf("pdf") > -1) {
+            let data = {
+                publication: {
+                    pdf_url: currentUrl
+                }
+            };
+            let successCallback = (data, status, jqXHR) => {
                 ratingSection.show();
                 publicationScoreSection.show();
                 undetectedPublicationSection.hide();
-            } else {
+                loadingSection.hide();
+            };
+            let errorCallback = (jqXHR, status) => {
                 ratingSection.hide();
                 publicationScoreSection.hide();
                 undetectedPublicationSection.show();
-            }
+                loadingSection.hide()
+            };
+            let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
     } else {
         loginSection.show();
@@ -107,6 +121,8 @@ chrome.storage.sync.get(['authToken'], result => {
         profileButton.hide();
         ratingSection.hide();
         publicationScoreSection.hide();
+        undetectedPublicationSection.hide();
+        loadingSection.hide()
     }
 });
 

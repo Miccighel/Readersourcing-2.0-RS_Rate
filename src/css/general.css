@@ -11,10 +11,9 @@
 
 /* ////////// GENERAL ////////// */
 
-body, html {
+body {
     height: 250px;
     width: 300px;
-    overflow: hidden;
 }
 
 h4 {
