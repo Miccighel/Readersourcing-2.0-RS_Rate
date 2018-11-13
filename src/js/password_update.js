@@ -85,10 +85,6 @@ passwordEditButton.on("click", () => {
     }
 });
 
-//////////// UTILITY FUNCTIONS ////////////
-
-String.prototype.capitalize = () => this.charAt(0).toUpperCase() + this.slice(1);
-
 //########## GO BACK HANDLING #########//
 
 backButton.on("click", () => {

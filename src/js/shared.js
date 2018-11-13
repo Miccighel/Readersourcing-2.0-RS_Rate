@@ -49,14 +49,12 @@ export async function buildErrors(errors) {
     let parsedErrors = JSON.parse(errors);
     let element = "";
     Object.keys(parsedErrors).forEach((attribute, index) => {
-        element = `<span>${element}${attribute.capitalize()}:</span><ul>`;
+        element = `<span>${element}${attribute}:</span><ul>`;
         let messages = parsedErrors[attribute];
         Object.values(messages).forEach((message, index) => {
-            element = `${element}<li>${message.capitalize()}</li>`;
+            element = `${element}<li>${message}</li>`;
         });
         element = `${element}</ul>`;
     });
     return element;
 }
-
-String.prototype.capitalize = () => this.charAt(0).toUpperCase() + this.slice(1);

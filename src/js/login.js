@@ -52,10 +52,6 @@ optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
-////////// UTILITY FUNCTIONS //////////
-
-String.prototype.capitalize = () => this.charAt(0).toUpperCase() + this.slice(1);
-
 //########## GO BACK HANDLING #########//
 
 backButton.on("click", () => {
