@@ -81,8 +81,7 @@ chrome.storage.sync.get(['authToken'], result => {
         updateButton.on("click", () => {
             updateButton.find(signUpIcon).toggle();
             updateButton.find(reloadIcons).toggle();
-            let successCallback = (parameters) => {
-                let {data, status, jqXHR} = parameters;
+            let successCallback = (data, status, jqXHR) => {
                 if (validationInstance.isValid()) {
                     let secondData = {
                         user: {
@@ -94,15 +93,13 @@ chrome.storage.sync.get(['authToken'], result => {
                     };
                     if (orcidField.val() === "")
                         delete secondData.user.orcid;
-                    let secondSuccessCallback = (parameters) => {
-                        let {data, status, jqXHR} = parameters;
+                    let secondSuccessCallback = (data, status, jqXHR) => {
                         updateButton.find(reloadIcons).toggle();
                         deleteToken().then(function () {
                             chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html");
                         });
                     };
-                    let secondErrorCallback = (parameters) => {
-                        let {jqXHR, status} = parameters;
+                    let secondErrorCallback = (jqXHR, status) => {
                         updateButton.find(reloadIcons).toggle();
                         updateButton.find(signUpIcon).toggle();
                         if (jqXHR.responseText == null) {
