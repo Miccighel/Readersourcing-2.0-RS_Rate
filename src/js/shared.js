@@ -45,6 +45,8 @@ export async function emptyAjax(type, url, contentType, dataType, crossDomain, s
     });
 }
 
+////////// UTILITY SECTION //////////
+
 export async function buildErrors(errors) {
     let parsedErrors = JSON.parse(errors);
     let element = "";

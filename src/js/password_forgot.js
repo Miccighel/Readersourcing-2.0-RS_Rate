@@ -33,14 +33,6 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
 
-////////// GENERAL //////////
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", () => {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
-});
-
 ////////// PASSWORD //////////
 
 //######## FORGOT HANDLING ########//
@@ -80,6 +72,15 @@ passwordForgotButton.on("click", () => {
         ajax("POST", "password/forgot.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
 });
+
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", () => {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
+});
+
 
 //########## GO BACK HANDLING #########//
 

@@ -35,14 +35,6 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
 
-////////// GENERAL //////////
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", () => {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
-});
-
 ////////// PASSWORD //////////
 
 //######## UPDATE HANDLING ########//
@@ -83,6 +75,14 @@ passwordEditButton.on("click", () => {
         // noinspection JSIgnoredPromiseFromCall
         ajax("POST", "password/update.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
+});
+
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", () => {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
 //########## GO BACK HANDLING #########//

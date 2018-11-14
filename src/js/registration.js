@@ -40,14 +40,6 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
 
-////////// GENERAL //////////
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", () => {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
-});
-
 ////////// USER ///////////
 
 //########## REGISTRATION HANDLING ##########//
@@ -94,6 +86,14 @@ registrationButton.on("click", () => {
         // noinspection JSIgnoredPromiseFromCall
         ajax("POST", "users.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     }
+});
+
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", () => {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
 //########## GO BACK HANDLING #########//

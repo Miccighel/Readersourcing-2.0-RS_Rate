@@ -105,6 +105,98 @@ chrome.storage.sync.get(['authToken'], result => {
                 publicationScoreSection.show();
                 undetectedPublicationSection.hide();
                 loadingSection.hide();
+                ratingSlider.slider({});
+                ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
+                ////////// PUBLICATION //////////
+
+                //######### STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) #########//
+                chrome.storage.sync.get(['authToken'], result => {
+                    let authToken = result.authToken;
+                    if (authToken != null) {
+                        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+                            let currentUrl = tabs[0].url;
+                            let data = {
+                                publication: {
+                                    pdf_url: currentUrl
+                                }
+                            };
+                            // 1.2 Publication exists, so it may be rated by the user
+                            let successCallback = (data, status, jqXHR) => {
+                                publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
+                                publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
+                                // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
+                                let secondSuccessCallback = (data, status, jqXHR) => {
+                                    buttonsCaption.hide();
+                                    loadRateButton.hide();
+                                    loadSaveButton.hide();
+                                    voteButton.hide();
+                                    configureButton.hide();
+                                    downloadButton.hide();
+                                    refreshButton.hide();
+                                    saveButton.hide();
+                                    voteSuccessButton.show();
+                                    voteSuccessButton.prop("disabled", true);
+                                    ratingCaption.hide();
+                                    ratingSubCaption.show();
+                                    ratingSlider.slider('destroy');
+                                    ratingSlider.hide();
+                                    ratingText.removeClass("mt-3");
+                                    ratingText.text(data["score"]);
+                                };
+                                // 2.3 Publication has not been rated by the user
+                                let secondErrorCallback = (jqXHR, status) => {
+                                    loadRateButton.hide();
+                                    voteSuccessButton.hide();
+                                    ratingSubCaption.hide();
+                                    buttonsCaption.show();
+                                    ratingCaption.show();
+                                    ratingSlider.slider({});
+                                    ratingText.text("50");
+                                    ratingText.prop("class", "mt-3");
+                                    voteButton.show();
+                                    configureButton.show();
+                                    // 3.1 The rated publication was also annotated
+                                    let thirdSuccessCallback = (data, status, jqXHR) => {
+                                        loadSaveButton.hide();
+                                        saveButton.hide();
+                                        downloadButton.show();
+                                        downloadButton.attr("href", data["pdf_download_url_link"]);
+                                        refreshButton.show();
+                                    };
+                                    // 3.2 The rated publication was not annotated
+                                    let thirdErrorCallback = (jqXHR, status) => {
+                                        loadSaveButton.hide();
+                                        downloadButton.hide();
+                                        refreshButton.hide();
+                                        saveButton.show();
+                                    };
+                                    // 3.1 Does the rated publication has been already annotated?
+                                    let thirdPromise = emptyAjax("GET", `publications/${data["id"]}/is_saved_for_later.json`, "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
+                                };
+                                // 2.1 Does the publication has been rated by the logged user?
+                                let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
+                            };
+                            // 1.3 Publication was never rated, so it does not exists on the database
+                            let errorCallback = (jqXHR, status) => {
+                                loadRateButton.hide();
+                                loadSaveButton.hide();
+                                voteSuccessButton.hide();
+                                saveButton.show();
+                                configureButton.show();
+                                voteButton.show();
+                                ratingCaption.show();
+                                ratingSubCaption.hide();
+                                ratingSlider.slider({});
+                                ratingText.text("50");
+                                ratingText.prop("class", "mt-3");
+                                publicationScoreRSMValue.text("...");
+                                publicationScoreTRMValue.text("...");
+                            };
+                            // 1.1 Does the publication exists on the database?
+                            let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+                        });
+                    }
+                })
             };
             let errorCallback = (jqXHR, status) => {
                 ratingSection.hide();
@@ -123,109 +215,6 @@ chrome.storage.sync.get(['authToken'], result => {
         publicationScoreSection.hide();
         undetectedPublicationSection.hide();
         loadingSection.hide()
-    }
-});
-
-ratingSlider.slider({});
-ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
-
-////////// GENERAL //////////
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", () => {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
-});
-
-////////// PUBLICATION //////////
-
-//######### STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) #########//
-
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
-            let currentUrl = tabs[0].url;
-            let data = {
-                publication: {
-                    pdf_url: currentUrl
-                }
-            };
-            // 1.2 Publication exists, so it may be rated by the user
-            let successCallback = (data, status, jqXHR) => {
-                publicationScoreRSMValue.text((data["score_rsm"] * 100).toFixed(2));
-                publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
-                // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
-                let secondSuccessCallback = (data, status, jqXHR) => {
-                    buttonsCaption.hide();
-                    loadRateButton.hide();
-                    loadSaveButton.hide();
-                    voteButton.hide();
-                    configureButton.hide();
-                    downloadButton.hide();
-                    refreshButton.hide();
-                    saveButton.hide();
-                    voteSuccessButton.show();
-                    voteSuccessButton.prop("disabled", true);
-                    ratingCaption.hide();
-                    ratingSubCaption.show();
-                    ratingSlider.slider('destroy');
-                    ratingSlider.hide();
-                    ratingText.removeClass("mt-3");
-                    ratingText.text(data["score"]);
-                };
-                // 2.3 Publication has not been rated by the user
-                let secondErrorCallback = (jqXHR, status) => {
-                    loadRateButton.hide();
-                    voteSuccessButton.hide();
-                    ratingSubCaption.hide();
-                    buttonsCaption.show();
-                    ratingCaption.show();
-                    ratingSlider.slider({});
-                    ratingText.text("50");
-                    ratingText.prop("class", "mt-3");
-                    voteButton.show();
-                    configureButton.show();
-                    // 3.1 The rated publication was also annotated
-                    let thirdSuccessCallback = (data, status, jqXHR) => {
-                        loadSaveButton.hide();
-                        saveButton.hide();
-                        downloadButton.show();
-                        downloadButton.attr("href", data["pdf_download_url_link"]);
-                        refreshButton.show();
-                    };
-                    // 3.2 The rated publication was not annotated
-                    let thirdErrorCallback = (jqXHR, status) => {
-                        loadSaveButton.hide();
-                        downloadButton.hide();
-                        refreshButton.hide();
-                        saveButton.show();
-                    };
-                    // 3.1 Does the rated publication has been already annotated?
-                    let thirdPromise = emptyAjax("GET", `publications/${data["id"]}/is_saved_for_later.json`, "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
-                };
-                // 2.1 Does the publication has been rated by the logged user?
-                let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
-            };
-            // 1.3 Publication was never rated, so it does not exists on the database
-            let errorCallback = (jqXHR, status) => {
-                loadRateButton.hide();
-                loadSaveButton.hide();
-                voteSuccessButton.hide();
-                saveButton.show();
-                configureButton.show();
-                voteButton.show();
-                ratingCaption.show();
-                ratingSubCaption.hide();
-                ratingSlider.slider({});
-                ratingText.text("50");
-                ratingText.prop("class", "mt-3");
-                publicationScoreRSMValue.text("...");
-                publicationScoreTRMValue.text("...");
-            };
-            // 1.1 Does the publication exists on the database?
-            let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-        });
     }
 });
 
@@ -263,7 +252,7 @@ chrome.storage.sync.get(['authToken'], result => {
             });
         });
     }
-});
+})
 
 ///######### REFRESH HANDLING #########//
 
@@ -447,4 +436,12 @@ logoutButton.on("click", () => {
 signUpButton.on("click", () => {
     signUpButton.find(reloadIcons).toggle();
     signUpButton.find(signUpIcon).toggle();
+});
+
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", () => {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

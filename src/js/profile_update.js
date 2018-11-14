@@ -38,14 +38,6 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
 
-////////// GENERAL //////////
-
-//######### OPTIONS HANDLING #########//
-
-optionsButton.on("click", () => {
-    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
-});
-
 ////////// USER ///////////
 
 //####### STATUS HANDLING (SCORES, ...) #########//
@@ -137,6 +129,14 @@ chrome.storage.sync.get(['authToken'], result => {
             let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
         });
     }
+});
+
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", () => {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
 //########## GO BACK HANDLING #########//
