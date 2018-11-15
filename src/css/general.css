@@ -16,12 +16,16 @@ body {
     width: 300px;
 }
 
-h4 {
-    font-size: 1.15rem !important;
+h4, .lead {
+    font-size: 18px !important;
 }
 
-.lead {
-    font-size: 1.15rem !important;
+button, a, div, label {
+    font-size: 14px !important;
+}
+
+p {
+    font-size: 19px !important;
 }
 
 .centered {

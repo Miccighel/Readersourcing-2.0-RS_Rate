@@ -1,3 +1,10 @@
+/* ////////// GENERAL ////////// */
+
+body {
+    height: 420px;
+    width: 300px;
+}
+
 /* ////////// PRELOADER ////////// */
 
 #preloader {

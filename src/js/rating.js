@@ -6,6 +6,8 @@ import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
 
+let body = $("body");
+
 //######## CONTENT SECTIONS ########//
 
 let buttonsSections = $("#buttons-sect");
@@ -126,6 +128,8 @@ chrome.storage.sync.get(['authToken'], result => {
                                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                                 // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
                                 let secondSuccessCallback = (data, status, jqXHR) => {
+                                    body.height(415);
+                                    body.width(300);
                                     buttonsCaption.hide();
                                     loadRateButton.hide();
                                     loadSaveButton.hide();
@@ -145,6 +149,8 @@ chrome.storage.sync.get(['authToken'], result => {
                                 };
                                 // 2.3 Publication has not been rated by the user
                                 let secondErrorCallback = (jqXHR, status) => {
+                                    body.height(415);
+                                    body.width(300);
                                     loadRateButton.hide();
                                     voteSuccessButton.hide();
                                     ratingSubCaption.hide();
@@ -178,6 +184,8 @@ chrome.storage.sync.get(['authToken'], result => {
                             };
                             // 1.3 Publication was never rated, so it does not exists on the database
                             let errorCallback = (jqXHR, status) => {
+                                body.height(415);
+                                body.width(300);
                                 loadRateButton.hide();
                                 loadSaveButton.hide();
                                 voteSuccessButton.hide();
@@ -199,6 +207,8 @@ chrome.storage.sync.get(['authToken'], result => {
                 })
             };
             let errorCallback = (jqXHR, status) => {
+                body.height(275);
+                body.width(300);
                 ratingSection.hide();
                 publicationScoreSection.hide();
                 undetectedPublicationSection.show();
@@ -207,6 +217,8 @@ chrome.storage.sync.get(['authToken'], result => {
             let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
     } else {
+        body.height(275);
+        body.width(300);
         loginSection.show();
         buttonsSections.show();
         logoutButton.hide();
