@@ -6,7 +6,7 @@
   },
   "name": "Readersourcing 2.0: RS_Rate",
   "short_name": "RS_Rate",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Allows to rate scientific publications on the RS_Server component of Readersourcing 2.0",
   "manifest_version": 2,
   "permissions": [
