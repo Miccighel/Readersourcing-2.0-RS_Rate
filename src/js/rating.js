@@ -49,6 +49,7 @@ let ratingSubCaption = $("#rating-subcaption");
 let ratingSlider = $("#rating-slider");
 let ratingText = $("#rating-text");
 let buttonsCaption = $("#buttons-caption");
+let undetectedPublicationSubcaption = $("#undetected-publication-subcaption");
 
 let firstNameValue = $("#first-name-val");
 let lastNameValue = $("#last-name-val");
@@ -68,6 +69,13 @@ let signOutIcon = $("#sign-out-icon");
 let signUpIcon = $("#sign-up-icon");
 let profileIcon = $("#profile-icon");
 let reloadIcons = $(".reload-icon");
+
+//######## VARIABLES ########//
+
+let standardWidth = 300;
+let largeHeight = 415;
+let smallHeight = 275;
+let oldHeight = 250;
 
 //######## UI INITIAL SETUP ########//
 
@@ -128,8 +136,9 @@ chrome.storage.sync.get(['authToken'], result => {
                                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                                 // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
                                 let secondSuccessCallback = (data, status, jqXHR) => {
-                                    body.height(415);
-                                    body.width(300);
+                                    body.height(largeHeight);
+                                    body.width(standardWidth);
+                                    oldHeight = body.height();
                                     buttonsCaption.hide();
                                     loadRateButton.hide();
                                     loadSaveButton.hide();
@@ -149,8 +158,9 @@ chrome.storage.sync.get(['authToken'], result => {
                                 };
                                 // 2.3 Publication has not been rated by the user
                                 let secondErrorCallback = (jqXHR, status) => {
-                                    body.height(415);
-                                    body.width(300);
+                                    body.height(largeHeight);
+                                    body.width(standardWidth);
+                                    oldHeight = body.height();
                                     loadRateButton.hide();
                                     voteSuccessButton.hide();
                                     ratingSubCaption.hide();
@@ -184,8 +194,9 @@ chrome.storage.sync.get(['authToken'], result => {
                             };
                             // 1.3 Publication was never rated, so it does not exists on the database
                             let errorCallback = (jqXHR, status) => {
-                                body.height(415);
-                                body.width(300);
+                                body.height(largeHeight);
+                                body.width(standardWidth);
+                                oldHeight = body.height();
                                 loadRateButton.hide();
                                 loadSaveButton.hide();
                                 voteSuccessButton.hide();
@@ -207,8 +218,8 @@ chrome.storage.sync.get(['authToken'], result => {
                 })
             };
             let errorCallback = (jqXHR, status) => {
-                body.height(275);
-                body.width(300);
+                if (modalProfile.hasClass('show')) body.height(largeHeight); else body.height(smallHeight);
+                oldHeight = smallHeight;
                 ratingSection.hide();
                 publicationScoreSection.hide();
                 undetectedPublicationSection.show();
@@ -217,8 +228,9 @@ chrome.storage.sync.get(['authToken'], result => {
             let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
     } else {
-        body.height(275);
-        body.width(300);
+        if (modalProfile.hasClass('show')) body.height(largeHeight); else body.height(smallHeight);
+        body.width(standardWidth);
+        oldHeight = smallHeight;
         loginSection.show();
         buttonsSections.show();
         logoutButton.hide();
@@ -448,6 +460,19 @@ logoutButton.on("click", () => {
 signUpButton.on("click", () => {
     signUpButton.find(reloadIcons).toggle();
     signUpButton.find(signUpIcon).toggle();
+});
+
+//######### PROFILE HANDLING #########//
+
+modalProfile.on("hidden.bs.modal", () => {
+    undetectedPublicationSubcaption.addClass("fixed-bottom");
+    body.height(oldHeight);
+});
+
+modalProfile.on("shown.bs.modal", () => {
+    undetectedPublicationSubcaption.removeClass("fixed-bottom");
+    body.height(largeHeight);
+    modalProfile.attr("style", "display:block; padding-left:0;");
 });
 
 ////////// GENERAL //////////

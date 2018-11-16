@@ -42,3 +42,7 @@ div#modal-configuration div.modal-footer, div#modal-refresh .modal-footer {
     display: block !important;
 }
 
+div#modal-profile {
+    padding-left: 0 !important;
+}
+
