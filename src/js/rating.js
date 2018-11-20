@@ -136,7 +136,7 @@ chrome.storage.sync.get(['authToken'], result => {
                                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                                 // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
                                 let secondSuccessCallback = (data, status, jqXHR) => {
-                                    body.height(largeHeight);
+                                    body.height(smallHeight);
                                     body.width(standardWidth);
                                     oldHeight = body.height();
                                     buttonsCaption.hide();
