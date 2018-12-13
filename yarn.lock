@@ -8,14 +8,14 @@ animate.css@latest:
   integrity sha512-u3iMXDJr0cxMdQocIciDiou9Au4L5f9uT+/jCtprw3s1j3HcfCuI+khF+90Ps2KdsEhM2soF7SXB4WUvI3HlXg==
 
 bootstrap-select@^1.13.1:
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/bootstrap-select/-/bootstrap-select-1.13.3.tgz#77f62b72c69339227753b3879cec036039dcb4d9"
-  integrity sha512-XzMwLFqRJQb142zR3ev57bZl66/h/RRguMODVfH0w2YTcJrqU+VCO6CserMxsVF4JE6hX9O99MQGZxgWZiitfg==
+  version "1.13.5"
+  resolved "https://registry.yarnpkg.com/bootstrap-select/-/bootstrap-select-1.13.5.tgz#12f000b25a95ed642fe371ae9e311d3afbb8c53f"
+  integrity sha512-1uYsYLB4FvGdwM6qzIfTxp6sP5gDqjPgWNHJztBfYUTIo1GUYG5zzmMVWiJvdxJlsvBXZ9AObmeZdzi0eg2jaA==
 
 bootstrap-slider@^10.0.2:
-  version "10.3.3"
-  resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-10.3.3.tgz#530eed3485d7a68e81315e303a6599c2542e2055"
-  integrity sha512-1yzOF/j9jKueuGV6h1XLKFd6hWOGlFtuDfi9OEPf4g37HgBdIbb17T0LNoIr74j5uHuJF6C/Z1xe3k9Mgdr0zA==
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-10.4.0.tgz#47e5c224951f2bc3e4f9b580c873c3b4d3402623"
+  integrity sha512-ONP9SGV17pr2l3RJHhoX+3qAUDF3ltByQD5rP7Dw2QytOYAL6JjRVOvyFKv/CR+Xq2T7hJtq3NZyDzfX9CZPFw==
 
 bootstrap@^4.1.1:
   version "4.1.3"
