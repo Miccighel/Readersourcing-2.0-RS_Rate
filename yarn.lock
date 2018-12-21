@@ -13,9 +13,9 @@ bootstrap-select@^1.13.1:
   integrity sha512-1uYsYLB4FvGdwM6qzIfTxp6sP5gDqjPgWNHJztBfYUTIo1GUYG5zzmMVWiJvdxJlsvBXZ9AObmeZdzi0eg2jaA==
 
 bootstrap-slider@^10.0.2:
-  version "10.4.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-10.4.0.tgz#47e5c224951f2bc3e4f9b580c873c3b4d3402623"
-  integrity sha512-ONP9SGV17pr2l3RJHhoX+3qAUDF3ltByQD5rP7Dw2QytOYAL6JjRVOvyFKv/CR+Xq2T7hJtq3NZyDzfX9CZPFw==
+  version "10.4.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-10.4.2.tgz#484cfe44aa179a2980c6de03c793596ae2ba9e37"
+  integrity sha512-13I/K/w/35zoA/XWewrdz7ijJ1psRem4V6D0YUU5rJLZ4lk8/L60oOJ39UrAOEDOlrq8IUFkNb5qfpuUIe85LA==
 
 bootstrap@^4.1.1:
   version "4.1.3"
