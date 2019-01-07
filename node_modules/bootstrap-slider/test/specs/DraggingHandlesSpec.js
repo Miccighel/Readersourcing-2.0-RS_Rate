@@ -1,7 +1,16 @@
 describe("Dragging handles tests", function() {
 	var testSlider;
 	var mouseEventArguments;
-	var tickOffsets;
+    var tickOffsets;
+
+    // Create mouse events
+    function mouseEvent(type, offset) {
+        var ev = document.createEvent("MouseEvents");
+        mouseEventArguments[0] = type;
+        mouseEventArguments[7] = offset;
+        ev.initMouseEvent.apply(ev, mouseEventArguments);
+        return ev;
+    }
 
 	beforeEach(function() {
 		// Create slider
@@ -210,7 +219,25 @@ describe("Dragging handles tests", function() {
         // End with mouse up
         testSlider.mouseup(mouseRight);
         expect(testSlider.getValue()).toEqual([2, 5]);
+    });
 
+    it("Should trigger change on mouseup", function(done) {
+        var changes = 0;
+
+        testSlider.on('slideStop', function(){
+            expect(changes).toBe(1);
+			expect(testSlider.getValue()).toEqual([2, 5]);
+			done();
+        });
+
+        testSlider.mousedown(mouseEvent('mousedown', tickOffsets[1]));
+        expect(testSlider.getValue()).toEqual([1, 5]);
+
+        testSlider.on('change', function(){
+            changes++;
+        });
+
+        testSlider.mouseup(mouseEvent('mouseup', tickOffsets[2]));
 	});
 
 	describe("Test 'mousemove' and 'mouseup' produces correct results", function() {
