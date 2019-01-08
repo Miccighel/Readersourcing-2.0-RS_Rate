@@ -17,7 +17,7 @@
   "default_locale": "en",
   "browser_action": {
     "browser_style": true,
-    "default_popup": "src/views/rating.html",
+    "default_popup": "src/views/home.html",
     "default_icon": {
       "16": "src/img/icon16.png",
       "32": "src/img/icon32.png",

@@ -1,13 +1,5 @@
 ////////// INIT  //////////
 
-//######## CONTENT SECTIONS ########//
-
-let preloaderSection = $("#preloader");
-
-//######## UI COMPONENTS ########//
-
-let loadingAnimation = $("#wheel");
-
 //######## CLIENT SIDE VALIDATION SETUP ########//
 
 Parsley.addMessages('it', {
@@ -77,8 +69,11 @@ Parsley.setLocale('en');
 
 //######### PAGE LOADING HANDLING #########//
 
-$(window).on('load', () => {
-    $(loadingAnimation).fadeOut();
-    $(preloaderSection).delay(500).fadeOut('slow');
-    $('body').delay(500).css({'overflow': 'visible'});
+$(document).ready($ => {
+    $('.preloader-wrapper').fadeOut(1500);
+    $('body').removeClass('preloader');
+});
+$(window).on("load", () => {
+    let body = $('body');
+    body.addClass('preloader');
 });
