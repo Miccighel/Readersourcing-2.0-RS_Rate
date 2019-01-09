@@ -4,15 +4,3 @@ body {
     height: 400px;
     width: 300px;
 }
-
-/* ////////// PRELOADER SECTION ////////// */
-
-#preloader {
-    background-color: white;
-}
-
-/* ////////// TOP BUTTONS ////////// */
-
-button#back-btn {
-    padding-left: 26%;
-}

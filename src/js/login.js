@@ -57,7 +57,7 @@ optionsButton.on("click", () => {
 backButton.on("click", () => {
     backButton.find(reloadIcon).toggle();
     backButton.find(backIcon).toggle();
-    window.location.href = "rating.html";
+    window.location.href = "home.html";
 });
 
 //########## LOGIN HANDLING ##########//

@@ -29,7 +29,7 @@ let errorButton = $(".error-btn");
 let alert = $(".alert");
 
 let backIcon = $("#back-icon");
-let signUpIcon = $("#sign-up-icon");
+let checkIcon = $("#check-icon");
 let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
@@ -57,7 +57,7 @@ chrome.storage.sync.get(['authToken'], result => {
             orcidField.val();
             subscribeCheckbox.prop('checked', false);
         };
-        let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+        let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }
 });
 
@@ -71,10 +71,11 @@ chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
     if (authToken != null) {
         updateButton.on("click", () => {
-            updateButton.find(signUpIcon).toggle();
-            updateButton.find(reloadIcons).toggle();
-            let successCallback = (data, status, jqXHR) => {
-                if (validationInstance.isValid()) {
+            validationInstance.validate();
+            if (validationInstance.isValid()) {
+                updateButton.find(checkIcon).toggle();
+                updateButton.find(reloadIcons).toggle();
+                let successCallback = (data, status, jqXHR) => {
                     let secondData = {
                         user: {
                             first_name: firstNameField.val(),
@@ -86,14 +87,15 @@ chrome.storage.sync.get(['authToken'], result => {
                     if (orcidField.val() === "")
                         delete secondData.user.orcid;
                     let secondSuccessCallback = (data, status, jqXHR) => {
-                        updateButton.find(reloadIcons).toggle();
-                        deleteToken().then(function () {
-                            chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html");
+                        //updateButton.find(reloadIcons).toggle();
+                        deleteToken().then(() => {
+                            localStorage.setItem("message", data["message"]);
+                            window.location.href = "login.html";
                         });
                     };
                     let secondErrorCallback = (jqXHR, status) => {
                         updateButton.find(reloadIcons).toggle();
-                        updateButton.find(signUpIcon).toggle();
+                        updateButton.find(checkIcon).toggle();
                         if (jqXHR.responseText == null) {
                             updateButton.hide();
                             let button = updateButton.parent().find(errorButton);
@@ -107,26 +109,26 @@ chrome.storage.sync.get(['authToken'], result => {
                             });
                         }
                     };
-                    let secondPromise = ajax("PUT", `users/${data["id"]}.json`, "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
-                }
-            };
-            let errorCallback = (jqXHR, status) => {
-                updateButton.find(reloadIcons).toggle();
-                updateButton.find(signUpIcon).toggle();
-                if (jqXHR.responseText == null) {
-                    updateButton.hide();
-                    let button = updateButton.parent().find(errorButton);
-                    button.show();
-                    button.prop("disabled", true)
-                } else {
-                    let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                        errorsSection.find(alert).empty();
-                        errorsSection.find(alert).append(result);
-                        errorsSection.show();
-                    });
-                }
-            };
-            let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+                    let secondPromise = ajax("PUT", `/users/${data["id"]}.json`, "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
+                };
+                let errorCallback = (jqXHR, status) => {
+                    updateButton.find(reloadIcons).toggle();
+                    updateButton.find(checkIcon).toggle();
+                    if (jqXHR.responseText == null) {
+                        updateButton.hide();
+                        let button = updateButton.parent().find(errorButton);
+                        button.show();
+                        button.prop("disabled", true)
+                    } else {
+                        let errorPromise = buildErrors(jqXHR.responseText).then(result => {
+                            errorsSection.find(alert).empty();
+                            errorsSection.find(alert).append(result);
+                            errorsSection.show();
+                        });
+                    }
+                };
+                let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+            }
         });
     }
 });

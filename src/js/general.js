@@ -70,7 +70,7 @@ Parsley.setLocale('en');
 //######### PAGE LOADING HANDLING #########//
 
 $(document).ready($ => {
-    $('.preloader-wrapper').fadeOut(1500);
+    $('.preloader-wrapper').fadeOut(1000);
     $('body').removeClass('preloader');
 });
 $(window).on("load", () => {

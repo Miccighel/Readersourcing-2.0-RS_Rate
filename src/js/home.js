@@ -4,6 +4,7 @@
 
 let loginButton = $("#login-btn");
 let signUpButton = $("#sign-up-btn");
+let optionsButton = $("#options-btn");
 
 let signInIcon = $("#sign-in-icon");
 let signUpIcon = $("#sign-up-icon");
@@ -34,4 +35,12 @@ loginButton.on("click", () => {
 signUpButton.on("click", () => {
     signUpButton.find(signUpIcon.toggle());
     signUpButton.find(reloadIcons).toggle();
+});
+
+////////// GENERAL //////////
+
+//######### OPTIONS HANDLING #########//
+
+optionsButton.on("click", () => {
+    if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });

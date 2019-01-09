@@ -27,10 +27,8 @@ let modalRefresh = $("#modal-refresh");
 //######## UI COMPONENTS ########//
 
 let optionsButton = $("#options-btn");
-let loginButton = $("#login-btn");
 let logoutButton = $("#logout-btn");
 let profileButton = $("#profile-btn");
-let signUpButton = $("#sign-up-btn");
 let loadRateButton = $("#load-rate-btn");
 let voteButton = $("#vote-btn");
 let voteSuccessButton = $("#vote-success-btn");
@@ -64,22 +62,12 @@ let publicationScoreTRMValue = $("#publication-score-trm-val");
 
 let anonymizeCheckbox = $("#anonymize-check");
 
-let signInIcon = $("#sign-in-icon");
 let signOutIcon = $("#sign-out-icon");
-let signUpIcon = $("#sign-up-icon");
 let profileIcon = $("#profile-icon");
 let reloadIcons = $(".reload-icon");
 
-//######## VARIABLES ########//
-
-let standardWidth = 300;
-let largeHeight = 415;
-let smallHeight = 275;
-let oldHeight = 250;
-
 //######## UI INITIAL SETUP ########//
 
-loginSection.hide();
 ratingSection.hide();
 undetectedPublicationSection.hide();
 publicationScoreSection.hide();
@@ -101,7 +89,6 @@ ratingText.show();
 chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
     if (authToken != null) {
-        loginSection.hide();
         buttonsSections.show();
         chrome.tabs.query({currentWindow: true, active: true}, tabs => {
             let currentUrl = tabs[0].url;
@@ -136,9 +123,6 @@ chrome.storage.sync.get(['authToken'], result => {
                                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                                 // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
                                 let secondSuccessCallback = (data, status, jqXHR) => {
-                                    body.height(smallHeight);
-                                    body.width(standardWidth);
-                                    oldHeight = body.height();
                                     buttonsCaption.hide();
                                     loadRateButton.hide();
                                     loadSaveButton.hide();
@@ -158,9 +142,6 @@ chrome.storage.sync.get(['authToken'], result => {
                                 };
                                 // 2.3 Publication has not been rated by the user
                                 let secondErrorCallback = (jqXHR, status) => {
-                                    body.height(largeHeight);
-                                    body.width(standardWidth);
-                                    oldHeight = body.height();
                                     loadRateButton.hide();
                                     voteSuccessButton.hide();
                                     ratingSubCaption.hide();
@@ -194,9 +175,6 @@ chrome.storage.sync.get(['authToken'], result => {
                             };
                             // 1.3 Publication was never rated, so it does not exists on the database
                             let errorCallback = (jqXHR, status) => {
-                                body.height(largeHeight);
-                                body.width(standardWidth);
-                                oldHeight = body.height();
                                 loadRateButton.hide();
                                 loadSaveButton.hide();
                                 voteSuccessButton.hide();
@@ -218,8 +196,6 @@ chrome.storage.sync.get(['authToken'], result => {
                 })
             };
             let errorCallback = (jqXHR, status) => {
-                if (modalProfile.hasClass('show')) body.height(largeHeight); else body.height(smallHeight);
-                oldHeight = smallHeight;
                 ratingSection.hide();
                 publicationScoreSection.hide();
                 undetectedPublicationSection.show();
@@ -228,10 +204,6 @@ chrome.storage.sync.get(['authToken'], result => {
             let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
     } else {
-        if (modalProfile.hasClass('show')) body.height(largeHeight); else body.height(smallHeight);
-        body.width(standardWidth);
-        oldHeight = smallHeight;
-        loginSection.show();
         buttonsSections.show();
         logoutButton.hide();
         profileButton.hide();
@@ -276,9 +248,18 @@ chrome.storage.sync.get(['authToken'], result => {
             });
         });
     }
-})
+});
 
 ///######### REFRESH HANDLING #########//
+
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
+    if (authToken != null) {
+        refreshButton.on("click", () => {
+            modalRefresh.modal("show");
+        });
+    }
+});
 
 modalRefreshButton.on("click", () => {
     chrome.storage.sync.get(['authToken'], result => {
@@ -440,39 +421,12 @@ chrome.storage.sync.get(['authToken'], result => {
     }
 });
 
-//#######  LOGIN HANDLING #########//
-
-loginButton.on("click", () => {
-    loginButton.find(reloadIcons).toggle();
-    loginButton.find(signInIcon).toggle();
-});
-
 //####### LOGOUT HANDLING #########//
 
 logoutButton.on("click", () => {
     logoutButton.find(reloadIcons).toggle();
     logoutButton.find(signOutIcon).toggle();
-    deleteToken().then(() => location.reload());
-});
-
-//######### SIGN UP HANDLING #########//
-
-signUpButton.on("click", () => {
-    signUpButton.find(reloadIcons).toggle();
-    signUpButton.find(signUpIcon).toggle();
-});
-
-//######### PROFILE HANDLING #########//
-
-modalProfile.on("hidden.bs.modal", () => {
-    undetectedPublicationSubcaption.addClass("fixed-bottom");
-    body.height(oldHeight);
-});
-
-modalProfile.on("shown.bs.modal", () => {
-    undetectedPublicationSubcaption.removeClass("fixed-bottom");
-    body.height(largeHeight);
-    modalProfile.attr("style", "display:block; padding-left:0;");
+    deleteToken().then(() => window.location.href = "login.html");
 });
 
 ////////// GENERAL //////////

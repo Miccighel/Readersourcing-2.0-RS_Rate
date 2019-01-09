@@ -5,21 +5,9 @@ body {
     width: 300px;
 }
 
-/* ////////// PRELOADER ////////// */
-
-#preloader {
-    background-color: white;
-}
-
 /* ////////// GENERAL ////////// */
 
 input#subscribe {
     position: relative;
     top: 1.5pt;
-}
-
-/* ////////// TOP BUTTONS ////////// */
-
-button#back-btn {
-    padding-left: 26%;
 }
