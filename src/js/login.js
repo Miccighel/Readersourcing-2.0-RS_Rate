@@ -72,7 +72,7 @@ loginButton.on("click", () => {
         let successCallback = (data, status, jqXHR) => {
             loginButton.find(signInIcon).toggle();
             loginButton.find(reloadIcon).toggle();
-            chrome.storage.sync.set({authToken: data["auth_token"]}, () => window.location.href = "rating.html");
+            chrome.storage.sync.set({authToken: data["auth_token"]}, () => window.location.href = "rating_web.html");
         };
         let errorCallback = (jqXHR, status) => {
             loginButton.find(signInIcon).toggle();

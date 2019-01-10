@@ -8,7 +8,7 @@ import {buildErrors} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
-let registrationForm = $("#sign-up-form");
+let signUpForm = $("#sign-up-form");
 
 let errorsSection = $("#errors-sect");
 
@@ -44,9 +44,9 @@ reloadIcons.hide();
 
 //########## REGISTRATION HANDLING ##########//
 
-let validationInstance = registrationForm.parsley();
+let validationInstance = signUpForm.parsley();
 
-registrationForm.submit(event => event.preventDefault());
+signUpForm.submit(event => event.preventDefault());
 
 registrationButton.on("click", () => {
     if (validationInstance.isValid()) {

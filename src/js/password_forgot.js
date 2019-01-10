@@ -81,7 +81,6 @@ optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
 
-
 //########## GO BACK HANDLING #########//
 
 backButton.on("click", () => {

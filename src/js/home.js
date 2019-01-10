@@ -19,7 +19,7 @@ reloadIcons.hide();
 chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
     if (authToken != null) {
-        window.location.href = "rating.html";
+        window.location.href = "rating_web.html";
     }
 });
 

@@ -9,7 +9,7 @@ import {buildErrors} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
-let registrationForm = $("#sign-up-form");
+let signUpForm = $("#sign-up-form");
 
 let errorsSection = $("#errors-sect");
 
@@ -38,6 +38,10 @@ errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
 
+let validationInstance = signUpForm.parsley();
+
+signUpForm.submit(event => event.preventDefault());
+
 ////////// USER ///////////
 
 //####### STATUS HANDLING (SCORES, ...) #########//
@@ -63,10 +67,6 @@ chrome.storage.sync.get(['authToken'], result => {
 
 //########## UPDATE HANDLING ##########//
 
-let validationInstance = registrationForm.parsley();
-
-registrationForm.submit(event => event.preventDefault());
-
 chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
     if (authToken != null) {
@@ -87,7 +87,7 @@ chrome.storage.sync.get(['authToken'], result => {
                     if (orcidField.val() === "")
                         delete secondData.user.orcid;
                     let secondSuccessCallback = (data, status, jqXHR) => {
-                        //updateButton.find(reloadIcons).toggle();
+                        updateButton.find(reloadIcons).toggle();
                         deleteToken().then(() => {
                             localStorage.setItem("message", data["message"]);
                             window.location.href = "login.html";

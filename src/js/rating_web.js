@@ -56,7 +56,6 @@ let orcidValue = $("#orcid-val");
 let subscribeValue = $("#subscribe-val");
 let userScoreRSMValue = $("#user-score-rsm-val");
 let userScoreTRMValue = $("#user-score-trm-val");
-
 let publicationScoreRSMValue = $("#publication-score-rsm-val");
 let publicationScoreTRMValue = $("#publication-score-trm-val");
 
@@ -203,14 +202,6 @@ chrome.storage.sync.get(['authToken'], result => {
             };
             let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
-    } else {
-        buttonsSections.show();
-        logoutButton.hide();
-        profileButton.hide();
-        ratingSection.hide();
-        publicationScoreSection.hide();
-        undetectedPublicationSection.hide();
-        loadingSection.hide()
     }
 });
 
