@@ -6,6 +6,7 @@ import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
 import {buildErrors} from "./shared.js";
+import {removePreloader} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
@@ -21,26 +22,36 @@ let orcidField = $("#orcid");
 
 let subscribeCheckbox = $("#subscribe");
 
-let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
 let updateButton = $("#update-btn");
 let errorButton = $(".error-btn");
+let optionsButton = $("#options-btn");
 
 let alert = $(".alert");
 
-let backIcon = $("#back-icon");
 let checkIcon = $("#check-icon");
+let backIcon = $("#back-icon");
 let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
 errorsSection.hide();
 errorButton.hide();
-reloadIcons.hide();
+
+firstNameField.hide();
+lastNameField.hide();
+orcidField.hide();
+subscribeCheckbox.hide();
+backButton.find(reloadIcons).hide();
+updateButton.find(reloadIcons).hide();
+
+updateButton.prop("disabled", true);
 
 let validationInstance = signUpForm.parsley();
 
 signUpForm.submit(event => event.preventDefault());
+
+removePreloader();
 
 ////////// USER ///////////
 
@@ -51,15 +62,25 @@ chrome.storage.sync.get(['authToken'], result => {
     if (authToken != null) {
         let successCallback = (data, status, jqXHR) => {
             firstNameField.val(data["first_name"]);
+            firstNameField.show();
+            firstNameField.parent().parent().find(reloadIcons).hide();
             lastNameField.val(data["last_name"]);
+            lastNameField.show();
+            lastNameField.parent().parent().find(reloadIcons).hide();
             orcidField.val(data["orcid"]);
+            orcidField.show();
+            orcidField.parent().parent().find(reloadIcons).hide();
             (data["subscribe"]) === true ? subscribeCheckbox.prop('checked', true) : subscribeCheckbox.prop('checked', false);
+            subscribeCheckbox.show();
+            subscribeCheckbox.parent().parent().find(reloadIcons).hide();
+            updateButton.prop("disabled", false);
         };
         let errorCallback = (jqXHR, status) => {
             firstNameField.val();
             lastNameField.val();
             orcidField.val();
             subscribeCheckbox.prop('checked', false);
+            updateButton.prop("disabled", false);
         };
         let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }

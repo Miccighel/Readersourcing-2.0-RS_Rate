@@ -60,3 +60,9 @@ export async function buildErrors(errors) {
     });
     return element;
 }
+
+export function removePreloader() {
+    $('.preloader-wrapper').fadeOut(1500);
+    $('body').removeClass('preloader');
+    $('.preloader').css('overflow','visible');
+}

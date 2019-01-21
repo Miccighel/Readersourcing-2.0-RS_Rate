@@ -1,5 +1,9 @@
 ////////// INIT  //////////
 
+//######## IMPORTS ########//
+
+import {removePreloader} from "./shared.js";
+
 //######## UI COMPONENTS ########//
 
 let loginButton = $("#login-btn");
@@ -20,7 +24,7 @@ chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
     if (authToken != null) {
         window.location.href = "rating_web.html";
-    }
+    } else removePreloader()
 });
 
 //######### GO TO LOGIN HANDLING #########//

@@ -4,6 +4,7 @@
 
 import {ajax} from "./shared.js";
 import {buildErrors} from "./shared.js";
+import {removePreloader} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
@@ -43,6 +44,8 @@ chrome.storage.sync.get(['message'], result => {
 errorsSection.hide();
 errorButton.hide();
 reloadIcon.hide();
+
+removePreloader();
 
 ////////// GENERAL //////////
 

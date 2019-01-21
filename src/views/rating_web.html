@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="../../node_modules/dropzone/dist/dropzone.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/system/style.blue.css" id="theme-stylesheet">
     <link rel="stylesheet" href="../css/general.css"/>
@@ -53,7 +54,7 @@
             </div>
         </div>
     </div>
-    <div id="undetected-publication-sect" class="row mt-auto mb-3 pl-3 pt-3 pr-3">
+    <div id="undetected-publication-sect" class="row mt-auto mb-0 pl-3 pt-3 pr-3">
         <div class="col-12">
             <div class="row">
                 <div class="col-12 heading text-center mb-3">
@@ -144,6 +145,24 @@
             <div class="col-12 text-center btn btn-primary btn-block">
                 Pub. score (TRM): <span id="publication-score-trm-val"></span>/100
             </div>
+        </div>
+    </div>
+    <div class="row mt-auto mb-0 w-100">
+        <div class="col-lg-7 col-sm-10 col-xs-12 m-auto">
+            <form action="/publications/extract.json" id="annotated-publication-dropzone" class="dropzone border-primary">
+                <div class="dz-default dz-message text-center"><h4 class="color-dark mt-3">Drop Your Link-Annotated Publication Here</h4>
+                    <br/><i class="fas fa-file-pdf fa-3x color-dark"></i></div>
+            </form>
+        </div>
+        <div class="col-lg-7 col-sm-10 col-xs-12 mt-3 ml-auto mr-auto">
+            <div role="alert" id="dropzone-success" class="alert alert-success"></div>
+        </div>
+        <div class="col-lg-7 col-sm-10 col-xs-12 ml-auto mr-auto">
+            <a href="" id="go-to-rating-btn" class="btn btn-primary btn-block link-white">
+                Rating Page
+                <i id="go-to-rating-icon" class="fas fa-arrow-right"></i>
+                <i class="fas fa-sync-alt fa-spin reload-icon"></i>
+            </a>
         </div>
     </div>
     <div class="row mt-auto ml-auto mr-auto mb-0 w-100">
@@ -295,6 +314,7 @@
 <script src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
 <script src="../../node_modules/parsleyjs/dist/parsley.min.js"></script>
 <script src="../../node_modules/parsleyjs/dist/i18n/it.js"></script>
+<script src="../../node_modules/dropzone/dist/dropzone.js"></script>
 <script src="../js/system/front.js"></script>
 <script src="../js/general.js"></script>
 <script type="module" src="../js/shared.js"></script>

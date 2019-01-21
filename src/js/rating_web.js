@@ -5,6 +5,7 @@
 import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
+import {removePreloader} from "./shared.js";
 
 let body = $("body");
 
@@ -38,9 +39,14 @@ let loadSaveButton = $("#load-save-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let refreshButton = $("#refresh-btn");
+let goToRatingButton = $("#go-to-rating-btn");
 let errorButtons = $(".error-btn");
 let passwordEditButton = $("#password-edit-btn");
 let modalRefreshButton = $("#modal-refresh-btn");
+
+let annotatedPublicationDropzone;
+let annotatedPublicationSelector = $("#annotated-publication-dropzone");
+let annotatedPublicationDropzoneSuccess = $("#dropzone-success");
 
 let ratingCaption = $("#rating-caption");
 let ratingSubCaption = $("#rating-subcaption");
@@ -84,6 +90,10 @@ ratingCaption.hide();
 ratingSubCaption.hide();
 ratingSlider.hide();
 ratingText.show();
+annotatedPublicationDropzoneSuccess.hide();
+goToRatingButton.hide();
+
+removePreloader();
 
 chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
@@ -103,6 +113,7 @@ chrome.storage.sync.get(['authToken'], result => {
                 loadingSection.hide();
                 ratingSlider.slider({});
                 ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
+
                 ////////// PUBLICATION //////////
 
                 //######### STATUS HANDLING (EXISTS ON THE DB, RATED BY THE LOGGED IN USER, SAVED FOR LATER...) #########//
@@ -240,6 +251,46 @@ chrome.storage.sync.get(['authToken'], result => {
         });
     }
 });
+
+//######### EXTRACT HANDLING #########//
+
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
+    Dropzone.options.annotatedPublicationDropzone = {
+        paramName: "file", // The name that will be used to transfer the file
+        acceptedFiles: "application/pdf",
+        maxFiles: 1,
+        headers: {
+            "Authorization": authToken
+        },
+        init: function() {
+            this.on("processing", function(file) {
+                this.options.url = "/some-other-url";
+            });
+        }
+    };
+    if (authToken != null) {
+        annotatedPublicationDropzone.on("sending", (file, xhr, formData) => {
+            return xhr.setRequestHeader("Authorization", authToken);
+        });
+        // annotatedPublicationDropzone.on("processing", (file) => {
+        //     this.options.url = "coasioszdhjcuisdhuisdf";
+        // });
+        annotatedPublicationDropzone.on("success", (file, data) => {
+            annotatedPublicationDropzoneSuccess.show();
+            annotatedPublicationDropzoneSuccess.text(data["message"]);
+            goToRatingButton.show();
+            goToRatingButton.prop("href", data["baseUrl"])
+        });
+        annotatedPublicationDropzone.on('error', (file, response, xhr) => {
+            if (response.hasOwnProperty('errors')) {
+                $(file.previewElement).find('.dz-error-message').text(response["errors"][0]);
+            }
+        });
+    }
+});
+
+annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
 
 ///######### REFRESH HANDLING #########//
 

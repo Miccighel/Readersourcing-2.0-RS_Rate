@@ -5,6 +5,7 @@
 import {ajax} from "./shared.js";
 import {deleteToken} from "./shared.js";
 import {buildErrors} from "./shared.js";
+import {removePreloader} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
@@ -39,6 +40,8 @@ let reloadIcons = $(".reload-icon");
 errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
+
+removePreloader();
 
 ////////// USER ///////////
 
