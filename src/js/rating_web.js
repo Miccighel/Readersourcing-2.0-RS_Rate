@@ -18,6 +18,8 @@ let undetectedPublicationSection = $("#undetected-publication-sect");
 let ratingSection = $("#rating-sect");
 let publicationScoreSection = $("#publication-score-sect");
 let userScoreSection = $("#user-score-sect");
+let annotatedPublicationDropzoneSection = $("#dropzone-sect");
+let annotatedPublicationDropzoneLoadingSection = $("#dropzone-loading-sect");
 
 //######## MODALS ########//
 
@@ -90,6 +92,9 @@ ratingCaption.hide();
 ratingSubCaption.hide();
 ratingSlider.hide();
 ratingText.show();
+
+annotatedPublicationDropzoneLoadingSection.show();
+annotatedPublicationDropzoneSection.hide();
 annotatedPublicationDropzoneSuccess.hide();
 goToRatingButton.hide();
 
@@ -254,43 +259,43 @@ chrome.storage.sync.get(['authToken'], result => {
 
 //######### EXTRACT HANDLING #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    Dropzone.options.annotatedPublicationDropzone = {
-        paramName: "file", // The name that will be used to transfer the file
-        acceptedFiles: "application/pdf",
-        maxFiles: 1,
-        headers: {
-            "Authorization": authToken
-        },
-        init: function() {
-            this.on("processing", function(file) {
-                this.options.url = "/some-other-url";
+chrome.storage.sync.get(['host'], result => {
+    let host = result.host;
+    chrome.storage.sync.get(['authToken'], result => {
+        let authToken = result.authToken;
+        if (authToken != null) {
+            let partialAction = annotatedPublicationSelector.attr('action');
+            partialAction = partialAction.substring(1, partialAction.length);
+            let fullAction = `${host}${partialAction}`;
+            annotatedPublicationSelector.attr('action', fullAction);
+            annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
+            Dropzone.options.annotatedPublicationDropzone = {
+                paramName: "file", // The name that will be used to transfer the file
+                acceptedFiles: "application/pdf",
+                maxFiles: 1,
+                headers: {
+                    "Authorization": authToken
+                }
+            };
+            annotatedPublicationDropzone.on("sending", (file, xhr, formData) => {
+                return xhr.setRequestHeader("Authorization", authToken);
             });
+            annotatedPublicationDropzone.on("success", (file, data) => {
+                annotatedPublicationDropzoneSuccess.show();
+                annotatedPublicationDropzoneSuccess.text(data["message"]);
+                goToRatingButton.show();
+                goToRatingButton.prop("href", data["baseUrl"]);
+            });
+            annotatedPublicationDropzone.on('error', (file, response, xhr) => {
+                if (response.hasOwnProperty('errors')) {
+                    $(file.previewElement).find('.dz-error-message').text(response["errors"][0]);
+                }
+            });
+            annotatedPublicationDropzoneLoadingSection.hide();
+            annotatedPublicationDropzoneSection.show();
         }
-    };
-    if (authToken != null) {
-        annotatedPublicationDropzone.on("sending", (file, xhr, formData) => {
-            return xhr.setRequestHeader("Authorization", authToken);
-        });
-        // annotatedPublicationDropzone.on("processing", (file) => {
-        //     this.options.url = "coasioszdhjcuisdhuisdf";
-        // });
-        annotatedPublicationDropzone.on("success", (file, data) => {
-            annotatedPublicationDropzoneSuccess.show();
-            annotatedPublicationDropzoneSuccess.text(data["message"]);
-            goToRatingButton.show();
-            goToRatingButton.prop("href", data["baseUrl"])
-        });
-        annotatedPublicationDropzone.on('error', (file, response, xhr) => {
-            if (response.hasOwnProperty('errors')) {
-                $(file.previewElement).find('.dz-error-message').text(response["errors"][0]);
-            }
-        });
-    }
+    });
 });
-
-annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
 
 ///######### REFRESH HANDLING #########//
 

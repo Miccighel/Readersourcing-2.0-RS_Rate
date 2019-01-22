@@ -33,6 +33,11 @@ p {
     font-size: 19px !important;
 }
 
+.btn:active, .link-white {
+    color:white !important;
+    text-decoration: none !important;
+}
+
 .centered {
     position: fixed;
     top: 50%;
@@ -67,6 +72,11 @@ p {
 
 .w-24 {
     width: 24% !important;
+}
+
+hr.separator {
+    height: 2px;
+    background: #467fbf;
 }
 
 /* ////////// ERRORS  ////////// */
