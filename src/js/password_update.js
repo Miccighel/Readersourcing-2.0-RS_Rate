@@ -11,7 +11,7 @@ import {removePreloader} from "./shared.js";
 
 let passwordEditForm = $("#password-edit-form");
 
-let errorsSection = $("#errors-sect");
+let errorsSection = $(".errors-sect");
 
 //######## UI COMPONENTS ########//
 
@@ -69,9 +69,9 @@ passwordEditButton.on("click", () => {
                 button.prop("disabled", true)
             } else {
                 let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                    errorsSection.find(alert).empty();
-                    errorsSection.find(alert).append(result);
-                    errorsSection.show();
+                    passwordEditButton.parent().find(errorsSection).find(alert).empty();
+                    passwordEditButton.parent().find(errorsSection).find(alert).append(result);
+                    passwordEditButton.parent().find(errorsSection).show();
                 });
             }
         };

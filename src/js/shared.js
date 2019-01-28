@@ -48,17 +48,23 @@ export async function emptyAjax(type, url, contentType, dataType, crossDomain, s
 ////////// UTILITY SECTION //////////
 
 export async function buildErrors(errors) {
-    let parsedErrors = JSON.parse(errors);
-    let element = "";
-    Object.keys(parsedErrors).forEach((attribute, index) => {
-        element = `<span>${element}${attribute}:</span><ul>`;
-        let messages = parsedErrors[attribute];
-        Object.values(messages).forEach((message, index) => {
-            element = `${element}<li>${message}</li>`;
+    try {
+        let parsedErrors = JSON.parse(errors);
+        let element = "";
+        Object.keys(parsedErrors).forEach((attribute, index) => {
+            element = `<span class="color-red-dark">${element}${attribute}:</span><ul>`;
+            let messages = parsedErrors[attribute];
+            Object.values(messages).forEach((message, index) => {
+                element = `${element}<li class="color-red-dark">${message}</li>`;
+            });
+            element = `${element}</ul>`;
         });
-        element = `${element}</ul>`;
-    });
-    return element;
+        return element;
+    } catch (error) {
+        let element = "";
+        element = `<span class="color-red-dark">This is (probably) a server error (which could be dead now).</span>`;
+        return element;
+    }
 }
 
 export function removePreloader() {

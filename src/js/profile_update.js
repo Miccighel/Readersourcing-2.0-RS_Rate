@@ -12,7 +12,7 @@ import {removePreloader} from "./shared.js";
 
 let signUpForm = $("#sign-up-form");
 
-let errorsSection = $("#errors-sect");
+let errorsSection = $(".errors-sect");
 
 //######## UI COMPONENTS ########//
 
@@ -124,9 +124,9 @@ chrome.storage.sync.get(['authToken'], result => {
                             button.prop("disabled", true)
                         } else {
                             let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                                errorsSection.find(alert).empty();
-                                errorsSection.find(alert).append(result);
-                                errorsSection.show();
+                                updateButton.parent().find(errorsSection).find(alert).empty();
+                                updateButton.parent().find(errorsSection).find(alert).append(result);
+                                updateButton.parent().find(errorsSection).show();
                             });
                         }
                     };
@@ -142,9 +142,9 @@ chrome.storage.sync.get(['authToken'], result => {
                         button.prop("disabled", true)
                     } else {
                         let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                            errorsSection.find(alert).empty();
-                            errorsSection.find(alert).append(result);
-                            errorsSection.show();
+                            updateButton.parent().find(errorsSection).find(alert).empty();
+                            updateButton.parent().find(errorsSection).find(alert).append(result);
+                            updateButton.parent().find(errorsSection).show();
                         });
                     }
                 };

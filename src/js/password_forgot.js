@@ -11,7 +11,7 @@ import {removePreloader} from "./shared.js";
 
 let passwordForgotForm = $("#password-forgot-form");
 
-let errorsSection = $("#errors-sect");
+let errorsSection = $(".errors-sect");
 
 //######## UI COMPONENTS ########//
 
@@ -65,9 +65,9 @@ passwordForgotButton.on("click", () => {
                 button.prop("disabled", true)
             } else {
                 let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                    errorsSection.find(alert).empty();
-                    errorsSection.find(alert).append(result);
-                    errorsSection.show();
+                    passwordForgotButton.parent().find(errorsSection).find(alert).empty();
+                    passwordForgotButton.parent().find(errorsSection).find(alert).append(result);
+                    passwordForgotButton.parent().find(errorsSection).show();
                 });
             }
         };
