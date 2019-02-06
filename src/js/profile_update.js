@@ -51,8 +51,6 @@ let validationInstance = signUpForm.parsley();
 
 signUpForm.submit(event => event.preventDefault());
 
-removePreloader();
-
 ////////// USER ///////////
 
 //####### STATUS HANDLING (SCORES, ...) #########//
@@ -74,6 +72,7 @@ chrome.storage.sync.get(['authToken'], result => {
             subscribeCheckbox.show();
             subscribeCheckbox.parent().parent().find(reloadIcons).hide();
             updateButton.prop("disabled", false);
+            removePreloader();
         };
         let errorCallback = (jqXHR, status) => {
             firstNameField.val();
@@ -81,6 +80,7 @@ chrome.storage.sync.get(['authToken'], result => {
             orcidField.val();
             subscribeCheckbox.prop('checked', false);
             updateButton.prop("disabled", false);
+            removePreloader();
         };
         let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
     }
