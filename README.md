@@ -15,7 +15,7 @@ RS_Rate is an extension for Google Chrome and it is a client that readers can us
 
 <h1>Installation</h1>
 
-**RS_Rate** is freely available on the main browsers webstores. To use it, simply take advantage of the following links and install the version for your favourite browser.
+RS_Rate is freely available on the main browsers webstores. To use it, simply take advantage of the following links and install the version for your favourite browser.
 
 - Google Chrome: <a href="https://chrome.google.com/webstore/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg?hl=it">Available here</a>
 - Firefox: (Currently disabled, will be available at a later time)
