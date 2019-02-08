@@ -1,3 +1,7 @@
+<h1>Info</h1>
+
+This is the official repository of **RS_Rate**, which is part of the **Readersourcing 2.0** ecosystem. This repository is a <a href="https://git-scm.com/book/it/v2/Git-Tools-Submodules">Git Submodule</a> of the main project which can be found by taking advantage of the links below. 
+
 <h1>Read this!</h1>
 
 Please, note that this is an early alpha release and it is not ready for the use in a production environment.
@@ -11,7 +15,7 @@ Please, note that this is an early alpha release and it is not ready for the use
 
 <h1>Description</h1>
 
-RS_Rate is an extension for Google Chrome and it is a client that readers can use to rate publications, althought it is possible to carry out every operation also directly on the web interface provided by <a href="https://github.com/Miccighel/Readersourcing-2.0-RS_Server">RS_Server</a>. We intend to generalize RS_Rate by providing an implementation for each of the major browsers (i.e., Firefox, Safari, . . . ).
+**RS_Rate** is an extension for Google Chrome and it is a client that readers can use to rate publications, althought it is possible to carry out every operation also directly on the web interface provided by <a href="https://github.com/Miccighel/Readersourcing-2.0-RS_Server">RS_Server</a>. We intend to generalize RS_Rate by providing an implementation for each of the major browsers (i.e., Firefox, Safari, . . . ).
 
 <h1>Installation</h1>
 
