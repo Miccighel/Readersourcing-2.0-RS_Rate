@@ -3,7 +3,7 @@
   "short_name": "RS_Rate",
   "version": "1.0.10.1",
   "version_name": "1.0.10.1-alpha",
-  "description": "Allows to rate scientific publications on the RS_Server component of Readersourcing 2.0",
+  "description": "Allows to rate scientific publications on the RS_Server component of the Readersourcing 2.0 ecosystem",
   "manifest_version": 2,
   "permissions": [
     "storage",

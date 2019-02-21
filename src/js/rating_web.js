@@ -17,6 +17,7 @@ let loadingSection = $("#loading-sect");
 let loginSection = $("#login-sect");
 let undetectedPublicationSection = $("#undetected-publication-sect");
 let ratingSection = $("#rating-sect");
+let ratingSectionSubControls = $(".rating-sect-sub");
 let publicationScoreSection = $("#publication-score-sect");
 let userScoreSection = $("#user-score-sect");
 let errorsSection = $(".errors-sect");
@@ -25,11 +26,12 @@ let annotatedPublicationDropzoneLoadingSection = $("#dropzone-loading-sect");
 
 //######## MODALS ########//
 
-let modalProfile = $("#modal-profile");
 let modalConfigure = $("#modal-configuration");
 let modalRefresh = $("#modal-refresh");
 
 //######## UI COMPONENTS ########//
+
+let rateForm = $("#rate-form");
 
 let optionsButton = $("#options-btn");
 let logoutButton = $("#logout-btn");
@@ -43,6 +45,7 @@ let loadSaveButton = $("#load-save-btn");
 let saveButton = $("#save-btn");
 let downloadButton = $("#download-btn");
 let refreshButton = $("#refresh-btn");
+let reloadButton = $("#reload-btn");
 let goToRatingButton = $("#go-to-rating-btn");
 let errorButtons = $(".error-btn");
 let passwordEditButton = $("#password-edit-btn");
@@ -54,12 +57,14 @@ let annotatedPublicationDropzone;
 let annotatedPublicationSelector = $("#annotated-publication-dropzone");
 let annotatedPublicationDropzoneSuccess = $("#dropzone-success");
 
+let ratingInfo = $("#rating-info");
 let ratingCaption = $("#rating-caption");
 let ratingSubCaption = $("#rating-subcaption");
 let ratingSlider = $("#rating-slider");
+
 let ratingText = $("#rating-text");
+
 let buttonsCaption = $("#buttons-caption");
-let undetectedPublicationSubcaption = $("#undetected-publication-subcaption");
 
 let firstNameValue = $("#first-name-val");
 let lastNameValue = $("#last-name-val");
@@ -74,14 +79,10 @@ let publicationScoreTRMValue = $("#publication-score-trm-val");
 let anonymizeCheckbox = $("#anonymize-check");
 
 let signOutIcon = $("#sign-out-icon");
-let profileIcon = $("#profile-icon");
 let reloadIcons = $(".reload-icon");
 
 //######## UI INITIAL SETUP ########//
 
-ratingSection.hide();
-undetectedPublicationSection.hide();
-publicationScoreSection.hide();
 downloadButton.hide();
 refreshButton.hide();
 saveButton.hide();
@@ -91,10 +92,10 @@ voteButton.hide();
 configureButton.hide();
 voteSuccessButton.hide();
 errorButtons.hide();
-reloadIcons.hide();
 ratingCaption.hide();
 ratingSubCaption.hide();
-ratingSlider.hide();
+undetectedPublicationSection.hide();
+loadingSection.hide();
 ratingText.show();
 errorsSection.hide();
 
@@ -102,14 +103,19 @@ annotatedPublicationDropzoneLoadingSection.show();
 annotatedPublicationDropzoneSection.hide();
 annotatedPublicationDropzoneSuccess.hide();
 goToRatingButton.hide();
+errorsSection.hide();
 
 removePreloader();
+
+reloadIcons.hide();
 
 chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
     if (authToken != null) {
         buttonsSections.show();
         chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+            ratingSection.hide();
+            loadingSection.show();
             let currentUrl = tabs[0].url;
             let data = {
                 publication: {
@@ -118,6 +124,7 @@ chrome.storage.sync.get(['authToken'], result => {
             };
             let successCallback = (data, status, jqXHR) => {
                 ratingSection.show();
+                ratingCaption.show();
                 publicationScoreSection.show();
                 undetectedPublicationSection.hide();
                 loadingSection.hide();
@@ -143,7 +150,6 @@ chrome.storage.sync.get(['authToken'], result => {
                                 publicationScoreTRMValue.text((data["score_trm"] * 100).toFixed(2));
                                 // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
                                 let secondSuccessCallback = (data, status, jqXHR) => {
-                                    buttonsCaption.hide();
                                     loadRateButton.hide();
                                     loadSaveButton.hide();
                                     voteButton.hide();
@@ -151,25 +157,37 @@ chrome.storage.sync.get(['authToken'], result => {
                                     downloadButton.hide();
                                     refreshButton.hide();
                                     saveButton.hide();
+                                    ratingSection.show();
+                                    ratingSectionSubControls.show();
+                                    publicationScoreSection.show();
+                                    buttonsCaption.hide();
+                                    loadingSection.hide();
                                     voteSuccessButton.show();
                                     voteSuccessButton.prop("disabled", true);
+                                    ratingText.parent().removeClass("mt-3");
                                     ratingCaption.hide();
+                                    ratingInfo.hide();
                                     ratingSubCaption.show();
                                     ratingSlider.slider('destroy');
                                     ratingSlider.hide();
-                                    ratingText.removeClass("mt-3");
                                     ratingText.text(data["score"]);
+
                                 };
                                 // 2.3 Publication has not been rated by the user
                                 let secondErrorCallback = (jqXHR, status) => {
+                                    loadingSection.hide();
                                     loadRateButton.hide();
                                     voteSuccessButton.hide();
                                     ratingSubCaption.hide();
+                                    ratingInfo.hide();
+                                    ratingSection.show();
+                                    ratingSectionSubControls.show();
+                                    publicationScoreSection.show();
+                                    loadingSection.hide();
                                     buttonsCaption.show();
                                     ratingCaption.show();
-                                    ratingSlider.slider({});
                                     ratingText.text("50");
-                                    ratingText.prop("class", "mt-3");
+                                    ratingSlider.slider({});
                                     voteButton.show();
                                     configureButton.show();
                                     // 3.1 The rated publication was also annotated
@@ -195,17 +213,22 @@ chrome.storage.sync.get(['authToken'], result => {
                             };
                             // 1.3 Publication was never rated, so it does not exists on the database
                             let errorCallback = (jqXHR, status) => {
+                                loadingSection.hide();
                                 loadRateButton.hide();
                                 loadSaveButton.hide();
                                 voteSuccessButton.hide();
+                                ratingSection.show();
+                                ratingSectionSubControls.show();
+                                publicationScoreSection.show();
                                 saveButton.show();
                                 configureButton.show();
                                 voteButton.show();
                                 ratingCaption.show();
+                                ratingInfo.hide();
                                 ratingSubCaption.hide();
-                                ratingSlider.slider({});
                                 ratingText.text("50");
-                                ratingText.prop("class", "mt-3");
+                                ratingSlider.slider({});
+                                ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
                                 publicationScoreRSMValue.text("...");
                                 publicationScoreTRMValue.text("...");
                             };
@@ -217,6 +240,7 @@ chrome.storage.sync.get(['authToken'], result => {
             };
             let errorCallback = (jqXHR, status) => {
                 ratingSection.hide();
+                ratingSectionSubControls.hide();
                 publicationScoreSection.hide();
                 undetectedPublicationSection.show();
                 loadingSection.hide()
@@ -225,6 +249,16 @@ chrome.storage.sync.get(['authToken'], result => {
         });
     }
 });
+
+//########## RELOAD HANDLING #########//
+
+let authToken = localStorage.getItem('authToken');
+if (authToken != null) {
+    reloadButton.on("click", () => {
+        undetectedPublicationSection.hide();
+        ratingSection.show();
+    });
+}
 
 //######### SAVE FOR LATER HANDLING #########//
 
@@ -272,39 +306,43 @@ chrome.storage.sync.get(['authToken'], result => {
 chrome.storage.sync.get(['host'], result => {
     let host = result.host;
     chrome.storage.sync.get(['authToken'], result => {
-        let authToken = result.authToken;
-        if (authToken != null) {
-            let partialAction = annotatedPublicationSelector.attr('action');
-            partialAction = partialAction.substring(1, partialAction.length);
-            let fullAction = `${host}${partialAction}`;
-            annotatedPublicationSelector.attr('action', fullAction);
-            annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
-            Dropzone.options.annotatedPublicationDropzone = {
-                paramName: "file", // The name that will be used to transfer the file
-                acceptedFiles: "application/pdf",
-                maxFiles: 1,
-                headers: {
-                    "Authorization": authToken
-                }
-            };
-            annotatedPublicationDropzone.on("sending", (file, xhr, formData) => {
-                return xhr.setRequestHeader("Authorization", authToken);
-            });
-            annotatedPublicationDropzone.on("success", (file, data) => {
-                annotatedPublicationDropzoneSuccess.show();
-                annotatedPublicationDropzoneSuccess.text(data["message"]);
-                goToRatingButton.show();
-                goToRatingButton.prop("href", data["baseUrl"]);
-            });
-            annotatedPublicationDropzone.on('error', (file, response, xhr) => {
-                if (response.hasOwnProperty('errors')) {
-                    $(file.previewElement).find('.dz-error-message').text(response["errors"][0]);
-                }
-            });
-            annotatedPublicationDropzoneLoadingSection.hide();
-            annotatedPublicationDropzoneSection.show();
-        }
+        let partialAction = annotatedPublicationSelector.attr('action');
+        partialAction = partialAction.substring(1, partialAction.length);
+        let fullAction = `${host}${partialAction}`;
+        annotatedPublicationSelector.attr('action', fullAction);
+        annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
+        Dropzone.options.annotatedPublicationDropzone = {
+            paramName: "file", // The name that will be used to transfer the file
+            acceptedFiles: "application/pdf",
+            maxFiles: 1,
+            headers: {
+                "Authorization": authToken
+            }
+        };
+        annotatedPublicationDropzone.on("sending", (file, xhr, formData) => {
+            return xhr.setRequestHeader("Authorization", authToken);
+        });
+        annotatedPublicationDropzone.on("success", (file, data) => {
+            annotatedPublicationDropzoneSuccess.show();
+            annotatedPublicationDropzoneSuccess.text(data["message"]);
+            goToRatingButton.show();
+            goToRatingButton.prop("href", data["baseUrl"]);
+        });
+        annotatedPublicationDropzone.on('error', (file, response, xhr) => {
+            if (response.hasOwnProperty('errors')) {
+                $(file.previewElement).find('.dz-error-message').text(response["errors"][0]);
+            }
+        });
+        annotatedPublicationDropzoneLoadingSection.hide();
+        annotatedPublicationDropzoneSection.show();
     });
+});
+
+//######### GO TO RATING URL HANDLING #########//
+
+goToRatingButton.on("click", () => {
+    goToRatingButton.find(goToRatingIcon).toggle();
+    goToRatingButton.find(reloadIcons).toggle();
 });
 
 ///######### REFRESH HANDLING #########//
@@ -412,7 +450,7 @@ chrome.storage.sync.get(['authToken'], result => {
                             ratingCaption.hide();
                             ratingSlider.slider('destroy');
                             ratingSlider.hide();
-                            ratingText.removeClass("mt-3");
+                            ratingText.parent().removeClass("mt-3");
                             ratingSubCaption.show();
                             voteSuccessButton.show();
                             voteSuccessButton.prop("disabled", true);
@@ -446,7 +484,6 @@ chrome.storage.sync.get(['authToken'], result => {
                     configureButton.hide();
                     let errorButton = voteButton.parent().find(errorButtons);
                     errorButton.show();
-                    errorButton.prop("disabled", true)
                     errorButton.prop("disabled", true);
                     let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                         voteButton.parent().find(errorsSection).find(alert).empty();
@@ -482,6 +519,7 @@ chrome.storage.sync.get(['authToken'], result => {
             userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
         };
         let errorCallback = (jqXHR, status) => {
+            firstNameValue.text("...");
             firstNameValue.text("...");
             lastNameValue.text("...");
             emailValue.text("...");

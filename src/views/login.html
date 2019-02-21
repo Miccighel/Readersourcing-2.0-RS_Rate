@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="../../node_modules/load-awesome/css/ball-grid-pulse.css">
     <link rel="stylesheet" href="../../node_modules/dropzone/dist/dropzone.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/system/style.blue.css" id="theme-stylesheet">
@@ -18,11 +19,18 @@
 <body>
 <div class="preloader-wrapper">
     <div class="preloader">
-        <img src="../img/preloader.svg" alt="Loading...">
+        <div style="color: #467fbf" class="la-ball-grid-pulse la-3x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 </div>
-<div class="container p-0 min-h-100 d-flex flex-column align-items-center justify-content-center">
-    <div class="container mb-3">
+<div class="min-h-100 d-flex flex-column align-items-center justify-content-center">
+    <div class="w-100 mb-3">
         <div id="buttons-sect" class="row">
             <div class="col-6 p-0">
                 <button type="button" id="back-btn" class="btn btn-primary btn-block">
@@ -37,7 +45,7 @@
             </div>
         </div>
     </div>
-    <div class="row mt-auto mb-3 pl-3 pr-3">
+    <div class="row w-100 m-auto">
         <div class="col-12">
             <section id="success-sect" class="col-lg-4 col-sm-12 col-xs-12 ml-auto mr-auto p-0">
                 <div role="alert" class="alert alert-success"></div>
@@ -47,7 +55,7 @@
                 <p class="lead mb-0">Insert your login data</p>
             </div>
         </div>
-        <div class="col-lg-4 col-sm-8 col-xs-12 m-auto">
+        <div class="col-lg-5 col-sm-8 col-xs-12 m-auto">
             <form id="login-form" data-parsley-validate>
                 <div class="row">
                     <div class="col-12">
@@ -90,7 +98,7 @@
             </form>
         </div>
     </div>
-    <div class="row mt-auto ml-auto mr-auto mb-0 w-100">
+    <div class="row w-100 mt-3">
     </div>
 </div>
 <script src="../../node_modules/jquery/dist/jquery.js"></script>
