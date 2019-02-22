@@ -16,6 +16,7 @@ let buttonsSections = $("#buttons-sect");
 let loadingSection = $("#loading-sect");
 let loginSection = $("#login-sect");
 let undetectedPublicationSection = $("#undetected-publication-sect");
+let undetectedPublicationDetails = $(".undetected-publication-details");
 let ratingSection = $("#rating-sect");
 let ratingSectionSubControls = $(".rating-sect-sub");
 let publicationScoreSection = $("#publication-score-sect");
@@ -56,6 +57,7 @@ let alert = $(".alert");
 let annotatedPublicationDropzone;
 let annotatedPublicationSelector = $("#annotated-publication-dropzone");
 let annotatedPublicationDropzoneSuccess = $("#dropzone-success");
+let annotatedPublicationDropzoneError = $("#dropzone-error");
 
 let ratingInfo = $("#rating-info");
 let ratingCaption = $("#rating-caption");
@@ -81,6 +83,8 @@ let anonymizeCheckbox = $("#anonymize-check");
 let signOutIcon = $("#sign-out-icon");
 let reloadIcons = $(".reload-icon");
 
+let goToRatingIcon = $("#go-to-rating-icon");
+
 //######## UI INITIAL SETUP ########//
 
 downloadButton.hide();
@@ -102,6 +106,7 @@ errorsSection.hide();
 annotatedPublicationDropzoneLoadingSection.show();
 annotatedPublicationDropzoneSection.hide();
 annotatedPublicationDropzoneSuccess.hide();
+annotatedPublicationDropzoneError.hide();
 goToRatingButton.hide();
 errorsSection.hide();
 
@@ -238,12 +243,18 @@ chrome.storage.sync.get(['authToken'], result => {
                     }
                 })
             };
+
             let errorCallback = (jqXHR, status) => {
                 ratingSection.hide();
                 ratingSectionSubControls.hide();
                 publicationScoreSection.hide();
-                undetectedPublicationSection.show();
-                loadingSection.hide()
+                let errorPromise = buildErrors(jqXHR.responseText).then(result => {
+                    undetectedPublicationDetails.parent().find(errorsSection).find(alert).empty();
+                    undetectedPublicationDetails.parent().find(errorsSection).find(alert).append(result);
+                    undetectedPublicationDetails.parent().find(errorsSection).show();
+                    undetectedPublicationSection.show();
+                    loadingSection.hide()
+                });
             };
             let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
@@ -306,6 +317,7 @@ chrome.storage.sync.get(['authToken'], result => {
 chrome.storage.sync.get(['host'], result => {
     let host = result.host;
     chrome.storage.sync.get(['authToken'], result => {
+        let authToken = result.authToken;
         let partialAction = annotatedPublicationSelector.attr('action');
         partialAction = partialAction.substring(1, partialAction.length);
         let fullAction = `${host}${partialAction}`;
@@ -319,9 +331,7 @@ chrome.storage.sync.get(['host'], result => {
                 "Authorization": authToken
             }
         };
-        annotatedPublicationDropzone.on("sending", (file, xhr, formData) => {
-            return xhr.setRequestHeader("Authorization", authToken);
-        });
+        annotatedPublicationDropzone.on("sending", (file, xhr, formData) => xhr.setRequestHeader("Authorization", authToken));
         annotatedPublicationDropzone.on("success", (file, data) => {
             annotatedPublicationDropzoneSuccess.show();
             annotatedPublicationDropzoneSuccess.text(data["message"]);
@@ -329,9 +339,8 @@ chrome.storage.sync.get(['host'], result => {
             goToRatingButton.prop("href", data["baseUrl"]);
         });
         annotatedPublicationDropzone.on('error', (file, response, xhr) => {
-            if (response.hasOwnProperty('errors')) {
-                $(file.previewElement).find('.dz-error-message').text(response["errors"][0]);
-            }
+            if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
+            annotatedPublicationDropzoneError.show();
         });
         annotatedPublicationDropzoneLoadingSection.hide();
         annotatedPublicationDropzoneSection.show();

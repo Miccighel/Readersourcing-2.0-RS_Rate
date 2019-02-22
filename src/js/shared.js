@@ -47,12 +47,16 @@ export async function emptyAjax(type, url, contentType, dataType, crossDomain, s
 
 ////////// UTILITY SECTION //////////
 
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 export async function buildErrors(errors) {
     try {
         let parsedErrors = JSON.parse(errors);
         let element = "";
         Object.keys(parsedErrors).forEach((attribute, index) => {
-            element = `<span class="color-red-dark">${element}${attribute}:</span><ul>`;
+            element = `<span class="color-red-dark">${element}${attribute.capitalize()}:</span><ul>`;
             let messages = parsedErrors[attribute];
             Object.values(messages).forEach((message, index) => {
                 element = `${element}<li class="color-red-dark">${message}</li>`;

@@ -31,18 +31,23 @@
 <div class="color-white min-h-100 d-flex flex-column align-items-center justify-content-center">
 	<div class="w-100 mb-3">
 		<div id="buttons-sect" class="row">
-			<div class="col-4 p-0 btn-group">
+			<div class="col-3 p-0 btn-group">
 				<button type="button" id="options-btn" class="btn btn-primary w-100">
 					<i id="options-icon" class="fa fa-cog"></i>
 				</button>
 			</div>
-			<div class="col-4 p-0">
+			<div class="col-3 p-0">
+				<a href="http://readersourcing.org" target="_blank" id="readersourcing-btn" class="btn btn-primary btn-block">
+					<i id="readersourcing-icon" class="fas fa-link"></i>
+				</a>
+			</div>
+			<div class="col-3 p-0">
 				<button data-toggle="modal" data-target="#modal-profile" id="profile-btn" class="btn btn-primary w-100">
 					<i id="profile-icon" class="fas fa-user"></i>
 					<i class="fas fa-sync-alt fa-spin reload-icon"></i>
 				</button>
 			</div>
-			<div class="col-4 p-0">
+			<div class="col-3 p-0">
 				<button type="button" id="logout-btn" class="btn btn-primary w-100">
 					<i id="sign-out-icon" class="fas fa-sign-out-alt"></i>
 					<i class="fas fa-sync-alt fa-spin reload-icon"></i>
@@ -63,26 +68,46 @@
 	</div>
 	<div id="undetected-publication-sect" class="row mt-auto mb-0 pl-3 pr-3">
 		<div class="col-12 heading text-center mb-0">
-			<h4>Please, try again</h4>
+			<h4>Publication Not Found</h4>
 			<p class="lead mb-0 text-justify">This page does not contain a rateable publication, but you can still
-				see/edit your profile.</p>
+				see/edit your profile and use the dropzone.</p>
 		</div>
-		<div id="undetected-publication-subcaption" class="col-12 heading no-mb">
+		<div id="undetected-publication-subcaption" class="col-12 heading mb-0">
 			<p class="mb-0">
-				<small>Open a PDF file to see the rating interface.</small>
+				<small>Visit a page which contains a PDF file to see the rating interface.</small>
 			</p>
+		</div>
+		<div id="accordion" role="tablist" class="undetected-publication-details col-12 m-auto accordion-dark">
+			<div class="card mb-0">
+				<div id="headingOne" role="tab" class="card-header">
+					<h5 class="mb-0">
+						<a data-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+							View Details <small>(Click to toggle)</small>
+						</a>
+					</h5>
+				</div>
+				<div id="collapseOne" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion" class="collapse" style="">
+					<div class="card-body">
+						<div class="row">
+							<section class="col-12 errors-sect text-justify">
+								<div role="alert" class="alert alert-danger"></div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="col-12">
 			<hr class="mb-3 mt-2 separator"/>
 		</div>
 	</div>
-	<div id="rating-sect" class="row m-auto w-100">
+	<div id="rating-sect" class="row w-100 m-auto">
 		<div class="col-12 p-0">
 			<div class="col-12">
 				<div class="heading text-center mb-1">
 					<h4>Rating Section</h4>
 					<p id="rating-caption" class="text-justify lead mb-3">Use the slider below to select a rating for the current publication</p>
-					<p id="rating-subcaption" class="text-justify lead mb-3">Publication rated with score</p>
+					<p id="rating-subcaption" class="text-center lead mb-3">Publication rated with score</p>
 				</div>
 			</div>
 			<div class="col-12 text-center rating-sect-sub mb-3">
@@ -164,13 +189,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="row m-auto w-100">
+	<div class="row w-100 ml-auto mt-auto mr-auto mb-1">
 		<div class="col-12 p-0">
 			<div class="col-12">
 				<div class="heading text-center mb-1">
 					<h4>Automatic Extraction</h4>
-					<p class="lead mb-0 text-justify">If you already have a link-annotated publication, drop it below
-						and extract the rating URL.</p>
+					<p class="lead mb-0 text-justify">If you have already downloaded a link-annotated publication, drop it below
+						to extract the rating URL.</p>
 				</div>
 			</div>
 			<div class="col-12">
@@ -180,19 +205,20 @@
 						<br/><i class="fas fa-file-pdf fa-3x color-dark"></i></div>
 				</form>
 			</div>
-			<div class="col-12 mt-3 ml-auto mr-auto mb-auto">
-				<div role="alert" id="dropzone-success" class="alert alert-success"></div>
+			<div class="col-12 ml-auto mr-auto">
+				<div role="alert" id="dropzone-success" class="mt-3 alert alert-success color-green-dark"></div>
 			</div>
 			<div class="col-12 m-auto">
-				<a href="" id="go-to-rating-btn" class="btn btn-primary btn-block link-white">
+				<a href="" id="go-to-rating-btn" target="_blank" class="btn btn-primary btn-block link-white">
 					Rating Page
 					<i id="go-to-rating-icon" class="fas fa-arrow-right"></i>
 					<i class="fas fa-sync-alt fa-spin reload-icon"></i>
 				</a>
 			</div>
+			<div class="col-12 mt-2">
+				<div role="alert" id="dropzone-error" class="alert alert-danger color-red-dark mb-2"></div>
+			</div>
 		</div>
-	</div>
-	<div class="row w-100 mt-3">
 	</div>
 </div>
 <div id="modal-profile" tabindex="-1" role="dialog" aria-labelledby="modal-profile-label" aria-hidden="true" class="modal fade">
@@ -310,16 +336,16 @@
 				<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
 					aria-hidden="true">X</span></button>
 			</div>
-			<div class="modal-body">
-				<div class="box-simple box-dark">
-					<h5 class="mb-0">Click Below To Refresh</h5>
+			<div class="row">
+				<div class="col-12 text-center">
+					<strong>Click Below To Refresh</strong>
 				</div>
 			</div>
 			<div class="modal-footer">
 				<div class="row w-100 m-auto">
 					<div class="col-12 p-0">
 						<button type="button" id="modal-refresh-btn" class="btn btn-success btn-block">
-							Confirm
+							Okay!
 						</button>
 					</div>
 				</div>

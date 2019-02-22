@@ -16,6 +16,25 @@ body {
     border: 1px solid rgb(70, 127, 191) !important;
 }
 
+.accordion-dark .card {
+    background-color: rgb(85, 85, 85) !important;
+    border: 0 !important;
+}
+
+.accordion-dark .card-header {
+    background-color: rgb(85, 85, 85) !important;
+    border: 0 !important;
+    padding-left: 0 !important;
+}
+
+.accordion-dark .card-header a {
+    text-decoration: none !important;
+}
+
+.accordion-dark .card-body {
+    padding: 0 !important;
+}
+
 
 /* ////////// BUTTONS ////////// */
 
@@ -106,10 +125,7 @@ div#modal-profile {
 }
 
 .dropzone .dz-error-message {
-    width: 75% !important;
-    position: absolute !important;
-    left: 15% !important;
-    margin-bottom: 5%;
+   display: none !important;
 }
 
 .dropzone .dz-error-mark svg path {

@@ -58,8 +58,14 @@ p {
     color: #721c24 !important;
 }
 
+.color-green-dark {
+    color: #155724 !important;
+}
+
 .errors-sect ul {
     margin-bottom: 0 !important;
+    padding-left: 5% !important;
+    list-style-type: lower-roman;
 }
 
 .box-simple {
@@ -183,7 +189,7 @@ html {
 .preloader-wrapper .preloader {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 55%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
