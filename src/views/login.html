@@ -1,146 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/r-2.2.2/rr-1.2.4/datatables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-select/dist/css/bootstrap-select.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css"  href="../../node_modules/load-awesome/css/ball-grid-pulse.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/dropzone/dist/dropzone.css">
-    <link rel="stylesheet" type="text/css" href="../css/system/style.blue.css" id="theme-stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/general.css"/>
-    <link rel="stylesheet" type="text/css" href="../css/login.css"/>
-    <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/jquery.cookie/jquery.cookie.js"></script>
-    <script type="text/javascript" src="../../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/jquery.counterup/jquery.counterup.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/jquery-parallax.js/parallax.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/parsleyjs/dist/parsley.min.js"></script>
-    <script type="text/javascript" src="../../node_modules/parsleyjs/dist/i18n/it.js"></script>
-    <script type="text/javascript" src="../../node_modules/dropzone/dist/dropzone.js"></script>
-    <script type="text/javascript" src="../js/system/front.js"></script>
-    <script type="text/javascript" src="../js/general.js"></script>
-    <script type="module" src="../js/shared.js"></script>
-    <script type="module" src="../js/login.js"></script>
-    <title>RS_Server</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css"
+	      href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/r-2.2.2/rr-1.2.4/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-select/dist/css/bootstrap-select.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/load-awesome/css/ball-grid-pulse.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/dropzone/dist/dropzone.css">
+	<link rel="stylesheet" type="text/css" href="../css/system/style.blue.css" id="theme-stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/general.css"/>
+	<link rel="stylesheet" type="text/css" href="../css/login.css"/>
+	<title>RS_Server</title>
 </head>
 <body>
 <div class="preloader-wrapper">
-    <div class="preloader">
-        <div style="color: #467fbf" class="la-ball-grid-pulse la-3x">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+	<div class="preloader">
+		<div style="color: #467fbf" class="la-ball-grid-pulse la-3x">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
 </div>
 <div class="min-h-100 d-flex flex-column align-items-center justify-content-center">
-    <div class="w-100 mb-3">
-        <div id="buttons-sect" class="row">
-            <div class="col-4 p-0">
-                <button type="button" id="back-btn" class="btn btn-primary btn-block">
-                    <i id="back-icon" class="fa fa-arrow-left"></i>
-                    <i class="fas fa-sync-alt fa-spin reload-icon"></i>
-                </button>
-            </div>
-            <div class="col-4 p-0">
-                <button type="button" id="options-btn" class="btn btn-primary btn-block">
-                    <i id="options-icon" class="fas fa-cog"></i>
-                </button>
-            </div>
-            <div class="col-4 p-0">
-                <a href="http://readersourcing.org" target="_blank" id="readersourcing-btn" class="btn btn-primary btn-block">
-                    <i id="readersourcing-icon" class="fas fa-link"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="row w-100 ml-auto mt-auto mr-auto mb-3">
-        <div class="col-12">
-            <section id="success-sect" class="col-lg-4 col-sm-12 col-xs-12 ml-auto mr-auto p-0">
-                <div role="alert" class="alert alert-success"></div>
-            </section>
-            <div class="heading text-center">
-                <h4>Readersourcing 2.0</h4>
-                <p class="lead mb-0">Insert your login data</p>
-            </div>
-        </div>
-        <div class="col-lg-5 col-sm-8 col-xs-12 m-auto">
-            <form id="login-form" data-parsley-validate>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="email">Email <span class="small">(e.g. address@example.com)</span></label>
-                            <input id="email" type="text" class="form-control" placeholder="" data-parsley-type="email" required>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input id="password" type="password" class="form-control" placeholder="" data-parsley-minlength="6" required>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <hr class="mb-2 mt-0"/>
-                    </div>
-                    <div class="col-12 pt-1">
-                        <p class="text-sm text-center">
-                            <small><a href="password_forgot.html">Did you forget your password?</a></small>
-                            <br/>
-                            <small><a href="sign_up.html">Do you want to create a new account?</a></small>
-                        </p>
-                    </div>
-                    <div class="col-12 text-center">
-                        <section class="errors-sect text-left">
-                            <div role="alert" class="alert alert-danger"></div>
-                        </section>
-                        <button type="submit" id="login-btn" class="btn btn-success btn-block">
-                            Login
-                            <i id="sign-in-icon" class="fas fa-sign-in-alt"></i>
-                            <i class="fas fa-sync-alt fa-spin reload-icon"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger error-btn btn-block">
-                            <i class="fa fa-exclamation-triangle danger-icon"></i>
-                            Error
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+	<div class="w-100 mb-3">
+		<div id="buttons-sect" class="row">
+			<div class="col-4 p-0">
+				<button type="button" id="back-btn" class="btn btn-primary btn-block">
+					<i id="back-icon" class="fa fa-arrow-left"></i>
+					<i class="fas fa-sync-alt fa-spin reload-icon"></i>
+				</button>
+			</div>
+			<div class="col-4 p-0">
+				<button type="button" id="options-btn" class="btn btn-primary btn-block">
+					<i id="options-icon" class="fas fa-cog"></i>
+				</button>
+			</div>
+			<div class="col-4 p-0">
+				<a href="http://readersourcing.org" target="_blank" id="readersourcing-btn" class="btn btn-primary btn-block">
+					<i id="readersourcing-icon" class="fas fa-link"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="row w-100 ml-auto mt-auto mr-auto mb-3">
+		<div class="col-12">
+			<section id="success-sect" class="col-lg-4 col-sm-12 col-xs-12 ml-auto mr-auto p-0">
+				<div role="alert" class="alert alert-success"></div>
+			</section>
+			<div class="heading text-center">
+				<h4>Readersourcing 2.0</h4>
+				<p class="lead mb-0">Insert your login data</p>
+			</div>
+		</div>
+		<div class="col-lg-5 col-sm-8 col-xs-12 m-auto">
+			<form id="login-form" data-parsley-validate>
+				<div class="row">
+					<div class="col-12">
+						<div class="form-group">
+							<label for="email">Email <span class="small">(e.g. address@example.com)</span></label>
+							<input id="email" type="text" class="form-control" placeholder="" data-parsley-type="email" required>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input id="password" type="password" class="form-control" placeholder="" data-parsley-minlength="6" required>
+						</div>
+					</div>
+					<div class="col-12">
+						<hr class="mb-2 mt-0"/>
+					</div>
+					<div class="col-12 pt-1">
+						<p class="text-sm text-center">
+							<small><a href="password_forgot.html">Did you forget your password?</a></small>
+							<br/>
+							<small><a href="sign_up.html">Do you want to create a new account?</a></small>
+						</p>
+					</div>
+					<div class="col-12 text-center">
+						<section class="errors-sect text-left">
+							<div role="alert" class="alert alert-danger"></div>
+						</section>
+						<button type="submit" id="login-btn" class="btn btn-success btn-block">
+							Login
+							<i id="sign-in-icon" class="fas fa-sign-in-alt"></i>
+							<i class="fas fa-sync-alt fa-spin reload-icon"></i>
+						</button>
+						<button type="button" class="btn btn-danger error-btn btn-block">
+							<i class="fa fa-exclamation-triangle danger-icon"></i>
+							Error
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
-<script src="../../node_modules/jquery/dist/jquery.js"></script>
-<script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
-<script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../node_modules/jquery.cookie/jquery.cookie.js"></script>
-<script src="../../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
-<script src="../../node_modules/jquery.counterup/jquery.counterup.min.js"></script>
-<script src="../../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-<script src="../../node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js"></script>
-<script src="../../node_modules/jquery-parallax.js/parallax.min.js"></script>
-<script src="../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script src="../../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-<script src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
-<script src="../../node_modules/parsleyjs/dist/parsley.min.js"></script>
-<script src="../../node_modules/parsleyjs/dist/i18n/it.js"></script>
-<script src="../../node_modules/dropzone/dist/dropzone.js"></script>
-<script src="../js/system/front.js"></script>
-<script src="../js/general.js"></script>
+<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
+<script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../../node_modules/jquery.cookie/jquery.cookie.js"></script>
+<script type="text/javascript" src="../../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="../../node_modules/jquery.counterup/jquery.counterup.min.js"></script>
+<script type="text/javascript" src="../../node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+<script type="text/javascript" src="../../node_modules/owl.carousel2.thumbs/dist/owl.carousel2.thumbs.min.js"></script>
+<script type="text/javascript" src="../../node_modules/jquery-parallax.js/parallax.min.js"></script>
+<script type="text/javascript" src="../../node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="../../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+<script type="text/javascript" src="../../node_modules/jquery.scrollto/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="../../node_modules/parsleyjs/dist/parsley.min.js"></script>
+<script type="text/javascript" src="../../node_modules/parsleyjs/dist/i18n/it.js"></script>
+<script type="text/javascript" src="../../node_modules/dropzone/dist/dropzone.js"></script>
+<script type="text/javascript" src="../js/system/front.js"></script>
+<script type="text/javascript" src="../js/general.js"></script>
 <script type="module" src="../js/shared.js"></script>
 <script type="module" src="../js/login.js"></script>
 </body>
