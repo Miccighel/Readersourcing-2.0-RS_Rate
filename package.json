@@ -1,8 +1,8 @@
 {
-  "name": "rasm-chrome",
-  "version": "1.0.0",
+  "name": "RS_Rate",
+  "version": "1.0.12-alpha",
   "description": "Chrome extension of Readersourcing @ Sissa Medialab",
-  "repository": "https://bitbucket.org/Miccighel/r-sm-chrome/src",
+  "repository": "https://github.com/Miccighel/Readersourcing-2.0-RS_Rate",
   "author": "Michael Soprano",
   "license": "MIT",
   "dependencies": {
@@ -10,17 +10,16 @@
     "bootstrap-select": "^1.13.1",
     "bootstrap-slider": "^10.0.2",
     "dropzone": "^5.5.1",
-    "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "jquery-parallax.js": "^1.5.0",
-    "jquery.cookie": "^1.4.1",
     "jquery.counterup": "^2.1.0",
     "jquery.scrollto": "^2.1.2",
+    "jquery.cookie": "^1.4.1",
     "load-awesome": "^1.1.0",
     "owl.carousel": "^2.3.4",
     "owl.carousel2.thumbs": "^0.1.8",
     "parsleyjs": "^2.8.1",
-    "popper.js": "^1.14.4",
+    "popper.js": "^1.14.3",
     "waypoints": "^4.0.1",
     "wowjs": "^1.1.3"
   }
