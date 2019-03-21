@@ -1,4 +1,4 @@
-////////// GLOBAL ///////////
+////////// INIT  //////////
 
 //######## CLIENT SIDE VALIDATION SETUP ########//
 
@@ -64,8 +64,6 @@ Parsley.addValidator('password', {
 });
 
 Parsley.setLocale('en');
-
-Dropzone.autoDiscover = false;
 
 //######### PAGE LOADING HANDLING #########//
 
