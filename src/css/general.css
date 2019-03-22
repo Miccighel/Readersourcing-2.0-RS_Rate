@@ -1,24 +1,51 @@
 /* ////////// PRELOADER ////////// */
 
-#preloader {
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display:none !important
+}
+
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+}
+
+.container {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.container::-webkit-scrollbar { /* WebKit */
+    width: 0px;
+}
+
+.preloader-wrapper {
+    height: 100%;
+    width: 100%;
+    background: #565656;
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1100;
+    z-index: 9999999;
+}
+
+.preloader-wrapper .preloader {
+    position: absolute;
+    top: 52.5%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 /* ////////// GENERAL ////////// */
 
 body {
-    height: 250px;
     width: 300px;
-
-}
-
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-    display:none !important
 }
 
 
@@ -42,9 +69,17 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     min-width: 24% !important;
 }
 
+h4, .lead {
+    font-size: 18px !important;
+}
+
 hr.separator {
     height: 2px;
     background: #467fbf;
+}
+
+.main-footer {
+    background: #333 !important;
 }
 
 footer {
@@ -55,16 +90,8 @@ footer p {
     color: white !important;
 }
 
-.main-footer {
-    background: #333 !important;
-}
-
 div.copyrights {
     margin-top: 0 !important;
-}
-
-h4, .lead {
-    font-size: 18px !important;
 }
 
 blockquote, .lead a {
@@ -124,26 +151,36 @@ body.bg-gray-dark input {
     border: 1px solid #0087F7;
 }
 
-/* ////////// ERRORS  ////////// */
-
-#errors-sect ul {
-    margin-bottom: 0;
-}
-
-/* ////////// TOP BUTTONS  ////////// */
-
-#buttons-sect .btn-group button {
-    width: 100%;
-}
-
-/* ////////// ALERT BOXES ////////// */
-
 .alert-dismissible {
     font-size: 0.9rem;
 }
 
 .alert-dismissible li {
     list-style-type: decimal;
+}
+
+/* ////////// SIGN UP AND PROFILE UPDATE  ////////// */
+
+input#subscribe {
+    position: relative;
+    top: 1.5pt;
+}
+
+/* ////////// ERRORS ////////// */
+
+#errors-sect ul {
+    margin-bottom: 0;
+}
+
+/* ////////// TOP BUTTONS ////////// */
+
+#buttons-sect .btn-group button {
+    width: 100%;
+}
+
+#buttons-sect button {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 /* ////////// PARSLEY MESSAGES  ////////// */
@@ -179,44 +216,4 @@ input.parsley-error, select.parsley-error, textarea.parsley-error {
 
 .parsley-errors-list.filled {
     opacity: 1;
-}
-
-/*----------------------- Preloader and overflows -----------------------*/
-
-html {
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
-::-webkit-scrollbar {
-    width: 0px; /* remove scrollbar space */
-    background: transparent; /* optional: just make scrollbar invisible */
-}
-
-.container {
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE 10+ */
-}
-
-.container::-webkit-scrollbar { /* WebKit */
-    width: 0px;
-}
-
-.preloader-wrapper {
-    height: 100%;
-    width: 100%;
-    background: #565656;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999999;
-}
-
-.preloader-wrapper .preloader {
-    position: absolute;
-    top: 50%;
-    left: 55%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
 }

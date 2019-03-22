@@ -82,7 +82,6 @@ let signOutIcon = $("#sign-out-icon");
 let reloadIcons = $(".reload-icon");
 let goToRatingIcon = $("#go-to-rating-icon");
 
-
 //######## UI INITIAL SETUP ########//
 
 loadingSection.hide();
@@ -166,6 +165,7 @@ chrome.storage.sync.get(['authToken'], result => {
                         ratingText.text(data["score"]);
                         // SAVE FOR LATER SECTION
                         saveForLaterSection.show();
+                        downloadButton.show();
                         removePreloader();
                     };
                     // 2.3 Publication has not been rated by the user
@@ -263,6 +263,7 @@ chrome.storage.sync.get(['authToken'], result => {
                 saveForLaterSection.hide();
                 saveForLaterCaptionFirst.show();
                 saveForLaterCaptionSecond.hide();
+                downloadButton.show();
                 undetectedPublicationSection.show();
                 let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                     undetectedPublicationDetails.parent().find(errorsSection).find(alert).empty();
@@ -277,7 +278,6 @@ chrome.storage.sync.get(['authToken'], result => {
         });
     }
 });
-
 
 //########## RELOAD HANDLING #########//
 
@@ -549,6 +549,54 @@ chrome.storage.sync.get(['authToken'], result => {
                 // 1.1 Create a new rating with the selected score
                 let promise = ajax("POST", "/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
             });
+        });
+    }
+});
+
+//######### EDIT HANDLING #########//
+
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
+    if (authToken != null) {
+        editRateButton.on("click", () => {
+            ratingSlider.slider({});
+            ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
+            doRateSuccessButton.hide();
+            editRateButton.prop("disabled", true);
+            updateRateButton.find("span").text("Confirm");
+            updateRateButton.prop("disabled", false);
+            updateRateButton.show();
+        });
+    }
+});
+
+//######### UPDATE HANDLING #########//
+
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
+    if (authToken != null) {
+        updateRateButton.on("click", () => {
+            updateRateButton.find(reloadIcons).toggle();
+            let score = ratingSlider.val();
+            let id = updateRateButton.data('id');
+            let data = {
+                rating: {
+                    score: score,
+                }
+            };
+            let successCallback = (data, status, jqXHR) => {
+                ratingSlider.slider('destroy');
+                ratingSlider.hide();
+                updateRateButton.find(reloadIcons).toggle();
+                updateRateButton.find("span").text("Rating Updated");
+                updateRateButton.prop("disabled", true);
+                editRateButton.prop("disabled", false);
+                editRateButton.show();
+            };
+            let errorCallback = (jqXHR, status) => {
+
+            };
+            let promise = ajax("PUT", `/ratings/${id}.json`, "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
     }
 });
