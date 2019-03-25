@@ -4,6 +4,18 @@ body {
     background-color: rgb(85, 85, 85);
 }
 
+/* ////////// MODALS ////////// */
+
+div#modal-configuration div.modal-footer, div#modal-refresh .modal-footer {
+    display: block !important;
+}
+
+div#modal-profile {
+    padding-left: 0 !important;
+}
+
+/* ////////// CHECKBOXES ////////// */
+
 .form-check-label {
     position: relative;
     left: 8%;
@@ -11,10 +23,7 @@ body {
     color: inherit;
 }
 
-.readersourcing-score:hover, .readersourcing-score:active {
-    background-color: #467fbf !important;
-    border: 1px solid rgb(70, 127, 191) !important;
-}
+/* ////////// ACCORDION DETAILS ////////// */
 
 .accordion-dark .card {
     background-color: rgb(85, 85, 85) !important;
@@ -35,7 +44,6 @@ body {
     padding: 0 !important;
 }
 
-
 /* ////////// BUTTONS ////////// */
 
 a#profile-btn {
@@ -44,7 +52,7 @@ a#profile-btn {
     border: 0 !important;
 }
 
-/* ////////// RATING ////////// */
+/* ////////// RATING  SECTION ////////// */
 
 #rating-slider .slider-selection {
     background: white;
@@ -56,32 +64,16 @@ a#profile-btn {
     background-image: linear-gradient(to bottom, #467fbf 0%, #467fbf 100%) !important;
 }
 
-/* ////////// SCORES ////////// */
-
-#score-sect div {
-    cursor: default !important;
-}
-
-/* ////////// MODALS ////////// */
-
-div#modal-configuration div.modal-footer, div#modal-refresh .modal-footer {
-    display: block !important;
-}
-
-div#modal-profile {
-    padding-left: 0 !important;
-}
-
-/* ////////// DROPZONE ////////// */
+/* ////////// AUTOMATED EXTRACTION SECTION ////////// */
 
 #annotated-publication-dropzone {
-    background: url(../img/texture-bw.png) center center repeat !important;
+    background-color: #EFEFEF;
 }
 
 .dropzone {
-    border: 1px solid #0087F7;
+    border: 3px dashed #0087F7;
     background: white;
-    color: #212529 !important;
+    color: #555 !important;
     padding: 0 !important;
     min-height: 115px !important;
 }
@@ -92,7 +84,8 @@ div#modal-profile {
 
 .dropzone .dz-message {
     font-weight: 400;
-    margin: 1em 0 !important;
+    margin: 0 !important;
+    color: rgb(85, 85, 85) !important;
 }
 
 .dropzone .dz-message .note {
@@ -116,20 +109,12 @@ div#modal-profile {
     margin-bottom: 3.55em !important;
 }
 
-.dropzone .dz-size span, .dropzone .dz-size strong {
-    color: #212529 !important;
-}
-
-.dropzone .dz-filename span {
-    color: #212529 !important;
-}
-
 .dropzone .dz-error-message {
-   display: none !important;
+    display: none !important;
 }
 
 .dropzone .dz-error-mark svg path {
-    fill: #FF0000;
+    fill: #FF0000
 }
 
 .dropzone .dz-success-mark svg path {
@@ -146,6 +131,11 @@ div#modal-profile {
     margin: auto;
     width: 75%;
 }
+
+.dropzone i {
+    color: rgb(85, 85, 85) !important;
+}
+
 
 .dropzone .dz-preview {
     width: 95%;

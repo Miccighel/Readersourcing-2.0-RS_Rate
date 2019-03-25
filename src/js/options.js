@@ -43,4 +43,8 @@ saveButton.on("click", () => {
     });
 });
 
-modalConfirmButton.on("click", () => modalConfirm.modal("hide"));
+modalConfirmButton.on("click", () => {
+    saveButton.text("Done!");
+    saveButton.prop("disabled", true);
+    modalConfirm.modal("hide");
+});
