@@ -82,7 +82,6 @@ let signOutIcon = $("#sign-out-icon");
 let reloadIcons = $(".reload-icon");
 let goToRatingIcon = $("#go-to-rating-icon");
 
-
 //######## UI INITIAL SETUP ########//
 
 loadingSection.hide();
@@ -278,7 +277,6 @@ chrome.storage.sync.get(['authToken'], result => {
     }
 });
 
-
 //########## RELOAD HANDLING #########//
 
 chrome.storage.sync.get(['authToken'], result => {
@@ -325,11 +323,7 @@ chrome.storage.sync.get(['authToken'], result => {
                     refreshButton.show();
                     refreshButton.prop("disabled", false);
                     let pdfWindow = window.open(data["pdf_download_url_link"], '_blank');
-                    if (pdfWindow) {
-                        pdfWindow.focus();
-                    } else {
-                        modalAllow.modal('show');
-                    }
+                    if (pdfWindow) pdfWindow.focus(); else modalAllow.modal('show');
                 };
                 // 1.3 Error during publication fetching, hide save for later and download buttons
                 let errorCallback = (jqXHR, status) => {
@@ -351,59 +345,6 @@ chrome.storage.sync.get(['authToken'], result => {
             });
         });
     }
-});
-
-//######### EXTRACT HANDLING #########//
-
-chrome.storage.sync.get(['host'], result => {
-    let host = result.host;
-    chrome.storage.sync.get(['authToken'], result => {
-        let authToken = result.authToken;
-        $('.dropzone').each(function () {
-            let dropzoneControl = $(this)[0].dropzone;
-            if (dropzoneControl) {
-                dropzoneControl.destroy();
-            }
-        });
-        Dropzone.options.annotatedPublicationDropzone = {
-            paramName: "file", // The name that will be used to transfer the file
-            acceptedFiles: "application/pdf",
-            maxFiles: 1,
-            headers: {
-                "Authorization": authToken
-            }
-        };
-        annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
-        if (authToken != null) {
-            annotatedPublicationDropzone.on("sending", (file, xhr, formData) => xhr.setRequestHeader("Authorization", authToken));
-            annotatedPublicationDropzone.on("success", (file, data) => {
-                extractCaptionFirst.hide();
-                extractCaptionSecond.show();
-                annotatedPublicationDropzoneSuccess.show();
-                annotatedPublicationDropzoneSuccess.text(data["message"]);
-                console.log("here");
-                goToRatingButton.show();
-                goToRatingButton.prop("href", data["baseUrl"]);
-                let ratingPageWindow = window.open(data["baseUrl"], '_blank');
-                if (ratingPageWindow) {
-                    ratingPageWindow.focus();
-                } else {
-                    modalAllow.modal('show');
-                }
-            });
-            annotatedPublicationDropzone.on('error', (file, response, xhr) => {
-                if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
-                annotatedPublicationDropzoneError.show();
-            });
-        }
-    });
-});
-
-//######### GO TO RATING URL HANDLING #########//
-
-goToRatingButton.on("click", () => {
-    goToRatingButton.find(goToRatingIcon).toggle();
-    goToRatingButton.find(reloadIcons).toggle();
 });
 
 ///######### REFRESH HANDLING #########//
@@ -474,6 +415,56 @@ modalRefreshButton.on("click", () => {
         // 1.1 Does the publication exists on the database?
         let promise = ajax("POST", "/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     });
+});
+
+//######### EXTRACT HANDLING #########//
+
+chrome.storage.sync.get(['host'], result => {
+    let host = result.host;
+    chrome.storage.sync.get(['authToken'], result => {
+        let authToken = result.authToken;
+        $('.dropzone').each(function () {
+            let dropzoneControl = $(this)[0].dropzone;
+            if (dropzoneControl) dropzoneControl.destroy();
+        });
+        Dropzone.options.annotatedPublicationDropzone = {
+            paramName: "file", // The name that will be used to transfer the file
+            acceptedFiles: "application/pdf",
+            maxFiles: 1,
+            headers: {
+                "Authorization": authToken
+            }
+        };
+        annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
+        if (authToken != null) {
+            annotatedPublicationDropzone.on("sending", (file, xhr, formData) => xhr.setRequestHeader("Authorization", authToken));
+            annotatedPublicationDropzone.on("success", (file, data) => {
+                extractCaptionFirst.hide();
+                extractCaptionSecond.show();
+                annotatedPublicationDropzoneSuccess.show();
+                annotatedPublicationDropzoneSuccess.text(data["message"]);
+                goToRatingButton.show();
+                goToRatingButton.prop("href", data["baseUrl"]);
+                let ratingPageWindow = window.open(data["baseUrl"], '_blank');
+                if (ratingPageWindow) {
+                    ratingPageWindow.focus();
+                } else {
+                    modalAllow.modal('show');
+                }
+            });
+            annotatedPublicationDropzone.on('error', (file, response, xhr) => {
+                if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
+                annotatedPublicationDropzoneError.show();
+            });
+        }
+    });
+});
+
+//######### GO TO RATING URL HANDLING #########//
+
+goToRatingButton.on("click", () => {
+    goToRatingButton.find(goToRatingIcon).toggle();
+    goToRatingButton.find(reloadIcons).toggle();
 });
 
 ////////// RATING //////////
