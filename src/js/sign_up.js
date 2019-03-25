@@ -7,7 +7,7 @@ import {deleteToken} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {removePreloader} from "./shared.js";
 
-//######## CONTENT SECTIONS ########//
+//######## SECTIONS ########//
 
 let signUpForm = $("#sign-up-form");
 

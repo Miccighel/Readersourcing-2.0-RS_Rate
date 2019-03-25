@@ -7,7 +7,7 @@ import {ajax} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {removePreloader} from "./shared.js";
 
-//######## CONTENT SECTIONS ########//
+//######## SECTIONS ########//
 
 let passwordEditForm = $("#password-edit-form");
 
@@ -42,11 +42,10 @@ removePreloader();
 
 //######## UPDATE HANDLING ########//
 
-let validationInstance = passwordEditForm.parsley();
-
 passwordEditForm.submit(event => event.preventDefault());
 
 passwordEditButton.on("click", () => {
+    let validationInstance = passwordEditForm.parsley();
     if (validationInstance.isValid()) {
         passwordEditButton.find(checkIcon).toggle();
         passwordEditButton.find(reloadIcons).toggle();

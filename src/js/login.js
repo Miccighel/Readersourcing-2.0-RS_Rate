@@ -8,18 +8,19 @@ import {removePreloader} from "./shared.js";
 
 //######## CONTENT SECTIONS ########//
 
-let loginForm = $("#login-form");
 let successSection = $("#success-sect");
 let errorsSection = $(".errors-sect");
 
 //######## UI COMPONENTS ########//
 
+let loginForm = $("#login-form");
+
 let emailField = $("#email");
 let passwordField = $("#password");
 
+let loginButton = $("#login-btn");
 let optionsButton = $("#options-btn");
 let backButton = $("#back-btn");
-let loginButton = $("#login-btn");
 let errorButton = $(".error-btn");
 
 let alert = $(".alert");
@@ -65,9 +66,8 @@ backButton.on("click", () => {
 
 //########## LOGIN HANDLING ##########//
 
-let validationInstance = loginForm.parsley();
-
 loginButton.on("click", () => {
+    let validationInstance = loginForm.parsley();
     if (validationInstance.isValid()) {
         loginButton.find(signInIcon).toggle();
         loginButton.find(reloadIcon).toggle();

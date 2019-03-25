@@ -115,6 +115,36 @@ Dropzone.autoDiscover = false;
 
 reloadIcons.hide();
 
+//#######  USER PROFILE SETUP #########//
+
+chrome.storage.sync.get(['authToken'], result => {
+    let authToken = result.authToken;
+    if (authToken != null) {
+        let successCallback = (data, status, jqXHR) => {
+            firstNameValue.text(data["first_name"]);
+            lastNameValue.text(data["last_name"]);
+            emailValue.text(data["email"]);
+            orcidValue.text(data["orcid"]);
+            (data["subscribe"]) ? subscribeValue.text("Yes") : subscribeValue.text("No");
+            userScoreRSMValue.text((data["score"] * 100).toFixed(2));
+            userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
+        };
+        let errorCallback = (jqXHR, status) => {
+            firstNameValue.text("...");
+            firstNameValue.text("...");
+            lastNameValue.text("...");
+            emailValue.text("...");
+            orcidValue.text("...");
+            subscribeValue.text("...");
+            userScoreRSMValue.text("...");
+            userScoreTRMValue.text("...");
+        };
+        let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+    }
+});
+
+//#######  PUBLICATION STATUS SETUP #########//
+
 chrome.storage.sync.get(['authToken'], result => {
     let authToken = result.authToken;
     if (authToken != null) {
@@ -181,8 +211,8 @@ chrome.storage.sync.get(['authToken'], result => {
                         configureButton.show();
                         configureButton.prop("disabled", false);
                         ratingSection.show();
-                        ratingCaptionFirst.hide();
-                        ratingCaptionSecond.show();
+                        ratingCaptionFirst.show();
+                        ratingCaptionSecond.hide();
                         ratingControls.show();
                         ratingText.show();
                         ratingText.text("50");
@@ -598,35 +628,7 @@ chrome.storage.sync.get(['authToken'], result => {
 
 configureSaveButton.on("click", () => modalConfigure.modal("hide"));
 
-////////// USER  //////////
-
-//####### STATUS HANDLING (SCORES, ...) #########//
-
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        let successCallback = (data, status, jqXHR) => {
-            firstNameValue.text(data["first_name"]);
-            lastNameValue.text(data["last_name"]);
-            emailValue.text(data["email"]);
-            orcidValue.text(data["orcid"]);
-            (data["subscribe"]) ? subscribeValue.text("Yes") : subscribeValue.text("No");
-            userScoreRSMValue.text((data["score"] * 100).toFixed(2));
-            userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
-        };
-        let errorCallback = (jqXHR, status) => {
-            firstNameValue.text("...");
-            firstNameValue.text("...");
-            lastNameValue.text("...");
-            emailValue.text("...");
-            orcidValue.text("...");
-            subscribeValue.text("...");
-            userScoreRSMValue.text("...");
-            userScoreTRMValue.text("...");
-        };
-        let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
-    }
-});
+////////// GENERAL //////////
 
 //####### LOGOUT HANDLING #########//
 

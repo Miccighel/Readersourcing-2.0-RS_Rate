@@ -7,7 +7,7 @@ import {ajax} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {removePreloader} from "./shared.js";
 
-//######## CONTENT SECTIONS ########//
+//######## SECTIONS ########//
 
 let passwordForgotForm = $("#password-forgot-form");
 
@@ -40,11 +40,10 @@ removePreloader();
 
 //######## FORGOT HANDLING ########//
 
-let validationInstance = passwordForgotForm.parsley();
-
 passwordForgotForm.submit(event => event.preventDefault());
 
 passwordForgotButton.on("click", () => {
+    let validationInstance = passwordForgotForm.parsley();
     if (validationInstance.isValid()) {
         passwordForgotButton.find(checkIcon).toggle();
         passwordForgotButton.find(reloadIcons).toggle();

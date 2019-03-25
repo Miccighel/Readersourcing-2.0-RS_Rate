@@ -8,13 +8,13 @@ import {emptyAjax} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {removePreloader} from "./shared.js";
 
-//######## CONTENT SECTIONS ########//
-
-let signUpForm = $("#sign-up-form");
+//######## SECTIONS ########//
 
 let errorsSection = $(".errors-sect");
 
 //######## UI COMPONENTS ########//
+
+let signUpForm = $("#sign-up-form");
 
 let firstNameField = $("#first-name");
 let lastNameField = $("#last-name");
