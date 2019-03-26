@@ -7,6 +7,7 @@ import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
 import {removePreloader} from "./shared.js";
 import {buildErrors} from "./shared.js";
+import {fetchToken} from "./shared.js";
 
 let body = $("body");
 
@@ -117,144 +118,87 @@ reloadIcons.hide();
 
 //#######  USER PROFILE SETUP #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        let successCallback = (data, status, jqXHR) => {
-            firstNameValue.text(data["first_name"]);
-            lastNameValue.text(data["last_name"]);
-            emailValue.text(data["email"]);
-            orcidValue.text(data["orcid"]);
-            (data["subscribe"]) ? subscribeValue.text("Yes") : subscribeValue.text("No");
-            userScoreRSMValue.text((data["score"] * 100).toFixed(2));
-            userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
-        };
-        let errorCallback = (jqXHR, status) => {
-            firstNameValue.text("...");
-            firstNameValue.text("...");
-            lastNameValue.text("...");
-            emailValue.text("...");
-            orcidValue.text("...");
-            subscribeValue.text("...");
-            userScoreRSMValue.text("...");
-            userScoreTRMValue.text("...");
-        };
-        let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
-    }
-});
+console.log(Cookies.get());
+
+let authToken = fetchToken();
+if (authToken != null) {
+    let successCallback = (data, status, jqXHR) => {
+        firstNameValue.text(data["first_name"]);
+        lastNameValue.text(data["last_name"]);
+        emailValue.text(data["email"]);
+        orcidValue.text(data["orcid"]);
+        (data["subscribe"]) ? subscribeValue.text("Yes") : subscribeValue.text("No");
+        userScoreRSMValue.text((data["score"] * 100).toFixed(2));
+        userScoreTRMValue.text((data["bonus"] * 100).toFixed(2));
+    };
+    let errorCallback = (jqXHR, status) => {
+        firstNameValue.text("...");
+        firstNameValue.text("...");
+        lastNameValue.text("...");
+        emailValue.text("...");
+        orcidValue.text("...");
+        subscribeValue.text("...");
+        userScoreRSMValue.text("...");
+        userScoreTRMValue.text("...");
+    };
+    let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+}
 
 //#######  PUBLICATION STATUS SETUP #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
-            loadingSection.show();
-            // RATING SECTION
-            ratingSection.hide();
-            ratingControls.hide();
-            ratingText.hide();
-            ratingButtons.prop("disabled", true);
-            // SAVE FOR LATER SECTION
-            saveForLaterCaptionFirst.show();
-            saveForLaterCaptionSecond.hide();
-            downloadButton.find('span').text("Download");
-            downloadButton.show();
-            openButton.hide();
-            refreshButton.hide();
-            let currentUrl = tabs[0].url;
-            let data = {
-                publication: {
-                    pdf_url: currentUrl
-                }
-            };
-            // data ---> secondData because of visibility clash with "lookup" call.
-            let successCallback = (secondData, status, jqXHR) => {
-                // 1.2 Publication exists, so it may be rated by the user
-                let successCallback = (data, status, jqXHR) => {
-                    // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
-                    let secondSuccessCallback = (data, status, jqXHR) => {
-                        // RATING SECTION
-                        loadingSection.hide();
-                        loadRateButton.hide();
-                        ratingSection.show();
-                        doRateButton.hide();
-                        configureButton.hide();
-                        ratingControls.show();
-                        doRateSuccessButton.show();
-                        doRateSuccessButton.prop("disabled", true);
-                        editRateButton.show();
-                        editRateButton.prop("disabled", false);
-                        updateRateButton.data('id', data["id"]);
-                        updateRateButton.hide();
-                        ratingText.parent().removeClass("mt-3");
-                        ratingText.show();
-                        ratingCaptionSecond.show();
-                        ratingCaptionFirst.hide();
-                        ratingSlider.hide();
-                        ratingText.text(data["score"]);
-                        // SAVE FOR LATER SECTION
-                        saveForLaterSection.show();
-                        downloadButton.show();
-                        removePreloader();
-                    };
-                    // 2.3 Publication has not been rated by the user
-                    let secondErrorCallback = (jqXHR, status) => {
-                        // RATING SECTION
-                        loadingSection.hide();
-                        loadRateButton.hide();
-                        doRateSuccessButton.hide();
-                        editRateButton.hide();
-                        updateRateButton.hide();
-                        doRateButton.show();
-                        doRateButton.prop("disabled", false);
-                        configureButton.show();
-                        configureButton.prop("disabled", false);
-                        ratingSection.show();
-                        ratingCaptionFirst.show();
-                        ratingCaptionSecond.hide();
-                        ratingControls.show();
-                        ratingText.show();
-                        ratingText.text("50");
-                        ratingSlider.slider({});
-                        ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
-                        // 3.1 The rated publication was also annotated
-                        let thirdSuccessCallback = (data, status, jqXHR) => {
-                            // SAVE FOR LATER SECTION
-                            saveForLaterSection.show();
-                            loadSaveButton.hide();
-                            downloadButton.hide();
-                            saveForLaterCaptionFirst.hide();
-                            saveForLaterCaptionSecond.show();
-                            openButton.show();
-                            openButton.attr("href", data["pdf_download_url_link"]);
-                            openButton.on("click", () => window.open(data["pdf_download_url_link"], '_blank'));
-                            openButton.prop("disabled", false);
-                            refreshButton.show();
-                            refreshButton.prop("disabled", false);
-                            removePreloader();
-                        };
-                        // 3.2 The rated publication was not annotated
-                        let thirdErrorCallback = (jqXHR, status) => {
-                            // SAVE FOR LATER SECTION
-                            saveForLaterSection.show();
-                            saveForLaterCaptionFirst.show();
-                            saveForLaterCaptionSecond.hide();
-                            loadSaveButton.hide();
-                            openButton.hide();
-                            refreshButton.hide();
-                            downloadButton.prop("disabled", false);
-                            downloadButton.show();
-                            removePreloader();
-                        };
-                        // 3.1 Does the rated publication has been already annotated?
-                        let thirdPromise = emptyAjax("GET", `/publications/${data["id"]}/is_saved_for_later.json`, "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
-                    };
-                    // 2.1 Does the publication has been rated by the logged user?
-                    let secondPromise = emptyAjax("GET", `/publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
+if (authToken != null) {
+    chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+        loadingSection.show();
+        // RATING SECTION
+        ratingSection.hide();
+        ratingControls.hide();
+        ratingText.hide();
+        ratingButtons.prop("disabled", true);
+        // SAVE FOR LATER SECTION
+        saveForLaterCaptionFirst.show();
+        saveForLaterCaptionSecond.hide();
+        downloadButton.find('span').text("Download");
+        downloadButton.show();
+        openButton.hide();
+        refreshButton.hide();
+        let currentUrl = tabs[0].url;
+        let data = {
+            publication: {
+                pdf_url: currentUrl
+            }
+        };
+        // data ---> secondData because of visibility clash with "lookup" call.
+        let successCallback = (secondData, status, jqXHR) => {
+            // 1.2 Publication exists, so it may be rated by the user
+            let successCallback = (data, status, jqXHR) => {
+                // 2.2 Publication has been rated by the user, so it is not necessary to check if it has been annotated
+                let secondSuccessCallback = (data, status, jqXHR) => {
+                    // RATING SECTION
+                    loadingSection.hide();
+                    loadRateButton.hide();
+                    ratingSection.show();
+                    doRateButton.hide();
+                    configureButton.hide();
+                    ratingControls.show();
+                    doRateSuccessButton.show();
+                    doRateSuccessButton.prop("disabled", true);
+                    editRateButton.show();
+                    editRateButton.prop("disabled", false);
+                    updateRateButton.data('id', data["id"]);
+                    updateRateButton.hide();
+                    ratingText.parent().removeClass("mt-3");
+                    ratingText.show();
+                    ratingCaptionSecond.show();
+                    ratingCaptionFirst.hide();
+                    ratingSlider.hide();
+                    ratingText.text(data["score"]);
+                    // SAVE FOR LATER SECTION
+                    saveForLaterSection.show();
+                    downloadButton.show();
+                    removePreloader();
                 };
-                // 1.3 Publication was never rated, so it does not exists on the database
-                let errorCallback = (jqXHR, status) => {
+                // 2.3 Publication has not been rated by the user
+                let secondErrorCallback = (jqXHR, status) => {
                     // RATING SECTION
                     loadingSection.hide();
                     loadRateButton.hide();
@@ -266,118 +210,167 @@ chrome.storage.sync.get(['authToken'], result => {
                     configureButton.show();
                     configureButton.prop("disabled", false);
                     ratingSection.show();
+                    ratingCaptionFirst.show();
+                    ratingCaptionSecond.hide();
                     ratingControls.show();
                     ratingText.show();
                     ratingText.text("50");
                     ratingSlider.slider({});
                     ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
-                    // SAVE FOR LATER SECTION
-                    saveForLaterCaptionFirst.show();
-                    saveForLaterCaptionSecond.hide();
-                    loadSaveButton.hide();
-                    downloadButton.prop("disabled", false);
-                    downloadButton.show();
-                    openButton.hide();
-                    openButton.prop("disabled", false);
-                    refreshButton.hide();
-                    refreshButton.prop("disabled", false);
-                    removePreloader();
+                    // 3.1 The rated publication was also annotated
+                    let thirdSuccessCallback = (data, status, jqXHR) => {
+                        // SAVE FOR LATER SECTION
+                        saveForLaterSection.show();
+                        loadSaveButton.hide();
+                        downloadButton.hide();
+                        saveForLaterCaptionFirst.hide();
+                        saveForLaterCaptionSecond.show();
+                        openButton.show();
+                        openButton.attr("href", data["pdf_download_url_link"]);
+                        openButton.on("click", () => window.open(data["pdf_download_url_link"], '_blank'));
+                        openButton.prop("disabled", false);
+                        refreshButton.show();
+                        refreshButton.prop("disabled", false);
+                        removePreloader();
+                    };
+                    // 3.2 The rated publication was not annotated
+                    let thirdErrorCallback = (jqXHR, status) => {
+                        // SAVE FOR LATER SECTION
+                        saveForLaterSection.show();
+                        saveForLaterCaptionFirst.show();
+                        saveForLaterCaptionSecond.hide();
+                        loadSaveButton.hide();
+                        openButton.hide();
+                        refreshButton.hide();
+                        downloadButton.prop("disabled", false);
+                        downloadButton.show();
+                        removePreloader();
+                    };
+                    // 3.1 Does the rated publication has been already annotated?
+                    let thirdPromise = emptyAjax("GET", `publications/${data["id"]}/is_saved_for_later.json`, "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
                 };
-                // 1.1 Does the publication exists on the database?
-                let promise = ajax("POST", "/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+                // 2.1 Does the publication has been rated by the logged user?
+                let secondPromise = emptyAjax("GET", `publications/${data["id"]}/is_rated.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
             };
+            // 1.3 Publication was never rated, so it does not exists on the database
             let errorCallback = (jqXHR, status) => {
-                ratingSection.hide();
-                ratingControls.hide();
-                ratingButtons.hide();
-                saveForLaterSection.hide();
+                // RATING SECTION
+                loadingSection.hide();
+                loadRateButton.hide();
+                doRateSuccessButton.hide();
+                editRateButton.hide();
+                updateRateButton.hide();
+                doRateButton.show();
+                doRateButton.prop("disabled", false);
+                configureButton.show();
+                configureButton.prop("disabled", false);
+                ratingSection.show();
+                ratingControls.show();
+                ratingText.show();
+                ratingText.text("50");
+                ratingSlider.slider({});
+                ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
+                // SAVE FOR LATER SECTION
                 saveForLaterCaptionFirst.show();
                 saveForLaterCaptionSecond.hide();
+                loadSaveButton.hide();
+                downloadButton.prop("disabled", false);
                 downloadButton.show();
-                undetectedPublicationSection.show();
-                let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                    undetectedPublicationDetails.parent().find(errorsSection).find(alert).empty();
-                    undetectedPublicationDetails.parent().find(errorsSection).find(alert).append(result);
-                    undetectedPublicationDetails.parent().find(errorsSection).show();
-                    undetectedPublicationSection.show();
-                    loadingSection.hide()
-                });
+                openButton.hide();
+                openButton.prop("disabled", false);
+                refreshButton.hide();
+                refreshButton.prop("disabled", false);
                 removePreloader();
             };
-            let promise = ajax("POST", "/publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-        });
-    }
-});
+            // 1.1 Does the publication exists on the database?
+            let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        };
+        let errorCallback = (jqXHR, status) => {
+            ratingSection.hide();
+            ratingControls.hide();
+            ratingButtons.hide();
+            saveForLaterSection.hide();
+            saveForLaterCaptionFirst.show();
+            saveForLaterCaptionSecond.hide();
+            downloadButton.show();
+            undetectedPublicationSection.show();
+            let errorPromise = buildErrors(jqXHR.responseText).then(result => {
+                undetectedPublicationDetails.parent().find(errorsSection).find(alert).empty();
+                undetectedPublicationDetails.parent().find(errorsSection).find(alert).append(result);
+                undetectedPublicationDetails.parent().find(errorsSection).show();
+                undetectedPublicationSection.show();
+                loadingSection.hide()
+            });
+            removePreloader();
+        };
+        let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+    });
+}
+
 
 //########## RELOAD HANDLING #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    reloadButton.on("click", () => {
-        undetectedPublicationSection.hide();
-        // RATING SECTION
-        ratingSection.show();
-        ratingCaptionFirst.show();
-        ratingCaptionSecond.hide();
-        doRateButton.show();
-        configureButton.show();
-        // SAVE FOR LATER SECTION
-        saveForLaterSection.show();
-        saveForLaterCaptionFirst.show();
-        saveForLaterCaptionSecond.hide();
-        downloadButton.show();
-    });
+reloadButton.on("click", () => {
+    undetectedPublicationSection.hide();
+    // RATING SECTION
+    ratingSection.show();
+    ratingCaptionFirst.show();
+    ratingCaptionSecond.hide();
+    doRateButton.show();
+    configureButton.show();
+    // SAVE FOR LATER SECTION
+    saveForLaterSection.show();
+    saveForLaterCaptionFirst.show();
+    saveForLaterCaptionSecond.hide();
+    downloadButton.show();
 });
 
 //######### SAVE FOR LATER HANDLING #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        downloadButton.on("click", () => {
-            chrome.tabs.query({currentWindow: true, active: true}, tabs => {
-                let data = {
-                    publication: {
-                        pdf_url: tabs[0].url
-                    }
-                };
-                downloadButton.find('span').text("Downloading...");
+if (authToken != null) {
+    downloadButton.on("click", () => {
+        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+            let data = {
+                publication: {
+                    pdf_url: tabs[0].url
+                }
+            };
+            downloadButton.find('span').text("Downloading...");
+            downloadButton.find(reloadIcons).toggle();
+            // 1.2 Publication fetched, hide save for later button and show the download one
+            let successCallback = (data, status, jqXHR) => {
+                saveForLaterCaptionFirst.hide();
+                saveForLaterCaptionSecond.show();
                 downloadButton.find(reloadIcons).toggle();
-                // 1.2 Publication fetched, hide save for later button and show the download one
-                let successCallback = (data, status, jqXHR) => {
-                    saveForLaterCaptionFirst.hide();
-                    saveForLaterCaptionSecond.show();
-                    downloadButton.find(reloadIcons).toggle();
-                    downloadButton.hide();
-                    openButton.show();
-                    openButton.attr("href", data["pdf_download_url_link"]);
-                    openButton.on("click", () => window.open(data["pdf_download_url_link"], '_blank'));
-                    refreshButton.show();
-                    refreshButton.prop("disabled", false);
-                    let pdfWindow = window.open(data["pdf_download_url_link"], '_blank');
-                    if (pdfWindow) pdfWindow.focus(); else modalAllow.modal('show');
-                };
-                // 1.3 Error during publication fetching, hide save for later and download buttons
-                let errorCallback = (jqXHR, status) => {
-                    saveForLaterCaptionFirst.show();
-                    saveForLaterCaptionSecond.hide();
-                    downloadButton.find(reloadIcons).toggle();
-                    downloadButton.hide();
-                    let errorButton = downloadButton.parent().find(errorButtons);
-                    errorButton.show();
-                    errorButton.prop("disabled", true);
-                    let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                        downloadButton.parent().find(errorsSection).find(alert).empty();
-                        downloadButton.parent().find(errorsSection).find(alert).append(result);
-                        downloadButton.parent().find(errorsSection).show();
-                    });
-                };
-                // 1.1 Fetch and annotate the publication
-                let promise = ajax("POST", "/publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-            });
+                downloadButton.hide();
+                openButton.show();
+                openButton.attr("href", data["pdf_download_url_link"]);
+                openButton.on("click", () => window.open(data["pdf_download_url_link"], '_blank'));
+                refreshButton.show();
+                refreshButton.prop("disabled", false);
+                let pdfWindow = window.open(data["pdf_download_url_link"], '_blank');
+                if (pdfWindow) pdfWindow.focus(); else modalAllow.modal('show');
+            };
+            // 1.3 Error during publication fetching, hide save for later and download buttons
+            let errorCallback = (jqXHR, status) => {
+                saveForLaterCaptionFirst.show();
+                saveForLaterCaptionSecond.hide();
+                downloadButton.find(reloadIcons).toggle();
+                downloadButton.hide();
+                let errorButton = downloadButton.parent().find(errorButtons);
+                errorButton.show();
+                errorButton.prop("disabled", true);
+                let errorPromise = buildErrors(jqXHR.responseText).then(result => {
+                    downloadButton.parent().find(errorsSection).find(alert).empty();
+                    downloadButton.parent().find(errorsSection).find(alert).append(result);
+                    downloadButton.parent().find(errorsSection).show();
+                });
+            };
+            // 1.1 Fetch and annotate the publication
+            let promise = ajax("POST", "publications/fetch.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
-    }
-});
+    });
+}
 
 ///######### REFRESH HANDLING #########//
 
@@ -411,11 +404,7 @@ modalRefreshButton.on("click", () => {
                 openButton.prop("disabled", false);
                 refreshButton.show();
                 let pdfWindow = window.open(data["pdf_download_url_link"], '_blank');
-                if (pdfWindow) {
-                    pdfWindow.focus();
-                } else {
-                    modalAllow.modal('show');
-                }
+                if (pdfWindow) pdfWindow.focus(); else modalAllow.modal('show');
             };
             // 2.3 Error during publication refresh, it is not safe to show the download button
             let secondErrorCallback = (jqXHR, status) => {
@@ -430,7 +419,7 @@ modalRefreshButton.on("click", () => {
                 });
             };
             // 2.1 Refresh the publication
-            let secondPromise = emptyAjax("GET", `/publications/${data["id"]}/refresh.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
+            let secondPromise = emptyAjax("GET", `publications/${data["id"]}/refresh.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
         };
         // 1.3 Publication was never rated, so it does not exists on the database
         let errorCallback = function (jqXHR, status) {
@@ -445,7 +434,7 @@ modalRefreshButton.on("click", () => {
             });
         };
         // 1.1 Does the publication exists on the database?
-        let promise = ajax("POST", "/publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     });
 });
 
@@ -453,43 +442,40 @@ modalRefreshButton.on("click", () => {
 
 chrome.storage.sync.get(['host'], result => {
     let host = result.host;
-    chrome.storage.sync.get(['authToken'], result => {
-        let authToken = result.authToken;
-        $('.dropzone').each(function () {
-            let dropzoneControl = $(this)[0].dropzone;
-            if (dropzoneControl) dropzoneControl.destroy();
-        });
-        Dropzone.options.annotatedPublicationDropzone = {
-            paramName: "file", // The name that will be used to transfer the file
-            acceptedFiles: "application/pdf",
-            maxFiles: 1,
-            headers: {
-                "Authorization": authToken
-            }
-        };
-        annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
-        if (authToken != null) {
-            annotatedPublicationDropzone.on("sending", (file, xhr, formData) => xhr.setRequestHeader("Authorization", authToken));
-            annotatedPublicationDropzone.on("success", (file, data) => {
-                extractCaptionFirst.hide();
-                extractCaptionSecond.show();
-                annotatedPublicationDropzoneSuccess.show();
-                annotatedPublicationDropzoneSuccess.text(data["message"]);
-                goToRatingButton.show();
-                goToRatingButton.prop("href", data["baseUrl"]);
-                let ratingPageWindow = window.open(data["baseUrl"], '_blank');
-                if (ratingPageWindow) {
-                    ratingPageWindow.focus();
-                } else {
-                    modalAllow.modal('show');
-                }
-            });
-            annotatedPublicationDropzone.on('error', (file, response, xhr) => {
-                if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
-                annotatedPublicationDropzoneError.show();
-            });
-        }
+    $('.dropzone').each(function () {
+        let dropzoneControl = $(this)[0].dropzone;
+        if (dropzoneControl) dropzoneControl.destroy();
     });
+    Dropzone.options.annotatedPublicationDropzone = {
+        paramName: "file", // The name that will be used to transfer the file
+        acceptedFiles: "application/pdf",
+        maxFiles: 1,
+        headers: {
+            "Authorization": authToken
+        }
+    };
+    annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
+    if (authToken != null) {
+        annotatedPublicationDropzone.on("sending", (file, xhr, formData) => xhr.setRequestHeader("Authorization", authToken));
+        annotatedPublicationDropzone.on("success", (file, data) => {
+            extractCaptionFirst.hide();
+            extractCaptionSecond.show();
+            annotatedPublicationDropzoneSuccess.show();
+            annotatedPublicationDropzoneSuccess.text(data["message"]);
+            goToRatingButton.show();
+            goToRatingButton.prop("href", data["baseUrl"]);
+            let ratingPageWindow = window.open(data["baseUrl"], '_blank');
+            if (ratingPageWindow) {
+                ratingPageWindow.focus();
+            } else {
+                modalAllow.modal('show');
+            }
+        });
+        annotatedPublicationDropzone.on('error', (file, response, xhr) => {
+            if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
+            annotatedPublicationDropzoneError.show();
+        });
+    }
 });
 
 //######### GO TO RATING URL HANDLING #########//
@@ -503,126 +489,118 @@ goToRatingButton.on("click", () => {
 
 //#######  ACTION HANDLING #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        doRateButton.on("click", () => {
-            chrome.tabs.query({currentWindow: true, active: true}, tabs => {
-                let currentUrl = tabs[0].url;
-                doRateButton.find(reloadIcons).toggle();
-                let score = ratingSlider.val();
-                let data = {
-                    rating: {
-                        score: score,
-                        pdf_url: currentUrl,
-                        anonymous: anonymizeCheckbox.is(':checked')
-                    }
-                };
-                // 1.2 Rating created successfully
-                let successCallback = (data, status, jqXHR) => {
-                    let id = data["id"];
-                    let secondData = {
-                        publication: {
-                            pdf_url: currentUrl
-                        }
-                    };
-                    let secondSuccessCallback = (data, status, jqXHR) => {
-                        // RATING SECTION
-                        doRateButton.find(reloadIcons).toggle();
-                        doRateButton.hide();
-                        configureButton.hide();
-                        ratingCaptionSecond.hide();
-                        ratingSlider.slider('destroy');
-                        ratingSlider.hide();
-                        ratingText.parent().removeClass("mt-3");
-                        ratingCaptionSecond.show();
-                        doRateSuccessButton.show();
-                        doRateSuccessButton.prop("disabled", true);
-                        editRateButton.show();
-                        editRateButton.prop("disabled", false);
-                        updateRateButton.data('id', id);
-                        // SAVE FOR LATER SECTION
-                        downloadButton.prop("disabled", true);
-                        openButton.prop("disabled", true);
-                        refreshButton.prop("disabled", true);
-                    };
-                    let secondErrorCallback = (jqXHR, status) => {
-                        // RATING SECTION
-                        doRateButton.find(reloadIcons).toggle();
-                        doRateButton.hide();
-                        configureButton.hide();
-                        doRateSuccessButton.show();
-                        doRateSuccessButton.prop("disabled", true);
-                    };
-                    let secondPromise = ajax("POST", "/publications/lookup.json", "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
-                };
-                // 1.3 Error during rating creation
-                let errorCallback = (jqXHR, status) => {
-                    doRateButton.hide();
-                    configureButton.hide();
-                    let errorButton = doRateButton.parent().find(errorButtons);
-                    errorButton.show();
-                    errorButton.prop("disabled", true);
-                    let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                        doRateButton.parent().find(errorsSection).find(alert).empty();
-                        doRateButton.parent().find(errorsSection).find(alert).append(result);
-                        doRateButton.parent().find(errorsSection).show();
-                    });
-                };
-                // 1.1 Create a new rating with the selected score
-                let promise = ajax("POST", "/ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
-            });
-        });
-    }
-});
-
-//######### EDIT HANDLING #########//
-
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        editRateButton.on("click", () => {
-            ratingSlider.slider({});
-            ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
-            doRateSuccessButton.hide();
-            editRateButton.prop("disabled", true);
-            updateRateButton.find("span").text("Confirm");
-            updateRateButton.prop("disabled", false);
-            updateRateButton.show();
-        });
-    }
-});
-
-//######### UPDATE HANDLING #########//
-
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        updateRateButton.on("click", () => {
-            updateRateButton.find(reloadIcons).toggle();
+if (authToken != null) {
+    doRateButton.on("click", () => {
+        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+            let currentUrl = tabs[0].url;
+            doRateButton.find(reloadIcons).toggle();
             let score = ratingSlider.val();
-            let id = updateRateButton.data('id');
             let data = {
                 rating: {
                     score: score,
+                    pdf_url: currentUrl,
+                    anonymous: anonymizeCheckbox.is(':checked')
                 }
             };
+            // 1.2 Rating created successfully
             let successCallback = (data, status, jqXHR) => {
-                ratingSlider.slider('destroy');
-                ratingSlider.hide();
-                updateRateButton.find(reloadIcons).toggle();
-                updateRateButton.find("span").text("Rating Updated");
-                updateRateButton.prop("disabled", true);
-                editRateButton.prop("disabled", false);
-                editRateButton.show();
+                let id = data["id"];
+                let secondData = {
+                    publication: {
+                        pdf_url: currentUrl
+                    }
+                };
+                let secondSuccessCallback = (data, status, jqXHR) => {
+                    // RATING SECTION
+                    doRateButton.find(reloadIcons).toggle();
+                    doRateButton.hide();
+                    configureButton.hide();
+                    ratingCaptionSecond.hide();
+                    ratingSlider.slider('destroy');
+                    ratingSlider.hide();
+                    ratingText.parent().removeClass("mt-3");
+                    ratingCaptionSecond.show();
+                    doRateSuccessButton.show();
+                    doRateSuccessButton.prop("disabled", true);
+                    editRateButton.show();
+                    editRateButton.prop("disabled", false);
+                    updateRateButton.data('id', id);
+                    // SAVE FOR LATER SECTION
+                    downloadButton.prop("disabled", true);
+                    openButton.prop("disabled", true);
+                    refreshButton.prop("disabled", true);
+                };
+                let secondErrorCallback = (jqXHR, status) => {
+                    // RATING SECTION
+                    doRateButton.find(reloadIcons).toggle();
+                    doRateButton.hide();
+                    configureButton.hide();
+                    doRateSuccessButton.show();
+                    doRateSuccessButton.prop("disabled", true);
+                };
+                let secondPromise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
             };
+            // 1.3 Error during rating creation
             let errorCallback = (jqXHR, status) => {
-
+                doRateButton.hide();
+                configureButton.hide();
+                let errorButton = doRateButton.parent().find(errorButtons);
+                errorButton.show();
+                errorButton.prop("disabled", true);
+                let errorPromise = buildErrors(jqXHR.responseText).then(result => {
+                    doRateButton.parent().find(errorsSection).find(alert).empty();
+                    doRateButton.parent().find(errorsSection).find(alert).append(result);
+                    doRateButton.parent().find(errorsSection).show();
+                });
             };
-            let promise = ajax("PUT", `/ratings/${id}.json`, "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+            // 1.1 Create a new rating with the selected score
+            let promise = ajax("POST", "ratings.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         });
-    }
-});
+    });
+}
+
+
+//######### EDIT HANDLING #########//
+
+if (authToken != null) {
+    editRateButton.on("click", () => {
+        ratingSlider.slider({});
+        ratingSlider.on("slide", slideEvt => ratingText.text(slideEvt.value));
+        doRateSuccessButton.hide();
+        editRateButton.prop("disabled", true);
+        updateRateButton.find("span").text("Confirm");
+        updateRateButton.prop("disabled", false);
+        updateRateButton.show();
+    });
+}
+
+//######### UPDATE HANDLING #########//
+
+if (authToken != null) {
+    updateRateButton.on("click", () => {
+        updateRateButton.find(reloadIcons).toggle();
+        let score = ratingSlider.val();
+        let id = updateRateButton.data('id');
+        let data = {
+            rating: {
+                score: score,
+            }
+        };
+        let successCallback = (data, status, jqXHR) => {
+            ratingSlider.slider('destroy');
+            ratingSlider.hide();
+            updateRateButton.find(reloadIcons).toggle();
+            updateRateButton.find("span").text("Rating Updated");
+            updateRateButton.prop("disabled", true);
+            editRateButton.prop("disabled", false);
+            editRateButton.show();
+        };
+        let errorCallback = (jqXHR, status) => {
+
+        };
+        let promise = ajax("PUT", `ratings/${id}.json`, "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+    });
+}
 
 //######### CONFIGURATION HANDLING #########//
 
@@ -633,9 +611,12 @@ configureSaveButton.on("click", () => modalConfigure.modal("hide"));
 //####### LOGOUT HANDLING #########//
 
 logoutButton.on("click", () => {
-    logoutButton.find(reloadIcons).toggle();
-    logoutButton.find(signOutIcon).toggle();
-    deleteToken().then(() => window.location.href = "login.html");
+    let successCallback = (data, status, jqXHR) => {
+        deleteToken();
+        window.location.href = "login.html"
+    };
+    let errorCallback = (jqXHR, status) => {};
+    let thirdPromise = emptyAjax("POST", "logout.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);;
 });
 
 //######### OPTIONS HANDLING #########//

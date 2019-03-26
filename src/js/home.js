@@ -2,6 +2,7 @@
 
 //######## IMPORTS ########//
 
+import {fetchToken} from "./shared.js";
 import {removePreloader} from "./shared.js";
 
 //######## UI COMPONENTS ########//
@@ -20,12 +21,10 @@ reloadIcons.hide();
 
 //######### USER ALREADY LOGGED? HANDLING #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        window.location.href = "rating_web.html";
-    } else removePreloader()
-});
+let authToken = fetchToken();
+if (authToken != null) {
+    window.location.href = "rating_web.html";
+} else removePreloader();
 
 //######### GO TO LOGIN HANDLING #########//
 

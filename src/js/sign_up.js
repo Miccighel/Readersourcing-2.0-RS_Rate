@@ -68,7 +68,8 @@ registrationButton.on("click", () => {
         };
         let successCallback = (data, status, jqXHR) => {
             registrationButton.find(reloadIcons).toggle();
-            deleteToken().then(() => chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html"));
+            deleteToken();
+            chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html");
         };
         let errorCallback = (jqXHR, status) => {
             registrationButton.find(reloadIcons).toggle();

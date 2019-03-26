@@ -7,6 +7,7 @@ import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {removePreloader} from "./shared.js";
+import {fetchToken} from "./shared";
 
 //######## SECTIONS ########//
 
@@ -55,84 +56,62 @@ signUpForm.submit(event => event.preventDefault());
 
 //####### STATUS HANDLING (SCORES, ...) #########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        let successCallback = (data, status, jqXHR) => {
-            firstNameField.val(data["first_name"]);
-            firstNameField.show();
-            firstNameField.parent().parent().find(reloadIcons).hide();
-            lastNameField.val(data["last_name"]);
-            lastNameField.show();
-            lastNameField.parent().parent().find(reloadIcons).hide();
-            orcidField.val(data["orcid"]);
-            orcidField.show();
-            orcidField.parent().parent().find(reloadIcons).hide();
-            (data["subscribe"]) === true ? subscribeCheckbox.prop('checked', true) : subscribeCheckbox.prop('checked', false);
-            subscribeCheckbox.show();
-            subscribeCheckbox.parent().parent().find(reloadIcons).hide();
-            updateButton.prop("disabled", false);
-            removePreloader();
-        };
-        let errorCallback = (jqXHR, status) => {
-            firstNameField.val();
-            lastNameField.val();
-            orcidField.val();
-            subscribeCheckbox.prop('checked', false);
-            updateButton.prop("disabled", false);
-            removePreloader();
-        };
-        let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
-    }
-});
+let authToken = fetchToken();
+if (authToken != null) {
+    let successCallback = (data, status, jqXHR) => {
+        firstNameField.val(data["first_name"]);
+        firstNameField.show();
+        firstNameField.parent().parent().find(reloadIcons).hide();
+        lastNameField.val(data["last_name"]);
+        lastNameField.show();
+        lastNameField.parent().parent().find(reloadIcons).hide();
+        orcidField.val(data["orcid"]);
+        orcidField.show();
+        orcidField.parent().parent().find(reloadIcons).hide();
+        (data["subscribe"]) === true ? subscribeCheckbox.prop('checked', true) : subscribeCheckbox.prop('checked', false);
+        subscribeCheckbox.show();
+        subscribeCheckbox.parent().parent().find(reloadIcons).hide();
+        updateButton.prop("disabled", false);
+        removePreloader();
+    };
+    let errorCallback = (jqXHR, status) => {
+        firstNameField.val();
+        lastNameField.val();
+        orcidField.val();
+        subscribeCheckbox.prop('checked', false);
+        updateButton.prop("disabled", false);
+        removePreloader();
+    };
+    let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+}
 
 //########## UPDATE HANDLING ##########//
 
-chrome.storage.sync.get(['authToken'], result => {
-    let authToken = result.authToken;
-    if (authToken != null) {
-        updateButton.on("click", () => {
-            validationInstance.validate();
-            if (validationInstance.isValid()) {
-                updateButton.find(checkIcon).toggle();
-                updateButton.find(reloadIcons).toggle();
-                let successCallback = (data, status, jqXHR) => {
-                    let secondData = {
-                        user: {
-                            first_name: firstNameField.val(),
-                            last_name: lastNameField.val(),
-                            orcid: orcidField.val(),
-                            subscribe: !!subscribeCheckbox.is(":checked")
-                        },
-                    };
-                    if (orcidField.val() === "")
-                        delete secondData.user.orcid;
-                    let secondSuccessCallback = (data, status, jqXHR) => {
-                        updateButton.find(reloadIcons).toggle();
-                        deleteToken().then(() => {
-                            localStorage.setItem("message", data["message"]);
-                            window.location.href = "login.html";
-                        });
-                    };
-                    let secondErrorCallback = (jqXHR, status) => {
-                        updateButton.find(reloadIcons).toggle();
-                        updateButton.find(checkIcon).toggle();
-                        if (jqXHR.responseText == null) {
-                            updateButton.hide();
-                            let button = updateButton.parent().find(errorButton);
-                            button.show();
-                            button.prop("disabled", true)
-                        } else {
-                            let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                                updateButton.parent().find(errorsSection).find(alert).empty();
-                                updateButton.parent().find(errorsSection).find(alert).append(result);
-                                updateButton.parent().find(errorsSection).show();
-                            });
-                        }
-                    };
-                    let secondPromise = ajax("PUT", `/users/${data["id"]}.json`, "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
+if (authToken != null) {
+    updateButton.on("click", () => {
+        validationInstance.validate();
+        if (validationInstance.isValid()) {
+            updateButton.find(checkIcon).toggle();
+            updateButton.find(reloadIcons).toggle();
+            let successCallback = (data, status, jqXHR) => {
+                let secondData = {
+                    user: {
+                        first_name: firstNameField.val(),
+                        last_name: lastNameField.val(),
+                        orcid: orcidField.val(),
+                        subscribe: !!subscribeCheckbox.is(":checked")
+                    },
                 };
-                let errorCallback = (jqXHR, status) => {
+                if (orcidField.val() === "")
+                    delete secondData.user.orcid;
+                let secondSuccessCallback = (data, status, jqXHR) => {
+                    updateButton.find(reloadIcons).toggle();
+                    deleteToken().then(() => {
+                        localStorage.setItem("message", data["message"]);
+                        window.location.href = "login.html";
+                    });
+                };
+                let secondErrorCallback = (jqXHR, status) => {
                     updateButton.find(reloadIcons).toggle();
                     updateButton.find(checkIcon).toggle();
                     if (jqXHR.responseText == null) {
@@ -148,11 +127,28 @@ chrome.storage.sync.get(['authToken'], result => {
                         });
                     }
                 };
-                let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
-            }
-        });
-    }
-});
+                let secondPromise = ajax("PUT", `/users/${data["id"]}.json`, "application/json; charset=utf-8", "json", true, secondData, secondSuccessCallback, secondErrorCallback);
+            };
+            let errorCallback = (jqXHR, status) => {
+                updateButton.find(reloadIcons).toggle();
+                updateButton.find(checkIcon).toggle();
+                if (jqXHR.responseText == null) {
+                    updateButton.hide();
+                    let button = updateButton.parent().find(errorButton);
+                    button.show();
+                    button.prop("disabled", true)
+                } else {
+                    let errorPromise = buildErrors(jqXHR.responseText).then(result => {
+                        updateButton.parent().find(errorsSection).find(alert).empty();
+                        updateButton.parent().find(errorsSection).find(alert).append(result);
+                        updateButton.parent().find(errorsSection).show();
+                    });
+                }
+            };
+            let promise = emptyAjax("POST", "users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
+        }
+    });
+}
 
 ////////// GENERAL //////////
 

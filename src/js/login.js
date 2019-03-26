@@ -2,10 +2,11 @@
 
 //######## IMPORTS ########//
 
+import {storeToken} from "./shared.js";
+
 import {ajax} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {removePreloader} from "./shared.js";
-
 //######## CONTENT SECTIONS ########//
 
 let successSection = $("#success-sect");
@@ -75,7 +76,8 @@ loginButton.on("click", () => {
         let successCallback = (data, status, jqXHR) => {
             loginButton.find(signInIcon).toggle();
             loginButton.find(reloadIcon).toggle();
-            chrome.storage.sync.set({authToken: data["auth_token"]}, () => window.location.href = "rating_web.html");
+            storeToken(data["auth_token"]);
+            window.location.href = "rating_web.html"
         };
         let errorCallback = (jqXHR, status) => {
             loginButton.find(signInIcon).toggle();

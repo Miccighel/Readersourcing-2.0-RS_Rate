@@ -1,53 +1,57 @@
 ////////// NETWORKING SECTION //////////
 
-export async function deleteToken() {
-    chrome.storage.sync.remove(['authToken']);
+export function storeToken(authToken) {
+    Cookies.set('authToken', authToken);
+}
+
+export function fetchToken() {
+    return Cookies.get('authToken');
+}
+
+export function deleteToken() {
+    Cookies.remove('authToken');
 }
 
 export async function ajax(type, url, contentType, dataType, crossDomain, data, success, error) {
-    chrome.storage.sync.get(['authToken'], result => {
-        let authToken = result.authToken;
-        chrome.storage.sync.get(['host'], result => {
-            $.ajax({
-                type: type,
-                url: `${result.host}${url}`,
-                contentType: contentType,
-                dataType: dataType,
-                crossDomain: crossDomain,
-                data: JSON.stringify(data),
-                success: success,
-                error: error,
-                headers: {
-                    "Authorization": authToken
-                },
-            });
+    let authToken = fetchToken();
+    chrome.storage.sync.get(['host'], result => {
+        $.ajax({
+            type: type,
+            url: `${result.host}${url}`,
+            contentType: contentType,
+            dataType: dataType,
+            crossDomain: crossDomain,
+            data: JSON.stringify(data),
+            success: success,
+            error: error,
+            headers: {
+                "Authorization": authToken
+            },
         });
     });
 }
 
 export async function emptyAjax(type, url, contentType, dataType, crossDomain, success, error) {
-    chrome.storage.sync.get(['authToken'], result => {
-        let authToken = result.authToken;
-        chrome.storage.sync.get(['host'], result => {
-            $.ajax({
-                type: type,
-                url: `${result.host}${url}`,
-                contentType: contentType,
-                dataType: dataType,
-                crossDomain: crossDomain,
-                success: success,
-                error: error,
-                headers: {
-                    "Authorization": authToken
-                },
-            });
+    let authToken = fetchToken();
+    chrome.storage.sync.get(['host'], result => {
+        $.ajax({
+            type: type,
+            url: `${result.host}${url}`,
+            contentType: contentType,
+            dataType: dataType,
+            crossDomain: crossDomain,
+            success: success,
+            error: error,
+            headers: {
+                "Authorization": authToken
+            },
         });
     });
 }
 
 ////////// UTILITY SECTION //////////
 
-String.prototype.capitalize = function() {
+String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
@@ -74,5 +78,5 @@ export async function buildErrors(errors) {
 export function removePreloader() {
     $('.preloader-wrapper').fadeOut(1500);
     $('body').removeClass('preloader');
-    $('.preloader').css('overflow','visible');
+    $('.preloader').css('overflow', 'visible');
 }
