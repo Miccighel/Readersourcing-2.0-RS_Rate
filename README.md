@@ -8,6 +8,7 @@ Please, note that this is an early alpha release and it is not ready for the use
 
 <h1>Useful Links</h1>
 
+- <a href="https://readersourcing.org">Readersourcing 2.0 (Web Interface)</a>
 - <a href="https://github.com/Miccighel/Readersourcing-2.0">Readersourcing 2.0 (GitHub)</a>
 - <a href="https://zenodo.org/record/1446468">Original Article</a>
 - <a href="https://zenodo.org/record/1452397">Technical Documentation (Zenodo)</a>
@@ -16,7 +17,7 @@ Please, note that this is an early alpha release and it is not ready for the use
 
 <h1>Description</h1>
 
-**RS_Rate** is an extension for Google Chrome and it is a client that readers can use to rate publications, althought it is possible to carry out every operation also directly on the web interface provided by <a href="https://github.com/Miccighel/Readersourcing-2.0-RS_Server">RS_Server</a>. We intend to generalize RS_Rate by providing an implementation for each of the major browsers (i.e., Firefox, Safari, . . . ).
+**RS_Rate** is an extension for Google Chrome vailable on its store. It is a client for Readersourcing 2.0 that can be used by readers of publications to rate them directly from the browser without the need of using this web interface. We intend to generalize RS_Rate by providing an implementation for each of the major browsers (i.e., Firefox, Safari, ...
 
 <h1>Installation</h1>
 
