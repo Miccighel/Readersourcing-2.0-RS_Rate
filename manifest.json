@@ -1,8 +1,8 @@
 {
   "name": "Readersourcing 2.0: RS_Rate",
   "short_name": "RS_Rate",
-  "version": "1.0.13",
-  "version_name": "1.0.13-alpha",
+  "version": "1.0.14",
+  "version_name": "1.0.14-alpha",
   "description": "Allows to rate scientific publications within the Readersourcing approach.",
   "manifest_version": 2,
   "permissions": [
