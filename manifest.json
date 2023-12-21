@@ -1,21 +1,20 @@
 {
+	"manifest_version": 3,
 	"name": "Readersourcing 2.0: RS_Rate",
 	"short_name": "RS_Rate",
-	"version": "1.0.14",
-	"version_name": "1.0.14-alpha",
-	"description": "Allows to rate scientific publications within the Readersourcing approach.",
-	"manifest_version": 2,
+	"version": "1.0.15",
+	"version_name": "1.0.15",
+	"description": "Allows to rate scientific publications within the Readersourcing 2.0 ecosystem.",
 	"permissions": [
 		"storage",
 		"tabs"
 	],
 	"background": {
-		"scripts": [
-			"src/js/background.js"
-		]
+		"service_worker": "src/js/service_worker.js",
+		"type": "module"
 	},
 	"default_locale": "en",
-	"browser_action": {
+	"action": {
 		"browser_style": true,
 		"default_popup": "src/views/home.html",
 		"default_icon": {
@@ -34,6 +33,5 @@
 	"options_ui": {
 		"page": "src/views/options.html",
 		"open_in_tab": false
-	},
-	"content_security_policy": "script-src 'self' https://kit.fontawesome.com; object-src 'self'"
+	}
 }

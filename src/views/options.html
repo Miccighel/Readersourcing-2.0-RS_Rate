@@ -1,121 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
-    <script src="https://kit.fontawesome.com/850c8c324f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/r-2.2.2/rr-1.2.4/datatables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-select/dist/css/bootstrap-select.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/load-awesome/css/ball-grid-pulse.css">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/dropzone/dist/dropzone.css">
-    <link rel="stylesheet" type="text/css" href="../css/system/style.blue.css" id="theme-stylesheet">
-    <link rel="stylesheet" href="../css/options.css"/>
-    <title>RS_Server</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">
+	<script src="../../node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+	<link rel="stylesheet" type="text/css"
+		  href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-colvis-1.5.4/b-flash-1.5.4/b-html5-1.5.4/b-print-1.5.4/cr-1.5.0/r-2.2.2/rr-1.2.4/datatables.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-select/dist/css/bootstrap-select.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/owl.carousel/dist/assets/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/load-awesome/css/ball-grid-pulse.css">
+	<link rel="stylesheet" type="text/css" href="../../node_modules/dropzone/dist/dropzone.css">
+	<link rel="stylesheet" type="text/css" href="../css/system/style.blue.css" id="theme-stylesheet">
+	<link rel="stylesheet" href="../css/options.css"/>
+	<title>RS_Server</title>
 </head>
 <body>
 <section class="mt-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="alert alert-danger text-center" role="alert">
-                    Exploit this page only if you are a developer.
-                </div>
-                <div class="heading text-center mt-3">
-                    <h4>Current Options Values</h4>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <nav id="options-values-nav" role="tablist" class="nav nav-tabs">
-                    <a id="host-tab-link" data-toggle="tab" href="#host-tab" role="tab" aria-controls="host-tab"
-                       aria-selected="true" class="nav-item nav-link active">
-                        <i class="icon-star"></i>RS_Server Host
-                    </a>
-                </nav>
-                <div id="options-values-tabs" class="tab-content">
-                    <div id="host-tab" role="tabpanel" aria-labelledby="host-tab" class="tab-pane fade show active">
-                        <h5 id="host-value" class="no-mb"><i class="fas fa-sync-alt fa-spin reload-icon"></i></h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="alert alert-danger text-center" role="alert">
+					Use this page only if you are a developer.
+				</div>
+				<div class="heading text-center mt-3">
+					<h4>Current Options Values</h4>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<nav id="options-values-nav" role="tablist" class="nav nav-tabs">
+					<a id="host-tab-link" data-toggle="tab" href="#host-tab" role="tab" aria-controls="host-tab"
+					   aria-selected="true" class="nav-item nav-link active">
+						<i class="icon-star"></i>RS_Server Host
+					</a>
+				</nav>
+				<div id="options-values-tabs" class="tab-content">
+					<div id="host-tab" role="tabpanel" aria-labelledby="host-tab" class="tab-pane fade show active">
+						<h5 id="host-value" class="no-mb"><i class="fas fa-sync-alt fa-spin reload-icon"></i></h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 <section id="options-sect" class="mt-3 mb-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="heading text-center">
-                    <h4>Set Options Values</h4>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <form id="options-form">
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="host">New host for a custom version of RS_Server</label>
-                            <div class="form-row">
-                                <div class="form-group col-3 text-right">
-                                    <h5>http(s):&#47;&#47;</h5>
-                                </div>
-                                <div class="form-group col-8">
-                                    <input id="host" type="text" class="form-control form-inline"
-                                           placeholder="rs-server.herokuapp.com" value="rs-server.herokuapp.com">
-                                </div>
-                                <div class="form-group col-1 text-left">
-                                    <h5>&#47;</h5>
-                                </div>
-                            </div>
-                            <div class="alert alert-danger" role="alert">
-                                Edit it only if you know what you're doing.
-                            </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <button type="button" id="save-btn" class="btn btn-success btn-block">
-                                <i class="fa fa-refresh fa-spin reload-icon"></i>
-                                Save
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<div class="heading text-center">
+					<h4>Set the values for the options</h4>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<form id="options-form">
+					<div class="row">
+						<div class="col-12">
+							<label for="host">New host dedicated to running a custom version of RS_Server</label>
+							<div class="form-row">
+								<div class="form-group col-3 text-right">
+									<h5>https:&#47;&#47;</h5>
+								</div>
+								<div class="form-group col-8">
+									<input id="host" type="text" class="form-control form-inline" placeholder="your-domain.com" value="your-domain.com">
+								</div>
+								<div class="form-group col-1 text-left">
+									<h5>&#47;</h5>
+								</div>
+							</div>
+							<div class="alert alert-danger" role="alert">
+								Edit this only if you are confident in your understanding.
+							</div>
+						</div>
+						<div class="col-12 text-center">
+							<button type="button" id="save-btn" class="btn btn-success btn-block">
+								<i class="fa fa-refresh fa-spin reload-icon"></i>
+								Save
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 </section>
 <div id="modal-confirm" tabindex="-1" role="dialog" aria-labelledby="modal-refresh-label" aria-hidden="true"
-     class="modal fade">
-    <div role="document" class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 id="modal-refresh-label" class="modal-title">Options</h4>
-                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
-                        aria-hidden="true">X</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <strong>Click Below To Confirm</strong>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="row m-auto w-100">
-                    <div class="col-12 p-0">
-                        <button type="button" id="modal-confirm-btn" class="btn btn-success btn-block">
-                            Okay!
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	 class="modal fade">
+	<div role="document" class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 id="modal-refresh-label" class="modal-title">Options</h4>
+				<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span
+						aria-hidden="true">X</span></button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-12 text-center">
+						<strong>Click Below To Confirm</strong>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<div class="row m-auto w-100">
+					<div class="col-12 p-0">
+						<button type="button" id="modal-confirm-btn" class="btn btn-success btn-block">
+							Okay!
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
