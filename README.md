@@ -65,9 +65,9 @@ can access the password recovery page (not shown), which closely resembles the l
 If a reader has yet to sign up for Readersourcing 2.0, they can navigate from the main page to sign-up one and fill in the form. 
 Once they complete the standard sign-up and login operations, they will find themselves on the rating page.
 
-<img src="images/rating.PNG" alt="The rating page of RS_Rate" width="300"/>
+<img src="images/rating.png" alt="The rating page of RS_Rate" width="300"/>
 
-<img src="images/signup.PNG" alt="The user registration page of RS_Rate" width="300"/>
+<img src="images/signup.png" alt="The user registration page of RS_Rate" width="300"/>
 
 In the central section of the rating page, a reader can use the slider to choose a rating value in a 0-100 interval. 
 Once they select the desired rating, they only need to click the green `Rate` button, and that's it; with just 
@@ -83,7 +83,7 @@ procedure for publications, which stores a reference (an URL link) inside the PD
 As soon as such the editing procedure is completed (usually just a few seconds), the `Save for later`
 button transforms into a `Download` button.
 
-<img src="images/rating-2.PNG" alt="The rating page of RS_Rate after a save for later request." width="300"/>
+<img src="images/rating-2.png" alt="The rating page of RS_Rate after a save for later request." width="300"/>
 
 The reader can finally download the link-annotated publication by clicking on it. Furthermore, 
 they can also use the refresh button (located to the right of the `Download` button) to, as it says, 
@@ -95,7 +95,7 @@ As soon as the link-annotated publication is downloaded, the reader will find a 
 page with the URL. Below, an example of such a link-annotated publication can be seen; 
 in that case, the reader has chosen to open it with their favorite PDF reader.
 
-<img src="images/reference.PNG" alt="A publication link-annotated through RS_Rate."/>
+<img src="images/reference.png" alt="A publication link-annotated through RS_Rate."/>
 
 Once the reader clicks on the reference, which is a special link to RS_Server, they will be taken to the server-side 
 application itself. The interface presented allows them to express their rating independently of the browser extension 
@@ -104,7 +104,7 @@ they can take advantage of the built-in browser to express their rating. Below, 
 the reader sees after clicking on the stored reference is shown. The reader is required to authenticate themselves again as a form 
 of security. Without this step, the stored reference could be used by anyone who gets a copy of the link-annotated publication.
 
-<img src="images/browser.PNG" alt="The server-side interface to rate a publication." width="300"/>
+<img src="images/browser.png" alt="The server-side interface to rate a publication." width="300"/>
 
 Every time a reader rates a publication, every score is updated according to both `RSM` and `TRM` models, and each reader 
 can see the result through RS_Rate. In the bottom section of the rating page, the score of the current publication can 
@@ -112,4 +112,4 @@ be seen (one for each model), as shown earlier. To view their score as a reader 
 must click the profile button in the upper right corner. Once they do that, they will see the corresponding interface. 
 From there, they can also edit their password since that interface acts as a profile page.
 
-<img src="images/profile.PNG" alt="The profile page of RS_Rate." width="300"/>
+<img src="images/profile.png" alt="The profile page of RS_Rate." width="300"/>
