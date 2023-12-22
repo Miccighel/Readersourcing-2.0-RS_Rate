@@ -16,7 +16,7 @@ This is the official repository of **RS_Rate**, which is part of the **Readersou
 
 <h1>Useful Links</h1>
 
-- <a href="https://readersourcing.org">Readersourcing 2.0 (Web Interface)</a>
+- <a href="https://readersourcing.com">Readersourcing 2.0 (Web Interface)</a>
 - <a href="https://github.com/Miccighel/Readersourcing-2.0">Readersourcing 2.0 (GitHub)</a>
 - <a href="https://zenodo.org/record/1446468">Original Article</a>
 - <a href="https://zenodo.org/record/1452397">Technical Documentation (Zenodo)</a>
