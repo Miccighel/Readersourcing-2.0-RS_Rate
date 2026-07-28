@@ -13,8 +13,10 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
+    "lint:firefox": "web-ext lint --source-dir dist/firefox",
+    "package:firefox": "yarn build && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --overwrite-dest",
     "test": "node --test",
-    "verify": "yarn build && yarn check && yarn test"
+    "verify": "yarn build && yarn check && yarn lint:firefox && yarn test"
   },
   "resolutions": {
     "jquery": "3.7.1"
@@ -37,6 +39,9 @@
     "owl.carousel2.thumbs": "^0.1.8",
     "parsleyjs": "^2.9.2",
     "waypoints": "^4.0.1"
+  },
+  "devDependencies": {
+    "web-ext": "^10.5.0"
   },
   "packageManager": "yarn@4.17.1"
 }

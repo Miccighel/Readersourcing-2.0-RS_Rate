@@ -50,9 +50,10 @@ test("preserves the authentication token contract", () => {
 test("ajax preserves the RS_Server JSON request contract", async () => {
     storeToken("reader-token");
     globalThis.chrome = {
+        runtime: {},
         storage: {
             sync: {
-                get: async () => ({host: "http://localhost:3000/"}),
+                get: (keys, callback) => callback({host: "http://localhost:3000/"}),
             },
         },
     };
@@ -88,7 +89,7 @@ test("ajax preserves the RS_Server JSON request contract", async () => {
 });
 
 test("emptyAjax preserves requests without a JSON body", async () => {
-    globalThis.chrome.storage.sync.get = async () => ({host: "https://example.test/"});
+    globalThis.chrome.storage.sync.get = (keys, callback) => callback({host: "https://example.test/"});
     let request;
     globalThis.$.ajax = options => {
         request = options;

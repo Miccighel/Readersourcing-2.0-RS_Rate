@@ -6,9 +6,21 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "
 const outputRoot = path.join(projectRoot, "dist");
 
 const projectEntries = [
-    "manifest.json",
     "_locales",
     "src",
+];
+
+const targets = [
+    {
+        name: "Chromium",
+        manifest: "manifest.json",
+        outputRoot: path.join(outputRoot, "chromium"),
+    },
+    {
+        name: "Firefox",
+        manifest: "manifest-ff.json",
+        outputRoot: path.join(outputRoot, "firefox"),
+    },
 ];
 
 const dependencyEntries = [
@@ -54,9 +66,14 @@ const dependencyEntries = [
     "waypoints/lib/jquery.waypoints.min.js",
 ];
 
-async function copyRelative(relativePath, sourceRoot = projectRoot, destinationRoot = outputRoot) {
+async function copyRelative(
+    relativePath,
+    sourceRoot,
+    destinationRoot,
+    destinationPath = relativePath,
+) {
     const source = path.join(sourceRoot, relativePath);
-    const destination = path.join(destinationRoot, relativePath);
+    const destination = path.join(destinationRoot, destinationPath);
     await access(source);
     await mkdir(path.dirname(destination), {recursive: true});
     await cp(source, destination, {recursive: true});
@@ -65,12 +82,24 @@ async function copyRelative(relativePath, sourceRoot = projectRoot, destinationR
 await rm(outputRoot, {recursive: true, force: true});
 await mkdir(outputRoot, {recursive: true});
 
-for (const entry of projectEntries) {
-    await copyRelative(entry);
-}
+for (const target of targets) {
+    await mkdir(target.outputRoot, {recursive: true});
 
-for (const entry of dependencyEntries) {
-    await copyRelative(entry, path.join(projectRoot, "node_modules"), path.join(outputRoot, "node_modules"));
-}
+    for (const entry of projectEntries) {
+        await copyRelative(entry, projectRoot, target.outputRoot);
+    }
 
-console.log(`Built unpacked extension in ${path.relative(projectRoot, outputRoot)}/`);
+    await copyRelative(target.manifest, projectRoot, target.outputRoot, "manifest.json");
+
+    for (const entry of dependencyEntries) {
+        await copyRelative(
+            entry,
+            path.join(projectRoot, "node_modules"),
+            path.join(target.outputRoot, "node_modules"),
+        );
+    }
+
+    console.log(
+        `Built ${target.name} extension in ${path.relative(projectRoot, target.outputRoot)}/`,
+    );
+}

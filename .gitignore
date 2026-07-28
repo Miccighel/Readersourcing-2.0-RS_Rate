@@ -16,6 +16,7 @@ node_modules/
 # Ignore build output
 /dist/
 /build/
+/artifacts/
 
 # Ignore Chrome extension specific files
 *.crx

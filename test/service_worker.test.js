@@ -15,10 +15,11 @@ globalThis.chrome = {
     },
     storage: {
         sync: {
-            get: async () => ({host: storedHost}),
-            set: async values => {
+            get: (keys, callback) => callback({host: storedHost}),
+            set: (values, callback) => {
                 storedHost = values.host;
                 setCalls += 1;
+                callback();
             },
         },
     },

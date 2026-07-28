@@ -36,8 +36,8 @@ effort—just a few clicks or keystrokes within the Readersourcing 2.0 ecosystem
 online reading experience. **RS_Rate** serves as the initial client of our project, extending beyond the web-based 
 interface available on the main portal.
 
-Looking ahead, our vision includes expanding the compatibility of **RS_Rate** by developing implementations for 
-other major browsers, such as Firefox, Safari, and other popular browsers. Our commitment is to make this rating 
+Looking ahead, our vision includes expanding the compatibility of **RS_Rate** to
+other major browsers, such as Safari and other popular browsers. Our commitment is to make this rating
 tool accessible across a broad range of browsers, ensuring users can seamlessly interact with content and provide 
 feedback, regardless of their preferred browser.
 
@@ -45,7 +45,7 @@ feedback, regardless of their preferred browser.
 
 **RS_Rate** is freely available on the Google Chrome Web Store. To use it, simply take advantage of the following 
 link and install the currently available version by clicking on the `Get` button shown on the store page. 
-We plan to release a Firefox version in the future.
+The repository also produces a Firefox package ready for validation and submission to Mozilla Add-ons.
 
 - _Google Chrome_ version: <a href="https://chrome.google.com/webstore/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg?hl=it">available here</a>
 
@@ -125,9 +125,22 @@ yarn install --immutable
 yarn verify
 ```
 
-`yarn verify` creates a self-contained Manifest V3 extension in `dist/`, checks that all executable assets are bundled
-locally, and runs the client contract tests. To try it in Chrome or Edge, open the extensions management page, enable
-developer mode, choose `Load unpacked`, and select the generated `dist/` directory.
+`yarn verify` creates self-contained Manifest V3 extensions in `dist/chromium/` and `dist/firefox/`, checks that all
+executable assets are bundled locally, validates the Firefox package with Mozilla's `web-ext`, and runs the client
+contract tests. To try the Chromium build, open the Chrome or Edge extensions management page, enable developer mode,
+choose `Load unpacked`, and select `dist/chromium/`. In Firefox, open `about:debugging#/runtime/this-firefox`, choose
+`Load Temporary Add-on`, and select `dist/firefox/manifest.json`.
+
+To create the archive intended for Mozilla Add-ons:
+
+```console
+yarn package:firefox
+```
+
+The generated ZIP is written to `artifacts/`. The Firefox target requires Firefox 140 or later and declares the data
+categories needed by RS_Rate: account authentication and identity, the current publication URL, rating and save
+interactions, and publication/PDF content sent to the configured RS_Server. This is the same application traffic
+required by the existing domain workflow; it does not introduce a separate analytics channel.
 
 The development build uses `http://localhost:3000/` as the initial RS_Server host. The value can be changed from the
 extension options and is preserved when the extension is updated. Both regular API calls and PDF extraction use this

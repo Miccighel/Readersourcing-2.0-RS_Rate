@@ -41,8 +41,12 @@ export function buildUrl(host, path) {
 }
 
 async function fetchHost() {
-    const result = await chrome.storage.sync.get(["host"]);
-    return result.host;
+    return new Promise((resolve, reject) => {
+        chrome.storage.sync.get(["host"], result => {
+            const error = chrome.runtime?.lastError;
+            if (error) reject(new Error(error.message)); else resolve(result.host);
+        });
+    });
 }
 
 export async function ajax(type, url, contentType, dataType, crossDomain, data, success, error) {

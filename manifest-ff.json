@@ -1,31 +1,56 @@
 {
-  "applications": {
-    "gecko": {
-      "id": "rs-rate@readersourcing.org"
+  "manifest_version": 3,
+  "name": "Readersourcing 2.0: RS_Rate",
+  "short_name": "RS_Rate",
+  "version": "2.0.0",
+  "version_name": "2.0.0",
+  "description": "Allows to rate scientific publications within the Readersourcing 2.0 ecosystem.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "scripts": [
+      "src/js/service_worker.js"
+    ],
+    "type": "module"
+  },
+  "default_locale": "en",
+  "action": {
+    "default_popup": "src/views/home.html",
+    "default_icon": {
+      "16": "src/img/icon16.png",
+      "32": "src/img/icon32.png",
+      "48": "src/img/icon48.png",
+      "128": "src/img/icon128.png"
     }
   },
-  "name": "RS_Rate",
-  "version": "1.0.14-alpha",
-  "description": "Firefox extension of Readersourcing 2.0",
-  "repository": "https://github.com/Miccighel/Readersourcing-2.0-RS_Rate",
-  "author": "Michael Soprano",
-  "license": "MIT",
-  "dependencies": {
-    "bootstrap": "^4.1.1",
-    "bootstrap-select": "^1.13.1",
-    "bootstrap-slider": "^10.0.2",
-    "dropzone": "^5.5.1",
-    "jquery": "^3.3.1",
-    "jquery-parallax.js": "^1.5.0",
-    "jquery.counterup": "^2.1.0",
-    "jquery.scrollto": "^2.1.2",
-    "js-cookie": "^2.2.0",
-    "load-awesome": "^1.1.0",
-    "owl.carousel": "^2.3.4",
-    "owl.carousel2.thumbs": "^0.1.8",
-    "parsleyjs": "^2.8.1",
-    "popper.js": "^1.14.3",
-    "waypoints": "^4.0.1",
-    "wowjs": "^1.1.3"
+  "icons": {
+    "16": "src/img/icon16.png",
+    "32": "src/img/icon32.png",
+    "48": "src/img/icon48.png",
+    "128": "src/img/icon128.png"
+  },
+  "options_ui": {
+    "page": "src/views/options.html",
+    "open_in_tab": false
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "rs-rate@readersourcing.org",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "authenticationInfo",
+          "personallyIdentifyingInfo",
+          "browsingActivity",
+          "websiteActivity",
+          "websiteContent"
+        ]
+      }
+    }
   }
 }
