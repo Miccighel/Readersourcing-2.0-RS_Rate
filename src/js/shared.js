@@ -12,40 +12,71 @@ export function deleteToken() {
     Cookies.remove('authToken');
 }
 
+export function normalizeHost(host) {
+    let normalizedHost = String(host ?? "").trim();
+    if (normalizedHost === "") throw new TypeError("RS_Server host cannot be empty.");
+
+    if (!/^[a-z][a-z\d+.-]*:\/\//i.test(normalizedHost)) {
+        const hostname = normalizedHost.startsWith("[")
+            ? normalizedHost.slice(0, normalizedHost.indexOf("]") + 1).toLowerCase()
+            : normalizedHost.split(/[/:]/, 1)[0].toLowerCase();
+        const localHostnames = new Set(["localhost", "127.0.0.1", "[::1]"]);
+        normalizedHost = `${localHostnames.has(hostname) ? "http" : "https"}://${normalizedHost}`;
+    }
+
+    const parsedHost = new URL(normalizedHost);
+    if (!["http:", "https:"].includes(parsedHost.protocol)) {
+        throw new TypeError("RS_Server host must use HTTP or HTTPS.");
+    }
+
+    parsedHost.hash = "";
+    parsedHost.search = "";
+    if (!parsedHost.pathname.endsWith("/")) parsedHost.pathname += "/";
+    return parsedHost.toString();
+}
+
+export function buildUrl(host, path) {
+    const normalizedPath = String(path ?? "").replace(/^\/+/, "");
+    return new URL(normalizedPath, normalizeHost(host)).toString();
+}
+
+async function fetchHost() {
+    const result = await chrome.storage.sync.get(["host"]);
+    return result.host;
+}
+
 export async function ajax(type, url, contentType, dataType, crossDomain, data, success, error) {
-    let authToken = fetchToken();
-    chrome.storage.sync.get(['host'], result => {
-        $.ajax({
-            type: type,
-            url: `${result.host}${url}`,
-            contentType: contentType,
-            dataType: dataType,
-            crossDomain: crossDomain,
-            data: JSON.stringify(data),
-            success: success,
-            error: error,
-            headers: {
-                "Authorization": authToken
-            },
-        });
+    const authToken = fetchToken();
+    const host = await fetchHost();
+    return $.ajax({
+        type: type,
+        url: buildUrl(host, url),
+        contentType: contentType,
+        dataType: dataType,
+        crossDomain: crossDomain,
+        data: JSON.stringify(data),
+        success: success,
+        error: error,
+        headers: {
+            "Authorization": authToken
+        },
     });
 }
 
 export async function emptyAjax(type, url, contentType, dataType, crossDomain, success, error) {
-    let authToken = fetchToken();
-    chrome.storage.sync.get(['host'], result => {
-        $.ajax({
-            type: type,
-            url: `${result.host}${url}`,
-            contentType: contentType,
-            dataType: dataType,
-            crossDomain: crossDomain,
-            success: success,
-            error: error,
-            headers: {
-                "Authorization": authToken
-            },
-        });
+    const authToken = fetchToken();
+    const host = await fetchHost();
+    return $.ajax({
+        type: type,
+        url: buildUrl(host, url),
+        contentType: contentType,
+        dataType: dataType,
+        crossDomain: crossDomain,
+        success: success,
+        error: error,
+        headers: {
+            "Authorization": authToken
+        },
     });
 }
 

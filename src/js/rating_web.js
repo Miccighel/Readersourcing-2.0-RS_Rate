@@ -8,6 +8,7 @@ import {emptyAjax} from "./shared.js";
 import {removePreloader} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {fetchToken} from "./shared.js";
+import {buildUrl} from "./shared.js";
 
 let body = $("body");
 
@@ -117,8 +118,6 @@ Dropzone.autoDiscover = false;
 reloadIcons.hide();
 
 //#######  USER PROFILE SETUP #########//
-
-console.log(Cookies.get());
 
 let authToken = fetchToken();
 if (authToken != null) {
@@ -447,6 +446,7 @@ chrome.storage.sync.get(['host'], result => {
         if (dropzoneControl) dropzoneControl.destroy();
     });
     Dropzone.options.annotatedPublicationDropzone = {
+        url: buildUrl(host, "publications/extract.json"),
         paramName: "file", // The name that will be used to transfer the file
         acceptedFiles: "application/pdf",
         maxFiles: 1,

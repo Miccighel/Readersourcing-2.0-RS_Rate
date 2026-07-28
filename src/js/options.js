@@ -1,5 +1,7 @@
 ////////// INIT //////////
 
+import {normalizeHost} from "./shared.js";
+
 //######## CONTENT SECTIONS ########//
 
 let optionsSection = $("#options-sect");
@@ -34,14 +36,25 @@ chrome.storage.sync.get(['host'], result => hostValue.text(result.host));
 
 saveButton.on("click", () => {
     saveButton.find(reloadIcons).toggle();
-    let host = "";
-    host = hostField.val().indexOf("localhost") >= 0 ? `http://${hostField.val()}/` : `https://${hostField.val()}/`;
-    chrome.storage.sync.set({host: host}, () => {
+    let host;
+    try {
+        host = normalizeHost(hostField.val());
+        hostField[0].setCustomValidity("");
+    } catch (error) {
+        saveButton.find(reloadIcons).toggle();
+        hostField[0].setCustomValidity(error.message);
+        hostField[0].reportValidity();
+        return;
+    }
+
+    chrome.storage.sync.set({host}, () => {
         saveButton.find(reloadIcons).toggle();
         modalConfirm.modal("show");
         chrome.storage.sync.get(['host'], result => hostValue.text(result.host));
     });
 });
+
+hostField.on("input", () => hostField[0].setCustomValidity(""));
 
 modalConfirmButton.on("click", () => {
     saveButton.text("Done!");

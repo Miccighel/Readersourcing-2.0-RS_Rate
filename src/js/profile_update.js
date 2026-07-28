@@ -7,7 +7,7 @@ import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {removePreloader} from "./shared.js";
-import {fetchToken} from "./shared";
+import {fetchToken} from "./shared.js";
 
 //######## SECTIONS ########//
 
@@ -106,8 +106,8 @@ if (authToken != null) {
                     delete secondData.user.orcid;
                 let secondSuccessCallback = (data, status, jqXHR) => {
                     updateButton.find(reloadIcons).toggle();
-                    deleteToken().then(() => {
-                        localStorage.setItem("message", data["message"]);
+                    deleteToken();
+                    chrome.storage.sync.set({message: data["message"]}, () => {
                         window.location.href = "login.html";
                     });
                 };

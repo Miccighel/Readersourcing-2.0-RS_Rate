@@ -9,7 +9,6 @@
 !.yarn/releases
 !.yarn/plugins
 .pnp.*
-yarn.lock
 
 # Ignore node_modules directory
 node_modules/

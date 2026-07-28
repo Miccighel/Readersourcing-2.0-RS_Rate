@@ -113,3 +113,26 @@ must click the profile button in the upper right corner. Once they do that, they
 From there, they can also edit their password since that interface acts as a profile page.
 
 <img src="images/profile.png" alt="The profile page of RS_Rate." width="300"/>
+
+<h1>Development</h1>
+
+The development stack uses Node.js 24 LTS and Yarn 4. Dependencies continue to be declared in `package.json` and
+resolved reproducibly through the committed `yarn.lock`.
+
+```console
+corepack enable
+yarn install --immutable
+yarn verify
+```
+
+`yarn verify` creates a self-contained Manifest V3 extension in `dist/`, checks that all executable assets are bundled
+locally, and runs the client contract tests. To try it in Chrome or Edge, open the extensions management page, enable
+developer mode, choose `Load unpacked`, and select the generated `dist/` directory.
+
+The development build uses `http://localhost:3000/` as the initial RS_Server host. The value can be changed from the
+extension options and is preserved when the extension is updated. Both regular API calls and PDF extraction use this
+same configured host.
+
+Bootstrap 4 is intentionally retained in this modernization branch because the existing views and UI plugins depend on
+its markup and jQuery integration. Moving to Bootstrap 5 is therefore a separate interface migration, rather than a
+dependency-only update.
