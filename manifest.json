@@ -9,6 +9,10 @@
 		"storage",
 		"tabs"
 	],
+	"optional_host_permissions": [
+		"http://*/*",
+		"https://*/*"
+	],
 	"background": {
 		"service_worker": "src/js/service_worker.js",
 		"type": "module"

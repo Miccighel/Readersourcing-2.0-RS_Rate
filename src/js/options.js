@@ -1,6 +1,7 @@
 ////////// INIT //////////
 
 import {normalizeHost} from "./shared.js";
+import {requestHostPermission} from "./server_access.js";
 
 //######## CONTENT SECTIONS ########//
 
@@ -47,11 +48,19 @@ saveButton.on("click", () => {
         return;
     }
 
-    chrome.storage.sync.set({host}, () => {
-        saveButton.find(reloadIcons).toggle();
-        modalConfirm.modal("show");
-        chrome.storage.sync.get(['host'], result => hostValue.text(result.host));
-    });
+    requestHostPermission(host)
+        .then(() => {
+            chrome.storage.sync.set({host}, () => {
+                saveButton.find(reloadIcons).toggle();
+                modalConfirm.modal("show");
+                chrome.storage.sync.get(['host'], result => hostValue.text(result.host));
+            });
+        })
+        .catch(error => {
+            saveButton.find(reloadIcons).toggle();
+            hostField[0].setCustomValidity(error.message);
+            hostField[0].reportValidity();
+        });
 });
 
 hostField.on("input", () => hostField[0].setCustomValidity(""));

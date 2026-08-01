@@ -11,6 +11,10 @@ const requiredFirefoxData = [
     "websiteActivity",
     "websiteContent",
 ];
+const requiredOptionalHosts = [
+    "http://*/*",
+    "https://*/*",
+];
 
 async function readJson(relativePath) {
     return JSON.parse(await readFile(path.join(projectRoot, relativePath), "utf8"));
@@ -51,6 +55,11 @@ async function validatePackage(name, packageRoot, manifest, packageJson) {
     }
     if (!manifest.content_security_policy?.extension_pages?.includes("script-src 'self'")) {
         throw new Error(`${name} extension pages must execute bundled scripts only.`);
+    }
+    for (const origin of requiredOptionalHosts) {
+        if (!manifest.optional_host_permissions?.includes(origin)) {
+            throw new Error(`${name} must allow the reader to grant access to ${origin}.`);
+        }
     }
 
     const backgroundPaths = [
@@ -143,8 +152,8 @@ if (Object.hasOwn(firefoxManifest.action ?? {}, "browser_style")) {
 
 const gecko = firefoxManifest.browser_specific_settings?.gecko;
 if (!gecko?.id) throw new Error("Firefox AMO signing requires a stable Gecko extension ID.");
-if (Number.parseFloat(gecko.strict_min_version) < 140) {
-    throw new Error("Firefox must require version 140+ for built-in data consent.");
+if (Number.parseFloat(gecko.strict_min_version) < 142) {
+    throw new Error("Firefox must require version 142+ for built-in data consent.");
 }
 const declaredFirefoxData = gecko.data_collection_permissions?.required ?? [];
 for (const category of requiredFirefoxData) {

@@ -55,8 +55,8 @@ The image shown below illustrates a section of a Google Chrome instance with the
 This scenario depicts the typical situation of a reader visiting a publisher's website to access 
 the PDF of a paper they are interested in. The image also displays the initial page that a reader 
 encounters when interacting with the client. This page serves as a gateway to the login page, as shown 
-in the second figure, or to the sign-up page. From the login page, a reader who has forgotten their password 
-can access the password recovery page (not shown), which closely resembles the login page itself.
+in the second figure, or to the sign-up page. From the login page, a reader who has forgotten their password
+can request a recovery link. The link opens RS_Server, where the reader chooses and confirms a new password.
 
 <img src="images/ux-1.png" alt="RS_Rate characterized as an extension having a popup action."/>
 
@@ -137,15 +137,15 @@ To create the archive intended for Mozilla Add-ons:
 yarn package:firefox
 ```
 
-The generated ZIP is written to `artifacts/`. The Firefox target requires Firefox 140 or later and declares the data
+The generated ZIP is written to `artifacts/`. The Firefox target requires Firefox 142 or later and declares the data
 categories needed by RS_Rate: account authentication and identity, the current publication URL, rating and save
 interactions, and publication/PDF content sent to the configured RS_Server. This is the same application traffic
 required by the existing domain workflow; it does not introduce a separate analytics channel.
 
 The development build uses `http://localhost:3000/` as the initial RS_Server host. The value can be changed from the
 extension options and is preserved when the extension is updated. Both regular API calls and PDF extraction use this
-same configured host.
+same configured host. When a host is saved, the browser asks for permission to contact that HTTP or HTTPS origin.
+Only the selected origin is granted; a configured application path remains part of the RS_Server address.
 
-Bootstrap 4 is intentionally retained in this modernization branch because the existing views and UI plugins depend on
-its markup and jQuery integration. Moving to Bootstrap 5 is therefore a separate interface migration, rather than a
-dependency-only update.
+RS_Rate uses Bootstrap 4 because its views and UI plugins depend on Bootstrap 4 markup and jQuery integration. An
+interface based on Bootstrap 5 would require coordinated changes to those views and plugins.
