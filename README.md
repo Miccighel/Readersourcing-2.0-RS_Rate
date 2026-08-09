@@ -55,15 +55,15 @@ The image shown below illustrates a section of a Google Chrome instance with the
 This scenario depicts the typical situation of a reader visiting a publisher's website to access 
 the PDF of a paper they are interested in. The image also displays the initial page that a reader 
 encounters when interacting with the client. This page serves as a gateway to the login page, as shown 
-in the second figure, or to the sign-up page. From the login page, a reader who has forgotten their password
+in the second figure, or to the registration page. From the login page, a reader who has forgotten their password
 can request a recovery link. The link opens RS_Server, where the reader chooses and confirms a new password.
 
 <img src="images/ux-1.png" alt="RS_Rate characterized as an extension having a popup action."/>
 
 <img src="images/login.png" alt="The login page of RS_Rate" width="300"/>
 
-If a reader has yet to sign up for Readersourcing 2.0, they can navigate from the main page to sign-up one and fill in the form. 
-Once they complete the standard sign-up and login operations, they will find themselves on the rating page.
+If a reader has yet to sign up for Readersourcing 2.0, they can navigate from the main page to the registration form.
+Once they complete the standard registration and login operations, they will find themselves on the rating page.
 
 <img src="images/rating.png" alt="The rating page of RS_Rate" width="300"/>
 
@@ -125,7 +125,7 @@ yarn install --immutable
 yarn verify
 ```
 
-`yarn verify` creates self-contained Manifest V3 extensions in `dist/chromium/` and `dist/firefox/`, checks that all
+`yarn verify` creates complete Manifest V3 extension packages in `dist/chromium/` and `dist/firefox/`, checks that all
 executable assets are bundled locally, validates the Firefox package with Mozilla's `web-ext`, and runs the client
 contract tests. To try the Chromium build, open the Chrome or Edge extensions management page, enable developer mode,
 choose `Load unpacked`, and select `dist/chromium/`. In Firefox, open `about:debugging#/runtime/this-firefox`, choose
