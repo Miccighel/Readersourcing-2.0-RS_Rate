@@ -26,28 +26,28 @@ This is the official repository of **RS_Rate**, which is part of the **Readersou
 <h1>Description</h1>
 
 **RS_Rate** is an extension designed to function as a client for the Readersourcing 2.0 ecosystem without 
-requiring access to its website. Compatible with both [Google Chrome](https://www.google.com/chrome/)
-and [Microsoft Edge](https://www.microsoft.com/en-us/edge/) the extension allows users to rate 
+requiring access to its website. Compatible with [Google Chrome](https://www.google.com/chrome/),
+[Microsoft Edge](https://www.microsoft.com/en-us/edge/), and [Mozilla Firefox](https://www.mozilla.org/firefox/), the extension allows users to rate
 publications directly from their browsers. This eliminates the need to navigate to the main website, 
 streamlining the process of providing ratings for publications.
 
 The primary objective of **RS_Rate** is to provide readers with a way to seamlessly rate a publication with minimal 
 effort—just a few clicks or keystrokes within the Readersourcing 2.0 ecosystem, contributing to a more dynamic 
-online reading experience. **RS_Rate** serves as the initial client of our project, extending beyond the web-based 
+online reading experience. **RS_Rate** serves as the initial client of our project, extending beyond the web
 interface available on the main portal.
 
 Looking ahead, our vision includes expanding the compatibility of **RS_Rate** to
-other major browsers, such as Safari and other popular browsers. Our commitment is to make this rating
+other major browsers, such as Safari. Our commitment is to make this rating
 tool accessible across a broad range of browsers, ensuring users can seamlessly interact with content and provide 
 feedback, regardless of their preferred browser.
 
 <h1>Installation</h1>
 
-**RS_Rate** is freely available on the Google Chrome Web Store. To use it, simply take advantage of the following 
-link and install the currently available version by clicking on the `Get` button shown on the store page. 
-The repository also produces a Firefox package ready for validation and submission to Mozilla Add-ons.
+The original 2019 release of **RS_Rate** remains available on the Google Chrome Web Store through the link below.
+The current source produces complete builds for Chromium browsers and Firefox, which can be installed locally for
+development. The Firefox build can also be packaged for validation and submission to Mozilla Add-ons.
 
-- _Google Chrome_ version: <a href="https://chrome.google.com/webstore/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg?hl=it">available here</a>
+- _Google Chrome_ version: <a href="https://chromewebstore.google.com/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg">available here</a>
 
 <h1>Usage</h1>
 
@@ -79,32 +79,32 @@ the reader from rating the same publication multiple times.
 
 If the reader prefers to provide their rating at a later time instead of immediately rating the publication, 
 they can click the `Save for later` button. This option allows them to take advantage of the editing 
-procedure for publications, which stores a reference (an URL link) inside the PDF file they are viewing.
+procedure for publications, which stores a reference (a URL link) inside the PDF file they are viewing.
 As soon as such the editing procedure is completed (usually just a few seconds), the `Save for later`
 button transforms into a `Download` button.
 
 <img src="images/rating-2.png" alt="The rating page of RS_Rate after a save for later request." width="300"/>
 
-The reader can finally download the link-annotated publication by clicking on it. Furthermore, 
+The reader can finally download the annotated publication by clicking on it. Furthermore,
 they can also use the refresh button (located to the right of the `Download` button) to, as it says, 
-refresh the link-annotated publication. This means that a new copy of the publication file will be downloaded, 
+refresh the annotated publication. This means that a new copy of the publication file will be downloaded,
 annotated, and made available to the reader. This feature is useful since a publication could be updated at a 
 later time by its author.
 
-As soon as the link-annotated publication is downloaded, the reader will find a PDF containing a new final 
-page with the URL. Below, an example of such a link-annotated publication can be seen; 
+As soon as the annotated publication is downloaded, the reader will find a PDF containing a new final
+page with the rating link and QR Code. Below, an example of such an annotated publication can be seen;
 in that case, the reader has chosen to open it with their favorite PDF reader.
 
-<img src="images/reference.png" alt="A publication link-annotated through RS_Rate."/>
+<img src="images/reference.png" alt="A publication annotated through RS_Rate."/>
 
-Once the reader clicks on the reference, which is a special link to RS_Server, they will be taken to the server-side 
+Once the reader clicks on the reference, which is a special link to RS_Server, they will be taken to the RS_Server
 application itself. The interface presented allows them to express their rating independently of the browser extension 
-used to store the reference. Therefore, if they send their link-annotated publication to a tablet-like device, for example, 
-they can take advantage of the built-in browser to express their rating. Below, the interface that 
+used to store the reference. Therefore, if they send their annotated publication to a tablet or a similar device, for example,
+they can take advantage of its browser to express their rating. Below, the interface that
 the reader sees after clicking on the stored reference is shown. The reader is required to authenticate themselves again as a form 
-of security. Without this step, the stored reference could be used by anyone who gets a copy of the link-annotated publication.
+of security. Without this step, the stored reference could be used by anyone who gets a copy of the annotated publication.
 
-<img src="images/browser.png" alt="The server-side interface to rate a publication." width="300"/>
+<img src="images/browser.png" alt="The RS_Server interface to rate a publication." width="300"/>
 
 Every time a reader rates a publication, every score is updated according to both `RSM` and `TRM` models, and each reader 
 can see the result through RS_Rate. In the bottom section of the rating page, the score of the current publication can 
@@ -116,8 +116,11 @@ From there, they can also edit their password since that interface acts as a pro
 
 <h1>Development</h1>
 
-The development stack uses Node.js 24 LTS and Yarn 4. Dependencies continue to be declared in `package.json` and
+The development stack uses Node.js 24 LTS and Yarn 4. Dependencies are declared in `package.json` and
 resolved reproducibly through the committed `yarn.lock`.
+
+The Chromium and Firefox metadata are declared in `manifest.json` and `manifest-ff.json`, respectively. The build
+copies the appropriate declaration into each package as `manifest.json`.
 
 ```console
 corepack enable
@@ -139,8 +142,8 @@ yarn package:firefox
 
 The generated ZIP is written to `artifacts/`. The Firefox target requires Firefox 142 or later and declares the data
 categories needed by RS_Rate: account authentication and identity, the current publication URL, rating and save
-interactions, and publication/PDF content sent to the configured RS_Server. This is the same application traffic
-required by the existing domain workflow; it does not introduce a separate analytics channel.
+interactions, and publication/PDF content sent to the configured RS_Server. These categories describe the application
+traffic required by the domain workflow. RS_Rate has no separate analytics channel.
 
 The development build uses `http://localhost:3000/` as the initial RS_Server host. The value can be changed from the
 extension options and is preserved when the extension is updated. Both regular API calls and PDF extraction use this
