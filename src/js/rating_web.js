@@ -418,7 +418,7 @@ modalRefreshButton.on("click", () => {
                 });
             };
             // 2.1 Refresh the publication
-            let secondPromise = emptyAjax("GET", `publications/${data["id"]}/refresh.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
+            let secondPromise = emptyAjax("POST", `publications/${data["id"]}/refresh.json`, "application/json; charset=utf-8", "json", true, secondSuccessCallback, secondErrorCallback);
         };
         // 1.3 Publication was never rated, so it does not exists on the database
         let errorCallback = function (jqXHR, status) {
