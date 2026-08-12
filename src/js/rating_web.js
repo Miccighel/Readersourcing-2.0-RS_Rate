@@ -55,6 +55,15 @@ let alert = $(".alert");
 let annotatedPublicationDropzone = $("#annotated-publication-dropzone");
 let annotatedPublicationDropzoneSuccess = $("#dropzone-success");
 let annotatedPublicationDropzoneError = $("#dropzone-error");
+let sourcePublicationDropzone = $("#source-publication-dropzone");
+let sourceUploadSection = $("#source-upload-section");
+let sourceUploadSuccess = $("#source-upload-success");
+let sourceUploadError = $("#source-upload-error");
+let showSourceUploadButton = $("#show-source-upload-btn");
+let preparationStatus = $("#publication-preparation-status");
+let preparationTitle = $("#publication-preparation-title");
+let preparationMessage = $("#publication-preparation-message");
+let currentPublicationUrl = null;
 
 let ratingCaptionFirst = $("#rating-caption-first");
 let ratingCaptionSecond = $("#rating-caption-second");
@@ -109,11 +118,85 @@ extractCaptionSecond.hide();
 annotatedPublicationDropzoneSuccess.hide();
 annotatedPublicationDropzoneError.hide();
 goToRatingButton.hide();
+sourceUploadSection.hide();
+sourceUploadSuccess.hide();
+sourceUploadError.hide();
 
 errorButtons.hide();
 errorsSection.hide();
 
 Dropzone.autoDiscover = false;
+
+const preparationStates = {
+    checking: ["Checking the current page", "Readersourcing is identifying the publication.", "info"],
+    ready: ["Ready to prepare", "The PDF will be downloaded, opened, annotated, and verified when you continue.", "info"],
+    preparing: ["Preparing the PDF", "The server is validating the source, adding the rating page, and verifying the result.", "info"],
+    complete: ["PDF ready", "The prepared publication passed the final verification and is ready to open.", "success"],
+    authentication_required: ["Browser access required", "The publication server requires your browser session. Upload the original PDF to continue.", "warning"],
+    download_failed: ["Publication unavailable", "The server could not retrieve the publication. Try again or upload the original PDF.", "warning"],
+    upload_missing: ["PDF not selected", "Choose the original PDF before continuing.", "warning"],
+    too_large: ["PDF too large", "The publication exceeds the configured size limit.", "danger"],
+    not_pdf: ["PDF not found", "The received file is not a PDF. Upload the original PDF if it is open in your browser.", "warning"],
+    malformed_pdf: ["Invalid PDF", "The file contains a malformed PDF and cannot be prepared.", "danger"],
+    encrypted_pdf: ["Encrypted PDF", "The PDF is encrypted and cannot be prepared.", "danger"],
+    unsupported_pdf: ["Unsupported PDF", "This PDF uses a feature that the server cannot process safely.", "danger"],
+    already_annotated: ["PDF already prepared", "This publication already contains a Readersourcing rating URL.", "warning"],
+    annotation_failed: ["Rating page not added", "The PDF is valid, but the rating page could not be added. Please try again.", "danger"],
+    verification_failed: ["Verification failed", "The prepared PDF was not published because it did not pass the final verification.", "danger"],
+    invalid_url: ["Unsupported page address", "Open the publication from a complete HTTP or HTTPS address, then try again.", "danger"],
+    unsafe_url: ["Publication URL refused", "The URL points to a private or reserved network and cannot be retrieved.", "danger"],
+    failed: ["Preparation failed", "The publication could not be prepared. Please try again.", "danger"]
+};
+
+const uploadStates = ["authentication_required", "download_failed", "not_pdf"];
+
+function showPreparationStatus(state, message) {
+    let details = preparationStates[state] || preparationStates.failed;
+    preparationStatus.removeClass("alert-info alert-success alert-warning alert-danger");
+    preparationStatus.addClass(`alert-${details[2]}`);
+    preparationStatus.attr("data-state", state);
+    preparationTitle.text(details[0]);
+    preparationMessage.text(message || details[1]);
+    preparationStatus.show();
+    if (uploadStates.includes(state)) sourceUploadSection.show();
+}
+
+function preparationResponse(jqXHR) {
+    if (jqXHR.responseJSON) return jqXHR.responseJSON;
+    try {
+        return JSON.parse(jqXHR.responseText || "{}");
+    } catch (error) {
+        return {};
+    }
+}
+
+function showPreparationError(jqXHR) {
+    let response = preparationResponse(jqXHR);
+    showPreparationStatus(response["status"] || "failed", response["message"]);
+    downloadButton.find('span').text("Try again");
+    downloadButton.prop("disabled", false);
+    downloadButton.show();
+}
+
+function showPreparedPublication(data, openPublication) {
+    saveForLaterCaptionFirst.hide();
+    saveForLaterCaptionSecond.show();
+    downloadButton.find(reloadIcons).hide();
+    downloadButton.hide();
+    openButton.show();
+    openButton.attr("href", data["pdf_download_url_link"]);
+    openButton.off("click.preparation").on("click.preparation", () => window.open(data["pdf_download_url_link"], '_blank'));
+    openButton.prop("disabled", false);
+    refreshButton.show();
+    refreshButton.prop("disabled", false);
+    sourceUploadSuccess.text("The PDF was prepared and verified successfully.").show();
+    sourceUploadError.hide();
+    showPreparationStatus("complete");
+    if (openPublication) {
+        let pdfWindow = window.open(data["pdf_download_url_link"], '_blank');
+        if (pdfWindow) pdfWindow.focus(); else modalAllow.modal('show');
+    }
+}
 
 reloadIcons.hide();
 
@@ -148,6 +231,7 @@ if (authToken != null) {
 if (authToken != null) {
     chrome.tabs.query({currentWindow: true, active: true}, tabs => {
         loadingSection.show();
+        showPreparationStatus("checking");
         // RATING SECTION
         ratingSection.hide();
         ratingControls.hide();
@@ -161,6 +245,7 @@ if (authToken != null) {
         openButton.hide();
         refreshButton.hide();
         let currentUrl = tabs[0].url;
+        currentPublicationUrl = currentUrl;
         let data = {
             publication: {
                 pdf_url: currentUrl
@@ -194,6 +279,7 @@ if (authToken != null) {
                     // SAVE FOR LATER SECTION
                     saveForLaterSection.show();
                     downloadButton.show();
+                    showPreparationStatus("ready");
                     removePreloader();
                 };
                 // 2.3 Publication has not been rated by the user
@@ -230,6 +316,7 @@ if (authToken != null) {
                         openButton.prop("disabled", false);
                         refreshButton.show();
                         refreshButton.prop("disabled", false);
+                        showPreparationStatus("complete");
                         removePreloader();
                     };
                     // 3.2 The rated publication was not annotated
@@ -243,6 +330,7 @@ if (authToken != null) {
                         refreshButton.hide();
                         downloadButton.prop("disabled", false);
                         downloadButton.show();
+                        showPreparationStatus("ready");
                         removePreloader();
                     };
                     // 3.1 Does the rated publication has been already annotated?
@@ -279,30 +367,14 @@ if (authToken != null) {
                 openButton.prop("disabled", false);
                 refreshButton.hide();
                 refreshButton.prop("disabled", false);
+                showPreparationStatus("ready");
                 removePreloader();
             };
             // 1.1 Does the publication exists on the database?
             let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         };
-        let errorCallback = (jqXHR, status) => {
-            ratingSection.hide();
-            ratingControls.hide();
-            ratingButtons.hide();
-            saveForLaterSection.hide();
-            saveForLaterCaptionFirst.show();
-            saveForLaterCaptionSecond.hide();
-            downloadButton.show();
-            undetectedPublicationSection.show();
-            let errorPromise = buildErrors(jqXHR.responseText).then(result => {
-                undetectedPublicationDetails.parent().find(errorsSection).find(alert).empty();
-                undetectedPublicationDetails.parent().find(errorsSection).find(alert).append(result);
-                undetectedPublicationDetails.parent().find(errorsSection).show();
-                undetectedPublicationSection.show();
-                loadingSection.hide()
-            });
-            removePreloader();
-        };
-        let promise = ajax("POST", "publications/is_fetchable.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
+        showPreparationStatus("ready");
+        successCallback({}, "success", null);
     });
 }
 
@@ -334,31 +406,20 @@ if (authToken != null) {
                     pdf_url: tabs[0].url
                 }
             };
-            downloadButton.find('span').text("Downloading...");
-            downloadButton.find(reloadIcons).toggle();
+            downloadButton.find('span').text("Preparing...");
+            downloadButton.find(reloadIcons).show();
+            downloadButton.prop("disabled", true);
+            showPreparationStatus("preparing");
             // 1.2 Publication fetched, hide save for later button and show the download one
             let successCallback = (data, status, jqXHR) => {
-                saveForLaterCaptionFirst.hide();
-                saveForLaterCaptionSecond.show();
-                downloadButton.find(reloadIcons).toggle();
-                downloadButton.hide();
-                openButton.show();
-                openButton.attr("href", data["pdf_download_url_link"]);
-                openButton.on("click", () => window.open(data["pdf_download_url_link"], '_blank'));
-                refreshButton.show();
-                refreshButton.prop("disabled", false);
-                let pdfWindow = window.open(data["pdf_download_url_link"], '_blank');
-                if (pdfWindow) pdfWindow.focus(); else modalAllow.modal('show');
+                showPreparedPublication(data, true);
             };
-            // 1.3 Error during publication fetching, hide save for later and download buttons
+            // 1.3 Preserve the preparation state and offer a safe retry.
             let errorCallback = (jqXHR, status) => {
                 saveForLaterCaptionFirst.show();
                 saveForLaterCaptionSecond.hide();
-                downloadButton.find(reloadIcons).toggle();
-                downloadButton.hide();
-                let errorButton = downloadButton.parent().find(errorButtons);
-                errorButton.show();
-                errorButton.prop("disabled", true);
+                downloadButton.find(reloadIcons).hide();
+                showPreparationError(jqXHR);
                 let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                     downloadButton.parent().find(errorsSection).find(alert).empty();
                     downloadButton.parent().find(errorsSection).find(alert).append(result);
@@ -384,8 +445,9 @@ modalRefreshButton.on("click", () => {
         modalRefresh.modal("hide");
         openButton.hide();
         refreshButton.hide();
-        loadSaveButton.find('span').text("Downloading...");
+        loadSaveButton.find('span').text("Preparing...");
         loadSaveButton.show();
+        showPreparationStatus("preparing");
         let currentUrl = tabs[0].url;
         let data = {
             publication: {
@@ -397,20 +459,12 @@ modalRefreshButton.on("click", () => {
             // 2.2 Publication refreshed, so it it safe to show the download button
             let secondSuccessCallback = (data, status, jqXHR) => {
                 loadSaveButton.hide();
-                openButton.show();
-                openButton.attr("href", data["pdf_download_url_link"]);
-                openButton.on("click", () => window.open(data["pdf_download_url_link"], '_blank'));
-                openButton.prop("disabled", false);
-                refreshButton.show();
-                let pdfWindow = window.open(data["pdf_download_url_link"], '_blank');
-                if (pdfWindow) pdfWindow.focus(); else modalAllow.modal('show');
+                showPreparedPublication(data, true);
             };
             // 2.3 Error during publication refresh, it is not safe to show the download button
             let secondErrorCallback = (jqXHR, status) => {
                 loadSaveButton.hide();
-                let errorButton = openButton.parent().find(errorButtons);
-                errorButton.show();
-                errorButton.prop("disabled", true);
+                showPreparationError(jqXHR);
                 let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                     loadSaveButton.parent().find(errorsSection).find(alert).empty();
                     loadSaveButton.parent().find(errorsSection).find(alert).append(result);
@@ -423,9 +477,7 @@ modalRefreshButton.on("click", () => {
         // 1.3 Publication was never rated, so it does not exists on the database
         let errorCallback = function (jqXHR, status) {
             loadSaveButton.hide();
-            let errorButton = openButton.parent().find(errorButtons);
-            errorButton.show();
-            errorButton.prop("disabled", true);
+            showPreparationError(jqXHR);
             let errorPromise = buildErrors(jqXHR.responseText).then(result => {
                 loadSaveButton.parent().find(errorsSection).find(alert).empty();
                 loadSaveButton.parent().find(errorsSection).find(alert).append(result);
@@ -435,6 +487,12 @@ modalRefreshButton.on("click", () => {
         // 1.1 Does the publication exists on the database?
         let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
     });
+});
+
+showSourceUploadButton.on("click", () => {
+    sourceUploadSection.toggle();
+    sourceUploadSuccess.hide();
+    sourceUploadError.hide();
 });
 
 //######### EXTRACT HANDLING #########//
@@ -474,6 +532,35 @@ chrome.storage.sync.get(['host'], result => {
         annotatedPublicationDropzone.on('error', (file, response, xhr) => {
             if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
             annotatedPublicationDropzoneError.show();
+        });
+    }
+
+    Dropzone.options.sourcePublicationDropzone = {
+        url: buildUrl(host, "publications/fetch_upload.json"),
+        paramName: "file",
+        acceptedFiles: "application/pdf",
+        maxFiles: 1,
+        headers: {
+            "Authorization": authToken
+        }
+    };
+    sourcePublicationDropzone = new Dropzone("#source-publication-dropzone");
+    if (authToken != null) {
+        sourcePublicationDropzone.on("sending", (file, xhr, formData) => {
+            xhr.setRequestHeader("Authorization", authToken);
+            formData.append("publication[pdf_url]", currentPublicationUrl);
+            showPreparationStatus("preparing");
+            sourceUploadSuccess.hide();
+            sourceUploadError.hide();
+        });
+        sourcePublicationDropzone.on("success", (file, data) => {
+            showPreparedPublication(data, true);
+        });
+        sourcePublicationDropzone.on("error", (file, response, xhr) => {
+            let details = typeof response === "object" ? response : preparationResponse(xhr || {});
+            showPreparationStatus(details["status"] || "failed", details["message"] || response);
+            sourceUploadSuccess.hide();
+            sourceUploadError.text(details["message"] || response).show();
         });
     }
 });

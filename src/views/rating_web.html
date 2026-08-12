@@ -157,8 +157,14 @@
 		<div class="col-12">
 			<div class="heading text-center mb-2">
 				<h4>Save For Later</h4>
-				<p id="save-for-later-caption-first" class="lead mb-0 text-justify">Link-annotate a publication with a rating URL and store it on your devices.</p>
-				<p id="save-for-later-caption-second" class="lead mb-0 text-justify">Click below to open your link-annotated publication or to refresh it.</p>
+				<p id="save-for-later-caption-first" class="lead mb-0 text-justify">Prepare a publication with a rating URL and store it on your devices.</p>
+				<p id="save-for-later-caption-second" class="lead mb-0 text-justify">Click below to open your prepared publication or to refresh it.</p>
+			</div>
+		</div>
+		<div class="col-12">
+			<div id="publication-preparation-status" class="alert alert-info text-left" role="status" aria-live="polite">
+				<strong id="publication-preparation-title">Checking the current page</strong>
+				<span id="publication-preparation-message" class="d-block">Readersourcing is identifying the publication.</span>
 			</div>
 		</div>
 		<div class="col-12 text-center">
@@ -183,13 +189,27 @@
 				<i class="fa fa-exclamation-triangle danger-icon"></i>
 				Error
 			</button>
+			<button type="button" id="show-source-upload-btn" class="btn btn-outline-light m-0">
+				<i class="fas fa-upload"></i>
+				Use a local PDF
+			</button>
+		</div>
+		<div id="source-upload-section" class="col-12 mt-3">
+			<p class="mb-2 text-center">If the publication server cannot be reached, upload the original PDF here.</p>
+			<form action="#" id="source-publication-dropzone" class="dropzone border-primary">
+				<div class="dz-default dz-message text-center pt-1">
+					<br/><i class="fas fa-upload fa-2x"></i><br/>Original PDF file
+				</div>
+			</form>
+			<div role="alert" id="source-upload-success" class="alert alert-success mt-2"></div>
+			<div role="alert" id="source-upload-error" class="alert alert-danger color-red-dark mt-2 mb-0"></div>
 		</div>
 	</div>
 	<div class="row m-auto w-100">
 		<div class="col-12">
 			<div class="heading text-center mb-1">
 				<h4>Automatic extraction</h4>
-				<p id="extract-caption-first" class="lead mb-0 text-justify">Upload here your link-annotated publication to extract the rating URL.</p>
+				<p id="extract-caption-first" class="lead mb-0 text-justify">Upload a prepared publication here to extract its rating URL.</p>
 				<p id="extract-caption-second" class="lead mb-0 text-justify">Click below to go to the rating page.</p>
 			</div>
 		</div>

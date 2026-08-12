@@ -77,15 +77,19 @@ has to be logged in to express an anonymous rating to prevent spamming, which in
 phenomenon. When such a rating is processed, the information regarding its reader will not be used, except for preventing 
 the reader from rating the same publication multiple times.
 
-If the reader prefers to provide their rating at a later time instead of immediately rating the publication, 
-they can click the `Save for later` button. This option allows them to take advantage of the editing 
-procedure for publications, which stores a reference (a URL link) inside the PDF file they are viewing.
-As soon as such the editing procedure is completed (usually just a few seconds), the `Save for later`
-button transforms into a `Download` button.
+If the reader prefers to provide their rating at a later time instead of immediately rating the publication,
+they can use the `Download` button in the `Save For Later` section. The extension first reports that the publication is
+ready to prepare. After the reader continues, RS_Server retrieves the source once, opens it as a PDF, adds the rating page,
+and verifies the result before making it available. The status area communicates each phase and distinguishes problems
+such as a source that requires browser access, a size limit, an invalid PDF, or a failed final verification.
+
+Some publishers make a PDF available only through the reader's browser session. In that case, the reader can select
+`Use a local PDF` and upload the original file already available on the device. RS_Server subjects the uploaded source to
+the same size limit, PDF validation, annotation, and final verification used for a directly retrieved publication.
 
 <img src="images/rating-2.png" alt="The rating page of RS_Rate after a save for later request." width="300"/>
 
-The reader can finally download the annotated publication by clicking on it. Furthermore,
+The reader can finally open the prepared publication by clicking on it. Furthermore,
 they can also use the refresh button (located to the right of the `Download` button) to, as it says, 
 refresh the annotated publication. This means that a new copy of the publication file will be downloaded,
 annotated, and made available to the reader. This feature is useful since a publication could be updated at a 

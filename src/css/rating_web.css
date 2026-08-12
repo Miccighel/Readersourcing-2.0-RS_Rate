@@ -66,8 +66,12 @@ a#profile-btn {
 
 /* ////////// AUTOMATED EXTRACTION SECTION ////////// */
 
-#annotated-publication-dropzone {
+#annotated-publication-dropzone, #source-publication-dropzone {
     background-color: #EFEFEF;
+}
+
+#source-upload-section {
+    display: none;
 }
 
 .dropzone {
