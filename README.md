@@ -14,6 +14,8 @@
 
 This is the official repository of **RS_Rate**, which is part of the **Readersourcing 2.0** ecosystem. This repository is a [Git Submodule](https://git-scm.com/book/it/v2/Git-Tools-Submodules) of the main project, which can be found by taking advantage of the links below.
 
+The current development line is version **2.0.0**.
+
 <h1>Useful Links</h1>
 
 - <a href="https://readersourcing.com">Readersourcing 2.0 (Web Interface)</a>
