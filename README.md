@@ -138,13 +138,20 @@ contract tests. To try the Chromium build, open the Chrome or Edge extensions ma
 choose `Load unpacked`, and select `dist/chromium/`. In Firefox, open `about:debugging#/runtime/this-firefox`, choose
 `Load Temporary Add-on`, and select `dist/firefox/manifest.json`.
 
-To create the archive intended for Mozilla Add-ons:
+To create both browser archives:
 
 ```console
+yarn package
+```
+
+The command writes `rs_rate-chromium.zip` and `rs_rate-firefox.zip` to `artifacts/`. To create only one archive, use:
+
+```console
+yarn package:chromium
 yarn package:firefox
 ```
 
-The generated ZIP is written to `artifacts/`. The Firefox target requires Firefox 142 or later and declares the data
+The Firefox target requires Firefox 142 or later and declares the data
 categories needed by RS_Rate: account authentication and identity, the current publication URL, rating and save
 interactions, and publication/PDF content sent to the configured RS_Server. These categories describe the application
 traffic required by the domain workflow. RS_Rate has no separate analytics channel.

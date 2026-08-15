@@ -14,7 +14,9 @@
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
     "lint:firefox": "web-ext lint --source-dir dist/firefox",
-    "package:firefox": "yarn build && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --overwrite-dest",
+    "package": "yarn build && web-ext build --source-dir dist/chromium --artifacts-dir artifacts --filename rs_rate-chromium.zip --overwrite-dest && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox.zip --overwrite-dest",
+    "package:chromium": "yarn build && web-ext build --source-dir dist/chromium --artifacts-dir artifacts --filename rs_rate-chromium.zip --overwrite-dest",
+    "package:firefox": "yarn build && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox.zip --overwrite-dest",
     "test": "node --test",
     "verify": "yarn build && yarn check && yarn lint:firefox && yarn test"
   },
