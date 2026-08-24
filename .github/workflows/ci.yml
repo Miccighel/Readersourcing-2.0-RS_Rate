@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - codex/development
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+      - name: Install dependencies
+        run: node .yarn/releases/yarn-4.17.1.cjs install --immutable
+      - name: Build and test
+        run: node .yarn/releases/yarn-4.17.1.cjs verify
