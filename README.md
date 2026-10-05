@@ -71,7 +71,7 @@ Once they complete the standard registration and login operations, they will fin
 
 <img src="images/signup.png" alt="The user registration page of RS_Rate" width="300"/>
 
-In the central section of the rating page, a reader can use the slider to choose a rating value in a 0-100 interval. 
+In the central section of the rating page, a reader can use the slider to choose an integer rating from 0 to 100, including both endpoints.
 Once they select the desired rating, they only need to click the green `Rate` button, and that's it; with just 
 three clicks and a slide action, they can submit their rating. Furthermore, they can also click the options button and, 
 if preferred, check an option to anonymize the rating they are about to provide. It's important to note that the reader 
