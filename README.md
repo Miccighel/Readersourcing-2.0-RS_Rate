@@ -84,6 +84,8 @@ they can use the `Download` button in the `Save For Later` section. The extensio
 ready to prepare. After the reader continues, RS_Server retrieves the source once, opens it as a PDF, adds the rating page,
 and verifies the result before making it available. The status area communicates each phase and distinguishes problems
 such as a source that requires browser access, a size limit, an invalid PDF, or a failed final verification.
+When the server reports `processing_timeout`, the operation has exceeded its time budget and has been stopped.
+The extension offers a retry or an original PDF upload; any previously prepared copy remains available.
 
 Some publishers make a PDF available only through the reader's browser session. In that case, the reader can select
 `Use a local PDF` and upload the original file already available on the device. RS_Server subjects the uploaded source to

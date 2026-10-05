@@ -135,6 +135,7 @@ const preparationStates = {
     complete: ["PDF ready", "The prepared publication passed the final verification and is ready to open.", "success"],
     authentication_required: ["Browser access required", "The publication server requires your browser session. Upload the original PDF to continue.", "warning"],
     download_failed: ["Publication unavailable", "The server could not retrieve the publication. Try again or upload the original PDF.", "warning"],
+    processing_timeout: ["PDF operation timed out", "The operation exceeded its time limit and was stopped. Try again or upload the original PDF. Any previous prepared copy remains available.", "warning"],
     upload_missing: ["PDF not selected", "Choose the original PDF before continuing.", "warning"],
     too_large: ["PDF too large", "The publication exceeds the configured size limit.", "danger"],
     not_pdf: ["PDF not found", "The received file is not a PDF. Upload the original PDF if it is open in your browser.", "warning"],
@@ -149,7 +150,7 @@ const preparationStates = {
     failed: ["Preparation failed", "The publication could not be prepared. Please try again.", "danger"]
 };
 
-const uploadStates = ["authentication_required", "download_failed", "not_pdf"];
+const uploadStates = ["authentication_required", "download_failed", "not_pdf", "processing_timeout"];
 
 function showPreparationStatus(state, message) {
     let details = preparationStates[state] || preparationStates.failed;

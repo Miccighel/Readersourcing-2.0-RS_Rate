@@ -25,3 +25,9 @@ test("validates an extracted rating URL before assigning or opening it", () => {
     assert.doesNotMatch(script, /window\.open\(data\["baseUrl"\]/);
     assert.match(script, /window\.open\(ratingUrl/);
 });
+
+test("explains a stopped PDF operation and offers the original upload", () => {
+    assert.match(script, /processing_timeout: \["PDF operation timed out"/);
+    assert.match(script, /Any previous prepared copy remains available/);
+    assert.match(script, /const uploadStates = \[[^;]+"processing_timeout"/);
+});
