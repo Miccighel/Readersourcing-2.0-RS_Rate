@@ -110,6 +110,11 @@ they can take advantage of its browser to express their rating. Below, the inter
 the reader sees after clicking on the stored reference is shown. The reader is required to authenticate themselves again as a form 
 of security. Without this step, the stored reference could be used by anyone who gets a copy of the annotated publication.
 
+The reader can also upload an annotated publication through the web interface to recover its rating link. RS_Server opens
+the uploaded content as a PDF within the configured size limit and verifies that the reference belongs to the publication
+and the authenticated reader. The interface opens the returned link only if it uses the selected server's origin and rating
+route. If validation fails, it displays the error and leaves the link unopened.
+
 <img src="images/browser.png" alt="The RS_Server interface to rate a publication." width="300"/>
 
 Every time a reader rates a publication, every score is updated according to both `RSM` and `TRM` models, and each reader 

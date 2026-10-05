@@ -9,6 +9,7 @@ import {removePreloader} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {fetchToken} from "./shared.js";
 import {buildUrl} from "./shared.js";
+import {paperRatingUrl} from "./shared.js";
 
 let body = $("body");
 
@@ -516,13 +517,23 @@ chrome.storage.sync.get(['host'], result => {
     if (authToken != null) {
         annotatedPublicationDropzone.on("sending", (file, xhr, formData) => xhr.setRequestHeader("Authorization", authToken));
         annotatedPublicationDropzone.on("success", (file, data) => {
+            let ratingUrl;
+            try {
+                ratingUrl = paperRatingUrl(host, data["baseUrl"]);
+            } catch (error) {
+                goToRatingButton.hide();
+                annotatedPublicationDropzoneSuccess.hide();
+                annotatedPublicationDropzoneError.text(error.message).show();
+                return;
+            }
+            annotatedPublicationDropzoneError.hide();
             extractCaptionFirst.hide();
             extractCaptionSecond.show();
             annotatedPublicationDropzoneSuccess.show();
             annotatedPublicationDropzoneSuccess.text(data["message"]);
             goToRatingButton.show();
-            goToRatingButton.prop("href", data["baseUrl"]);
-            let ratingPageWindow = window.open(data["baseUrl"], '_blank');
+            goToRatingButton.prop("href", ratingUrl);
+            let ratingPageWindow = window.open(ratingUrl, '_blank');
             if (ratingPageWindow) {
                 ratingPageWindow.focus();
             } else {
@@ -530,6 +541,8 @@ chrome.storage.sync.get(['host'], result => {
             }
         });
         annotatedPublicationDropzone.on('error', (file, response, xhr) => {
+            goToRatingButton.hide();
+            annotatedPublicationDropzoneSuccess.hide();
             if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
             annotatedPublicationDropzoneError.show();
         });

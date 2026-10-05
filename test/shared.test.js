@@ -16,6 +16,7 @@ const {
     emptyAjax,
     fetchToken,
     normalizeHost,
+    paperRatingUrl,
     storeToken,
 } = await import("../src/js/shared.js");
 
@@ -45,6 +46,29 @@ test("preserves the authentication token contract", () => {
     assert.equal(fetchToken(), "reader-token");
     deleteToken();
     assert.equal(fetchToken(), undefined);
+});
+
+test("opens only rating URLs at the configured RS_Server origin", () => {
+    assert.equal(
+        paperRatingUrl("https://example.test/", "https://EXAMPLE.test:443/rate/42/reference%2Fvalue"),
+        "https://example.test/rate/42/reference%2Fvalue"
+    );
+    for (const url of [
+        "https://untrusted.test/?next=https://example.test/rate/42/reference",
+        "https://example.test.untrusted.test/rate/42/reference",
+        "http://example.test/rate/42/reference",
+        "https://example.test:444/rate/42/reference",
+        "https://reader@example.test/rate/42/reference",
+        "https://example.test/rate/42/reference?next=other",
+        "https://example.test/rate/42/reference#other",
+        "https://example.test/publications/42/reference",
+        "https://example.test/rate/42/reference/extra",
+        "https://example.test/rate/0/reference",
+        "javascript:alert(1)",
+        undefined,
+    ]) {
+        assert.throws(() => paperRatingUrl("https://example.test/", url), TypeError);
+    }
 });
 
 test("ajax preserves the RS_Server JSON request contract", async () => {

@@ -19,3 +19,9 @@ test("offers the original PDF upload through the same status interface", () => {
     assert.match(view, /id="publication-preparation-status"/);
     assert.match(view, /id="source-publication-dropzone"/);
 });
+
+test("validates an extracted rating URL before assigning or opening it", () => {
+    assert.match(script, /paperRatingUrl\(host, data\["baseUrl"\]\)/);
+    assert.doesNotMatch(script, /window\.open\(data\["baseUrl"\]/);
+    assert.match(script, /window\.open\(ratingUrl/);
+});

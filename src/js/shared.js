@@ -40,6 +40,16 @@ export function buildUrl(host, path) {
     return new URL(normalizedPath, normalizeHost(host)).toString();
 }
 
+export function paperRatingUrl(host, value) {
+    const server = new URL(normalizeHost(host));
+    const url = new URL(value);
+    if (url.origin !== server.origin || url.username || url.password || url.search || url.hash ||
+        !/^\/rate\/[1-9]\d*\/[^/]+$/.test(url.pathname)) {
+        throw new TypeError("The PDF does not contain a rating URL for this RS_Server instance.");
+    }
+    return url.toString();
+}
+
 async function fetchHost() {
     return new Promise((resolve, reject) => {
         chrome.storage.sync.get(["host"], result => {
