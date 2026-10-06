@@ -133,3 +133,14 @@ test("buildErrors retains the existing server error representation", async () =>
     );
     assert.match(await buildErrors("not-json"), /server error/);
 });
+
+test("buildErrors displays delivery errors without treating response status as a message", async () => {
+    const response = JSON.stringify({
+        status: "confirmation_delivery_failed",
+        errors: ["The confirmation email could not be sent. Please try signing in again later."],
+    });
+    assert.equal(
+        await buildErrors(response),
+        '<span class="color-red-dark">Errors:</span><ul><li class="color-red-dark">The confirmation email could not be sent. Please try signing in again later.</li></ul>'
+    );
+});

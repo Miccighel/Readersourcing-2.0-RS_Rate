@@ -103,6 +103,7 @@ String.prototype.capitalize = function () {
 export async function buildErrors(errors) {
     try {
         let parsedErrors = JSON.parse(errors);
+        if (Array.isArray(parsedErrors.errors)) parsedErrors = {errors: parsedErrors.errors};
         let element = "";
         Object.keys(parsedErrors).forEach((attribute, index) => {
             element = `<span class="color-red-dark">${element}${attribute.capitalize()}:</span><ul>`;

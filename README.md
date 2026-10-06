@@ -66,6 +66,9 @@ can request a recovery link. The link opens RS_Server, where the reader chooses 
 
 If a reader has yet to sign up for Readersourcing 2.0, they can navigate from the main page to the registration form.
 Once they complete the standard registration and login operations, they will find themselves on the rating page.
+If the account is created but the confirmation email cannot be sent, the login page explains that the account remains
+unconfirmed. The reader can sign in with the same credentials later to request another confirmation email; access remains
+unavailable until the email address is confirmed.
 
 <img src="images/rating.png" alt="The rating page of RS_Rate" width="300"/>
 
