@@ -181,6 +181,8 @@ function showPreparationError(jqXHR) {
 }
 
 function showPreparedPublication(data, openPublication) {
+    saveForLaterSection.find(errorsSection).hide();
+    saveForLaterSection.find(errorsSection).find(alert).empty();
     saveForLaterCaptionFirst.hide();
     saveForLaterCaptionSecond.show();
     downloadButton.find(reloadIcons).hide();
