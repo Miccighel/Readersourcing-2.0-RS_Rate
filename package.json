@@ -13,11 +13,14 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",
-    "lint:firefox": "web-ext lint --source-dir dist/firefox",
-    "package": "yarn build && web-ext build --source-dir dist/chromium --artifacts-dir artifacts --filename rs_rate-chromium.zip --overwrite-dest && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox.zip --overwrite-dest",
-    "package:chromium": "yarn build && web-ext build --source-dir dist/chromium --artifacts-dir artifacts --filename rs_rate-chromium.zip --overwrite-dest",
-    "package:firefox": "yarn build && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox.zip --overwrite-dest",
+    "lint:firefox": "web-ext lint --source-dir dist/firefox --ignore-files '!node_modules' '!node_modules/**'",
+    "package": "yarn build && web-ext build --source-dir dist/chromium --artifacts-dir artifacts --filename rs_rate-chromium.zip --overwrite-dest --ignore-files '!node_modules' '!node_modules/**' && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox.zip --overwrite-dest --ignore-files '!node_modules' '!node_modules/**' && yarn check:archives",
+    "package:chromium": "yarn build && web-ext build --source-dir dist/chromium --artifacts-dir artifacts --filename rs_rate-chromium.zip --overwrite-dest --ignore-files '!node_modules' '!node_modules/**' && yarn check:archives chromium",
+    "package:firefox": "yarn build && web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox.zip --overwrite-dest --ignore-files '!node_modules' '!node_modules/**' && yarn check:archives firefox",
+    "check:archives": "node scripts/check_archives.mjs",
     "test": "node --test",
+    "audit": "yarn npm audit --all --recursive --no-deprecations",
+    "audit:production": "yarn npm audit --all --recursive --environment production --no-deprecations",
     "verify": "yarn build && yarn check && yarn lint:firefox && yarn test"
   },
   "resolutions": {
@@ -43,7 +46,8 @@
     "waypoints": "^4.0.1"
   },
   "devDependencies": {
-    "web-ext": "^10.5.0"
+    "jszip": "^3.10.2",
+    "web-ext": "^10.7.0"
   },
   "packageManager": "yarn@4.17.1"
 }

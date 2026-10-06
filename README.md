@@ -146,7 +146,11 @@ yarn verify
 
 `yarn verify` creates complete Manifest V3 extension packages in `dist/chromium/` and `dist/firefox/`, checks that all
 executable assets are bundled locally, validates the Firefox package with Mozilla's `web-ext`, and runs the client
-contract tests. To try the Chromium build, open the Chrome or Edge extensions management page, enable developer mode,
+contract tests. Firefox validation also scans the bundled runtime libraries. The validator reports warnings in several
+of those libraries, including dynamic HTML assignments and legacy `Function` constructors in Dropzone. These warnings
+remain visible and require review before submission to Mozilla Add-ons.
+
+To try the Chromium build, open the Chrome or Edge extensions management page, enable developer mode,
 choose `Load unpacked`, and select `dist/chromium/`. In Firefox, open `about:debugging#/runtime/this-firefox`, choose
 `Load Temporary Add-on`, and select `dist/firefox/manifest.json`.
 
@@ -156,7 +160,9 @@ To create both browser archives:
 yarn package
 ```
 
-The command writes `rs_rate-chromium.zip` and `rs_rate-firefox.zip` to `artifacts/`. To create only one archive, use:
+The command writes `rs_rate-chromium.zip` and `rs_rate-firefox.zip` to `artifacts/`. It includes the local runtime libraries
+and verifies that every archived file matches the unpacked build, without including development dependencies. The CI
+workflow also creates and checks both archives. To create only one archive, use:
 
 ```console
 yarn package:chromium
@@ -173,5 +179,23 @@ extension options and is preserved when the extension is updated. Both regular A
 same configured host. When a host is saved, the browser asks for permission to contact that HTTP or HTTPS origin.
 Only the selected origin is granted; a configured application path remains part of the RS_Server address.
 
-RS_Rate uses Bootstrap 4 because its views and UI plugins depend on Bootstrap 4 markup and jQuery integration. An
-interface based on Bootstrap 5 would require coordinated changes to those views and plugins.
+To check the direct and transitive dependencies used by the extension:
+
+```console
+yarn audit:production
+```
+
+The CI workflow runs this check and fails when the registry reports a known vulnerability. To include the development
+tools, use `yarn audit`. Both commands check vulnerabilities without treating package deprecation notices as security
+advisories. To review those notices as well, run `yarn npm audit --all --recursive`.
+
+As of October 6, 2026, the development dependency `node-forge` has an unresolved
+[RSA signature verification advisory](https://github.com/advisories/GHSA-86w9-cpqp-85rv) with no patched release.
+It is included by `web-ext` through `@devicefarmer/adbkit`, which supports Firefox for Android. The documented build,
+validation, and packaging commands do not use Android connections, and the dependency is not copied into either
+extension package. The full `yarn audit` reports this advisory and returns a failure; it is not excluded from the audit.
+
+RS_Rate uses Bootstrap 4 because its views and UI plugins depend on Bootstrap 4 markup and jQuery integration.
+Bootstrap 4 is no longer supported. An interface based on Bootstrap 5 would require coordinated changes to those views
+and plugins. The development tools also include deprecated releases of ESLint and `whatwg-encoding` through Mozilla's
+validator and its HTML parser. These notices remain visible in the complete report.

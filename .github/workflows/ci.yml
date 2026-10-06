@@ -23,3 +23,7 @@ jobs:
         run: node .yarn/releases/yarn-4.17.1.cjs install --immutable
       - name: Build and test
         run: node .yarn/releases/yarn-4.17.1.cjs verify
+      - name: Package browser extensions
+        run: node .yarn/releases/yarn-4.17.1.cjs package
+      - name: Audit extension dependencies
+        run: node .yarn/releases/yarn-4.17.1.cjs audit:production
