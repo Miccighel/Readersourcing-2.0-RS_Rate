@@ -144,3 +144,27 @@ test("buildErrors displays delivery errors without treating response status as a
         '<span class="color-red-dark">Errors:</span><ul><li class="color-red-dark">The confirmation email could not be sent. Please try signing in again later.</li></ul>'
     );
 });
+
+test("buildErrors escapes server messages while preserving the error layout", async () => {
+    const message = '<img src=x onerror="alert(1)"> & \'quoted\'';
+    assert.equal(
+        await buildErrors(JSON.stringify({email: [message]})),
+        '<span class="color-red-dark">Email:</span><ul><li class="color-red-dark">&lt;img src=x onerror=&quot;alert(1)&quot;&gt; &amp; &#39;quoted&#39;</li></ul>'
+    );
+});
+
+test("buildErrors escapes attribute names supplied by the server", async () => {
+    const result = await buildErrors(JSON.stringify({'<svg onload="alert(1)">': ["invalid"]}));
+    assert.equal(
+        result,
+        '<span class="color-red-dark">&lt;svg onload=&quot;alert(1)&quot;&gt;:</span><ul><li class="color-red-dark">invalid</li></ul>'
+    );
+});
+
+test("buildErrors keeps encoded markup literal and supports scalar messages", async () => {
+    const result = await buildErrors(JSON.stringify({errors: ['&lt;script&gt;', 42, false, null]}));
+    assert.match(result, /&amp;lt;script&amp;gt;/);
+    assert.match(result, />42<\/li>/);
+    assert.match(result, />false<\/li>/);
+    assert.match(result, />null<\/li>/);
+});

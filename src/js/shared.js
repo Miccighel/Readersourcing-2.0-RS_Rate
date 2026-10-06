@@ -100,16 +100,21 @@ String.prototype.capitalize = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
+function escapeHtml(value) {
+    const entities = {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"};
+    return String(value).replace(/[&<>"']/g, character => entities[character]);
+}
+
 export async function buildErrors(errors) {
     try {
         let parsedErrors = JSON.parse(errors);
         if (Array.isArray(parsedErrors.errors)) parsedErrors = {errors: parsedErrors.errors};
         let element = "";
         Object.keys(parsedErrors).forEach((attribute, index) => {
-            element = `<span class="color-red-dark">${element}${attribute.capitalize()}:</span><ul>`;
+            element = `<span class="color-red-dark">${element}${escapeHtml(attribute.capitalize())}:</span><ul>`;
             let messages = parsedErrors[attribute];
             Object.values(messages).forEach((message, index) => {
-                element = `${element}<li class="color-red-dark">${message}</li>`;
+                element = `${element}<li class="color-red-dark">${escapeHtml(message)}</li>`;
             });
             element = `${element}</ul>`;
         });

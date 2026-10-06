@@ -38,7 +38,7 @@ chrome.storage.sync.get(['message'], result => {
         successSection.hide();
     } else {
         successSection.show();
-        successSection.find(alertSuccess).append(result.message);
+        successSection.find(alertSuccess).text(result.message);
         chrome.storage.sync.remove(['message']);
     }
 });

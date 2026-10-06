@@ -147,8 +147,10 @@ yarn verify
 `yarn verify` creates complete Manifest V3 extension packages in `dist/chromium/` and `dist/firefox/`, checks that all
 executable assets are bundled locally, validates the Firefox package with Mozilla's `web-ext`, and runs the client
 contract tests. Firefox validation also scans the bundled runtime libraries. The validator reports warnings in several
-of those libraries, including dynamic HTML assignments and legacy `Function` constructors in Dropzone. These warnings
-remain visible and require review before submission to Mozilla Add-ons.
+of those libraries, including dynamic HTML assignments and legacy `Function` constructors in Dropzone. The
+[validation assessment](docs/security.md) describes all 21 warnings, the data used by the current extension, and the
+tests that cover server message escaping and the relevant library behavior. The warnings remain visible. Distribution
+through Mozilla Add-ons still requires Mozilla's review and signing.
 
 To try the Chromium build, open the Chrome or Edge extensions management page, enable developer mode,
 choose `Load unpacked`, and select `dist/chromium/`. In Firefox, open `about:debugging#/runtime/this-firefox`, choose
