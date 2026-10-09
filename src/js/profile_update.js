@@ -104,9 +104,9 @@ if (authToken != null) {
                 };
                 if (orcidField.val() === "")
                     delete secondData.user.orcid;
-                let secondSuccessCallback = (data, status, jqXHR) => {
+                let secondSuccessCallback = async (data, status, jqXHR) => {
                     updateButton.find(reloadIcons).toggle();
-                    deleteToken();
+                    await deleteToken();
                     chrome.storage.sync.set({message: data["message"]}, () => {
                         window.location.href = "login.html";
                     });

@@ -30,6 +30,7 @@
 	</div>
 </div>
 <div class="color-white min-h-100 d-flex flex-column align-items-center justify-content-center">
+	<p id="upload-publication-source" class="w-100 text-center text-break"></p>
 	<div class="w-100 mb-3">
 		<div id="buttons-sect" class="row">
 			<div class="col-3 p-0">
@@ -153,7 +154,7 @@
 			</button>
 		</div>
 	</div>
-	<div class="row mt-auto ml-auto mr-auto mb-3 w-100">
+	<div id="save-for-later-section" class="row mt-auto ml-auto mr-auto mb-3 w-100">
 		<div class="col-12">
 			<div class="heading text-center mb-2">
 				<h4>Save For Later</h4>
@@ -214,6 +215,10 @@
 			</div>
 		</div>
 		<div class="col-12">
+			<button type="button" id="show-extract-upload-btn" class="btn btn-outline-light mb-3">
+				<i class="fas fa-upload"></i>
+				Upload a prepared PDF
+			</button>
 			<form action="#" id="annotated-publication-dropzone" class="dropzone border-primary">
 				<div class="dz-default dz-message text-center pt-1">
 					<br/><i class="fas fa-upload fa-2x"></i><br/>.pdf file

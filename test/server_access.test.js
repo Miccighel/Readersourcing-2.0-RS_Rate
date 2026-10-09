@@ -18,6 +18,28 @@ test("builds a permission pattern for the configured RS_Server origin", () => {
     );
 });
 
+test("keeps the configured port in Chromium permission patterns", () => {
+    const runtime = {getManifest: () => ({manifest_version: 3})};
+    assert.equal(
+        hostPermissionPattern("https://readersourcing.example:8443/application/", runtime),
+        "https://readersourcing.example:8443/*"
+    );
+});
+
+test("uses Firefox host patterns without ports or hostname wildcards", () => {
+    const runtime = {
+        getManifest: () => ({browser_specific_settings: {gecko: {id: "rs-rate@readersourcing.com"}}}),
+    };
+    for (const [host, pattern] of [
+        ["https://readersourcing.example:8443/application/", "https://readersourcing.example/*"],
+        ["http://127.0.0.1:3300/", "http://127.0.0.1/*"],
+        ["localhost:3000", "http://localhost/*"],
+        ["http://[::1]:3300/application/", "http://[::1]/*"],
+    ]) {
+        assert.equal(hostPermissionPattern(host, runtime), pattern);
+    }
+});
+
 test("requests access only to the configured origin", async () => {
     let requestedPermissions;
     const permissions = {
@@ -37,6 +59,28 @@ test("requests access only to the configured origin", async () => {
         origins: ["https://readersourcing.example/*"],
     });
     assert.equal(host, "https://readersourcing.example/application/");
+});
+
+test("retains the server port and application path after a Firefox permission grant", async () => {
+    let requestedPermissions;
+    const permissions = {
+        request: (request, callback) => {
+            requestedPermissions = request;
+            callback(true);
+        },
+    };
+    const runtime = {
+        getManifest: () => ({browser_specific_settings: {gecko: {id: "rs-rate@readersourcing.com"}}}),
+    };
+
+    const host = await requestHostPermission(
+        "http://127.0.0.1:3300/application",
+        permissions,
+        runtime
+    );
+
+    assert.deepEqual(requestedPermissions, {origins: ["http://127.0.0.1/*"]});
+    assert.equal(host, "http://127.0.0.1:3300/application/");
 });
 
 test("does not accept a host when access is denied", async () => {

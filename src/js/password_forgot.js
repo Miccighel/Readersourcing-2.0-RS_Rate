@@ -50,9 +50,9 @@ passwordForgotButton.on("click", () => {
         let data = {
             email: emailField.val(),
         };
-        let successCallback = (data, status, jqXHR) => {
+        let successCallback = async (data, status, jqXHR) => {
             passwordForgotButton.find(reloadIcons).toggle();
-            deleteToken();
+            await deleteToken();
             chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html");
         };
         let errorCallback = (jqXHR, status) => {

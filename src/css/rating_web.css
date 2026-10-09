@@ -4,6 +4,24 @@ body {
     background-color: rgb(85, 85, 85);
 }
 
+/* ////////// MESSAGES ////////// */
+
+.color-white .alert-info, .color-white .alert-info * {
+    color: #0c5460 !important;
+}
+
+.color-white .alert-success, .color-white .alert-success * {
+    color: #155724 !important;
+}
+
+.color-white .alert-warning, .color-white .alert-warning * {
+    color: #856404 !important;
+}
+
+.color-white .alert-danger, .color-white .alert-danger * {
+    color: #721c24 !important;
+}
+
 /* ////////// MODALS ////////// */
 
 div#modal-configuration div.modal-footer, div#modal-refresh .modal-footer {
@@ -107,6 +125,10 @@ a#profile-btn {
 .dropzone .dz-details {
     padding: 1em 0.5em !important;
     background: transparent !important;
+}
+
+.color-white .dropzone .dz-details, .color-white .dropzone .dz-details * {
+    color: #555555 !important;
 }
 
 .dropzone .dz-size {

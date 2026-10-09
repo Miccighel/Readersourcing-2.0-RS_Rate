@@ -2,8 +2,11 @@ import {normalizeHost} from "./shared.js";
 
 export class HostPermissionError extends Error {}
 
-export function hostPermissionPattern(host) {
+export function hostPermissionPattern(host, runtime = globalThis.chrome?.runtime) {
     const normalizedHost = new URL(normalizeHost(host));
+    if (runtime?.getManifest?.().browser_specific_settings?.gecko) {
+        return `${normalizedHost.protocol}//${normalizedHost.hostname}/*`;
+    }
     return `${normalizedHost.origin}/*`;
 }
 
@@ -13,7 +16,7 @@ export function requestHostPermission(
     runtime = chrome.runtime
 ) {
     const normalizedHost = normalizeHost(host);
-    const request = {origins: [hostPermissionPattern(normalizedHost)]};
+    const request = {origins: [hostPermissionPattern(normalizedHost, runtime)]};
 
     return new Promise((resolve, reject) => {
         permissions.request(request, granted => {

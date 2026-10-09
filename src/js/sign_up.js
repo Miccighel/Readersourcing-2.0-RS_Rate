@@ -66,9 +66,9 @@ registrationButton.on("click", () => {
                 subscribe: !!subscribeCheckbox.is(":checked")
             },
         };
-        let successCallback = (data, status, jqXHR) => {
+        let successCallback = async (data, status, jqXHR) => {
             registrationButton.find(reloadIcons).toggle();
-            deleteToken();
+            await deleteToken();
             chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html");
         };
         let errorCallback = (jqXHR, status) => {

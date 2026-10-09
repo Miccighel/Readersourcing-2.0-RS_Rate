@@ -10,6 +10,22 @@ import {buildErrors} from "./shared.js";
 import {fetchToken} from "./shared.js";
 import {buildUrl} from "./shared.js";
 import {paperRatingUrl} from "./shared.js";
+import {fetchUploadContext, isFirefox, openUploadPage} from "./publication_context.js";
+
+let uploadContext;
+let uploadContextError;
+try {
+    uploadContext = await fetchUploadContext();
+} catch (error) {
+    uploadContextError = error;
+}
+const firefoxUploadPopup = isFirefox() && !uploadContext;
+
+function queryPublication(callback) {
+    if (uploadContextError || uploadContext?.mode === "extract") return;
+    if (uploadContext) callback([{url: uploadContext.pdf_url}]);
+    else chrome.tabs.query({currentWindow: true, active: true}, callback);
+}
 
 let body = $("body");
 
@@ -61,6 +77,8 @@ let sourceUploadSection = $("#source-upload-section");
 let sourceUploadSuccess = $("#source-upload-success");
 let sourceUploadError = $("#source-upload-error");
 let showSourceUploadButton = $("#show-source-upload-btn");
+let showExtractUploadButton = $("#show-extract-upload-btn");
+let uploadPublicationSource = $("#upload-publication-source");
 let preparationStatus = $("#publication-preparation-status");
 let preparationTitle = $("#publication-preparation-title");
 let preparationMessage = $("#publication-preparation-message");
@@ -122,6 +140,10 @@ goToRatingButton.hide();
 sourceUploadSection.hide();
 sourceUploadSuccess.hide();
 sourceUploadError.hide();
+showExtractUploadButton.toggle(firefoxUploadPopup && !uploadContextError);
+annotatedPublicationDropzone.toggle(!firefoxUploadPopup && !uploadContextError);
+uploadPublicationSource.hide();
+if (uploadContext?.mode === "source") uploadPublicationSource.text(uploadContext.pdf_url).show();
 
 errorButtons.hide();
 errorsSection.hide();
@@ -160,7 +182,9 @@ function showPreparationStatus(state, message) {
     preparationTitle.text(details[0]);
     preparationMessage.text(message || details[1]);
     preparationStatus.show();
-    if (uploadStates.includes(state)) sourceUploadSection.show();
+    if (!firefoxUploadPopup && (uploadStates.includes(state) || uploadContext?.mode === "source")) {
+        sourceUploadSection.show();
+    }
 }
 
 function preparationResponse(jqXHR) {
@@ -170,6 +194,18 @@ function preparationResponse(jqXHR) {
     } catch (error) {
         return {};
     }
+}
+
+function uploadErrorResponse(response, xhr, fallbackMessage) {
+    let details = response && typeof response === "object" ? response : preparationResponse(xhr || {});
+    if (!details || typeof details !== "object") details = {};
+    let errors = Array.isArray(details["errors"]) ? details["errors"] : [];
+    let message = [details["message"], ...errors, details["error"], response]
+        .find(value => typeof value === "string" && value.trim().length > 0);
+    return {
+        status: Object.hasOwn(preparationStates, details["status"]) ? details["status"] : "failed",
+        message: message || fallbackMessage
+    };
 }
 
 function showPreparationError(jqXHR) {
@@ -233,7 +269,7 @@ if (authToken != null) {
 //#######  PUBLICATION STATUS SETUP #########//
 
 if (authToken != null) {
-    chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+    queryPublication(tabs => {
         loadingSection.show();
         showPreparationStatus("checking");
         // RATING SECTION
@@ -404,7 +440,7 @@ reloadButton.on("click", () => {
 
 if (authToken != null) {
     downloadButton.on("click", () => {
-        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+        queryPublication(tabs => {
             let data = {
                 publication: {
                     pdf_url: tabs[0].url
@@ -445,7 +481,7 @@ refreshButton.on("click", () => {
 });
 
 modalRefreshButton.on("click", () => {
-    chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+    queryPublication(tabs => {
         modalRefresh.modal("hide");
         openButton.hide();
         refreshButton.hide();
@@ -494,10 +530,24 @@ modalRefreshButton.on("click", () => {
 });
 
 showSourceUploadButton.on("click", () => {
+    if (firefoxUploadPopup) {
+        showPdfUploadPage("source");
+        return;
+    }
     sourceUploadSection.toggle();
     sourceUploadSuccess.hide();
     sourceUploadError.hide();
 });
+
+showExtractUploadButton.on("click", () => showPdfUploadPage("extract"));
+
+async function showPdfUploadPage(mode) {
+    try {
+        await openUploadPage(mode, currentPublicationUrl);
+    } catch (error) {
+        showPreparationStatus("failed", error.message);
+    }
+}
 
 //######### EXTRACT HANDLING #########//
 
@@ -512,13 +562,13 @@ chrome.storage.sync.get(['host'], result => {
         paramName: "file", // The name that will be used to transfer the file
         acceptedFiles: "application/pdf",
         maxFiles: 1,
+        clickable: !firefoxUploadPopup && !uploadContextError,
         headers: {
             "Authorization": authToken
         }
     };
     annotatedPublicationDropzone = new Dropzone("#annotated-publication-dropzone");
     if (authToken != null) {
-        annotatedPublicationDropzone.on("sending", (file, xhr, formData) => xhr.setRequestHeader("Authorization", authToken));
         annotatedPublicationDropzone.on("success", (file, data) => {
             let ratingUrl;
             try {
@@ -544,10 +594,10 @@ chrome.storage.sync.get(['host'], result => {
             }
         });
         annotatedPublicationDropzone.on('error', (file, response, xhr) => {
+            let details = uploadErrorResponse(response, xhr, "The rating URL could not be extracted. Please try again.");
             goToRatingButton.hide();
             annotatedPublicationDropzoneSuccess.hide();
-            if (response.hasOwnProperty('errors')) annotatedPublicationDropzoneError.text(response["errors"][0]); else annotatedPublicationDropzoneError.text(response)
-            annotatedPublicationDropzoneError.show();
+            annotatedPublicationDropzoneError.text(details["message"]).show();
         });
     }
 
@@ -556,14 +606,19 @@ chrome.storage.sync.get(['host'], result => {
         paramName: "file",
         acceptedFiles: "application/pdf",
         maxFiles: 1,
+        clickable: !firefoxUploadPopup && !uploadContextError && uploadContext?.mode !== "extract",
         headers: {
             "Authorization": authToken
         }
     };
     sourcePublicationDropzone = new Dropzone("#source-publication-dropzone");
+    if (uploadContextError) {
+        sourcePublicationDropzone.disable();
+        annotatedPublicationDropzone.disable();
+    }
+    if (uploadContext?.mode === "extract") sourcePublicationDropzone.disable();
     if (authToken != null) {
         sourcePublicationDropzone.on("sending", (file, xhr, formData) => {
-            xhr.setRequestHeader("Authorization", authToken);
             formData.append("publication[pdf_url]", currentPublicationUrl);
             showPreparationStatus("preparing");
             sourceUploadSuccess.hide();
@@ -573,10 +628,10 @@ chrome.storage.sync.get(['host'], result => {
             showPreparedPublication(data, true);
         });
         sourcePublicationDropzone.on("error", (file, response, xhr) => {
-            let details = typeof response === "object" ? response : preparationResponse(xhr || {});
-            showPreparationStatus(details["status"] || "failed", details["message"] || response);
+            let details = uploadErrorResponse(response, xhr, preparationStates.failed[1]);
+            showPreparationStatus(details["status"], details["message"]);
             sourceUploadSuccess.hide();
-            sourceUploadError.text(details["message"] || response).show();
+            sourceUploadError.text(details["message"]).show();
         });
     }
 });
@@ -594,7 +649,7 @@ goToRatingButton.on("click", () => {
 
 if (authToken != null) {
     doRateButton.on("click", () => {
-        chrome.tabs.query({currentWindow: true, active: true}, tabs => {
+        queryPublication(tabs => {
             let currentUrl = tabs[0].url;
             doRateButton.find(reloadIcons).toggle();
             let score = ratingSlider.val();
@@ -714,8 +769,8 @@ configureSaveButton.on("click", () => modalConfigure.modal("hide"));
 //####### LOGOUT HANDLING #########//
 
 logoutButton.on("click", () => {
-    let successCallback = (data, status, jqXHR) => {
-        deleteToken();
+    let successCallback = async (data, status, jqXHR) => {
+        await deleteToken();
         window.location.href = "login.html"
     };
     let errorCallback = (jqXHR, status) => {};
@@ -727,3 +782,15 @@ logoutButton.on("click", () => {
 optionsButton.on("click", () => {
     if (chrome.runtime.openOptionsPage) chrome.runtime.openOptionsPage(); else window.open(chrome.runtime.getURL('options.html'));
 });
+
+if (uploadContextError) {
+    showPreparationStatus("failed", uploadContextError.message);
+    showSourceUploadButton.prop("disabled", true);
+    removePreloader();
+}
+
+if (uploadContext?.mode === "extract") {
+    ratingSection.parent().hide();
+    saveForLaterSection.hide();
+    removePreloader();
+}

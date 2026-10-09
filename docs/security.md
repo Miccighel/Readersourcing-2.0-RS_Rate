@@ -1,6 +1,6 @@
 # Firefox Validation
 
-This assessment covers the runtime libraries included in RS_Rate 2.0.0, as reviewed on October 6, 2026.
+This assessment covers the runtime libraries included in RS_Rate 2.0.0, as reviewed on October 9, 2026.
 Mozilla's validator reports 21 warnings and no errors. The warnings concern HTML assignments and legacy
 `Function` constructors in the bundled libraries. They remain visible in `yarn lint:firefox`; none are excluded.
 
@@ -51,4 +51,7 @@ checked for the same script policy. Archive validation confirms that the distrib
 Library updates or changes to templates, picker controls, icon configuration, and HTML insertion require a new
 review of the affected paths. A submission to Mozilla should include this assessment alongside the validation report.
 Dependency vulnerability advisories are tracked separately through the audit commands described in the README;
-this assessment does not exclude the unresolved `node-forge` advisory from the development audit.
+this assessment does not exclude the unresolved `node-forge` or `shell-quote` advisories from the development audit.
+The latter has a corrected release, but `fx-runner` requires the affected version exactly. The project awaits an
+update to that parent dependency without an override or an audit exception. Neither package is included in the
+distributed extension archives.

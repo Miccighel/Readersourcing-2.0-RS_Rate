@@ -73,10 +73,10 @@ loginButton.on("click", () => {
         loginButton.find(signInIcon).toggle();
         loginButton.find(reloadIcon).toggle();
         let data = {email: emailField.val(), password: passwordField.val()};
-        let successCallback = (data, status, jqXHR) => {
+        let successCallback = async (data, status, jqXHR) => {
             loginButton.find(signInIcon).toggle();
             loginButton.find(reloadIcon).toggle();
-            storeToken(data["auth_token"]);
+            await storeToken(data["auth_token"]);
             window.location.href = "rating_web.html"
         };
         let errorCallback = (jqXHR, status) => {

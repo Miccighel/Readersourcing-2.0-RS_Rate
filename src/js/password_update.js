@@ -54,9 +54,9 @@ passwordEditButton.on("click", () => {
             new_password: newPasswordField.val(),
             new_password_confirmation: newPasswordConfirmationField.val()
         };
-        let successCallback = (data, status, jqXHR) => {
+        let successCallback = async (data, status, jqXHR) => {
             passwordEditButton.find(reloadIcons).toggle();
-            deleteToken();
+            await deleteToken();
             chrome.storage.sync.set({message: data["message"]}, () => window.location.href = "login.html");
         };
         let errorCallback = (jqXHR, status) => {

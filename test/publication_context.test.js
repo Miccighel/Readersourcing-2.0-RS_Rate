@@ -1,0 +1,143 @@
+import assert from "node:assert/strict";
+import {readFile} from "node:fs/promises";
+import test from "node:test";
+import vm from "node:vm";
+import {fetchUploadContext, openUploadPage, registerUploadContextCleanup} from "../src/js/publication_context.js";
+
+const runtime = {
+    getManifest: () => ({browser_specific_settings: {gecko: {id: "rs-rate@readersourcing.com"}}}),
+    getURL: path => `moz-extension://synthetic-extension/${path}`,
+};
+const publication = "https://publisher.test/article.pdf?download=1";
+
+function sessionStorage() {
+    const items = {};
+    return {
+        items,
+        async get(key) { return key === null ? {...items} : {[key]: items[key]}; },
+        async set(values) { Object.assign(items, values); },
+        async remove(keys) { for (const key of [keys].flat()) delete items[key]; },
+    };
+}
+
+test("the Firefox upload page keeps the publisher URL while its tab becomes active", async () => {
+    const storage = sessionStorage();
+    let pageUrl;
+    const tabs = {
+        async create(options) {
+            assert.equal(options.active, false);
+            pageUrl = options.url;
+            const context = await fetchUploadContext({href: pageUrl}, runtime, storage);
+            assert.equal(context.pdf_url, publication);
+            return {id: 12};
+        },
+        async update(id, options) {
+            assert.equal(id, 12);
+            assert.equal(options.active, true);
+            assert.equal(Object.values(storage.items)[0].tabId, id);
+        },
+    };
+    await openUploadPage("source", publication, runtime, storage, tabs);
+    assert.equal(pageUrl.includes("publisher.test"), false);
+    assert.equal((await fetchUploadContext({href: pageUrl}, runtime, storage)).pdf_url, publication);
+});
+
+test("separate upload pages retain separate publication contexts", async () => {
+    const storage = sessionStorage();
+    const urls = [];
+    const tabs = {
+        async create({url}) { urls.push(url); return {id: urls.length}; },
+        async update() {},
+    };
+    await openUploadPage("source", publication, runtime, storage, tabs);
+    await openUploadPage("source", "https://publisher.test/second.pdf", runtime, storage, tabs);
+    assert.notEqual(urls[0], urls[1]);
+    assert.equal((await fetchUploadContext({href: urls[0]}, runtime, storage)).pdf_url, publication);
+    assert.equal((await fetchUploadContext({href: urls[1]}, runtime, storage)).pdf_url, "https://publisher.test/second.pdf");
+});
+
+test("extraction does not require a publisher tab or send its address", async () => {
+    const storage = sessionStorage();
+    let url;
+    await openUploadPage("extract", "about:newtab", runtime, storage, {
+        async create(options) { url = options.url; return {id: 7}; },
+        async update() {},
+    });
+    const context = await fetchUploadContext({href: url}, runtime, storage);
+    assert.equal(context.mode, "extract");
+    assert.equal(context.pdf_url, null);
+});
+
+test("ordinary popups and Chromium ignore upload context parameters", async () => {
+    const storage = {get() { assert.fail("No context should be read."); }};
+    assert.equal(await fetchUploadContext({href: runtime.getURL("src/views/rating_web.html")}, runtime, storage), null);
+    assert.equal(await fetchUploadContext({href: "chrome-extension://test/rating_web.html?pdfUpload=invalid"},
+        {getManifest: () => ({manifest_version: 3})}, storage), null);
+});
+
+test("missing or malformed references never fall back to the extension tab address", async () => {
+    const storage = sessionStorage();
+    for (const reference of ["invalid", "00000000-0000-0000-0000-000000000000"]) {
+        await assert.rejects(fetchUploadContext({href: `${runtime.getURL("src/views/rating_web.html")}?pdfUpload=${reference}`},
+            runtime, storage), /choose the PDF upload again/);
+    }
+});
+
+test("original uploads refuse non-HTTP addresses and embedded credentials", async () => {
+    const storage = sessionStorage();
+    const tabs = {create() { assert.fail("An invalid source must not open an upload page."); }};
+    for (const address of ["moz-extension://test/rating_web.html", "file:///tmp/source.pdf", "https://user:password@publisher.test/paper.pdf"]) {
+        await assert.rejects(openUploadPage("source", address, runtime, storage, tabs), /HTTP or HTTPS/);
+    }
+    assert.deepEqual(storage.items, {});
+});
+
+test("a failed tab creation removes its unused context", async () => {
+    const storage = sessionStorage();
+    await assert.rejects(openUploadPage("source", publication, runtime, storage, {
+        async create() { throw new Error("Tab creation failed."); },
+    }), /Tab creation failed/);
+    assert.deepEqual(storage.items, {});
+});
+
+test("closing an upload tab removes only its context and retains the session token", async () => {
+    const storage = sessionStorage();
+    await storage.set({authToken: "synthetic-token", "pdfUpload:first": {tabId: 10}, "pdfUpload:second": {tabId: 11}});
+    let removed;
+    registerUploadContextCleanup(runtime, storage, {onRemoved: {addListener: handler => { removed = handler; }}});
+    await removed(10);
+    assert.deepEqual(storage.items, {authToken: "synthetic-token", "pdfUpload:second": {tabId: 11}});
+});
+
+test("the existing publication actions use the captured source instead of the active upload tab", async () => {
+    const source = await readFile(new URL("../src/js/rating_web.js", import.meta.url), "utf8");
+    const handler = source.match(/function queryPublication[\s\S]*?\n}/)[0];
+    const context = {
+        uploadContext: {mode: "source", pdf_url: publication}, uploadContextError: undefined,
+        chrome: {tabs: {query() { assert.fail("The upload tab must not become the publication."); }}},
+    };
+    vm.runInNewContext(handler, context);
+    let received;
+    context.queryPublication(tabs => { received = tabs[0].url; });
+    assert.equal(received, publication);
+    assert.equal((source.match(/queryPublication\(tabs =>/g) || []).length, 4);
+    context.uploadContext = {mode: "extract", pdf_url: null};
+    context.queryPublication(() => assert.fail("Extraction must not look up a publication page."));
+    context.uploadContextError = new Error("Missing context.");
+    context.queryPublication(() => assert.fail("Missing context must not send a publication request."));
+});
+
+test("the extraction page hides the unrelated rating and preparation controls", async () => {
+    const source = await readFile(new URL("../src/js/rating_web.js", import.meta.url), "utf8");
+    const view = await readFile(new URL("../src/views/rating_web.html", import.meta.url), "utf8");
+    const setup = source.match(/if \(uploadContext\?\.mode === "extract"\) \{[\s\S]*?\n}/)[0];
+    const hidden = [];
+    vm.runInNewContext(setup, {
+        uploadContext: {mode: "extract"},
+        ratingSection: {parent: () => ({hide: () => hidden.push("rating")})},
+        saveForLaterSection: {hide: () => hidden.push("preparation")},
+        removePreloader: () => hidden.push("preloader"),
+    });
+    assert.deepEqual(hidden, ["rating", "preparation", "preloader"]);
+    assert.match(view, /id="save-for-later-section"/);
+});

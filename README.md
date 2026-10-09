@@ -156,6 +156,12 @@ To try the Chromium build, open the Chrome or Edge extensions management page, e
 choose `Load unpacked`, and select `dist/chromium/`. In Firefox, open `about:debugging#/runtime/this-firefox`, choose
 `Load Temporary Add-on`, and select `dist/firefox/manifest.json`.
 
+In Firefox, `Use a local PDF` and `Upload a prepared PDF` open the existing upload forms in a normal extension tab.
+This avoids the [Firefox panel limitation](https://bugzilla.mozilla.org/show_bug.cgi?id=1378527) affecting file selection.
+For an original PDF, the tab displays and retains the publisher's address so the upload belongs to that publication.
+The address is held in session storage and removed when the upload tab closes. Extraction uses the uploaded PDF's
+annotation and does not require a publisher address. Both operations are also available through RS_Server's web interface.
+
 To create both browser archives:
 
 ```console
@@ -171,6 +177,10 @@ yarn package:chromium
 yarn package:firefox
 ```
 
+The Firefox archive is not signed. Installation in a regular Firefox release requires Mozilla's signature, including
+when the extension is distributed outside the Add-ons catalog. The [Firefox distribution instructions](docs/firefox.md)
+describe private signing, source preparation, and the installation checks.
+
 The Firefox target requires Firefox 142 or later and declares the data
 categories needed by RS_Rate: account authentication and identity, the current publication URL, rating and save
 interactions, and publication/PDF content sent to the configured RS_Server. These categories describe the application
@@ -179,7 +189,14 @@ traffic required by the domain workflow. RS_Rate has no separate analytics chann
 The development build uses `http://localhost:3000/` as the initial RS_Server host. The value can be changed from the
 extension options and is preserved when the extension is updated. Both regular API calls and PDF extraction use this
 same configured host. When a host is saved, the browser asks for permission to contact that HTTP or HTTPS origin.
-Only the selected origin is granted; a configured application path remains part of the RS_Server address.
+Chromium uses the selected origin. Firefox grants access to the selected hostname and protocol on all ports because its
+[host permission patterns](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns) do not
+support port numbers. Requests still use the configured server address, including its port and any application path.
+
+In Firefox, the authentication token is kept in the extension's session storage. It is shared by the extension pages
+and popup, is not synchronized, and is cleared when the browser closes or the extension is disabled. Logout removes
+the local token after RS_Server revokes the credential. API requests in Firefox omit the browser's web session cookies
+and supply the extension token explicitly.
 
 To check the direct and transitive dependencies used by the extension:
 
@@ -191,11 +208,18 @@ The CI workflow runs this check and fails when the registry reports a known vuln
 tools, use `yarn audit`. Both commands check vulnerabilities without treating package deprecation notices as security
 advisories. To review those notices as well, run `yarn npm audit --all --recursive`.
 
-As of October 6, 2026, the development dependency `node-forge` has an unresolved
+As of October 9, 2026, the development dependency `node-forge` has an unresolved
 [RSA signature verification advisory](https://github.com/advisories/GHSA-86w9-cpqp-85rv) with no patched release.
 It is included by `web-ext` through `@devicefarmer/adbkit`, which supports Firefox for Android. The documented build,
 validation, and packaging commands do not use Android connections, and the dependency is not copied into either
-extension package. The full `yarn audit` reports this advisory and returns a failure; it is not excluded from the audit.
+extension package.
+
+The development dependency `shell-quote` 1.10.0 also has a critical
+[command injection advisory](https://github.com/advisories/GHSA-pqg4-j6r4-53mv), corrected in version 1.11.0.
+It is included by `web-ext` through `fx-runner` 1.6.0, which requires version 1.10.0 exactly. This dependency is not
+copied into either extension package. The project awaits an update to the parent package without overriding its
+dependency requirement. The full `yarn audit` reports both advisories and returns a failure; neither is excluded.
+The production dependency audit passed on the same date.
 
 RS_Rate uses Bootstrap 4 because its views and UI plugins depend on Bootstrap 4 markup and jQuery integration.
 Bootstrap 4 is no longer supported. An interface based on Bootstrap 5 would require coordinated changes to those views

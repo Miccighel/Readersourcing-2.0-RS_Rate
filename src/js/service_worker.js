@@ -1,5 +1,9 @@
 //######### DEFAULT STARTUP VALUES #########//
 
+import {registerUploadContextCleanup} from "./publication_context.js";
+
+registerUploadContextCleanup();
+
 export const DEFAULT_HOST = "http://localhost:3000/";
 
 function storageGet(keys) {

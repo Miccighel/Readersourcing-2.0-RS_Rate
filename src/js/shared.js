@@ -1,14 +1,31 @@
 ////////// NETWORKING SECTION //////////
 
+const tokenSession = globalThis.chrome?.runtime?.getManifest?.().browser_specific_settings?.gecko
+    ? browser.storage.session : null;
+let sessionToken = tokenSession ? (await tokenSession.get("authToken")).authToken : undefined;
+
+if (tokenSession) {
+    tokenSession.onChanged.addListener(changes => {
+        if (changes.authToken) sessionToken = changes.authToken.newValue;
+    });
+}
+
 export function storeToken(authToken) {
+    if (tokenSession) {
+        return tokenSession.set({authToken}).then(() => { sessionToken = authToken; });
+    }
     Cookies.set('authToken', authToken);
 }
 
 export function fetchToken() {
-    return Cookies.get('authToken');
+    return tokenSession ? sessionToken : Cookies.get('authToken');
 }
 
 export function deleteToken() {
+    if (tokenSession) {
+        sessionToken = undefined;
+        return tokenSession.remove("authToken");
+    }
     Cookies.remove('authToken');
 }
 
@@ -68,6 +85,7 @@ export async function ajax(type, url, contentType, dataType, crossDomain, data, 
         contentType: contentType,
         dataType: dataType,
         crossDomain: crossDomain,
+        ...(tokenSession ? {xhr: () => new XMLHttpRequest({mozAnon: true})} : {}),
         data: JSON.stringify(data),
         success: success,
         error: error,
@@ -86,6 +104,7 @@ export async function emptyAjax(type, url, contentType, dataType, crossDomain, s
         contentType: contentType,
         dataType: dataType,
         crossDomain: crossDomain,
+        ...(tokenSession ? {xhr: () => new XMLHttpRequest({mozAnon: true})} : {}),
         success: success,
         error: error,
         headers: {
