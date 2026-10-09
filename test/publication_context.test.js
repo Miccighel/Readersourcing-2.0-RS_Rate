@@ -141,3 +141,104 @@ test("the extraction page hides the unrelated rating and preparation controls", 
     assert.deepEqual(hidden, ["rating", "preparation", "preloader"]);
     assert.match(view, /id="save-for-later-section"/);
 });
+
+async function uploadPageHandler(globals) {
+    const source = await readFile(new URL("../src/js/rating_web.js", import.meta.url), "utf8");
+    const handler = source.match(/async function showPdfUploadPage\(mode\) \{[\s\S]*?\n}/)[0];
+    const context = vm.createContext(globals);
+    vm.runInContext(handler, context);
+    return context.showPdfUploadPage;
+}
+
+test("the Firefox popup closes only after the upload tab is ready", async () => {
+    const events = [];
+    const window = {close: () => events.push("close")};
+    let finish;
+    const handler = await uploadPageHandler({
+        firefoxUploadPopup: true, currentPublicationUrl: publication, window,
+        browser: {extension: {getViews: options => {
+            assert.equal(options.type, "popup");
+            return [window];
+        }}},
+        openUploadPage: async (mode, pdfUrl) => {
+            assert.equal(mode, "source");
+            assert.equal(pdfUrl, publication);
+            await new Promise(resolve => { finish = resolve; });
+            events.push("ready");
+        },
+        showPreparationStatus: () => assert.fail("Opening the tab should succeed."),
+    });
+    const opening = handler("source");
+    assert.deepEqual(events, []);
+    finish();
+    await opening;
+    assert.deepEqual(events, ["ready", "close"]);
+});
+
+test("a normal Firefox extension tab is never closed as a popup", async () => {
+    let opened = false;
+    const handler = await uploadPageHandler({
+        firefoxUploadPopup: true, currentPublicationUrl: publication,
+        window: {close: () => assert.fail("A normal tab must remain open.")},
+        browser: {extension: {getViews: () => []}},
+        openUploadPage: async () => { opened = true; },
+        showPreparationStatus: () => assert.fail("Opening the tab should succeed."),
+    });
+    await handler("extract");
+    assert.equal(opened, true);
+});
+
+test("the upload handoff does not use Firefox view APIs in Chromium", async () => {
+    let opened = false;
+    const handler = await uploadPageHandler({
+        firefoxUploadPopup: false, currentPublicationUrl: publication,
+        window: {close: () => assert.fail("Chromium must not close its view.")},
+        openUploadPage: async () => { opened = true; },
+        showPreparationStatus: () => assert.fail("Opening the tab should succeed."),
+    });
+    await handler("extract");
+    assert.equal(opened, true);
+});
+
+test("an upload handoff error leaves the popup open and explains the failure", async () => {
+    const messages = [];
+    const window = {close: () => assert.fail("The failure must remain visible.")};
+    const handler = await uploadPageHandler({
+        firefoxUploadPopup: true, currentPublicationUrl: publication, window,
+        browser: {extension: {getViews: () => [window]}},
+        openUploadPage: async () => { throw new Error("Tab activation failed."); },
+        showPreparationStatus: (...args) => messages.push(args),
+    });
+    await handler("source");
+    assert.deepEqual(messages, [["failed", "Tab activation failed."]]);
+});
+
+test("only upload pages and invalid upload references receive the tab layout", async () => {
+    const source = await readFile(new URL("../src/js/rating_web.js", import.meta.url), "utf8");
+    const setup = source.match(/body\.toggleClass\("pdf-upload-page"[^;]+;/)[0];
+    for (const [uploadContext, uploadContextError, expected] of [
+        [undefined, undefined, false],
+        [{mode: "source"}, undefined, true],
+        [{mode: "extract"}, undefined, true],
+        [undefined, new Error("Missing context."), true],
+    ]) {
+        vm.runInNewContext(setup, {
+            uploadContext, uploadContextError,
+            body: {toggleClass: (name, enabled) => {
+                assert.equal(name, "pdf-upload-page");
+                assert.equal(enabled, expected);
+            }},
+        });
+    }
+});
+
+test("the upload tab has a centered bounded form without widening the popup", async () => {
+    const css = await readFile(new URL("../src/css/rating_web.css", import.meta.url), "utf8");
+    const general = await readFile(new URL("../src/css/general.css", import.meta.url), "utf8");
+    assert.match(general, /body\s*\{\s*width:\s*300px;/);
+    assert.match(css, /body\.pdf-upload-page\s*\{[^}]*width:\s*100%;/);
+    const form = css.match(/body\.pdf-upload-page\s*>\s*\.color-white\s*\{([^}]+)}/)[1];
+    assert.match(form, /max-width:\s*560px;/);
+    assert.match(form, /margin:\s*0 auto;/);
+    assert.match(form, /padding:\s*0 16px 24px;/);
+});

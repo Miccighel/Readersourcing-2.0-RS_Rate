@@ -4,6 +4,18 @@ body {
     background-color: rgb(85, 85, 85);
 }
 
+body.pdf-upload-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body.pdf-upload-page > .color-white {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 16px 24px;
+}
+
 /* ////////// MESSAGES ////////// */
 
 .color-white .alert-info, .color-white .alert-info * {

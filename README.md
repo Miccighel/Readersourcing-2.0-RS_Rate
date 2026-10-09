@@ -158,6 +158,8 @@ choose `Load unpacked`, and select `dist/chromium/`. In Firefox, open `about:deb
 
 In Firefox, `Use a local PDF` and `Upload a prepared PDF` open the existing upload forms in a normal extension tab.
 This avoids the [Firefox panel limitation](https://bugzilla.mozilla.org/show_bug.cgi?id=1378527) affecting file selection.
+The popup closes once the upload tab is ready. The tab presents a centered form that fits the available width,
+while the toolbar popup retains its usual dimensions.
 For an original PDF, the tab displays and retains the publisher's address so the upload belongs to that publication.
 The address is held in session storage and removed when the upload tab closes. Extraction uses the uploaded PDF's
 annotation and does not require a publisher address. Both operations are also available through RS_Server's web interface.

@@ -70,6 +70,24 @@ installed dependencies rather than performing a fresh installation. The signed X
 and application assets; its additions are Mozilla's signature files, with formatting changes to the manifest.
 
 The signed package was installed through the Add-ons Manager in a separate regular Firefox 157.0.1 profile and
-appeared active. No signature enforcement preference overrides were found. The complete login, PDF, restart, and
-logout checks listed above remain pending for this installed XPI. It is not recorded as ready for distribution.
+appeared active. No signature enforcement preference overrides were found. Its functional installation checks
+completed on October 9, 2026 with a synthetic reader and local server. Login remained active when the popup was
+reopened. Original PDF upload prepared and opened the annotated copy. Extraction refused the original PDF and
+opened the rating page for the annotated copy. Restarting Firefox cleared the login while retaining the selected
+server address. Logout revoked the session on the server and returned the reopened popup to the login view.
+The user operated Firefox; server responses, session records, and unchanged ratings were checked independently.
 No new version was published in the public catalog.
+
+## Development interface
+
+The Firefox popup closes after its upload tab is ready. If opening the tab fails, the popup remains available to
+explain the error. Normal extension tabs are not closed as popups. Upload forms use a centered layout that fits the
+available width without changing the toolbar popup's dimensions or the captured publication address.
+
+The views use Font Awesome's [SVG nesting](https://docs.fontawesome.com/apis/javascript/configuration#autoreplacesvg-through-nesting)
+to retain the original icon elements. This preserves the references used by the existing controllers to show and
+hide loading indicators while the library renders the icons.
+
+These interface revisions belong to the development source, not to the signed version 2.0.0 identified above.
+The retained XPI, unsigned archive, and submitted source remain unchanged. Distributing these revisions requires
+a new version, its corresponding source, Mozilla signing, and installation checks of the returned package.

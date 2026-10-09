@@ -28,6 +28,7 @@ function queryPublication(callback) {
 }
 
 let body = $("body");
+body.toggleClass("pdf-upload-page", !!uploadContext || !!uploadContextError);
 
 //######## SECTIONS ########//
 
@@ -543,7 +544,9 @@ showExtractUploadButton.on("click", () => showPdfUploadPage("extract"));
 
 async function showPdfUploadPage(mode) {
     try {
+        const popup = firefoxUploadPopup && browser.extension.getViews({type: "popup"}).includes(window);
         await openUploadPage(mode, currentPublicationUrl);
+        if (popup) window.close();
     } catch (error) {
         showPreparationStatus("failed", error.message);
     }
