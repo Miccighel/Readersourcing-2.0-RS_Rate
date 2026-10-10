@@ -95,6 +95,11 @@ Publication checks and PDF operations use their own sections and status messages
 Idle indicators and messages are hidden before the controllers initialize. Local loading icons respect the reader's
 preference for reduced motion.
 
+The home and publication views display their content after the controller has resolved the local session and upload
+context and arranged the initial controls. Navigation remains visible during this setup. There is no fade or minimum
+display time, and the view does not wait for server responses. Upload pages use their full page layout from the first
+render. If a controller cannot initialize, the view displays an explanation instead of remaining empty.
+
 These interface revisions belong to the development source, not to the signed version 2.0.0 identified above.
 The retained XPI, unsigned archive, and submitted source remain unchanged. Distributing these revisions requires
 a new version, its corresponding source, Mozilla signing, and installation checks of the returned package.

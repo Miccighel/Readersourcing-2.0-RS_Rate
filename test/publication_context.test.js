@@ -235,8 +235,8 @@ test("the upload tab has a centered bounded form without widening the popup", as
     const css = await readFile(new URL("../src/css/rating_web.css", import.meta.url), "utf8");
     const general = await readFile(new URL("../src/css/general.css", import.meta.url), "utf8");
     assert.match(general, /body\s*\{\s*width:\s*300px;/);
-    assert.match(css, /body\.pdf-upload-page\s*\{[^}]*width:\s*100%;/);
-    const form = css.match(/body\.pdf-upload-page\s*>\s*\.color-white\s*\{([^}]+)}/)[1];
+    assert.match(css, /body\.pdf-upload-page,\s*html\.pdf-upload-view body\s*\{[^}]*width:\s*100%;/);
+    const form = css.match(/body\.pdf-upload-page\s*>\s*\.color-white,\s*html\.pdf-upload-view body\s*>\s*\.color-white\s*\{([^}]+)}/)[1];
     assert.match(form, /max-width:\s*560px;/);
     assert.match(form, /margin:\s*0 auto;/);
     assert.match(form, /padding:\s*0 16px 24px;/);

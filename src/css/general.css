@@ -28,6 +28,10 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     display: none;
 }
 
+html.view-initializing .view-content {
+    visibility: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .reload-icon, .reload-icon svg, #loading-sect .fa-spin {
         animation: none !important;
