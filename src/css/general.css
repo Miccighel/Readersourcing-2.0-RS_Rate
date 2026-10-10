@@ -27,7 +27,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 .preloader-wrapper {
     height: 100%;
     width: 100%;
-    background: #565656;
+    background: rgba(35, 35, 35, 0.65);
     position: fixed;
     top: 0;
     left: 0;
@@ -40,6 +40,12 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader-wrapper .preloader * {
+        animation: none !important;
+    }
 }
 
 /* ////////// GENERAL ////////// */

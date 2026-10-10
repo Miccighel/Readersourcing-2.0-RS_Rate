@@ -146,7 +146,8 @@ export async function buildErrors(errors) {
 }
 
 export function removePreloader() {
-    $('.preloader-wrapper').fadeOut(1500);
+    const duration = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 0 : 180;
+    $('.preloader-wrapper').stop(true, true).fadeOut(duration);
     $('body').removeClass('preloader');
     $('.preloader').css('overflow', 'visible');
 }
