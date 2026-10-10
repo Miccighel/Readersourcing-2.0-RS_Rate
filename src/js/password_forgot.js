@@ -5,7 +5,6 @@
 import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {buildErrors} from "./shared.js";
-import {removePreloader} from "./shared.js";
 
 //######## SECTIONS ########//
 
@@ -33,8 +32,6 @@ let reloadIcons = $(".reload-icon");
 errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
-
-removePreloader();
 
 ////////// PASSWORD //////////
 
@@ -91,3 +88,4 @@ backButton.on("click", () => {
     backButton.find(backIcon).toggle();
     window.location.href = "login.html";
 });
+passwordForgotButton.prop("disabled", false);

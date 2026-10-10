@@ -136,9 +136,8 @@ test("the extraction page hides the unrelated rating and preparation controls", 
         uploadContext: {mode: "extract"},
         ratingSection: {parent: () => ({hide: () => hidden.push("rating")})},
         saveForLaterSection: {hide: () => hidden.push("preparation")},
-        removePreloader: () => hidden.push("preloader"),
     });
-    assert.deepEqual(hidden, ["rating", "preparation", "preloader"]);
+    assert.deepEqual(hidden, ["rating", "preparation"]);
     assert.match(view, /id="save-for-later-section"/);
 });
 

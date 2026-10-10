@@ -5,7 +5,6 @@
 import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
-import {removePreloader} from "./shared.js";
 import {buildErrors} from "./shared.js";
 import {fetchToken} from "./shared.js";
 import {buildUrl} from "./shared.js";
@@ -244,6 +243,7 @@ reloadIcons.hide();
 //#######  USER PROFILE SETUP #########//
 
 let authToken = fetchToken();
+if (authToken == null) window.location.href = "login.html";
 if (authToken != null) {
     let successCallback = (data, status, jqXHR) => {
         firstNameValue.text(data["first_name"]);
@@ -287,6 +287,7 @@ if (authToken != null) {
         refreshButton.hide();
         let currentUrl = tabs[0].url;
         currentPublicationUrl = currentUrl;
+        showSourceUploadButton.prop("disabled", false);
         let data = {
             publication: {
                 pdf_url: currentUrl
@@ -321,7 +322,6 @@ if (authToken != null) {
                     saveForLaterSection.show();
                     downloadButton.show();
                     showPreparationStatus("ready");
-                    removePreloader();
                 };
                 // 2.3 Publication has not been rated by the user
                 let secondErrorCallback = (jqXHR, status) => {
@@ -358,7 +358,6 @@ if (authToken != null) {
                         refreshButton.show();
                         refreshButton.prop("disabled", false);
                         showPreparationStatus("complete");
-                        removePreloader();
                     };
                     // 3.2 The rated publication was not annotated
                     let thirdErrorCallback = (jqXHR, status) => {
@@ -372,7 +371,6 @@ if (authToken != null) {
                         downloadButton.prop("disabled", false);
                         downloadButton.show();
                         showPreparationStatus("ready");
-                        removePreloader();
                     };
                     // 3.1 Does the rated publication has been already annotated?
                     let thirdPromise = emptyAjax("GET", `publications/${data["id"]}/is_saved_for_later.json`, "application/json; charset=utf-8", "json", true, thirdSuccessCallback, thirdErrorCallback);
@@ -409,12 +407,10 @@ if (authToken != null) {
                 refreshButton.hide();
                 refreshButton.prop("disabled", false);
                 showPreparationStatus("ready");
-                removePreloader();
             };
             // 1.1 Does the publication exists on the database?
             let promise = ajax("POST", "publications/lookup.json", "application/json; charset=utf-8", "json", true, data, successCallback, errorCallback);
         };
-        showPreparationStatus("ready");
         successCallback({}, "success", null);
     });
 }
@@ -541,6 +537,7 @@ showSourceUploadButton.on("click", () => {
 });
 
 showExtractUploadButton.on("click", () => showPdfUploadPage("extract"));
+showExtractUploadButton.prop("disabled", false);
 
 async function showPdfUploadPage(mode) {
     try {
@@ -789,11 +786,9 @@ optionsButton.on("click", () => {
 if (uploadContextError) {
     showPreparationStatus("failed", uploadContextError.message);
     showSourceUploadButton.prop("disabled", true);
-    removePreloader();
 }
 
 if (uploadContext?.mode === "extract") {
     ratingSection.parent().hide();
     saveForLaterSection.hide();
-    removePreloader();
 }

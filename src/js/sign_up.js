@@ -5,7 +5,6 @@
 import {ajax} from "./shared.js";
 import {deleteToken} from "./shared.js";
 import {buildErrors} from "./shared.js";
-import {removePreloader} from "./shared.js";
 
 //######## SECTIONS ########//
 
@@ -40,8 +39,6 @@ let reloadIcons = $(".reload-icon");
 errorsSection.hide();
 errorButton.hide();
 reloadIcons.hide();
-
-removePreloader();
 
 ////////// USER ///////////
 
@@ -107,3 +104,4 @@ backButton.on("click", () => {
     backButton.find(backIcon).toggle();
     window.history.back()
 });
+registrationButton.prop("disabled", false);

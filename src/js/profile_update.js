@@ -6,7 +6,6 @@ import {deleteToken} from "./shared.js";
 import {ajax} from "./shared.js";
 import {emptyAjax} from "./shared.js";
 import {buildErrors} from "./shared.js";
-import {removePreloader} from "./shared.js";
 import {fetchToken} from "./shared.js";
 
 //######## SECTIONS ########//
@@ -27,22 +26,25 @@ let backButton = $("#back-btn");
 let updateButton = $("#update-btn");
 let errorButton = $(".error-btn");
 let optionsButton = $("#options-btn");
+let retryButton = $("#profile-retry-btn");
+let loadingStatus = $("#profile-loading-status");
 
 let alert = $(".alert");
 
 let checkIcon = $("#check-icon");
 let backIcon = $("#back-icon");
 let reloadIcons = $(".reload-icon");
+let fieldLoadingIcons = signUpForm.find(".field-loading-icon");
 
 //######## UI INITIAL SETUP ########//
 
 errorsSection.hide();
 errorButton.hide();
 
-firstNameField.hide();
-lastNameField.hide();
-orcidField.hide();
-subscribeCheckbox.hide();
+firstNameField.prop("disabled", true);
+lastNameField.prop("disabled", true);
+orcidField.prop("disabled", true);
+subscribeCheckbox.prop("disabled", true);
 backButton.find(reloadIcons).hide();
 updateButton.find(reloadIcons).hide();
 
@@ -57,38 +59,42 @@ signUpForm.submit(event => event.preventDefault());
 //####### STATUS HANDLING (SCORES, ...) #########//
 
 let authToken = fetchToken();
-if (authToken != null) {
+function fetchUserInfo() {
+    retryButton.hide();
+    fieldLoadingIcons.show();
+    loadingStatus.text("Loading your profile...").show();
+    signUpForm.attr("aria-busy", "true");
     let successCallback = (data, status, jqXHR) => {
         firstNameField.val(data["first_name"]);
-        firstNameField.show();
-        firstNameField.parent().parent().find(reloadIcons).hide();
+        firstNameField.prop("disabled", false);
         lastNameField.val(data["last_name"]);
-        lastNameField.show();
-        lastNameField.parent().parent().find(reloadIcons).hide();
+        lastNameField.prop("disabled", false);
         orcidField.val(data["orcid"]);
-        orcidField.show();
-        orcidField.parent().parent().find(reloadIcons).hide();
+        orcidField.prop("disabled", false);
         (data["subscribe"]) === true ? subscribeCheckbox.prop('checked', true) : subscribeCheckbox.prop('checked', false);
-        subscribeCheckbox.show();
-        subscribeCheckbox.parent().parent().find(reloadIcons).hide();
+        subscribeCheckbox.prop("disabled", false);
+        fieldLoadingIcons.hide();
+        loadingStatus.hide();
+        signUpForm.attr("aria-busy", "false");
         updateButton.prop("disabled", false);
-        removePreloader();
     };
     let errorCallback = (jqXHR, status) => {
-        firstNameField.val();
-        lastNameField.val();
-        orcidField.val();
-        subscribeCheckbox.prop('checked', false);
-        updateButton.prop("disabled", false);
-        removePreloader();
+        fieldLoadingIcons.hide();
+        signUpForm.attr("aria-busy", "false");
+        loadingStatus.text("Your profile could not be loaded. Try again or return to the previous page.").show();
+        retryButton.show();
     };
     let promise = emptyAjax("POST", "/users/info.json", "application/json; charset=utf-8", "json", true, successCallback, errorCallback);
 }
+if (authToken != null) fetchUserInfo();
+else window.location.href = "login.html";
+retryButton.on("click", fetchUserInfo);
 
 //########## UPDATE HANDLING ##########//
 
 if (authToken != null) {
     updateButton.on("click", () => {
+        if (updateButton.prop("disabled")) return;
         validationInstance.validate();
         if (validationInstance.isValid()) {
             updateButton.find(checkIcon).toggle();

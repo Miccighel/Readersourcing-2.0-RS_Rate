@@ -3,7 +3,6 @@
 //######## IMPORTS ########//
 
 import {fetchToken} from "./shared.js";
-import {removePreloader} from "./shared.js";
 
 //######## UI COMPONENTS ########//
 
@@ -24,7 +23,7 @@ reloadIcons.hide();
 let authToken = fetchToken();
 if (authToken != null) {
     window.location.href = "rating_web.html";
-} else removePreloader();
+}
 
 //######### GO TO LOGIN HANDLING #########//
 

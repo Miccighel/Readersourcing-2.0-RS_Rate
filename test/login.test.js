@@ -16,10 +16,7 @@ async function openLogin(message, caseName) {
                 append() { assert.fail("A stored server message must not be interpreted as HTML."); },
                 on() { return this; },
                 submit() { return this; },
-                stop() { return this; },
-                fadeOut() { return this; },
-                removeClass() { return this; },
-                css() { return this; },
+                prop() { return this; },
             };
             elements.set(selector, element);
         }

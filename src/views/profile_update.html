@@ -16,18 +16,6 @@
 	<title>RS_Rate</title>
 </head>
 <body>
-<div class="preloader-wrapper">
-	<div class="preloader">
-		<div style="color: #467fbf" class="la-ball-grid-pulse la-3x">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-</div>
 <div class="min-h-100 d-flex flex-column align-items-center justify-content-center">
 	<div class="w-100 mb-3">
 		<div id="buttons-sect" class="row">
@@ -57,33 +45,34 @@
 			</div>
 		</div>
 		<div class="col-lg-5 col-sm-8 col-xs-12 m-auto">
-			<form id="sign-up-form" data-parsley-validate>
+			<p id="profile-loading-status" role="status" aria-live="polite"></p>
+			<form id="sign-up-form" data-parsley-validate aria-busy="true">
 				<div class="row">
 					<div class="col-12">
 						<div class="form-group">
 							<label for="first-name">First Name</label>
-							<i class="ml-1 fas fa-sync-alt fa-spin reload-icon"></i>
-							<input id="first-name" type="text" class="form-control" placeholder="" value="Fetching value..." required>
+							<i class="ml-1 fas fa-sync-alt fa-spin reload-icon field-loading-icon"></i>
+							<input id="first-name" type="text" class="form-control" placeholder="" disabled required>
 						</div>
 					</div>
 					<div class="col-12">
 						<div class="form-group">
 							<label for="last-name">Last Name</label>
-							<i class="ml-1 fas fa-sync-alt fa-spin reload-icon"></i>
-							<input id="last-name" type="text" class="form-control" placeholder="" value="Fetching value..." required>
+							<i class="ml-1 fas fa-sync-alt fa-spin reload-icon field-loading-icon"></i>
+							<input id="last-name" type="text" class="form-control" placeholder="" disabled required>
 						</div>
 					</div>
 					<div class="col-12">
 						<div class="form-group">
 							<label for="orcid">ORCID <span class="small">(e.g. 1234-1234-1234-1234)</span></label>
-							<i class="ml-1 fas fa-sync-alt fa-spin reload-icon"></i>
-							<input id="orcid" type="text" class="form-control" placeholder="" value="Fetching value..." data-parsley-orcid>
+							<i class="ml-1 fas fa-sync-alt fa-spin reload-icon field-loading-icon"></i>
+							<input id="orcid" type="text" class="form-control" placeholder="" disabled data-parsley-orcid>
 						</div>
 					</div>
 					<div class="col-12">
 						<div class="form-group no-mb">
-							<input id="subscribe" type="checkbox">
-							<i class="mr-1 fas fa-sync-alt fa-spin reload-icon"></i>
+							<input id="subscribe" type="checkbox" disabled>
+							<i class="mr-1 fas fa-sync-alt fa-spin reload-icon field-loading-icon"></i>
 							<label for="subscribe">Subscribe (To Emails)</label>
 						</div>
 					</div>
@@ -91,7 +80,7 @@
 						<section class="errors-sect text-left">
 							<div role="alert" class="alert alert-danger"></div>
 						</section>
-						<button type="submit" id="update-btn" class="btn btn-success btn-block">
+						<button type="submit" id="update-btn" class="btn btn-success btn-block" disabled>
 							Update
 							<i id="check-icon" class="fa fa-check"></i>
 							<i class="fas fa-sync-alt fa-spin reload-icon"></i>
@@ -100,6 +89,7 @@
 							<i class="fa fa-exclamation-triangle danger-icon"></i>
 							Error
 						</button>
+						<button type="button" id="profile-retry-btn" class="btn btn-primary btn-block">Try again</button>
 					</div>
 				</div>
 			</form>

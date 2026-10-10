@@ -1,12 +1,3 @@
-//######### PAGE LOADING HANDLING #########//
-
-// This code set a fake preloader for every page. The JS code responsible for each of them must remove it when the initialization is completed.
-
-$(window).on("load", () => {
-    let body = $('body');
-    body.addClass('preloader');
-});
-
 //######## CLIENT SIDE VALIDATION SETUP ########//
 
 Parsley.addMessages('it', {

@@ -88,10 +88,12 @@ The views use Font Awesome's [SVG nesting](https://docs.fontawesome.com/apis/jav
 to retain the original icon elements. This preserves the references used by the existing controllers to show and
 hide loading indicators while the library renders the icons.
 
-During initialization, a translucent overlay keeps the underlying view visible. It fades out in 180 milliseconds
-once the view is ready, without accumulating animations when initialization completes more than once. Readers who
-prefer reduced motion see neither the animated loading dots nor the fade. Individual operations retain their local
-indicators and status messages.
+Views do not use a full page loading overlay. Login, registration, and password forms become available when their
+handlers are ready; their indicators accompany requests initiated by the reader. Profile fields remain visible but
+disabled while their values are retrieved. A failed read leaves editing disabled and offers another attempt.
+Publication checks and PDF operations use their own sections and status messages, leaving navigation available.
+Idle indicators and messages are hidden before the controllers initialize. Local loading icons respect the reader's
+preference for reduced motion.
 
 These interface revisions belong to the development source, not to the signed version 2.0.0 identified above.
 The retained XPI, unsigned archive, and submitted source remain unchanged. Distributing these revisions requires

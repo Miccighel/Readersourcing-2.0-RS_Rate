@@ -17,18 +17,6 @@
 	<title>RS_Rate</title>
 </head>
 <body class="bg-gray-dark">
-<div class="preloader-wrapper">
-	<div class="preloader">
-		<div style="color: #467fbf" class="la-ball-grid-pulse la-3x">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	</div>
-</div>
 <div class="color-white min-h-100 d-flex flex-column align-items-center justify-content-center">
 	<p id="upload-publication-source" class="w-100 text-center text-break"></p>
 	<div class="w-100 mb-3">
@@ -128,12 +116,12 @@
 				<span>Loading... </span>
 				<i class="fas fa-sync-alt fa-spin"></i>
 			</button>
-			<button type="button" id="do-rate-btn" class="rating-button w-35 btn btn-success m-auto">
+			<button type="button" id="do-rate-btn" class="rating-button w-35 btn btn-success m-auto" disabled>
 				<i class="fas fa-sync-alt fa-spin reload-icon"></i>
 				Rate
 			</button>
 			<button data-toggle="modal" data-target="#modal-configuration" id="configure-btn"
-			        class="rating-button btn btn-primary link-white" data-turbolinks="false">
+			        class="rating-button btn btn-primary link-white" data-turbolinks="false" disabled>
 				<i class="fas fa-cog"></i>
 			</button>
 			<button type="button" id="do-rate-success-btn" class="btn btn-success w-35">
@@ -176,7 +164,7 @@
 				<span>Loading... </span>
 				<i class="fas fa-sync-alt fa-spin"></i>
 			</button>
-			<button type="button" id="download-btn" class="rating-button btn btn-primary w-35 m-0">
+			<button type="button" id="download-btn" class="rating-button btn btn-primary w-35 m-0" disabled>
 				<span>Download</span>
 				<i class="fas fa-sync-alt fa-spin reload-icon"></i>
 			</button>
@@ -190,7 +178,7 @@
 				<i class="fa fa-exclamation-triangle danger-icon"></i>
 				Error
 			</button>
-			<button type="button" id="show-source-upload-btn" class="btn btn-outline-light m-0">
+			<button type="button" id="show-source-upload-btn" class="btn btn-outline-light m-0" disabled>
 				<i class="fas fa-upload"></i>
 				Use a local PDF
 			</button>
@@ -215,7 +203,7 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<button type="button" id="show-extract-upload-btn" class="btn btn-outline-light mb-3">
+			<button type="button" id="show-extract-upload-btn" class="btn btn-outline-light mb-3" disabled>
 				<i class="fas fa-upload"></i>
 				Upload a prepared PDF
 			</button>
