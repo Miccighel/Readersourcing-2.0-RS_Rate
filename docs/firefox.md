@@ -114,9 +114,9 @@ render. If a controller cannot initialize, the view displays an explanation inst
 The publication view establishes its checking state before requesting the active tab. Rating and configuration
 controls remain hidden until the publication lookup completes; server responses retain the existing domain actions.
 
-These interface revisions belong to the development source, not to the signed version 2.0.0 identified above.
-The retained XPI, unsigned archive, and submitted source remain unchanged. Distributing these revisions requires
-a new version, its corresponding source, Mozilla signing, and installation checks of the returned package.
+The retained version 2.0.0 XPI, unsigned archive, and submitted source remain unchanged. The version 2.0.1 record
+below identifies the package containing these interface revisions, its corresponding source, and its installation
+checks.
 
 The development build at commit `74d1740` was checked through temporary loading in a separate Firefox 157.0.1
 profile on October 11, 2026. With the synthetic reader and local server, login, reopening the popup, profile reads,
@@ -165,9 +165,32 @@ The retained version 2.0.1 files have these SHA-256 hashes:
 - corresponding source, `rs_rate-firefox-source-2.0.1.zip`:
   `585fdc73369d54ce092bc572765095f0e9739006b696682f41c12c121ba252b9`.
 
-Mozilla's upload validator reported no errors and 21 warnings for the new Firefox package on the unlisted channel.
-Source submission and signing are still in progress; no returned signed XPI has been checked for this version.
+Mozilla approved the version on October 11, 2026 through the existing entry's unlisted channel for Firefox desktop.
+Its version identifier is `6565662`, and its file identifier is `5109799`. Validation reported no errors and 21 warnings.
+The returned source matched the submitted archive's SHA-256 hash. The signed XPI retains all 90 application assets
+and manifest values; its additions are Mozilla's five signature files, with formatting changes to the manifest.
+The signed copy is retained as `rs_rate-firefox-signed-2.0.1.xpi`, with SHA-256 hash
+`6369dcaa9c094a08b01f90a1a99e9022d7bf25628e6d0a0badc5742c67f1fa0d`.
+Build instructions and the validation assessment were also provided in the reviewer notes. No new version was
+published in the public catalog.
 
 Reloading the Firefox development build removed the manifest warning shown by the earlier package. The background
-script appeared running. Further native checks and installation of the new signed package remain to be completed;
-the local build and validator alone do not establish readiness for distribution.
+script appeared running. The signed package was subsequently installed through the Add-ons Manager in the separate
+regular Firefox 157.0.1 profile and appeared active as version 2.0.1. The manager confirmed that access to private
+windows was disabled. The existing local server address was retained. Login, reopening the authenticated popup,
+and profile reads completed with the synthetic reader. The original upload control opened a centered extension tab,
+closed the popup, and retained the publisher address. Upload opened the annotated copy containing eight pages;
+the stored seven-page original matched the selected fixture's SHA-256 hash. Extraction refused the original with
+a textual explanation and extracted the prepared copy's rating URL for the same publication on the local server.
+The rating page required a separate web login; no rating or profile update was submitted.
+
+A complete Firefox restart cleared the extension's local authentication token while retaining the selected server
+address. A new login created a separate server credential. Logout revoked that current credential and returned an
+empty login form; reopening the popup displayed the actions for an unauthenticated reader. Restarting the browser
+does not send a logout request: the earlier server credential remains subject to its expiry and revocation rules.
+The complete user, publication, and rating fingerprints remained unchanged throughout the check.
+
+These installation checks completed for the exact signed version 2.0.1. Native control occasionally required
+keyboard navigation or the user's assistance to bring the temporary window into focus and confirm the file chooser.
+The extraction cases used separate form loads. The observations verify interactions and visible states, not
+frame-by-frame timing of the native popup.
