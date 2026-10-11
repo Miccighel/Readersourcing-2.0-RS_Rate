@@ -48,6 +48,8 @@ feedback, regardless of their preferred browser.
 The original 2019 release of **RS_Rate** remains available on the Google Chrome Web Store through the link below.
 The current source produces complete builds for Chromium browsers and Firefox, which can be installed locally for
 development. The Firefox build can also be packaged for validation and submission to Mozilla Add-ons.
+The [Microsoft Edge distribution instructions](docs/edge.md) describe its package, store submission requirements,
+and current submission status.
 
 - _Google Chrome_ version: <a href="https://chromewebstore.google.com/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg">available here</a>
 
