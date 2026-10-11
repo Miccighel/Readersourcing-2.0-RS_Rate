@@ -103,3 +103,14 @@ render. If a controller cannot initialize, the view displays an explanation inst
 These interface revisions belong to the development source, not to the signed version 2.0.0 identified above.
 The retained XPI, unsigned archive, and submitted source remain unchanged. Distributing these revisions requires
 a new version, its corresponding source, Mozilla signing, and installation checks of the returned package.
+
+The development build at commit `74d1740` was checked through temporary loading in a separate Firefox 157.0.1
+profile on October 11, 2026. With the synthetic reader and local server, login, reopening the popup, profile reads,
+original upload, annotated extraction, and logout completed. The upload tab retained the publisher address and
+closed the popup. Preparation displayed its local status while the surrounding view remained visible, then opened
+the verified eight-page copy. Extraction refused the original PDF and opened the annotated copy's rating URL.
+No profile update or rating was submitted. The complete user, publication, and rating fingerprints remained unchanged.
+
+These browser observations verify interactions and visible state changes rather than frame-by-frame timing of the
+first render. They do not replace installation checks of a new signed package. RS_Server's `docs/integration.md`
+records the local results and the remaining distribution requirements.
