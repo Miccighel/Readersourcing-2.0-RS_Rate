@@ -1,6 +1,7 @@
 # Firefox Validation
 
 This assessment covers the runtime libraries included in RS_Rate 2.0.0, as reviewed on October 9, 2026.
+Version 2.0.1 retains those locked libraries. Its local validation on October 11 reported the same findings.
 Mozilla's validator reports 21 warnings and no errors. The warnings concern HTML assignments and legacy
 `Function` constructors in the bundled libraries. They remain visible in `yarn lint:firefox`; none are excluded.
 

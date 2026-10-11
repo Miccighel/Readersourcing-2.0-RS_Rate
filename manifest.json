@@ -2,8 +2,8 @@
 	"manifest_version": 3,
 	"name": "Readersourcing 2.0: RS_Rate",
 	"short_name": "RS_Rate",
-	"version": "2.0.0",
-	"version_name": "2.0.0",
+	"version": "2.0.1",
+	"version_name": "2.0.1",
 	"description": "Allows to rate scientific publications within the Readersourcing 2.0 ecosystem.",
 	"permissions": [
 		"storage",

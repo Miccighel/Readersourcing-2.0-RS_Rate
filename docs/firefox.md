@@ -18,6 +18,17 @@ Before submitting a version:
 4. provide the [validation assessment](security.md), including the 21 visible library warnings;
 5. sign in to the Add-ons Developer Hub and select distribution outside the catalog.
 
+The packaging commands replace their usual output files. When retaining an earlier submission, build the new
+version with a distinct filename instead:
+
+```console
+yarn build
+yarn web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox-2.0.1.zip --ignore-files '!node_modules' '!node_modules/**'
+```
+
+Retain the corresponding source and returned signed XPI under distinct filenames as well. The Firefox declaration
+uses `version`; the optional Chromium `version_name` field is not part of the Firefox manifest.
+
 The extension retains its original Mozilla identifier, `rs-rate@readersourcing.com`, in the account's existing
 RS_Rate entry. Submit a new version through that entry. Do not create another identity or replace an existing signed
 version silently.
@@ -124,3 +135,39 @@ section and no premature rating controls while navigation remained available. At
 long synthetic email fitted its box and retained its complete text. This is a controlled page check, not a timing
 measurement of the native Firefox popup. Automatic control did not confirm reloading the revised temporary extension.
 RS_Rate passed 125 tests and both build checks; Firefox lint reported no errors and the same 21 library warnings.
+
+## Version 2.0.1
+
+Version 2.0.1 contains the current interface revisions and uses the same extension identifier, domain actions,
+dependency declarations, and locked libraries. Both manifests and `package.json` declare the same version.
+The Firefox manifest omits `version_name`; Chromium retains it. Tests cover those declarations.
+
+On October 11, 2026, `yarn verify` passed 127 tests and both build checks. Firefox lint reported no errors or notices
+and retained the 21 documented library warnings. Both versioned unsigned archives contained 90 assets that matched
+their unpacked builds, without development dependencies. The retained version 2.0.0 archives remain unchanged.
+
+The Chromium build was loaded in a separate Edge profile with the synthetic reader and local server. Login remained
+active when the popup was reopened. The profile email wrapped within its box at the existing popup width, and the
+prepared eight-page PDF opened. Logout returned the empty login form and revoked the issued server credential.
+The complete user, publication, and rating fingerprints remained unchanged.
+
+The source was extracted into a separate directory and installed from the unchanged lockfile with
+`yarn install --immutable --immutable-cache`, using the existing local cache with network access disabled.
+The new installation passed `yarn verify` and reproduced every asset in both unsigned packages. All 47 bundled
+library assets also matched the retained version 2.0.0 package byte for byte.
+
+The retained version 2.0.1 files have these SHA-256 hashes:
+
+- Firefox package, `rs_rate-firefox-2.0.1.zip`:
+  `f6a88ab35105bfbb22829710932b2c64b3537540b4bfb0dc19d2822ef367f108`;
+- Chromium package, `rs_rate-chromium-2.0.1.zip`:
+  `d26453c9dcea3082f2a7190ad4e1ddbadd126a5dc35c5f4c17b578c8024d31b3`;
+- corresponding source, `rs_rate-firefox-source-2.0.1.zip`:
+  `585fdc73369d54ce092bc572765095f0e9739006b696682f41c12c121ba252b9`.
+
+Mozilla's upload validator reported no errors and 21 warnings for the new Firefox package on the unlisted channel.
+Source submission and signing are still in progress; no returned signed XPI has been checked for this version.
+
+Reloading the Firefox development build removed the manifest warning shown by the earlier package. The background
+script appeared running. Further native checks and installation of the new signed package remain to be completed;
+the local build and validator alone do not establish readiness for distribution.
