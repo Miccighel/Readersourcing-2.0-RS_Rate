@@ -270,21 +270,23 @@ if (authToken != null) {
 //#######  PUBLICATION STATUS SETUP #########//
 
 if (authToken != null) {
+    loadingSection.show();
+    showPreparationStatus("checking");
+    // RATING SECTION
+    ratingSection.hide();
+    ratingControls.hide();
+    ratingText.hide();
+    doRateButton.hide();
+    configureButton.hide();
+    ratingButtons.prop("disabled", true);
+    // SAVE FOR LATER SECTION
+    saveForLaterCaptionFirst.show();
+    saveForLaterCaptionSecond.hide();
+    downloadButton.find('span').text("Download");
+    downloadButton.show();
+    openButton.hide();
+    refreshButton.hide();
     queryPublication(tabs => {
-        loadingSection.show();
-        showPreparationStatus("checking");
-        // RATING SECTION
-        ratingSection.hide();
-        ratingControls.hide();
-        ratingText.hide();
-        ratingButtons.prop("disabled", true);
-        // SAVE FOR LATER SECTION
-        saveForLaterCaptionFirst.show();
-        saveForLaterCaptionSecond.hide();
-        downloadButton.find('span').text("Download");
-        downloadButton.show();
-        openButton.hide();
-        refreshButton.hide();
         let currentUrl = tabs[0].url;
         currentPublicationUrl = currentUrl;
         showSourceUploadButton.prop("disabled", false);

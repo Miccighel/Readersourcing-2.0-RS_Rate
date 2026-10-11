@@ -20,7 +20,7 @@ body.pdf-upload-page > .color-white, html.pdf-upload-view body > .color-white {
 
 #rating-sect, #loading-sect, #undetected-publication-sect, .rating-controls, #rating-text,
 #rating-caption-second, #save-for-later-caption-second, #extract-caption-second,
-#do-rate-success-btn, #edit-rate-btn, #update-rate-btn, #load-rate-btn, #load-save-btn,
+#do-rate-btn, #configure-btn, #do-rate-success-btn, #edit-rate-btn, #update-rate-btn, #load-rate-btn, #load-save-btn,
 #open-btn, #refresh-btn, #go-to-rating-btn, #show-extract-upload-btn,
 #source-upload-section, #source-upload-success, #source-upload-error,
 #dropzone-success, #dropzone-error, #upload-publication-source {
@@ -51,6 +51,10 @@ div#modal-configuration div.modal-footer, div#modal-refresh .modal-footer {
 
 div#modal-profile {
     padding-left: 0 !important;
+}
+
+#modal-profile #user-score-sect .box-simple {
+    overflow-wrap: anywhere;
 }
 
 /* ////////// CHECKBOXES ////////// */

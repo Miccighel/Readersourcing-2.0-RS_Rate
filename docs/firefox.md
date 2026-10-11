@@ -94,11 +94,14 @@ disabled while their values are retrieved. A failed read leaves editing disabled
 Publication checks and PDF operations use their own sections and status messages, leaving navigation available.
 Idle indicators and messages are hidden before the controllers initialize. Local loading icons respect the reader's
 preference for reduced motion.
+Profile values wrap within their existing boxes so that long addresses remain readable without truncation.
 
 The home and publication views display their content after the controller has resolved the local session and upload
 context and arranged the initial controls. Navigation remains visible during this setup. There is no fade or minimum
 display time, and the view does not wait for server responses. Upload pages use their full page layout from the first
 render. If a controller cannot initialize, the view displays an explanation instead of remaining empty.
+The publication view establishes its checking state before requesting the active tab. Rating and configuration
+controls remain hidden until the publication lookup completes; server responses retain the existing domain actions.
 
 These interface revisions belong to the development source, not to the signed version 2.0.0 identified above.
 The retained XPI, unsigned archive, and submitted source remain unchanged. Distributing these revisions requires
@@ -114,3 +117,10 @@ No profile update or rating was submitted. The complete user, publication, and r
 These browser observations verify interactions and visible state changes rather than frame-by-frame timing of the
 first render. They do not replace installation checks of a new signed package. RS_Server's `docs/integration.md`
 records the local results and the remaining distribution requirements.
+
+A separate rendering check on October 11, 2026 used the built views and bundled libraries with synthetic session,
+tab, and API responses. With the tab read and server response deliberately delayed, frame samples showed the checking
+section and no premature rating controls while navigation remained available. At the popup width of 300 pixels, a
+long synthetic email fitted its box and retained its complete text. This is a controlled page check, not a timing
+measurement of the native Firefox popup. Automatic control did not confirm reloading the revised temporary extension.
+RS_Rate passed 125 tests and both build checks; Firefox lint reported no errors and the same 21 library warnings.
