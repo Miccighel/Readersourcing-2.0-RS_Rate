@@ -57,3 +57,8 @@ The audit was repeated on October 12, 2026: production dependencies passed, whil
 remained open. `fx-runner` 1.7.0 uses the corrected `shell-quote` 1.11.0, but the current `web-ext` 10.7.0 release
 still requires `fx-runner` 1.6.0 exactly. The project awaits a `web-ext` release that includes the correction,
 without an override or an audit exception. Neither package is included in the distributed extension archives.
+
+The [remediation record](security-followup-2026-10-12.json) retains the current registry requirements, audit results,
+and distribution checks. The 127 tests and both build checks passed. Firefox validation retained its 21 warnings,
+and both retained 2.0.1 unsigned archives matched their 90 build assets. The unsigned packages, submitted source,
+and signed XPI retain their recorded hashes.
