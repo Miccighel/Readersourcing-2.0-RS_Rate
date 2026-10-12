@@ -1,0 +1,17 @@
+RS_Rate is a browser client for Readersourcing 2.0. It allows scholarly readers to rate publications while reading them.
+
+Features:
+
+- Submit an integer rating from 0 to 100.
+- Prepare a PDF with a rating link and QR Code for later use.
+- Extract the rating link from a prepared PDF.
+- Create a reader account and manage its profile.
+
+A compatible RS_Server and reader account are required. Set the server address in the extension options and grant access to that selected server. The default address is http://localhost:3000/. No server or public service is included.
+
+PDF preparation is not available for every source. If retrieval is unavailable, you can upload an original PDF from your device; the server validates it before annotation.
+
+When you open the publication view while signed in, the active tab URL is sent to the selected server for lookup. Account operations, ratings and selected PDF uploads use that same server.
+
+Privacy: https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/d6a0c56b7795229fcd5179980b94e8486fb87109/PRIVACY.md
+Support: https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/issues

@@ -34,16 +34,18 @@ selected server and temporary messages, and access to the active publication add
 
 [PRIVACY.md](../PRIVACY.md) describes version 2.0.1 and uses the publisher's selected contact,
 `michael.soprano@uniud.it`. It distinguishes the extension's browser storage and selected server from the policies
-of a particular RS_Server deployment. The [public policy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/codex/rs-rate-privacy-policy/PRIVACY.md)
+of a particular RS_Server deployment. The [public policy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/d6a0c56b7795229fcd5179980b94e8486fb87109/PRIVACY.md)
 was checked without authentication and its address is saved in the store's privacy field.
 
 The policy is hosted on `codex/rs-rate-privacy-policy`, based on the existing master commit
 `5ee92c77428beaa3a69cf891a5e991d7c5dabe8e`. Commit `d6a0c56b7795229fcd5179980b94e8486fb87109`
 adds only `PRIVACY.md`; publishing it did not merge or publish the development branch.
+The store uses the permalink to that commit. Its validator reported the branch URL as unreachable, although it
+was publicly readable; saving the permalink to the same document enabled submission without changing its contents.
 
 The saved form explains the single purpose and the storage and tabs permissions, and declares no remote code.
 It includes personal identification, authentication information, web history, user activity, and website content.
-The existing three data use certifications remain selected; they were not changed during draft preparation.
+The existing three data use certifications remain selected; the publisher confirmed them before authorizing review.
 The optional HTTP and HTTPS host permissions are explained in the reviewer notes: they allow a reader to select
 a compatible server, with access requested for the selected origin rather than automatically granted for all sites.
 
@@ -64,16 +66,25 @@ item. The package page confirms draft version `2.0.1` and retains published vers
 The downloaded draft CRX confirms Manifest V3. Its 89 other build assets match the uploaded archive byte for byte;
 Google adds its update URL to the manifest and a verification metadata file.
 
-The saved store description retains the original scientific explanation and adds the client requirements,
-the rating range, PDF preparation limits, and the information sent to the selected server. The home page and support
-links point to this repository and its issues. The original icon, screenshot, Tools category, Public visibility,
-free distribution, and all regions are retained. Google Analytics was not activated.
+The [store description](chrome-description.txt) explains the extension's functions, client requirements, rating range,
+PDF preparation limits, and information sent to the selected server. The scientific background remains in the README
+and project documentation. The home page and support links point to this repository and its issues. The original
+icon, screenshot, Tools category, Public visibility, free distribution, and all regions are retained.
+Google Analytics was not activated.
 
 Reviewer instructions describe the compatible server, synthetic account workflow, PDF checks, locally bundled
 assets, and optional host permissions. No test credential was added or changed. There is no public test server or
-remote test account; access suitable for an independent review still needs to be arranged before submission.
-The publisher must also confirm the retained data use certifications for the intended distribution.
+remote test account. This limitation is stated in the reviewer notes and may affect independent functional checks.
 
-The dashboard still displays Removed, the rejection dated December 26, 2023, and a Manifest V2 warning on the
-package page. The retained 2.0.1 archive uses Manifest V3; the new draft has not received a store review or approval.
-No review request, appeal, or publication was submitted, and no Microsoft submission was made.
+The first review request for version 2.0.1 was submitted with the publisher's authorization and deferred publication
+on October 12, 2026. It was rejected that day under Yellow Argon, identifying the long scientific introduction in
+the description as excessive metadata. The [store's guidance](https://developer.chrome.com/docs/webstore/troubleshooting/#keyword-stuffing)
+calls for a description focused on the extension's functions.
+
+The publisher authorized shortening that description and resubmitting the same package. The revised English text
+contains 1,126 characters and its saved value was checked before submission. The package, policy contents,
+permissions, dependency declarations, and scientific README text were not changed.
+
+The dashboard confirmed the second submission and displays Pending review. Automatic publication is disabled;
+publication remains a separate decision after approval. Google states that an approved submission with deferred
+publication expires after 30 days if it is not published. No appeal, publication, or Microsoft submission was made.

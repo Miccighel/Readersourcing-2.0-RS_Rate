@@ -46,8 +46,8 @@ feedback, regardless of their preferred browser.
 <h1>Installation</h1>
 
 The original 2019 release of **RS_Rate** was distributed through the Chrome Web Store entry linked below.
-The developer dashboard checked on October 12, 2026 displays that entry as removed. The existing identity is retained;
-the [Chrome distribution instructions](docs/chrome.md) record its status and the requirements for an update.
+The existing identity is retained; the [Chrome distribution instructions](docs/chrome.md) record the submission
+status and the requirements for an update.
 The current source produces complete builds for Chromium browsers and Firefox, which can be installed locally for
 development. The Firefox build can also be packaged for validation and submission to Mozilla Add-ons.
 The [Microsoft Edge distribution instructions](docs/edge.md) describe the optional separate store submission.
@@ -55,9 +55,9 @@ The [Microsoft Edge distribution instructions](docs/edge.md) describe the option
 - _Google Chrome_ entry: <a href="https://chromewebstore.google.com/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg">original listing</a>
 
 The [privacy policy](PRIVACY.md) describes the extension's handling of information and distinguishes it from the
-policy of the RS_Server selected by the reader. A [public copy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/codex/rs-rate-privacy-policy/PRIVACY.md)
-is available without authentication and is linked from the Chrome draft. Version 2.0.1 and its store information
-are saved as a draft, without submission for review or publication.
+policy of the RS_Server selected by the reader. A [public copy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/d6a0c56b7795229fcd5179980b94e8486fb87109/PRIVACY.md)
+is available without authentication and is linked from the Chrome submission. Version 2.0.1 is awaiting review,
+with automatic publication disabled. The [distribution instructions](docs/chrome.md) record the submission status.
 
 <h1>Usage</h1>
 
