@@ -3,6 +3,8 @@
 The Chromium package supports Microsoft Edge. Submission and certification use
 [Microsoft Partner Center](https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/publish-extension).
 An existing extension should be updated through its existing entry to retain its store identity.
+RS_Rate's existing Chromium distribution uses the [Chrome Web Store entry](chrome.md). A separate Microsoft
+submission is optional and is not required to install a Chrome Web Store extension in Edge.
 
 ## Package
 
@@ -87,3 +89,5 @@ visibility and confirms any account agreements or certification declarations bef
 
 On October 11, 2026, the package and submission material were prepared. Partner Center required account access.
 No package upload, certification submission, or Microsoft approval has been confirmed.
+On October 12, the separate Microsoft submission was left aside while the original Chrome entry was inspected
+and its privacy requirements were prepared. No Microsoft package was submitted.

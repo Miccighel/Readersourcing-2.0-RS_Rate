@@ -45,13 +45,18 @@ feedback, regardless of their preferred browser.
 
 <h1>Installation</h1>
 
-The original 2019 release of **RS_Rate** remains available on the Google Chrome Web Store through the link below.
+The original 2019 release of **RS_Rate** was distributed through the Chrome Web Store entry linked below.
+The developer dashboard checked on October 12, 2026 displays that entry as removed. The existing identity is retained;
+the [Chrome distribution instructions](docs/chrome.md) record its status and the requirements for an update.
 The current source produces complete builds for Chromium browsers and Firefox, which can be installed locally for
 development. The Firefox build can also be packaged for validation and submission to Mozilla Add-ons.
-The [Microsoft Edge distribution instructions](docs/edge.md) describe its package, store submission requirements,
-and current submission status.
+The [Microsoft Edge distribution instructions](docs/edge.md) describe the optional separate store submission.
 
-- _Google Chrome_ version: <a href="https://chromewebstore.google.com/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg">available here</a>
+- _Google Chrome_ entry: <a href="https://chromewebstore.google.com/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg">original listing</a>
+
+The [privacy policy](PRIVACY.md) describes the extension's handling of information and distinguishes it from the
+policy of the RS_Server selected by the reader. Its public hosting and store disclosures remain part of the
+Chrome submission preparation.
 
 <h1>Usage</h1>
 
