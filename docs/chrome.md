@@ -26,24 +26,26 @@ privacy policy link, identified by the store as Purple Nickel.
 The item retained Public visibility, free distribution, and all regions. The Hidden choice discussed for Microsoft
 does not change those Chrome settings. No distribution setting was changed during this inspection.
 
-The legacy privacy form still declared remote DataTables code and described the storage permission as inspecting
-the current page. Those declarations do not describe the current package. Its executable assets are bundled locally;
-storage retains the selected server and temporary messages, while tabs supplies the active publication address.
+The legacy privacy form declared remote DataTables code and described the storage permission as inspecting
+the current page. The saved declarations for version 2.0.1 describe the bundled executable assets, storage of the
+selected server and temporary messages, and access to the active publication address through tabs.
 
-## Privacy preparation
+## Privacy
 
 [PRIVACY.md](../PRIVACY.md) describes version 2.0.1 and uses the publisher's selected contact,
 `michael.soprano@uniud.it`. It distinguishes the extension's browser storage and selected server from the policies
-of a particular RS_Server deployment. The document is prepared for publisher review; it has not been published at
-a confirmed public URL or entered into the store form.
+of a particular RS_Server deployment. The [public policy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/codex/rs-rate-privacy-policy/PRIVACY.md)
+was checked without authentication and its address is saved in the store's privacy field.
 
-Before submitting an update:
+The policy is hosted on `codex/rs-rate-privacy-policy`, based on the existing master commit
+`5ee92c77428beaa3a69cf891a5e991d7c5dabe8e`. Commit `d6a0c56b7795229fcd5179980b94e8486fb87109`
+adds only `PRIVACY.md`; publishing it did not merge or publish the development branch.
 
-1. approve the policy and make it available at a stable public URL;
-2. check that the URL works without authentication and enter it in the store's privacy field;
-3. align the single purpose, permission explanations, remote code declaration, and data categories with the package;
-4. confirm the data use certifications and the retained distribution settings;
-5. provide review instructions appropriate to the selected compatible server, without sharing personal credentials.
+The saved form explains the single purpose and the storage and tabs permissions, and declares no remote code.
+It includes personal identification, authentication information, web history, user activity, and website content.
+The existing three data use certifications remain selected; they were not changed during draft preparation.
+The optional HTTP and HTTPS host permissions are explained in the reviewer notes: they allow a reader to select
+a compatible server, with access requested for the selected origin rather than automatically granted for all sites.
 
 The data disclosures must account for names, email and optional ORCID, authentication information, the active
 publication URL, ratings, and selected PDF contents. Reading one active publication address is not continuous
@@ -57,5 +59,21 @@ an inaccessible localhost URL for the public policy.
 
 ## Submission status
 
-The original item was inspected without modifying its draft. The publisher chose to complete the privacy work
-before uploading the version 2.0.1 package. No new package, review request, appeal, or publication was submitted.
+On October 12, 2026, the publisher authorized uploading `rs_rate-chromium-2.0.1.zip` only as a draft in the existing
+item. The package page confirms draft version `2.0.1` and retains published version `1.0.14-alpha`.
+The downloaded draft CRX confirms Manifest V3. Its 89 other build assets match the uploaded archive byte for byte;
+Google adds its update URL to the manifest and a verification metadata file.
+
+The saved store description retains the original scientific explanation and adds the client requirements,
+the rating range, PDF preparation limits, and the information sent to the selected server. The home page and support
+links point to this repository and its issues. The original icon, screenshot, Tools category, Public visibility,
+free distribution, and all regions are retained. Google Analytics was not activated.
+
+Reviewer instructions describe the compatible server, synthetic account workflow, PDF checks, locally bundled
+assets, and optional host permissions. No test credential was added or changed. There is no public test server or
+remote test account; access suitable for an independent review still needs to be arranged before submission.
+The publisher must also confirm the retained data use certifications for the intended distribution.
+
+The dashboard still displays Removed, the rejection dated December 26, 2023, and a Manifest V2 warning on the
+package page. The retained 2.0.1 archive uses Manifest V3; the new draft has not received a store review or approval.
+No review request, appeal, or publication was submitted, and no Microsoft submission was made.

@@ -55,8 +55,9 @@ The [Microsoft Edge distribution instructions](docs/edge.md) describe the option
 - _Google Chrome_ entry: <a href="https://chromewebstore.google.com/detail/readersourcing-20-rsrate/hlkdlngpijhdkbdlhmgeemffaoacjagg">original listing</a>
 
 The [privacy policy](PRIVACY.md) describes the extension's handling of information and distinguishes it from the
-policy of the RS_Server selected by the reader. Its public hosting and store disclosures remain part of the
-Chrome submission preparation.
+policy of the RS_Server selected by the reader. A [public copy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/codex/rs-rate-privacy-policy/PRIVACY.md)
+is available without authentication and is linked from the Chrome draft. Version 2.0.1 and its store information
+are saved as a draft, without submission for review or publication.
 
 <h1>Usage</h1>
 
