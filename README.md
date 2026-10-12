@@ -218,7 +218,7 @@ The CI workflow runs this check and fails when the registry reports a known vuln
 tools, use `yarn audit`. Both commands check vulnerabilities without treating package deprecation notices as security
 advisories. To review those notices as well, run `yarn npm audit --all --recursive`.
 
-As of October 9, 2026, the development dependency `node-forge` has an unresolved
+As of October 12, 2026, the development dependency `node-forge` has an unresolved
 [RSA signature verification advisory](https://github.com/advisories/GHSA-86w9-cpqp-85rv) with no patched release.
 It is included by `web-ext` through `@devicefarmer/adbkit`, which supports Firefox for Android. The documented build,
 validation, and packaging commands do not use Android connections, and the dependency is not copied into either
@@ -227,8 +227,10 @@ extension package.
 The development dependency `shell-quote` 1.10.0 also has a critical
 [command injection advisory](https://github.com/advisories/GHSA-pqg4-j6r4-53mv), corrected in version 1.11.0.
 It is included by `web-ext` through `fx-runner` 1.6.0, which requires version 1.10.0 exactly. This dependency is not
-copied into either extension package. The project awaits an update to the parent package without overriding its
-dependency requirement. The full `yarn audit` reports both advisories and returns a failure; neither is excluded.
+copied into either extension package. `fx-runner` 1.7.0 includes the corrected library, but the current `web-ext`
+10.7.0 release still requires 1.6.0 exactly. The project awaits a `web-ext` release that includes the correction,
+without overriding its dependency requirement. The full `yarn audit` reports both advisories and returns a failure;
+neither is excluded.
 The production dependency audit passed on the same date.
 
 RS_Rate uses Bootstrap 4 because its views and UI plugins depend on Bootstrap 4 markup and jQuery integration.

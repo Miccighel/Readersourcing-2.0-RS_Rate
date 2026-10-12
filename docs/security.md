@@ -53,6 +53,7 @@ Library updates or changes to templates, picker controls, icon configuration, an
 review of the affected paths. A submission to Mozilla should include this assessment alongside the validation report.
 Dependency vulnerability advisories are tracked separately through the audit commands described in the README;
 this assessment does not exclude the unresolved `node-forge` or `shell-quote` advisories from the development audit.
-The latter has a corrected release, but `fx-runner` requires the affected version exactly. The project awaits an
-update to that parent dependency without an override or an audit exception. Neither package is included in the
-distributed extension archives.
+The audit was repeated on October 12, 2026: production dependencies passed, while both development advisories
+remained open. `fx-runner` 1.7.0 uses the corrected `shell-quote` 1.11.0, but the current `web-ext` 10.7.0 release
+still requires `fx-runner` 1.6.0 exactly. The project awaits a `web-ext` release that includes the correction,
+without an override or an audit exception. Neither package is included in the distributed extension archives.
