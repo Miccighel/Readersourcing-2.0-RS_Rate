@@ -95,10 +95,33 @@ No appeal, publication, or Microsoft submission was made.
 Version 2.0.2 uses a [readable build of Dropzone 5.9.3](dropzone.md) from its locked upstream source, with source
 maps and its original license. The application controllers, upload fields, permissions, and store identity remain
 unchanged. esbuild is declared only as a development dependency. The package is prepared locally and has not been
-uploaded, submitted for review, or published. Browser installation remains to be checked before submission.
+uploaded, submitted for review, or published.
 
 The retained local archive is `artifacts/rs_rate-chromium-2.0.2.zip`, containing 92 verified build assets.
 Its SHA-256 hash is `6baf15103fa77540b7f908660f20f5207c52aa9a6a7eaba46021c47e672202ab`.
 
 The local privacy policy covers versions 2.0.1 and 2.0.2. Its information handling is unchanged; the store's
 saved policy link still points to the previously published document covering version 2.0.1.
+
+### Chromium installation check
+
+On October 13, 2026, the retained Chromium archive was extracted into a separate directory, checked against all
+92 build assets, and loaded in a temporary Edge 155.0.4283.45 profile. The manager displayed version 2.0.2 without
+a loading error. Private window and file URL access were disabled. The reader authorized access to the configured
+loopback server, connected through an SSH tunnel to the private Linux trial running RS_Server 2.0.3.
+The personal profile and server configuration were not changed.
+
+A new synthetic reader registered and confirmed its email through the trial's SMTP simulator. Login succeeded,
+and reopening the popup retained the session. The profile dialog displayed that reader's values without submitting
+an update. A malformed original PDF was refused with the visible `Invalid PDF` explanation.
+
+Selecting the repository's seven-page `Reader.pdf` fixture through the original upload control opened an annotated
+copy containing eight pages. Its first seven pages retained the original text. Reopening the popup on the source
+displayed `PDF ready`. The extraction control accepted the saved annotated copy and opened the same publication's
+rating page. No rating was submitted. Logout returned the empty login form; reopening the popup displayed the
+actions for an unauthenticated reader.
+
+These cases used separate form loads. They verify native selection, upload, preparation, extraction, and visible
+session changes in Edge, not installation from the Chrome Web Store, a Firefox signature, or store approval.
+The final extension error log check has not been completed. The 136 automated tests and both package checks passed
+in the [development workflow](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/actions/runs/38400592618).

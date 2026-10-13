@@ -49,6 +49,9 @@ or an iframe. The [Chrome readability policy](https://developer.chrome.com/docs/
 allows minification but prohibits obscuring extension functionality. Native execution checks alone do not settle
 the readability of all code included in a package.
 
-The retained 2.0.1 archives and signed Firefox XPI remain unchanged. The 2.0.2 packages require a new Chromium
-installation check and, for regular Firefox distribution, a separate Mozilla signature and installation check.
+The retained 2.0.1 archives and signed Firefox XPI remain unchanged. The 2.0.2 Chromium archive was loaded in a
+temporary Edge profile and exercised with a synthetic reader against the private server trial. Original PDF upload,
+malformed PDF refusal, annotated copy extraction, popup session retention, and logout completed. The
+[Chromium installation record](chrome.md#chromium-installation-check) identifies the package and scope of this check.
+Regular Firefox distribution still requires a separate Mozilla signature and installation check.
 Uploading, requesting review, and publishing each remain separate decisions by the publisher.
