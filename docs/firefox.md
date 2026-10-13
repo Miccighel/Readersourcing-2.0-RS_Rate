@@ -15,7 +15,7 @@ Before submitting a version:
 1. run `yarn install --immutable`, `yarn verify`, and `yarn package:firefox`;
 2. retain the exact archive and its SHA-256 hash;
 3. prepare the corresponding source, manifests, build scripts, `package.json`, and `yarn.lock` for review;
-4. provide the [validation assessment](security.md), including the 21 visible library warnings;
+4. provide the [validation assessment](security.md), including the 17 visible library warnings for version 2.0.2;
 5. sign in to the Add-ons Developer Hub and select distribution outside the catalog.
 
 The packaging commands replace their usual output files. When retaining an earlier submission, build the new
@@ -23,7 +23,7 @@ version with a distinct filename instead:
 
 ```console
 yarn build
-yarn web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox-2.0.1.zip --ignore-files '!node_modules' '!node_modules/**'
+yarn web-ext build --source-dir dist/firefox --artifacts-dir artifacts --filename rs_rate-firefox-2.0.2.zip --ignore-files '!node_modules' '!node_modules/**'
 ```
 
 Retain the corresponding source and returned signed XPI under distinct filenames as well. The Firefox declaration
@@ -194,3 +194,13 @@ These installation checks completed for the exact signed version 2.0.1. Native c
 keyboard navigation or the user's assistance to bring the temporary window into focus and confirm the file chooser.
 The extraction cases used separate form loads. The observations verify interactions and visible states, not
 frame-by-frame timing of the native popup.
+
+## Local version 2.0.2
+
+Version 2.0.2 uses the [Dropzone source build](dropzone.md) and retains the existing Firefox identity, permissions,
+session behavior, and application controllers. Local validation reports no errors and 17 library warnings.
+The archive is unsigned; it has not been submitted to Mozilla or checked through browser installation.
+The signed 2.0.1 XPI and its recorded installation checks remain separate from this development package.
+
+The retained local archive is `artifacts/rs_rate-firefox-2.0.2.zip`, containing 92 verified build assets.
+Its SHA-256 hash is `c643cb4f2224aa67d2a781bd405effc05ef88909104c55d803bcf6c2479bc91a`.

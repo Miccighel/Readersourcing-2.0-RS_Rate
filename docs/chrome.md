@@ -6,7 +6,7 @@ a separate Microsoft Edge Add-ons submission is optional.
 
 ## Current package
 
-The retained package is `artifacts/rs_rate-chromium-2.0.1.zip`, with SHA-256 hash
+The retained submitted package is `artifacts/rs_rate-chromium-2.0.1.zip`, with SHA-256 hash
 `d26453c9dcea3082f2a7190ad4e1ddbadd126a5dc35c5f4c17b578c8024d31b3`.
 It uses Manifest V3 and contains the 90 verified Chromium build assets, without development dependencies.
 The existing dependency declarations and domain actions are unchanged. Local verification and the Edge checks
@@ -85,6 +85,20 @@ The publisher authorized shortening that description and resubmitting the same p
 contains 1,126 characters and its saved value was checked before submission. The package, policy contents,
 permissions, dependency declarations, and scientific README text were not changed.
 
-The dashboard confirmed the second submission and displays Pending review. Automatic publication is disabled;
-publication remains a separate decision after approval. Google states that an approved submission with deferred
-publication expires after 30 days if it is not published. No appeal, publication, or Microsoft submission was made.
+The dashboard confirmed the second submission with automatic publication disabled. On October 13, 2026, the
+publisher received a Red Titanium rejection identifying the legacy Object.create polyfill in
+`node_modules/dropzone/dist/dropzone.js`. That fragment is present in the retained submitted package.
+No appeal, publication, or Microsoft submission was made.
+
+## Local version 2.0.2
+
+Version 2.0.2 uses a [readable build of Dropzone 5.9.3](dropzone.md) from its locked upstream source, with source
+maps and its original license. The application controllers, upload fields, permissions, and store identity remain
+unchanged. esbuild is declared only as a development dependency. The package is prepared locally and has not been
+uploaded, submitted for review, or published. Browser installation remains to be checked before submission.
+
+The retained local archive is `artifacts/rs_rate-chromium-2.0.2.zip`, containing 92 verified build assets.
+Its SHA-256 hash is `6baf15103fa77540b7f908660f20f5207c52aa9a6a7eaba46021c47e672202ab`.
+
+The local privacy policy covers versions 2.0.1 and 2.0.2. Its information handling is unchanged; the store's
+saved policy link still points to the previously published document covering version 2.0.1.

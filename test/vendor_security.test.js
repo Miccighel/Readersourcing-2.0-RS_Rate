@@ -52,7 +52,7 @@ async function dropzoneFixture() {
             return {style: {}, classList: {}};
         },
     };
-    const context = await loadLibrary("node_modules/dropzone/dist/dropzone.js", {
+    const context = await loadLibrary("dist/chromium/node_modules/dropzone/dist/dropzone.js", {
         document,
         navigator: {userAgent: "Firefox"},
         File() {}, FileReader() {}, FileList() {}, Blob() {}, FormData() {},

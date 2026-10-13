@@ -2,6 +2,7 @@ import {readFile, readdir} from "node:fs/promises";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 import JSZip from "jszip";
+import {assertDropzoneBundle} from "./build_dropzone.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const targets = ["chromium", "firefox"];
@@ -38,6 +39,9 @@ export async function checkArchive(sourceDir, archivePath, dependencies) {
         const entry = archive.file(relativePath);
         if (!entry) throw new Error(`Archive omits a build asset: ${relativePath}`);
         const source = await readFile(path.join(sourceDir, relativePath));
+        if (relativePath === "node_modules/dropzone/dist/dropzone.js") {
+            assertDropzoneBundle(source.toString("utf8"));
+        }
         if (!source.equals(await entry.async("nodebuffer"))) {
             throw new Error(`Archive asset differs from the unpacked build: ${relativePath}`);
         }

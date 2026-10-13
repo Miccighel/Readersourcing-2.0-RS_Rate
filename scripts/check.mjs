@@ -1,6 +1,7 @@
 import {access, readFile, readdir} from "node:fs/promises";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {assertDropzoneBundle} from "./build_dropzone.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputRoot = path.join(projectRoot, "dist");
@@ -56,6 +57,7 @@ async function validatePackage(name, packageRoot, manifest, packageJson) {
     if (!manifest.content_security_policy?.extension_pages?.includes("script-src 'self'")) {
         throw new Error(`${name} extension pages must execute bundled scripts only.`);
     }
+    assertDropzoneBundle(await readFile(path.join(packageRoot, "node_modules/dropzone/dist/dropzone.js"), "utf8"));
     for (const origin of requiredOptionalHosts) {
         if (!manifest.optional_host_permissions?.includes(origin)) {
             throw new Error(`${name} must allow the reader to grant access to ${origin}.`);

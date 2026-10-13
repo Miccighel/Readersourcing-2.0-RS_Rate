@@ -14,7 +14,7 @@
 
 This is the official repository of **RS_Rate**, which is part of the **Readersourcing 2.0** ecosystem. This repository is a [Git Submodule](https://git-scm.com/book/it/v2/Git-Tools-Submodules) of the main project, which can be found by taking advantage of the links below.
 
-The current development line is version **2.0.1**.
+The current development line is version **2.0.2**.
 
 <h1>Useful Links</h1>
 
@@ -56,8 +56,9 @@ The [Microsoft Edge distribution instructions](docs/edge.md) describe the option
 
 The [privacy policy](PRIVACY.md) describes the extension's handling of information and distinguishes it from the
 policy of the RS_Server selected by the reader. A [public copy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/d6a0c56b7795229fcd5179980b94e8486fb87109/PRIVACY.md)
-is available without authentication and is linked from the Chrome submission. Version 2.0.1 is awaiting review,
-with automatic publication disabled. The [distribution instructions](docs/chrome.md) record the submission status.
+is available without authentication and is linked from the Chrome submission. The Chrome submission of version 2.0.1
+was rejected under Red Titanium. Version 2.0.2 is prepared locally; it has not been submitted to a store.
+The [distribution instructions](docs/chrome.md) record the submission status.
 
 <h1>Usage</h1>
 
@@ -146,6 +147,10 @@ resolved reproducibly through the committed `yarn.lock`.
 The Chromium and Firefox metadata are declared in `manifest.json` and `manifest-ff.json`, respectively. The build
 copies the appropriate declaration into each package as `manifest.json`.
 
+Dropzone 5.9.3 is built from its locked upstream source with the development dependency esbuild. The readable bundle
+uses native browser features, without the distribution's legacy polyfills. Its source map contains the original modules,
+and its MIT license is included. The [Dropzone build instructions](docs/dropzone.md) describe reproduction and checks.
+
 ```console
 corepack enable
 yarn install --immutable
@@ -155,8 +160,8 @@ yarn verify
 `yarn verify` creates complete Manifest V3 extension packages in `dist/chromium/` and `dist/firefox/`, checks that all
 executable assets are bundled locally, validates the Firefox package with Mozilla's `web-ext`, and runs the client
 contract tests. Firefox validation also scans the bundled runtime libraries. The validator reports warnings in several
-of those libraries, including dynamic HTML assignments and legacy `Function` constructors in Dropzone. The
-[validation assessment](docs/security.md) describes all 21 warnings, the data used by the current extension, and the
+of those libraries, including dynamic HTML assignments. The
+[validation assessment](docs/security.md) describes all 17 warnings, the data used by the current extension, and the
 tests that cover server message escaping and the relevant library behavior. The warnings remain visible. Distribution
 through Mozilla Add-ons still requires Mozilla's review and signing.
 

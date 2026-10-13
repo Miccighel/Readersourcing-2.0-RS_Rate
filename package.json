@@ -1,6 +1,6 @@
 {
   "name": "RS_Rate",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Browser extension for the Readersourcing 2.0 ecosystem",
   "repository": "https://github.com/Miccighel/Readersourcing-2.0-RS_Rate",
   "author": "Michael Soprano",
@@ -46,6 +46,7 @@
     "waypoints": "^4.0.1"
   },
   "devDependencies": {
+    "esbuild": "^0.28.2",
     "jszip": "^3.10.2",
     "web-ext": "^10.7.0"
   },

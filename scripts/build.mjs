@@ -1,6 +1,7 @@
-import {access, cp, mkdir, rm} from "node:fs/promises";
+import {access, cp, mkdir, rm, writeFile} from "node:fs/promises";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
+import {buildDropzone} from "./build_dropzone.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputRoot = path.join(projectRoot, "dist");
@@ -50,7 +51,7 @@ const dependencyEntries = [
     "bootstrap-slider/dist/css/bootstrap-slider.css",
     "bootstrap-slider/dist/bootstrap-slider.min.js",
     "dropzone/dist/dropzone.css",
-    "dropzone/dist/dropzone.js",
+    "dropzone/LICENSE",
     "jquery/dist/jquery.js",
     "jquery-parallax.js/parallax.min.js",
     "jquery.cookie/jquery.cookie.js",
@@ -79,6 +80,7 @@ async function copyRelative(
     await cp(source, destination, {recursive: true});
 }
 
+const dropzone = await buildDropzone(projectRoot);
 await rm(outputRoot, {recursive: true, force: true});
 await mkdir(outputRoot, {recursive: true});
 
@@ -98,6 +100,10 @@ for (const target of targets) {
             path.join(target.outputRoot, "node_modules"),
         );
     }
+
+    const dropzoneDirectory = path.join(target.outputRoot, "node_modules/dropzone/dist");
+    await writeFile(path.join(dropzoneDirectory, "dropzone.js"), dropzone.code);
+    await writeFile(path.join(dropzoneDirectory, "dropzone.js.map"), dropzone.sourceMap);
 
     console.log(
         `Built ${target.name} extension in ${path.relative(projectRoot, target.outputRoot)}/`,

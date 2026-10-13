@@ -12,7 +12,7 @@ const assets = {
     "node_modules/jquery/dist/jquery.js": "window.jQuery = {};",
     "node_modules/@fontsource/roboto/latin-400.css": "body {font-family: Roboto;}",
 };
-const dependencies = {jquery: "^3.7.1", "@fontsource/roboto": "^5.3.0"};
+const dependencies = {jquery: "^3.7.1", "@fontsource/roboto": "^5.3.0", dropzone: "^5.9.3"};
 
 async function withArchive(sourceAssets, archiveAssets, assertion) {
     const directory = await mkdtemp(path.join(tmpdir(), "rs-rate-archive-"));
@@ -55,9 +55,16 @@ test("rejects archived content that differs from the build", async () => {
     await withArchive(assets, altered, check => assert.rejects(check, /Archive asset differs/));
 });
 
-test("rejects development dependencies copied into the build and archive", async () => {
-    const development = {...assets, "node_modules/node-forge/lib/rsa.js": "development dependency"};
-    await withArchive(development, development, check => assert.rejects(check, /Undeclared runtime dependency.*node-forge/));
+for (const dependency of ["node-forge", "esbuild"]) {
+    test(`rejects ${dependency} development files copied into the build and archive`, async () => {
+        const development = {...assets, [`node_modules/${dependency}/index.js`]: "development dependency"};
+        await withArchive(development, development, check => assert.rejects(check, /Undeclared runtime dependency/));
+    });
+}
+
+test("rejects an archive containing the legacy Dropzone fallback even if it matches the build", async () => {
+    const legacy = {...assets, "node_modules/dropzone/dist/dropzone.js": 'var NullProtoObjectViaActiveX = function () {};'};
+    await withArchive(legacy, legacy, check => assert.rejects(check, /legacy polyfills/));
 });
 
 test("rejects an extra archived file outside the build", async () => {

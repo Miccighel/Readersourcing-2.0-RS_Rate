@@ -1,9 +1,9 @@
 # Firefox Validation
 
-This assessment covers the runtime libraries included in RS_Rate 2.0.0, as reviewed on October 9, 2026.
-Version 2.0.1 retains those locked libraries. Its local validation on October 11 reported the same findings.
-Mozilla's validator reports 21 warnings and no errors. The warnings concern HTML assignments and legacy
-`Function` constructors in the bundled libraries. They remain visible in `yarn lint:firefox`; none are excluded.
+This assessment covers the runtime libraries included in RS_Rate 2.0.2, as reviewed on October 13, 2026.
+Dropzone 5.9.3 uses the [source build](dropzone.md); the other runtime libraries retain their locked distribution files.
+Mozilla's validator reports 17 warnings and no errors. The warnings concern HTML assignments in the bundled
+libraries. They remain visible in `yarn lint:firefox`; none are excluded.
 
 The assessment considers the data and options used by the current extension. It does not establish that every
 feature of these libraries is safe, nor does it replace Mozilla's review and signing before distribution.
@@ -29,9 +29,7 @@ columns identify distinct assignments on the same line.
 | Bootstrap Slider 11.0.2 | 1 | `bootstrap-slider.min.js`, line 4, column 5658 | Tick label HTML is not used. The default label array is empty; the numeric tooltip uses text content. |
 | Bootstrap Select 1.13.18 | 5 | `bootstrap-select.min.js`, line 8, columns 9332, 9512, 9714, 10199, 46778 | Option content, group labels, and search result HTML are generated only for a picker. The `.bs-select` initialization has no matching control in the current views. |
 | jQuery 3.7.1 | 3 | `jquery.js`, lines 1278, 4770, 6171 | The selector probe uses an internal string. HTML parsing remains necessary for the local error layout, whose server values are escaped. Application controllers do not call the generic `html` setter. |
-| Dropzone 5.9.3 | 2 | `dropzone.js`, lines 1724, 6730 | The `Function` constructors are global object fallbacks. Browsers supported by RS_Rate provide `globalThis`, so these branches are not selected. |
-| Dropzone 5.9.3 | 2 | `dropzone.js`, lines 2326, 2345 | The document writes belong to legacy ActiveX and iframe fallbacks for `Object.create`. Supported browsers provide the native implementation. |
-| Dropzone 5.9.3 | 4 | `dropzone.js`, lines 7631, 7746, 7796, 9935 | HTML is used for a formatted numeric file size, local removal labels, and the local preview template. Removal links are disabled. Filenames and upload errors use text content. |
+| Dropzone 5.9.3 | 4 | `dropzone.js`, lines 600, 682, 730, 2138 | HTML is used for a formatted numeric file size, local removal labels, and the local preview template. Removal links are disabled. Filenames and upload errors use text content. |
 | Font Awesome 6.7.2 | 4 | `all.min.js`, line 6, columns 1500359, 1507702, 1512833, 1522776 | The assignments insert bundled CSS and generated icon SVG. Views use local icon classes, without custom remote icon definitions or layer text. Pseudo element conversion is disabled by default. |
 
 The manifests retain `script-src 'self'; object-src 'self';`, without permission for dynamic string compilation.
@@ -43,7 +41,10 @@ The tests cover escaping in server errors, literal display and consumption of st
 Dropzone filename and error handling, numeric file size formatting, and slider tooltip text. Dropzone is loaded
 in a Node.js context where dynamic string compilation is disabled and legacy document writes, iframes, and
 ActiveX construction cause a failure. Its default handlers are exercised separately from layout and networking.
-These are targeted unit tests, not a complete browser session.
+The generated bundle is also exercised through file selection, PDF rejection, multipart uploads, authenticated
+requests, JSON success, and structured server errors, using controlled DOM and network objects. Source maps retain
+the original locked modules. Build and archive checks reject a legacy Dropzone distribution, and a separate
+directory reproduces the generated code and map. These are targeted tests, not a complete browser session.
 
 Configuration checks also cover the absence of HTML tick labels, picker controls, template and dictionary
 overrides, and custom Font Awesome configuration in the current views and controllers. Both manifests are
@@ -58,7 +59,12 @@ remained open. `fx-runner` 1.7.0 uses the corrected `shell-quote` 1.11.0, but th
 still requires `fx-runner` 1.6.0 exactly. The project awaits a `web-ext` release that includes the correction,
 without an override or an audit exception. Neither package is included in the distributed extension archives.
 
-The [remediation record](security-followup-2026-10-12.json) retains the current registry requirements, audit results,
+The [remediation record](security-followup-2026-10-12.json) retains the October 12 registry requirements, audit results,
 and distribution checks. The 127 tests and both build checks passed. Firefox validation retained its 21 warnings,
 and both retained 2.0.1 unsigned archives matched their 90 build assets. The unsigned packages, submitted source,
 and signed XPI retain their recorded hashes.
+
+On October 13, version 2.0.2 passed 136 tests and both build checks. Both unsigned archives contain 92 matching
+build assets and no development dependencies. Firefox validation reports 17 visible warnings and no errors or
+notices. Production dependency audit passes. The complete audit retains the node-forge and shell-quote advisories,
+without an override or an exception. esbuild is used only during development and packaging.

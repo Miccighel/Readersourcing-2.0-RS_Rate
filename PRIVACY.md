@@ -1,9 +1,9 @@
 # Privacy Policy
 
-Last updated: October 12, 2026.
+Last updated: October 13, 2026.
 
 This policy describes how RS_Rate handles information while acting as a client for the Readersourcing 2.0
-ecosystem. It covers the extension's current version 2.0.1 for Chromium browsers and Firefox.
+ecosystem. It covers the extension's versions 2.0.1 and 2.0.2 for Chromium browsers and Firefox.
 The extension is maintained by Michael Soprano. Questions about its handling of information can be sent to
 [michael.soprano@uniud.it](mailto:michael.soprano@uniud.it).
 
