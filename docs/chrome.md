@@ -6,7 +6,9 @@ a separate Microsoft Edge Add-ons submission is optional.
 
 ## Current package
 
-The retained submitted package is `artifacts/rs_rate-chromium-2.0.1.zip`, with SHA-256 hash
+The current draft is [version 2.0.2](#version-202). It has not been submitted for review or published.
+
+The retained version 2.0.1 package submitted for review is `artifacts/rs_rate-chromium-2.0.1.zip`, with SHA-256 hash
 `d26453c9dcea3082f2a7190ad4e1ddbadd126a5dc35c5f4c17b578c8024d31b3`.
 It uses Manifest V3 and contains the 90 verified Chromium build assets, without development dependencies.
 The existing dependency declarations and domain actions are unchanged. Local verification and the Edge checks
@@ -90,15 +92,27 @@ publisher received a Red Titanium rejection identifying the legacy Object.create
 `node_modules/dropzone/dist/dropzone.js`. That fragment is present in the retained submitted package.
 No appeal, publication, or Microsoft submission was made.
 
-## Local version 2.0.2
+## Version 2.0.2
 
 Version 2.0.2 uses a [readable build of Dropzone 5.9.3](dropzone.md) from its locked upstream source, with source
 maps and its original license. The application controllers, upload fields, permissions, and store identity remain
-unchanged. esbuild is declared only as a development dependency. The package is prepared locally and has not been
-uploaded, submitted for review, or published.
+unchanged. esbuild is declared only as a development dependency. The publisher authorized uploading the package
+as a draft in the existing Chrome item. It has not been submitted for review or published.
 
 The retained local archive is `artifacts/rs_rate-chromium-2.0.2.zip`, containing 92 verified build assets.
 Its SHA-256 hash is `6baf15103fa77540b7f908660f20f5207c52aa9a6a7eaba46021c47e672202ab`.
+
+On October 14, 2026, reopening the dashboard confirmed draft version 2.0.2, with `storage` and `tabs` permissions.
+The published version remained `1.0.14-alpha`, and the item remained Removed. The shortened store description
+was retained. No new review request, publication, privacy declaration, or distribution change was made.
+The status page displayed draft version 2.0.2 with `Rifiuto` and the violation date October 13, 2026; it did not
+show a new review in progress. Uploading this package was not followed by another review request.
+
+The dashboard still displays its Manifest V2 warning. The local uploaded archive declares Manifest V3, but the
+draft CRX could not be downloaded through the in-app browser: the link returned an HTTP response failure.
+Its files have therefore not yet been compared with the retained 2.0.2 archive. The earlier CRX comparison for
+version 2.0.1 does not establish the contents of this new draft. Downloading the draft manually and comparing it
+remains a separate check before resubmission.
 
 The local privacy policy covers versions 2.0.1 and 2.0.2. Its information handling is unchanged; the store's
 saved policy link still points to the previously published document covering version 2.0.1.
