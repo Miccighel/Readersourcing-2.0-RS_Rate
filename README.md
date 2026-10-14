@@ -57,8 +57,8 @@ The [Microsoft Edge distribution instructions](docs/edge.md) describe the option
 The [privacy policy](PRIVACY.md) describes the extension's handling of information and distinguishes it from the
 policy of the RS_Server selected by the reader. A [public copy](https://raw.githubusercontent.com/Miccighel/Readersourcing-2.0-RS_Rate/3db260632d977b337ed3225e93a86fc18dffb67f/PRIVACY.md)
 is available without authentication and is linked from the Chrome submission. The Chrome submission of version 2.0.1
-was rejected under Red Titanium. Version 2.0.2 is uploaded as a Chrome draft; it has not been submitted for review
-or published.
+was rejected under Red Titanium. Version 2.0.2 was submitted for Chrome review on October 14, 2026, with automatic
+publication disabled. It has not been published.
 The [distribution instructions](docs/chrome.md) record the submission status.
 
 <h1>Usage</h1>

@@ -6,7 +6,8 @@ a separate Microsoft Edge Add-ons submission is optional.
 
 ## Current package
 
-The current draft is [version 2.0.2](#version-202). It has not been submitted for review or published.
+The current submission is [version 2.0.2](#version-202), awaiting review with automatic publication disabled.
+It has not been published.
 
 The retained version 2.0.1 package submitted for review is `artifacts/rs_rate-chromium-2.0.1.zip`, with SHA-256 hash
 `d26453c9dcea3082f2a7190ad4e1ddbadd126a5dc35c5f4c17b578c8024d31b3`.
@@ -97,7 +98,7 @@ No appeal, publication, or Microsoft submission was made.
 Version 2.0.2 uses a [readable build of Dropzone 5.9.3](dropzone.md) from its locked upstream source, with source
 maps and its original license. The application controllers, upload fields, permissions, and store identity remain
 unchanged. esbuild is declared only as a development dependency. The publisher authorized uploading the package
-as a draft in the existing Chrome item. It has not been submitted for review or published.
+as a draft in the existing Chrome item, then submitting it for review on October 14, 2026. It has not been published.
 
 The retained local archive is `artifacts/rs_rate-chromium-2.0.2.zip`, containing 92 verified build assets.
 Its SHA-256 hash is `6baf15103fa77540b7f908660f20f5207c52aa9a6a7eaba46021c47e672202ab`.
@@ -105,14 +106,15 @@ Its SHA-256 hash is `6baf15103fa77540b7f908660f20f5207c52aa9a6a7eaba46021c47e672
 On October 14, 2026, reopening the dashboard confirmed draft version 2.0.2, with `storage` and `tabs` permissions.
 The published version remained `1.0.14-alpha`, and the item remained Removed. The shortened store description
 was retained. The package upload did not change the privacy declarations or distribution settings.
-The status page displayed draft version 2.0.2 with `Rifiuto` and the violation date October 13, 2026; it did not
-show a new review in progress. Uploading this package was not followed by another review request.
+Before resubmission, the status page displayed draft version 2.0.2 with `Rifiuto` and the violation date October 13,
+2026. Uploading the package alone had not requested another review.
 
-The dashboard still displays its Manifest V2 warning. The local uploaded archive declares Manifest V3, but the
-draft CRX could not be downloaded through the in-app browser: the link returned an HTTP response failure.
+The package page displayed a Manifest V2 warning before resubmission. The local uploaded archive declares Manifest V3,
+but the draft CRX could not be downloaded through the in-app browser: the link returned an HTTP response failure.
 Its files have therefore not yet been compared with the retained 2.0.2 archive. The earlier CRX comparison for
-version 2.0.1 does not establish the contents of this new draft. Downloading the draft manually and comparing it
-remains a separate check before resubmission.
+version 2.0.1 does not establish the contents of this new draft. The publisher authorized resubmission with this
+comparison still incomplete and the warning's cause unresolved. Submission does not establish approval or resolve
+either observation.
 
 The saved privacy link and the description now use the public policy at commit
 `3db260632d977b337ed3225e93a86fc18dffb67f`, covering versions 2.0.1 and 2.0.2. Its only policy revisions are the
@@ -125,8 +127,12 @@ limit. They identify the Red Titanium correction, the readable Dropzone build an
 the compatible server requirement, and the upload, extraction, and logout workflow. They state that no public test
 server or account is provided and that Firefox 2.0.2 is unsigned. The saved username and password fields remain empty.
 The concise description retains its original text with only the privacy address updated, for a total of 1,136
-characters. These draft updates do not request a new review or enable automatic publication.
-The final confirmation dialog was opened with automatic publication unchecked; its submission was not confirmed.
+characters. Saving these draft updates did not itself request a new review.
+
+On October 14, 2026, the publisher confirmed the new review request. Automatic publication was unchecked in the
+final dialog before submission. The store confirmed `invio per revisione effettuato` and stated that publication
+was deferred. The status page then displayed `In attesa di revisione`. No publication, appeal, or merge into the
+default branch was performed.
 
 ### Chromium installation check
 
