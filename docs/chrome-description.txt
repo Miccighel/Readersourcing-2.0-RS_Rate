@@ -13,5 +13,5 @@ PDF preparation is not available for every source. If retrieval is unavailable, 
 
 When you open the publication view while signed in, the active tab URL is sent to the selected server for lookup. Account operations, ratings and selected PDF uploads use that same server.
 
-Privacy: https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/d6a0c56b7795229fcd5179980b94e8486fb87109/PRIVACY.md
+Privacy: https://raw.githubusercontent.com/Miccighel/Readersourcing-2.0-RS_Rate/3db260632d977b337ed3225e93a86fc18dffb67f/PRIVACY.md
 Support: https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/issues

@@ -34,15 +34,15 @@ selected server and temporary messages, and access to the active publication add
 
 ## Privacy
 
-[PRIVACY.md](../PRIVACY.md) describes version 2.0.1 and uses the publisher's selected contact,
+[PRIVACY.md](../PRIVACY.md) describes versions 2.0.1 and 2.0.2 and uses the publisher's selected contact,
 `michael.soprano@uniud.it`. It distinguishes the extension's browser storage and selected server from the policies
-of a particular RS_Server deployment. The [public policy](https://github.com/Miccighel/Readersourcing-2.0-RS_Rate/blob/d6a0c56b7795229fcd5179980b94e8486fb87109/PRIVACY.md)
+of a particular RS_Server deployment. The [public policy](https://raw.githubusercontent.com/Miccighel/Readersourcing-2.0-RS_Rate/3db260632d977b337ed3225e93a86fc18dffb67f/PRIVACY.md)
 was checked without authentication and its address is saved in the store's privacy field.
 
-The policy is hosted on `codex/rs-rate-privacy-policy`, based on the existing master commit
+The first public policy was hosted on `codex/rs-rate-privacy-policy`, based on the existing master commit
 `5ee92c77428beaa3a69cf891a5e991d7c5dabe8e`. Commit `d6a0c56b7795229fcd5179980b94e8486fb87109`
 adds only `PRIVACY.md`; publishing it did not merge or publish the development branch.
-The store uses the permalink to that commit. Its validator reported the branch URL as unreachable, although it
+The store initially used the permalink to that commit. Its validator reported the branch URL as unreachable, although it
 was publicly readable; saving the permalink to the same document enabled submission without changing its contents.
 
 The saved form explains the single purpose and the storage and tabs permissions, and declares no remote code.
@@ -104,7 +104,7 @@ Its SHA-256 hash is `6baf15103fa77540b7f908660f20f5207c52aa9a6a7eaba46021c47e672
 
 On October 14, 2026, reopening the dashboard confirmed draft version 2.0.2, with `storage` and `tabs` permissions.
 The published version remained `1.0.14-alpha`, and the item remained Removed. The shortened store description
-was retained. No new review request, publication, privacy declaration, or distribution change was made.
+was retained. The package upload did not change the privacy declarations or distribution settings.
 The status page displayed draft version 2.0.2 with `Rifiuto` and the violation date October 13, 2026; it did not
 show a new review in progress. Uploading this package was not followed by another review request.
 
@@ -114,8 +114,19 @@ Its files have therefore not yet been compared with the retained 2.0.2 archive. 
 version 2.0.1 does not establish the contents of this new draft. Downloading the draft manually and comparing it
 remains a separate check before resubmission.
 
-The local privacy policy covers versions 2.0.1 and 2.0.2. Its information handling is unchanged; the store's
-saved policy link still points to the previously published document covering version 2.0.1.
+The saved privacy link and the description now use the public policy at commit
+`3db260632d977b337ed3225e93a86fc18dffb67f`, covering versions 2.0.1 and 2.0.2. Its only policy revisions are the
+date and version coverage; the descriptions of information handling remain unchanged. The store's storage
+explanation refers to the extension rather than only version 2.0.1. Data categories, the three data use
+certifications, and the declaration of no remote code were retained without changing their selected values.
+
+The [reviewer instructions](chrome-review-notes.txt) contain 444 characters, within the current 500 character
+limit. They identify the Red Titanium correction, the readable Dropzone build and included source map and license,
+the compatible server requirement, and the upload, extraction, and logout workflow. They state that no public test
+server or account is provided and that Firefox 2.0.2 is unsigned. The saved username and password fields remain empty.
+The concise description retains its original text with only the privacy address updated, for a total of 1,136
+characters. These draft updates do not request a new review or enable automatic publication.
+The final confirmation dialog was opened with automatic publication unchecked; its submission was not confirmed.
 
 ### Chromium installation check
 
